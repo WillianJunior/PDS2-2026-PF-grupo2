@@ -1,1 +1,7 @@
-
+ - descrição de user stories não estão padronizadas: "Como XXX quero fazer YYY para o fim ZZZ". em nenhuma foi colocada a finalidade/justificativa.
+ - story 1: muito grande. criar uma conta é uma coisa, login é outra.
+ - story 1: mostrar objetos não tem a ver com login e conta. essa gestão poderia ser outra story
+ - story 2: não diz nada... "existem objetos que devem interagir entre si". isso é obvio. a story deveria definir casos concretos. exemplo: "como usuário normal gostaria de acionar remotamente um dispositivos para poder liga-lo a distância", critérios de aceitação: (i) mostrar a lista de casas/comodos/dispositivos, (ii) mostrar apenas os dispositivos que o usuário tem acesso, (iii) permitir o acionamento do dispositivo caso o usuário tenha acesso de uso, (iv) permitir o acionamento do dispositivo dependendo do dispositivo especifico.
+ - story 5: não sei como vocês implementariam isso. do ponto de vista de um sistema real, ideia interessante. do ponto de vista de um projeto a ser entregue ao fim deste semestre e que simulará boa parte dos funcionamentos, má ideia. recomendo remover essa story e criar outra.
+ - crc 1: "ser adicionado ou removido", de onde? para onde? não seria criado, e assim pode ser feita uma composição com ele?
+ - os crc ficaram bem legais, com uma bom detalhamento. as user stories não ficaram tão legais. recomendo dar uma mexida nelas, o que vai ajudar vocês na entrega de testes.
