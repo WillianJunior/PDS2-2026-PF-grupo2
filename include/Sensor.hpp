@@ -1,7 +1,7 @@
 #ifndef SENSOR_H
 #define SENSOR_H
 #include "ObjetoInteligente.hpp"
-#include "Modos"
+#include "Modo"
 #include <vector>
 
 class Sensor {
@@ -9,7 +9,7 @@ private:
     bool estaLigado;
     bool estaAtivado;
     std::vector<ObjetoInteligente> objetosConectados;
-    std::vector<Modos> modosConectados;
+    std::vector<Modo> modosConectados;
 
 public:
     Sensor();
@@ -19,7 +19,10 @@ public:
     bool getEstaAtivado();
 
     ObjetoInteligente getObjetosConectados();
-
+    Modo getModosConectados();
+    void checarAmbiente();
+    void ativarModo(Modo modo);
+    void ativarObjeto(ObjetoInteligente objeto);
 
 };
 
