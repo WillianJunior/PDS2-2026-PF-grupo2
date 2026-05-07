@@ -47,7 +47,9 @@ O desenvolvimento deste sistema é impulsionado pelo desafio de resolver problem
 
 ## Organização do Repositório
 ```text
+├── build/             # Arquivos gerados e temporários
 ├── include/           # Arquivos de cabeçalho (.hpp)
 ├── src/               # Implementações (.cpp)
-├── docs/              # PDFs com Cartões CRC e documentação de design
+├── design/            # PDF documentação de design e Doxygen
+├── tests/             # Testes
 └── README.md          # Documentação principal
