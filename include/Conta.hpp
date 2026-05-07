@@ -2,6 +2,9 @@
 #define CONTA_HPP
 
 #include <string>
+#include "Smarthome.hpp"
+#include <vector>
+
 
 /**
  * @brief Classe responsável por gerenciar o perfil do usuário no sistema.
@@ -16,7 +19,8 @@ private:
     std::string email;
     std::string senha;
     bool perfilAdulto; // true para Adulto, false para Infantil.
-    
+    std::vector<Smarthome> smarthomes; // vetor que armazena as smarthomes da conta
+
 public:
     /**
      * @brief Construtor da classe Conta.
@@ -28,13 +32,21 @@ public:
      */
     Conta(std::string id, std::string nome, std::string email, std::string senha, bool adulto = true);
 
-    virtual ~Conta() = default;
+    ~Conta() = default;
 
     // Métodos Getters
     std::string getId() const;
     std::string getNome() const;
     std::string getEmail() const;
     bool isPerfilAdulto() const; 
+
+    /**
+     * @brief Comando para criar uma smarthome.
+     * @param id Identificador único da smarthome.
+     * @param nome Nome da smarthome.
+     */
+    void criarSmarthome(std::string id, std::string nome);
+    void apagarSmarthome(Smarthome smarthome);
 
 };
 #endif
