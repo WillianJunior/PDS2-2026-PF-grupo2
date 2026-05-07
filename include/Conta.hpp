@@ -91,5 +91,21 @@ public:
     void apagarSensor(Smarthome smarthome, Comodo comodo, std::string nome);
     void moverSensor(Smarthome smarthome, Comodo comodo, std::string nome);
 
+     /**
+     * @brief Valida se o formato do e-mail é válido.
+     * @return true=válido.
+     */
+    bool validarFormatoEmail() const;
+    /**
+     * @brief Verifica se a senha atende de segurança.
+     * @return true = segura.
+     */
+    bool validarSenha() const;
+    /**
+     * @brief Autentica a conta comparando a senha fornecida.
+     * @param tentativaSenha Senha digitada no login.
+     * @return true = correta.
+     */
+    bool autenticar(const std::string& tentativaSenha) const;
 };
 #endif
