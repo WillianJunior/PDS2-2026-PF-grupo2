@@ -1,0 +1,46 @@
+\doxysection{Objeto\+Inteligente.\+hpp}
+\hypertarget{_objeto_inteligente_8hpp_source}{}\label{_objeto_inteligente_8hpp_source}\index{C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-\/2026-\/PF-\/grupo2/include/ObjetoInteligente.hpp@{C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-\/2026-\/PF-\/grupo2/include/ObjetoInteligente.hpp}}
+\doxymbox{\hyperlink{_objeto_inteligente_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ OBJETOINTELIGENTE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ OBJETOINTELIGENTE\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_sensor_8hpp}{Sensor.hpp}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_objeto_inteligente_a01fe87343d9aaea4ae6a792de440a8ba}{ObjetoInteligente}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{bool}\ restricaoAdulto;}
+\DoxyCodeLine{00011\ \ \ \ \ std::vector<Sensor>\ sensores;}
+\DoxyCodeLine{00012\ \ \ \ \ std::vector<std::string>\ statusPossiveis;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{float}\ consumoMedioDeEnergia;}
+\DoxyCodeLine{00014\ \ \ \ \ std::vector<std::function<void()>>\ funcoes;}
+\DoxyCodeLine{00015\ \ \ \ \ std::vector<std::function<void()>>\ funcoesRestritas;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \doxymbox{\hyperlink{class_objeto_inteligente_a01fe87343d9aaea4ae6a792de440a8ba}{ObjetoInteligente}}(}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ restricaoAdulto,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ std::vector<Sensor>\ sensores,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ std::vector<std::string>\ statusPossiveis,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ consumoMedioDeEnergia,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ std::vector<std::function<\textcolor{keywordtype}{void}()>>\ funcoes,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ std::vector<std::function<\textcolor{keywordtype}{void}()>>\ funcoesRestritas}
+\DoxyCodeLine{00025\ \ \ \ \ );}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \doxymbox{\hyperlink{class_objeto_inteligente_ac345d02235b9b5b4ede0b1ef3d81e026}{\string~ObjetoInteligente}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ Métodos\ setters\ e\ getters}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_objeto_inteligente_a52ee190dba25ac536cd32362b41255fc}{setRestricaoAdulto}}();}
+\DoxyCodeLine{00031\ \ \ \ \ std::vector<Sensor>\ \doxymbox{\hyperlink{class_objeto_inteligente_a6e6d6f5e8052fdac9489ed80d68d676a}{getSensores}}();}
+\DoxyCodeLine{00032\ \ \ \ \ std::string\ \doxymbox{\hyperlink{class_objeto_inteligente_a69bb0354607a98257ed00bf02c1dcae1}{getStatus}}();}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_objeto_inteligente_ab465a9fa0c310756c412bfaa38b3e539}{setStatusAtual}}(std::string\ status);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_objeto_inteligente_a10fa219562be617aa6597702aa474854}{getConsumoMedioDeEnergia}}();}
+\DoxyCodeLine{00035\ \ \ \ \ std::vector<std::function<void()>>\ \doxymbox{\hyperlink{class_objeto_inteligente_ac7f91d4e9612c8805cd0a7a6a8b7bb1a}{getFuncoes}}();}
+\DoxyCodeLine{00036\ \ \ \ \ std::vector<std::function<void()>>\ \doxymbox{\hyperlink{class_objeto_inteligente_a1537896fa8723d1b24eae1f19cb9761f}{getFuncoesRestritas}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
