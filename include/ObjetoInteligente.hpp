@@ -5,7 +5,6 @@
 #include <functional>
 #include "Sensor.hpp"
 
-
 class ObjetoInteligente {
 private:
     bool restricaoAdulto;
@@ -25,10 +24,10 @@ public:
         std::vector<std::function<void()>> funcoesRestritas
     );
 
-    virtual ~ObjetoInteligente() = default;
+    ~ObjetoInteligente() = default;
 
+    // Métodos setters e getters
     void setRestricaoAdulto();
-    // void mover(Comodo& destino); responsabilidade da conta?
     std::vector<Sensor> getSensores();
     std::string getStatus();
     void setStatusAtual(std::string status);
