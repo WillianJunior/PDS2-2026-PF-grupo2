@@ -1,0 +1,35 @@
+\doxysection{Sensor.\+hpp}
+\hypertarget{_sensor_8hpp_source}{}\label{_sensor_8hpp_source}\index{C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-\/2026-\/PF-\/grupo2/include/Sensor.hpp@{C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-\/2026-\/PF-\/grupo2/include/Sensor.hpp}}
+\doxymbox{\hyperlink{_sensor_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SENSOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SENSOR\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_objeto_inteligente_8hpp}{ObjetoInteligente.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Modo"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_sensor_a342d6d11ef572c8cba92cb76fb1a294b}{Sensor}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{bool}\ estaLigado;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{bool}\ estaAtivado;}
+\DoxyCodeLine{00011\ \ \ \ \ std::vector<ObjetoInteligente>\ objetosConectados;}
+\DoxyCodeLine{00012\ \ \ \ \ std::vector<Modo>\ modosConectados;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \doxymbox{\hyperlink{class_sensor_a342d6d11ef572c8cba92cb76fb1a294b}{Sensor}}();}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sensor_afeb18b3b951d1f82222699616f8ee20c}{setEstaLigado}}();}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_sensor_aa6425faff59322d75ecf2393e51054ac}{getEstaLigado}}();}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sensor_aa3f221c81f6a7106a234a41a9d037ebe}{setEstaAtivado}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_sensor_aa0c247ef2dd6c0ba744f9a9361cb5f4c}{getEstaAtivado}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \doxymbox{\hyperlink{class_objeto_inteligente}{ObjetoInteligente}}\ \doxymbox{\hyperlink{class_sensor_a7f5d9b5c1fad9d4b4862cd734928c6d8}{getObjetosConectados}}();}
+\DoxyCodeLine{00022\ \ \ \ \ Modo\ \doxymbox{\hyperlink{class_sensor_a3aa55d936318f55ef11f19e748d4ee5a}{getModosConectados}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sensor_ae4985d1457fa6ebc2886b3ca731c306f}{checarAmbiente}}();}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sensor_a73ccf8c07f99cd4c7c9d37621b7f6aaa}{ativarModo}}(Modo\ modo);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sensor_ae1a7f6d5da065024bf9e24c11a6aba5a}{ativarObjeto}}(\doxymbox{\hyperlink{class_objeto_inteligente}{ObjetoInteligente}}\ objeto);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
