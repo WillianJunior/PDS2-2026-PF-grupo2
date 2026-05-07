@@ -2,7 +2,7 @@
 #define CONTA_HPP
 
 #include <string>
-#include "Smarthome.hpp"
+// #include "Smarthome.hpp"
 #include <vector>
 
 
@@ -19,7 +19,7 @@ private:
     std::string email;
     std::string senha;
     bool perfilAdulto; // true para Adulto, false para Infantil.
-    std::vector<Smarthome> smarthomes; // vetor que armazena as smarthomes da conta
+    // std::vector<Smarthome> smarthomes; // vetor que armazena as smarthomes da conta
 
 public:
     /**
@@ -46,7 +46,7 @@ public:
      * @param nome Nome da smarthome.
      */
     void criarSmarthome(std::string id, std::string nome);
-    void apagarSmarthome(Smarthome smarthome);
+    // void apagarSmarthome(Smarthome smarthome);
 
 };
 #endif
