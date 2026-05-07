@@ -71,7 +71,7 @@ Este projeto consiste na modelagem e desenvolvimento de um sistema de automaçã
 
 ## 📝 Descrição do Problema e Contextualização
 
-O projeto aborda a dificuldade de gerenciar múltiplos dispositivos inteligentes, focando em resolver a falta de controle centralizado sobre a segurança infantil , o monitoramento de gastos energéticos e a organização física dos aparelhos por cômodos. Em suma, o objetivo é unificar o controle da Smart Home para tornar a interação tecnológica mais segura e organizada.
+O projeto aborda a dificuldade de gerenciar múltiplos dispositivos inteligentes, focando em resolver a falta de controle centralizado sobre a segurança infantil, o monitoramento de gastos energéticos e a organização física dos aparelhos por cômodos. Em suma, o objetivo é unificar o controle da Smart Home para tornar a interação tecnológica mais segura e organizada.
 
 ### Motivação
 
