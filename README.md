@@ -1,14 +1,10 @@
-# PDS2-2026-PF-grupo2
-# Smart Home - PDS II
+# PDS2-2026-PF-grupo2 - Smart Home
 
-![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
-![UFMG](https://img.shields.io/badge/UFMG-Engenharia_de_Sistemas-red?style=for-the-badge)
-
-Este projeto consiste na modelagem e desenvolvimento de um sistema de automação residencial inteligente (Smart Home). O software permite o gerenciamento centralizado de dispositivos, perfis de usuários com controle parental e monitoramento de eficiência energética. Desenvolvido como projeto prático para a disciplina de **Programação e Desenvolvimento de Software II (PDS II)** da UFMG.
+Este projeto consiste na modelagem e desenvolvimento de um sistema de automação residencial inteligente (Smart Home). O software permite o gerenciamento centralizado de dispositivos, perfis de usuários com controle parental e monitoramento de eficiência energética. 
 
 ---
 
-## 👥 Membros do Grupo 2
+## Membros do Grupo 2
 * **Aline Sayuri Hamawaki Kawamura** - 2025430854
 * **Hamlah Alves de Vasconcelos Dip** - 2025019267
 * **Maria Paula Barbosa Vartuli** - 2025019356
@@ -16,7 +12,7 @@ Este projeto consiste na modelagem e desenvolvimento de um sistema de automaçã
 
 ---
 
-## 🎯 User Stories
+## User Stories
 
 ### 1. Criação de Perfil (Conta)
 * **História:** Como usuário, quero criar uma conta no sistema para que eu possa ter um ambiente seguro e personalizado para gerenciar minha residência.
@@ -69,7 +65,7 @@ Este projeto consiste na modelagem e desenvolvimento de um sistema de automaçã
 
 ---
 
-## 📝 Descrição do Problema e Contextualização
+## Descrição do Problema e Contextualização
 
 O projeto aborda a dificuldade de gerenciar múltiplos dispositivos inteligentes, focando em resolver a falta de controle centralizado sobre a segurança infantil, o monitoramento de gastos energéticos e a organização física dos aparelhos por cômodos. Em suma, o objetivo é unificar o controle da Smart Home para tornar a interação tecnológica mais segura e organizada.
 
@@ -89,23 +85,22 @@ O desenvolvimento deste sistema é impulsionado pelo desafio de resolver problem
 
 ---
 
-## 🏗️ Estrutura Técnica e Contratos (C++)
+## Estrutura Técnica e Contratos (C++)
 
 O projeto é desenvolvido em C++, utilizando os princípios de Orientação a Objetos.
 
 ### Arquivos de Cabeçalho - Contratos (.hpp)
-* `Conta.hpp`;
-* `Login.hpp`;
-* `ObjetoInteligente.hpp`;
-* `Smarthome.hpp`;
-* `Comodo.hpp`;
-* `Sensor.hpp`;
-* `Modo.hpp`;
-* `RelatorioEnergia.hpp`.
+* Conta.hpp;
+* Login.hpp;
+* ObjetoInteligente.hpp;
+* Smarthome.hpp;
+* Comodo.hpp;
+* Sensor.hpp;
+* Modo.hpp;
 
 ---
 
-## 📂 Organização do Repositório
+## Organização do Repositório
 ```text
 ├── include/           # Arquivos de cabeçalho (.hpp)
 ├── src/               # Implementações (.cpp)
