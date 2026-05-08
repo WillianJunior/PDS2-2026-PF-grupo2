@@ -51,10 +51,26 @@ public:
      * @brief Retorna os sensores associados ao objeto.
      */
     std::vector<Sensor> getSensores();
+    /**
+     * @brief Retorna o status atual do objeto.
+     */
     std::string getStatus();
+    /**
+     * @brief Define o status atual do objeto.
+     * @param status é o nome dos status a ser definido.
+     */
     void setStatusAtual(std::string status);
+    /**
+     * @brief Retorna o valor de consumo médio de energia do objeto.
+     */
     float getConsumoMedioDeEnergia();
+    /**
+     * @brief Retorna a lista de funções do objeto.
+     * */
     std::vector<std::function<void()>> getFuncoes();
+    /**
+     * @brief Retorna a lista de funções restritas a crianças do objeto.
+     * */
     std::vector<std::function<void()>> getFuncoesRestritas();
 
 };
