@@ -1,0 +1,119 @@
+\doxysection{Modo Class Reference}
+\hypertarget{class_modo}{}\label{class_modo}\index{Modo@{Modo}}
+
+
+Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentese cômodos relacionados, além de controlar se o modo está ativo/\+desativado ou bloqueado/\+permitido.  
+
+
+
+
+{\ttfamily \+\#include $<$Modo.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_modo_a44b47c8dfbf703e8017922b55f167d5f}{Modo}} (std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} $>$ objetos, std::\+vector$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} $>$ comodos, bool ligado, bool bloqueado)
+\begin{DoxyCompactList}\small\item\em Construtor da classe. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_modo_a1e293dfc5f7652b26506955dc534fc5a}{set\+Ativo\+Modo}} (bool ativo)
+\begin{DoxyCompactList}\small\item\em Ativa ou desativa o modo. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_modo_a05baa809c2ff44d55861f1ef66efc5c1}{get\+Ativo\+Modo}} ()
+\item 
+void \doxymbox{\hyperlink{class_modo_a8d46b7efcfedc8097f9968b0bf6524a1}{set\+Bloqueado\+Modo}} (bool bloqueado)
+\begin{DoxyCompactList}\small\item\em Retorna se o modo está ativo. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_modo_a6bfb007cc70a82864a4a64fa9766d0bd}{get\+Bloqueado\+Modo}} ()
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} $>$ \doxymbox{\hyperlink{class_modo_a0cc310b999b1f87fec4f025441f0fc44}{get\+Objetos\+Relacionados}} ()
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} $>$ \doxymbox{\hyperlink{class_modo_aa74946a717c0b58cb604809d4e3c9f04}{get\+Comodos\+Relacionados}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentese cômodos relacionados, além de controlar se o modo está ativo/\+desativado ou bloqueado/\+permitido. 
+
+\label{class_modo_doc-constructors}
+\Hypertarget{class_modo_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_modo_a44b47c8dfbf703e8017922b55f167d5f}\index{Modo@{Modo}!Modo@{Modo}}
+\index{Modo@{Modo}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{Modo()}{Modo()}}
+{\footnotesize\ttfamily \label{class_modo_a44b47c8dfbf703e8017922b55f167d5f} 
+Modo::\+\+Modo (\begin{DoxyParamCaption}\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} $>$}]{objetos}{, }\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} $>$}]{comodos}{, }\item[{bool}]{ligado}{, }\item[{bool}]{bloqueado}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em objetos} & Objetos relacionados ao modo. \\
+\hline
+{\em comodos} & Cômodos relacionados ao modo. \\
+\hline
+{\em ligado} & Estado inicial do modo. \\
+\hline
+{\em bloqueado} & Estado de bloqueio do modo. \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_modo_doc-func-members}
+\Hypertarget{class_modo_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_modo_a05baa809c2ff44d55861f1ef66efc5c1}\index{Modo@{Modo}!getAtivoModo@{getAtivoModo}}
+\index{getAtivoModo@{getAtivoModo}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{getAtivoModo()}{getAtivoModo()}}
+{\footnotesize\ttfamily \label{class_modo_a05baa809c2ff44d55861f1ef66efc5c1} 
+bool Modo::\+get\+Ativo\+Modo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_modo_a6bfb007cc70a82864a4a64fa9766d0bd}\index{Modo@{Modo}!getBloqueadoModo@{getBloqueadoModo}}
+\index{getBloqueadoModo@{getBloqueadoModo}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{getBloqueadoModo()}{getBloqueadoModo()}}
+{\footnotesize\ttfamily \label{class_modo_a6bfb007cc70a82864a4a64fa9766d0bd} 
+bool Modo::\+get\+Bloqueado\+Modo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_modo_aa74946a717c0b58cb604809d4e3c9f04}\index{Modo@{Modo}!getComodosRelacionados@{getComodosRelacionados}}
+\index{getComodosRelacionados@{getComodosRelacionados}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{getComodosRelacionados()}{getComodosRelacionados()}}
+{\footnotesize\ttfamily \label{class_modo_aa74946a717c0b58cb604809d4e3c9f04} 
+std::\+vector$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} $>$ Modo::\+get\+Comodos\+Relacionados (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_modo_a0cc310b999b1f87fec4f025441f0fc44}\index{Modo@{Modo}!getObjetosRelacionados@{getObjetosRelacionados}}
+\index{getObjetosRelacionados@{getObjetosRelacionados}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{getObjetosRelacionados()}{getObjetosRelacionados()}}
+{\footnotesize\ttfamily \label{class_modo_a0cc310b999b1f87fec4f025441f0fc44} 
+std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} $>$ Modo::\+get\+Objetos\+Relacionados (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_modo_a1e293dfc5f7652b26506955dc534fc5a}\index{Modo@{Modo}!setAtivoModo@{setAtivoModo}}
+\index{setAtivoModo@{setAtivoModo}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{setAtivoModo()}{setAtivoModo()}}
+{\footnotesize\ttfamily \label{class_modo_a1e293dfc5f7652b26506955dc534fc5a} 
+void Modo::\+set\+Ativo\+Modo (\begin{DoxyParamCaption}\item[{bool}]{ativo}{}\end{DoxyParamCaption})}
+
+
+
+Ativa ou desativa o modo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ativo} & Estado do modo. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_modo_a8d46b7efcfedc8097f9968b0bf6524a1}\index{Modo@{Modo}!setBloqueadoModo@{setBloqueadoModo}}
+\index{setBloqueadoModo@{setBloqueadoModo}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{setBloqueadoModo()}{setBloqueadoModo()}}
+{\footnotesize\ttfamily \label{class_modo_a8d46b7efcfedc8097f9968b0bf6524a1} 
+void Modo::\+set\+Bloqueado\+Modo (\begin{DoxyParamCaption}\item[{bool}]{bloqueado}{}\end{DoxyParamCaption})}
+
+
+
+Retorna se o modo está ativo. 
+
+\begin{DoxyReturn}{Returns}
+Estado do modo. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+tiago/\+\+One\+Drive/\+Área de Trabalho/\+\+Atalhos etc/\+ufmg/\+pds2/\+\+PDS2-\/2026-\/\+PF-\/grupo2/\+include/\+\doxymbox{\hyperlink{_modo_8hpp}{Modo.\+hpp}}\end{DoxyCompactItemize}

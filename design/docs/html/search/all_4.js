@@ -1,4 +1,22 @@
 var searchData=
 [
-  ['isperfiladulto_0',['isPerfilAdulto',['../class_conta.html#a95154f09dfa0fb287debac5f147902e1',1,'Conta']]]
+  ['gerarrelatóriodeenergia_0',['gerarRelatórioDeEnergia',['../class_conta.html#a59a5eab2d81b4adbee70704340080e38',1,'Conta']]],
+  ['getativomodo_1',['getAtivoModo',['../class_modo.html#a05baa809c2ff44d55861f1ef66efc5c1',1,'Modo']]],
+  ['getbloqueadomodo_2',['getBloqueadoModo',['../class_modo.html#a6bfb007cc70a82864a4a64fa9766d0bd',1,'Modo']]],
+  ['getcomodosrelacionados_3',['getComodosRelacionados',['../class_modo.html#aa74946a717c0b58cb604809d4e3c9f04',1,'Modo']]],
+  ['getconsumomediodeenergia_4',['getConsumoMedioDeEnergia',['../class_objeto_inteligente.html#a10fa219562be617aa6597702aa474854',1,'ObjetoInteligente']]],
+  ['getcontapresente_5',['getContaPresente',['../class_comodo.html#a3fdb5b9e535ac449f21fb9f5fb58fda2',1,'Comodo']]],
+  ['getcontascadastradas_6',['getContasCadastradas',['../class_login.html#ae92106307291acc46234b61da66d1728',1,'Login']]],
+  ['getemail_7',['getEmail',['../class_conta.html#a0e9c1b914d26084711a651af07439c36',1,'Conta']]],
+  ['getestaativado_8',['getEstaAtivado',['../class_sensor.html#aa0c247ef2dd6c0ba744f9a9361cb5f4c',1,'Sensor']]],
+  ['getestaligado_9',['getEstaLigado',['../class_sensor.html#aa6425faff59322d75ecf2393e51054ac',1,'Sensor']]],
+  ['getfuncoes_10',['getFuncoes',['../class_objeto_inteligente.html#ac7f91d4e9612c8805cd0a7a6a8b7bb1a',1,'ObjetoInteligente']]],
+  ['getfuncoesrestritas_11',['getFuncoesRestritas',['../class_objeto_inteligente.html#a1537896fa8723d1b24eae1f19cb9761f',1,'ObjetoInteligente']]],
+  ['getid_12',['getId',['../class_conta.html#a861ba5a14a83d94bfd7a34fee16af274',1,'Conta']]],
+  ['getmodosconectados_13',['getModosConectados',['../class_sensor.html#a3aa55d936318f55ef11f19e748d4ee5a',1,'Sensor']]],
+  ['getnome_14',['getNome',['../class_comodo.html#a89c2e67b6daa8fe9cddecb3cf60a1619',1,'Comodo::getNome()'],['../class_conta.html#a87cd1df69c12e0dfdb6ab70a4aa2fd4b',1,'Conta::getNome()']]],
+  ['getobjetosconectados_15',['getObjetosConectados',['../class_sensor.html#a7f5d9b5c1fad9d4b4862cd734928c6d8',1,'Sensor']]],
+  ['getobjetosrelacionados_16',['getObjetosRelacionados',['../class_modo.html#a0cc310b999b1f87fec4f025441f0fc44',1,'Modo']]],
+  ['getsensores_17',['getSensores',['../class_objeto_inteligente.html#a6e6d6f5e8052fdac9489ed80d68d676a',1,'ObjetoInteligente']]],
+  ['getstatus_18',['getStatus',['../class_objeto_inteligente.html#a69bb0354607a98257ed00bf02c1dcae1',1,'ObjetoInteligente']]]
 ];

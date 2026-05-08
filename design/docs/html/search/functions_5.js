@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['moverobjeto_0',['moverObjeto',['../class_conta.html#ae2c0da459b14feda3fa19c6a7adea28c',1,'Conta']]],
-  ['moversensor_1',['moverSensor',['../class_conta.html#a4a6374f617ca0e0e21aac487ed2670ec',1,'Conta']]]
+  ['isperfiladulto_0',['isPerfilAdulto',['../class_conta.html#a95154f09dfa0fb287debac5f147902e1',1,'Conta']]]
 ];

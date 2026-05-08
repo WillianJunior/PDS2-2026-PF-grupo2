@@ -2,30 +2,40 @@
 \hypertarget{class_objeto_inteligente}{}\label{class_objeto_inteligente}\index{ObjetoInteligente@{ObjetoInteligente}}
 
 
+Representa um objeto inteligente da smarthome.  
+
+
+
+
 {\ttfamily \+\#include $<$Objeto\+Inteligente.\+hpp$>$}
 
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \doxymbox{\hyperlink{class_objeto_inteligente_a01fe87343d9aaea4ae6a792de440a8ba}{Objeto\+Inteligente}} (bool restricao\+Adulto, std::\+vector$<$ \doxymbox{\hyperlink{class_sensor}{Sensor}} $>$ sensores, std::\+vector$<$ std::\+string $>$ status\+Possiveis, float consumo\+Medio\+De\+Energia, std::\+vector$<$ std::\+function$<$ void()$>$ $>$ funcoes, std::\+vector$<$ std::\+function$<$ void()$>$ $>$ funcoes\+Restritas)
-\item 
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_objeto_inteligente}{Objeto\+Inteligente}. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{class_objeto_inteligente_ac345d02235b9b5b4ede0b1ef3d81e026}{\texorpdfstring{$\sim$}{\string~}\+Objeto\+Inteligente}} ()=default
 \item 
 void \doxymbox{\hyperlink{class_objeto_inteligente_a52ee190dba25ac536cd32362b41255fc}{set\+Restricao\+Adulto}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Métodos setters e getters. \end{DoxyCompactList}\item 
 std::\+vector$<$ \doxymbox{\hyperlink{class_sensor}{Sensor}} $>$ \doxymbox{\hyperlink{class_objeto_inteligente_a6e6d6f5e8052fdac9489ed80d68d676a}{get\+Sensores}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Retorna os sensores associados ao objeto. \end{DoxyCompactList}\item 
 std::\+string \doxymbox{\hyperlink{class_objeto_inteligente_a69bb0354607a98257ed00bf02c1dcae1}{get\+Status}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Retorna o status atual do objeto. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_objeto_inteligente_ab465a9fa0c310756c412bfaa38b3e539}{set\+Status\+Atual}} (std::\+string status)
-\item 
+\begin{DoxyCompactList}\small\item\em Define o status atual do objeto. \end{DoxyCompactList}\item 
 float \doxymbox{\hyperlink{class_objeto_inteligente_a10fa219562be617aa6597702aa474854}{get\+Consumo\+Medio\+De\+Energia}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Retorna o valor de consumo médio de energia do objeto. \end{DoxyCompactList}\item 
 std::\+vector$<$ std::\+function$<$ void()$>$ $>$ \doxymbox{\hyperlink{class_objeto_inteligente_ac7f91d4e9612c8805cd0a7a6a8b7bb1a}{get\+Funcoes}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Retorna a lista de funções do objeto. \end{DoxyCompactList}\item 
 std::\+vector$<$ std::\+function$<$ void()$>$ $>$ \doxymbox{\hyperlink{class_objeto_inteligente_a1537896fa8723d1b24eae1f19cb9761f}{get\+Funcoes\+Restritas}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Retorna a lista de funções restritas a crianças do objeto. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Representa um objeto inteligente da smarthome. 
+
+A classe armazena sensores, funções disponíveis, restrições de acesso e informações de consumo de energia. 
 
 \label{class_objeto_inteligente_doc-constructors}
 \Hypertarget{class_objeto_inteligente_doc-constructors}
@@ -36,6 +46,25 @@ std::\+vector$<$ std::\+function$<$ void()$>$ $>$ \doxymbox{\hyperlink{class_obj
 {\footnotesize\ttfamily \label{class_objeto_inteligente_a01fe87343d9aaea4ae6a792de440a8ba} 
 Objeto\+Inteligente::\+\+Objeto\+Inteligente (\begin{DoxyParamCaption}\item[{bool}]{restricao\+Adulto}{, }\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_sensor}{Sensor}} $>$}]{sensores}{, }\item[{std::\+vector$<$ std::\+string $>$}]{status\+Possiveis}{, }\item[{float}]{consumo\+Medio\+De\+Energia}{, }\item[{std::\+vector$<$ std::\+function$<$ void()$>$ $>$}]{funcoes}{, }\item[{std::\+vector$<$ std::\+function$<$ void()$>$ $>$}]{funcoes\+Restritas}{}\end{DoxyParamCaption})}
 
+
+
+Construtor da classe \doxylink{class_objeto_inteligente}{Objeto\+Inteligente}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em restricao\+Adulto} & Define se o objeto possui restrição para adultos. \\
+\hline
+{\em sensores} & Vetor dos sensores associados ao objeto. \\
+\hline
+{\em status\+Possiveis} & Vetor com os estados possíveis do objeto. \\
+\hline
+{\em consumo\+Medio\+De\+Energia} & Consumo médio de energia do objeto. \\
+\hline
+{\em funcoes} & Vetor das funções disponíveis. \\
+\hline
+{\em funcoes\+Restritas} & Vetor das funções restritas. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_objeto_inteligente_ac345d02235b9b5b4ede0b1ef3d81e026}\index{ObjetoInteligente@{ObjetoInteligente}!````~ObjetoInteligente@{\texorpdfstring{$\sim$}{\string~}ObjetoInteligente}}
 \index{````~ObjetoInteligente@{\texorpdfstring{$\sim$}{\string~}ObjetoInteligente}!ObjetoInteligente@{ObjetoInteligente}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ObjetoInteligente()}{\string~ObjetoInteligente()}}
@@ -53,11 +82,19 @@ Objeto\+Inteligente::\+\texorpdfstring{$\sim$}{\string~}\+Objeto\+Inteligente (\
 {\footnotesize\ttfamily \label{class_objeto_inteligente_a10fa219562be617aa6597702aa474854} 
 float Objeto\+Inteligente::\+get\+Consumo\+Medio\+De\+Energia (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Retorna o valor de consumo médio de energia do objeto. 
+
 \Hypertarget{class_objeto_inteligente_ac7f91d4e9612c8805cd0a7a6a8b7bb1a}\index{ObjetoInteligente@{ObjetoInteligente}!getFuncoes@{getFuncoes}}
 \index{getFuncoes@{getFuncoes}!ObjetoInteligente@{ObjetoInteligente}}
 \doxysubsubsection{\texorpdfstring{getFuncoes()}{getFuncoes()}}
 {\footnotesize\ttfamily \label{class_objeto_inteligente_ac7f91d4e9612c8805cd0a7a6a8b7bb1a} 
 std::\+vector$<$ std::\+function$<$ void()$>$ $>$ Objeto\+Inteligente::\+get\+Funcoes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retorna a lista de funções do objeto. 
 
 \Hypertarget{class_objeto_inteligente_a1537896fa8723d1b24eae1f19cb9761f}\index{ObjetoInteligente@{ObjetoInteligente}!getFuncoesRestritas@{getFuncoesRestritas}}
 \index{getFuncoesRestritas@{getFuncoesRestritas}!ObjetoInteligente@{ObjetoInteligente}}
@@ -65,11 +102,19 @@ std::\+vector$<$ std::\+function$<$ void()$>$ $>$ Objeto\+Inteligente::\+get\+Fu
 {\footnotesize\ttfamily \label{class_objeto_inteligente_a1537896fa8723d1b24eae1f19cb9761f} 
 std::\+vector$<$ std::\+function$<$ void()$>$ $>$ Objeto\+Inteligente::\+get\+Funcoes\+Restritas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Retorna a lista de funções restritas a crianças do objeto. 
+
 \Hypertarget{class_objeto_inteligente_a6e6d6f5e8052fdac9489ed80d68d676a}\index{ObjetoInteligente@{ObjetoInteligente}!getSensores@{getSensores}}
 \index{getSensores@{getSensores}!ObjetoInteligente@{ObjetoInteligente}}
 \doxysubsubsection{\texorpdfstring{getSensores()}{getSensores()}}
 {\footnotesize\ttfamily \label{class_objeto_inteligente_a6e6d6f5e8052fdac9489ed80d68d676a} 
 std::\+vector$<$ \doxymbox{\hyperlink{class_sensor}{Sensor}} $>$ Objeto\+Inteligente::\+get\+Sensores (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retorna os sensores associados ao objeto. 
 
 \Hypertarget{class_objeto_inteligente_a69bb0354607a98257ed00bf02c1dcae1}\index{ObjetoInteligente@{ObjetoInteligente}!getStatus@{getStatus}}
 \index{getStatus@{getStatus}!ObjetoInteligente@{ObjetoInteligente}}
@@ -77,11 +122,19 @@ std::\+vector$<$ \doxymbox{\hyperlink{class_sensor}{Sensor}} $>$ Objeto\+Intelig
 {\footnotesize\ttfamily \label{class_objeto_inteligente_a69bb0354607a98257ed00bf02c1dcae1} 
 std::\+string Objeto\+Inteligente::\+get\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Retorna o status atual do objeto. 
+
 \Hypertarget{class_objeto_inteligente_a52ee190dba25ac536cd32362b41255fc}\index{ObjetoInteligente@{ObjetoInteligente}!setRestricaoAdulto@{setRestricaoAdulto}}
 \index{setRestricaoAdulto@{setRestricaoAdulto}!ObjetoInteligente@{ObjetoInteligente}}
 \doxysubsubsection{\texorpdfstring{setRestricaoAdulto()}{setRestricaoAdulto()}}
 {\footnotesize\ttfamily \label{class_objeto_inteligente_a52ee190dba25ac536cd32362b41255fc} 
 void Objeto\+Inteligente::\+set\+Restricao\+Adulto (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Métodos setters e getters. 
 
 \Hypertarget{class_objeto_inteligente_ab465a9fa0c310756c412bfaa38b3e539}\index{ObjetoInteligente@{ObjetoInteligente}!setStatusAtual@{setStatusAtual}}
 \index{setStatusAtual@{setStatusAtual}!ObjetoInteligente@{ObjetoInteligente}}
@@ -89,6 +142,15 @@ void Objeto\+Inteligente::\+set\+Restricao\+Adulto (\begin{DoxyParamCaption}{}{}
 {\footnotesize\ttfamily \label{class_objeto_inteligente_ab465a9fa0c310756c412bfaa38b3e539} 
 void Objeto\+Inteligente::\+set\+Status\+Atual (\begin{DoxyParamCaption}\item[{std::\+string}]{status}{}\end{DoxyParamCaption})}
 
+
+
+Define o status atual do objeto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em status} & é o nome dos status a ser definido. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}

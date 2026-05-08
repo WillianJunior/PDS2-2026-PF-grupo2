@@ -1,0 +1,115 @@
+\doxysection{Login Class Reference}
+\hypertarget{class_login}{}\label{class_login}\index{Login@{Login}}
+
+
+Responsável pela criação de contas, bloquear/\+desbloquear contas e armazenar todas as contas cadastradas no sistema.  
+
+
+
+
+{\ttfamily \+\#include $<$Login.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_login_a06c51ce9c72f03de932b6283ad92d875}{Login}} (std::\+vector$<$ \doxymbox{\hyperlink{class_conta}{Conta}} $>$ contas\+Cadastradas)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_login}{Login}. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_login_a84f8f32858ee8726b21aa6f3246eadef}{criar\+Conta}} (\doxymbox{\hyperlink{class_conta}{Conta}} conta\+Nova)
+\begin{DoxyCompactList}\small\item\em Cadastra uma nova conta. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_login_af87874db9a6a1f29fa20bb24bd207eee}{autenticar\+Conta}} (std::\+string email, std::\+string senha)
+\begin{DoxyCompactList}\small\item\em Realiza autenticação de uma conta. Procura o email e verifica se a senha fornecida está correta. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_login_a6a017db490b36ad661813f258d34cd7a}{bloquear\+Conta}} (std::\+string email)
+\begin{DoxyCompactList}\small\item\em Verifica se a conta está bloqueada true= conta bloqueada. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{class_conta}{Conta}} $>$ \doxymbox{\hyperlink{class_login_ae92106307291acc46234b61da66d1728}{get\+Contas\+Cadastradas}} ()
+\begin{DoxyCompactList}\small\item\em Retorna as contas cadastradas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Responsável pela criação de contas, bloquear/\+desbloquear contas e armazenar todas as contas cadastradas no sistema. 
+
+\label{class_login_doc-constructors}
+\Hypertarget{class_login_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_login_a06c51ce9c72f03de932b6283ad92d875}\index{Login@{Login}!Login@{Login}}
+\index{Login@{Login}!Login@{Login}}
+\doxysubsubsection{\texorpdfstring{Login()}{Login()}}
+{\footnotesize\ttfamily \label{class_login_a06c51ce9c72f03de932b6283ad92d875} 
+Login::\+\+Login (\begin{DoxyParamCaption}\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_conta}{Conta}} $>$}]{contas\+Cadastradas}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_login}{Login}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em contas\+Cadastradas} & Vetor inicial das contas já cadastradas. \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_login_doc-func-members}
+\Hypertarget{class_login_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_login_af87874db9a6a1f29fa20bb24bd207eee}\index{Login@{Login}!autenticarConta@{autenticarConta}}
+\index{autenticarConta@{autenticarConta}!Login@{Login}}
+\doxysubsubsection{\texorpdfstring{autenticarConta()}{autenticarConta()}}
+{\footnotesize\ttfamily \label{class_login_af87874db9a6a1f29fa20bb24bd207eee} 
+bool Login::\+autenticar\+Conta (\begin{DoxyParamCaption}\item[{std::\+string}]{email}{, }\item[{std::\+string}]{senha}{}\end{DoxyParamCaption})}
+
+
+
+Realiza autenticação de uma conta. Procura o email e verifica se a senha fornecida está correta. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & Email digitado. \\
+\hline
+{\em senha} & Senha digitada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true= autenticação válida. 
+\end{DoxyReturn}
+\Hypertarget{class_login_a6a017db490b36ad661813f258d34cd7a}\index{Login@{Login}!bloquearConta@{bloquearConta}}
+\index{bloquearConta@{bloquearConta}!Login@{Login}}
+\doxysubsubsection{\texorpdfstring{bloquearConta()}{bloquearConta()}}
+{\footnotesize\ttfamily \label{class_login_a6a017db490b36ad661813f258d34cd7a} 
+bool Login::\+bloquear\+Conta (\begin{DoxyParamCaption}\item[{std::\+string}]{email}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se a conta está bloqueada true= conta bloqueada. 
+
+\Hypertarget{class_login_a84f8f32858ee8726b21aa6f3246eadef}\index{Login@{Login}!criarConta@{criarConta}}
+\index{criarConta@{criarConta}!Login@{Login}}
+\doxysubsubsection{\texorpdfstring{criarConta()}{criarConta()}}
+{\footnotesize\ttfamily \label{class_login_a84f8f32858ee8726b21aa6f3246eadef} 
+void Login::\+criar\+Conta (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_conta}{Conta}}}]{conta\+Nova}{}\end{DoxyParamCaption})}
+
+
+
+Cadastra uma nova conta. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em conta\+Nova} & \doxylink{class_conta}{Conta} que sera cadastrada. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_login_ae92106307291acc46234b61da66d1728}\index{Login@{Login}!getContasCadastradas@{getContasCadastradas}}
+\index{getContasCadastradas@{getContasCadastradas}!Login@{Login}}
+\doxysubsubsection{\texorpdfstring{getContasCadastradas()}{getContasCadastradas()}}
+{\footnotesize\ttfamily \label{class_login_ae92106307291acc46234b61da66d1728} 
+std::\+vector$<$ \doxymbox{\hyperlink{class_conta}{Conta}} $>$ Login::\+get\+Contas\+Cadastradas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retorna as contas cadastradas. 
+
+\begin{DoxyReturn}{Returns}
+Vetor de contas. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+tiago/\+\+One\+Drive/\+Área de Trabalho/\+\+Atalhos etc/\+ufmg/\+pds2/\+\+PDS2-\/2026-\/\+PF-\/grupo2/\+include/\+\doxymbox{\hyperlink{_login_8hpp}{Login.\+hpp}}\end{DoxyCompactItemize}

@@ -123,20 +123,30 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_sensor.h
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a342d6d11ef572c8cba92cb76fb1a294b" id="r_a342d6d11ef572c8cba92cb76fb1a294b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a342d6d11ef572c8cba92cb76fb1a294b">Sensor</a> ()</td></tr>
+<tr class="memitem:abdcac1128acccfb28631ed8291fe9a61" id="r_abdcac1128acccfb28631ed8291fe9a61"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abdcac1128acccfb28631ed8291fe9a61">Sensor</a> (bool ligado, bool ativado, std::vector&lt; <a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> &gt; objetosConectados, std::vector&lt; <a class="el" href="class_modo.html">Modo</a> &gt; modosConectados)</td></tr>
+<tr class="memdesc:abdcac1128acccfb28631ed8291fe9a61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função construtora do sensor.  <br /></td></tr>
 <tr class="memitem:afeb18b3b951d1f82222699616f8ee20c" id="r_afeb18b3b951d1f82222699616f8ee20c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afeb18b3b951d1f82222699616f8ee20c">setEstaLigado</a> ()</td></tr>
+<tr class="memdesc:afeb18b3b951d1f82222699616f8ee20c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liga ou desliga o sensor.  <br /></td></tr>
 <tr class="memitem:aa6425faff59322d75ecf2393e51054ac" id="r_aa6425faff59322d75ecf2393e51054ac"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa6425faff59322d75ecf2393e51054ac">getEstaLigado</a> ()</td></tr>
+<tr class="memdesc:aa6425faff59322d75ecf2393e51054ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna se o sensor está ligado ou não (se está pronto para ser ativado).  <br /></td></tr>
 <tr class="memitem:aa3f221c81f6a7106a234a41a9d037ebe" id="r_aa3f221c81f6a7106a234a41a9d037ebe"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa3f221c81f6a7106a234a41a9d037ebe">setEstaAtivado</a> ()</td></tr>
+<tr class="memdesc:aa3f221c81f6a7106a234a41a9d037ebe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ativa ou desativa o sensor.  <br /></td></tr>
 <tr class="memitem:aa0c247ef2dd6c0ba744f9a9361cb5f4c" id="r_aa0c247ef2dd6c0ba744f9a9361cb5f4c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa0c247ef2dd6c0ba744f9a9361cb5f4c">getEstaAtivado</a> ()</td></tr>
+<tr class="memdesc:aa0c247ef2dd6c0ba744f9a9361cb5f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ativa ou desativa o sensor.  <br /></td></tr>
 <tr class="memitem:a7f5d9b5c1fad9d4b4862cd734928c6d8" id="r_a7f5d9b5c1fad9d4b4862cd734928c6d8"><td class="memItemLeft"><a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7f5d9b5c1fad9d4b4862cd734928c6d8">getObjetosConectados</a> ()</td></tr>
-<tr class="memitem:a3aa55d936318f55ef11f19e748d4ee5a" id="r_a3aa55d936318f55ef11f19e748d4ee5a"><td class="memItemLeft">Modo&#160;</td><td class="memItemRight"><a class="el" href="#a3aa55d936318f55ef11f19e748d4ee5a">getModosConectados</a> ()</td></tr>
+<tr class="memdesc:a7f5d9b5c1fad9d4b4862cd734928c6d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a lista de objetos conectados.  <br /></td></tr>
+<tr class="memitem:a3aa55d936318f55ef11f19e748d4ee5a" id="r_a3aa55d936318f55ef11f19e748d4ee5a"><td class="memItemLeft"><a class="el" href="class_modo.html">Modo</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3aa55d936318f55ef11f19e748d4ee5a">getModosConectados</a> ()</td></tr>
+<tr class="memdesc:a3aa55d936318f55ef11f19e748d4ee5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a lista de modos conectados.  <br /></td></tr>
 <tr class="memitem:ae4985d1457fa6ebc2886b3ca731c306f" id="r_ae4985d1457fa6ebc2886b3ca731c306f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae4985d1457fa6ebc2886b3ca731c306f">checarAmbiente</a> ()</td></tr>
-<tr class="memitem:a73ccf8c07f99cd4c7c9d37621b7f6aaa" id="r_a73ccf8c07f99cd4c7c9d37621b7f6aaa"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a73ccf8c07f99cd4c7c9d37621b7f6aaa">ativarModo</a> (Modo modo)</td></tr>
+<tr class="memdesc:ae4985d1457fa6ebc2886b3ca731c306f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Confere elementos do ambiente, podendo assim ativar.  <br /></td></tr>
+<tr class="memitem:a73ccf8c07f99cd4c7c9d37621b7f6aaa" id="r_a73ccf8c07f99cd4c7c9d37621b7f6aaa"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a73ccf8c07f99cd4c7c9d37621b7f6aaa">ativarModo</a> (<a class="el" href="class_modo.html">Modo</a> modo)</td></tr>
+<tr class="memdesc:a73ccf8c07f99cd4c7c9d37621b7f6aaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ativa um modo.  <br /></td></tr>
 <tr class="memitem:ae1a7f6d5da065024bf9e24c11a6aba5a" id="r_ae1a7f6d5da065024bf9e24c11a6aba5a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae1a7f6d5da065024bf9e24c11a6aba5a">ativarObjeto</a> (<a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> objeto)</td></tr>
+<tr class="memdesc:ae1a7f6d5da065024bf9e24c11a6aba5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ativa um objeto.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a342d6d11ef572c8cba92cb76fb1a294b" name="a342d6d11ef572c8cba92cb76fb1a294b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a342d6d11ef572c8cba92cb76fb1a294b">&#9670;&#160;</a></span>Sensor()</h2>
+<a id="abdcac1128acccfb28631ed8291fe9a61" name="abdcac1128acccfb28631ed8291fe9a61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdcac1128acccfb28631ed8291fe9a61">&#9670;&#160;</a></span>Sensor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,11 +154,36 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">Sensor::Sensor </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>ligado</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>ativado</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>objetosConectados</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_modo.html">Modo</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>modosConectados</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Função construtora do sensor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ligado</td><td>Variável que determina se o sensor está ligado (se pode ser ativado). </td></tr>
+    <tr><td class="paramname">ativado</td><td>Variável que indica se o sensor está ativado. </td></tr>
+    <tr><td class="paramname">objetosConectados</td><td>Vetor com todos objetos ligados ao sensor. </td></tr>
+    <tr><td class="paramname">modosConectados</td><td>Vetor com todos modos ligados ao sensor. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -162,11 +197,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Sensor::ativarModo </td>
           <td>(</td>
-          <td class="paramtype">Modo</td>          <td class="paramname"><span class="paramname"><em>modo</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_modo.html">Modo</a></td>          <td class="paramname"><span class="paramname"><em>modo</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Ativa um modo. </p>
 
 </div>
 </div>
@@ -185,6 +222,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Ativa um objeto. </p>
+
 </div>
 </div>
 <a id="ae4985d1457fa6ebc2886b3ca731c306f" name="ae4985d1457fa6ebc2886b3ca731c306f"></a>
@@ -201,6 +240,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Confere elementos do ambiente, podendo assim ativar. </p>
 
 </div>
 </div>
@@ -219,6 +260,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Ativa ou desativa o sensor. </p>
+
 </div>
 </div>
 <a id="aa6425faff59322d75ecf2393e51054ac" name="aa6425faff59322d75ecf2393e51054ac"></a>
@@ -236,6 +279,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retorna se o sensor está ligado ou não (se está pronto para ser ativado). </p>
+
 </div>
 </div>
 <a id="a3aa55d936318f55ef11f19e748d4ee5a" name="a3aa55d936318f55ef11f19e748d4ee5a"></a>
@@ -245,13 +290,15 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Modo Sensor::getModosConectados </td>
+          <td class="memname"><a class="el" href="class_modo.html">Modo</a> Sensor::getModosConectados </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Retorna a lista de modos conectados. </p>
 
 </div>
 </div>
@@ -270,6 +317,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retorna a lista de objetos conectados. </p>
+
 </div>
 </div>
 <a id="aa3f221c81f6a7106a234a41a9d037ebe" name="aa3f221c81f6a7106a234a41a9d037ebe"></a>
@@ -287,6 +336,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Ativa ou desativa o sensor. </p>
+
 </div>
 </div>
 <a id="afeb18b3b951d1f82222699616f8ee20c" name="afeb18b3b951d1f82222699616f8ee20c"></a>
@@ -303,6 +354,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Liga ou desliga o sensor. </p>
 
 </div>
 </div>

@@ -1,6 +1,6 @@
 var class_sensor =
 [
-    [ "Sensor", "class_sensor.html#a342d6d11ef572c8cba92cb76fb1a294b", null ],
+    [ "Sensor", "class_sensor.html#abdcac1128acccfb28631ed8291fe9a61", null ],
     [ "ativarModo", "class_sensor.html#a73ccf8c07f99cd4c7c9d37621b7f6aaa", null ],
     [ "ativarObjeto", "class_sensor.html#ae1a7f6d5da065024bf9e24c11a6aba5a", null ],
     [ "checarAmbiente", "class_sensor.html#ae4985d1457fa6ebc2886b3ca731c306f", null ],

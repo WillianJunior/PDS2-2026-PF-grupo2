@@ -1,0 +1,46 @@
+\doxysection{Comodo.\+hpp}
+\hypertarget{_comodo_8hpp_source}{}\label{_comodo_8hpp_source}\index{C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-\/2026-\/PF-\/grupo2/include/Comodo.hpp@{C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-\/2026-\/PF-\/grupo2/include/Comodo.hpp}}
+\doxymbox{\hyperlink{_comodo_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_conta_8hpp}{Conta.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_smart_home_8hpp}{SmartHome.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_sensor_8hpp}{Sensor.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}ObjetoInteligente.hpp”}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}}\doxymbox{\hyperlink{class_modo}{Modo}}.hpp\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{\#ifndef\ COMODO\_HPP}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{\#define\ COMODO\_HPP}}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{class\ Comodo\ \{}}
+\DoxyCodeLine{00012\ \textcolor{stringliteral}{public:}}
+\DoxyCodeLine{00013\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{\ \ \ \ Comodo(std::string\ nome,\ SmartHome*\ casa);}}
+\DoxyCodeLine{00015\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ void\ adicionarObjeto(ObjetoInteligente*\ objeto);}}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{\ \ \ \ void\ adicionarSensor(Sensor*\ sensor);\ }}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ void\ adicionarModo(Modo*\ modo);}}
+\DoxyCodeLine{00019\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ void\ entrarConta(Conta*\ conta);}}
+\DoxyCodeLine{00021\ \textcolor{stringliteral}{\ \ \ \ void\ sairConta();}}
+\DoxyCodeLine{00022\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00023\ \textcolor{stringliteral}{\ \ \ \ void\ repassarInstrucao(Modo*\ modo);}}
+\DoxyCodeLine{00024\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00025\ \textcolor{stringliteral}{\ \ \ \ Conta\ *\ getContaPresente();}}
+\DoxyCodeLine{00026\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00027\ \textcolor{stringliteral}{\ \ \ \ std\ ::\ string\ getNome();}}
+\DoxyCodeLine{00028\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00029\ \textcolor{stringliteral}{\ \ \ \ \string~Comodo();}}
+\DoxyCodeLine{00030\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00031\ \textcolor{stringliteral}{private:}}
+\DoxyCodeLine{00032\ \textcolor{stringliteral}{\ \ \ \ std::string\ nome;}}
+\DoxyCodeLine{00033\ \textcolor{stringliteral}{\ \ \ \ SmartHome*\ casa;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ pertence\ a\ uma\ SmartHome}}
+\DoxyCodeLine{00034\ \textcolor{stringliteral}{\ \ \ \ Conta*\ contaPresente;\ \ \ \ \ \ \ \ \ \ \ //\ conta\ presente\ em\ certos\ momentos}}
+\DoxyCodeLine{00035\ \textcolor{stringliteral}{\ \ \ \ std::vector<ObjetoInteligente*>\ objetos;}}
+\DoxyCodeLine{00036\ \textcolor{stringliteral}{\ \ \ \ std::vector<Sensor*>\ sensores;}}
+\DoxyCodeLine{00037\ \textcolor{stringliteral}{\ \ \ \ std::vector<Modo*>\ modos;}}
+\DoxyCodeLine{00038\ \textcolor{stringliteral}{\};}}
+\DoxyCodeLine{00039\ \textcolor{stringliteral}{\#endif}}
+\DoxyCodeLine{00040\ \textcolor{stringliteral}{}}
+
+\end{DoxyCode}

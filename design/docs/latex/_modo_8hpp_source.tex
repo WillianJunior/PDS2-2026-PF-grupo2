@@ -1,0 +1,49 @@
+\doxysection{Modo.\+hpp}
+\hypertarget{_modo_8hpp_source}{}\label{_modo_8hpp_source}\index{C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-\/2026-\/PF-\/grupo2/include/Modo.hpp@{C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-\/2026-\/PF-\/grupo2/include/Modo.hpp}}
+\doxymbox{\hyperlink{_modo_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MODO\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MODO\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_objeto_inteligente_8hpp}{ObjetoInteligente.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_comodo_8hpp}{Comodo.hpp}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_modo_a44b47c8dfbf703e8017922b55f167d5f}{Modo}}\{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ std::vector<ObjetoInteligente>\ objetosRelacionados;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ std::vector<Comodo>\ comodosRelacionados;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ligado;\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ bloqueado;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_modo_a44b47c8dfbf703e8017922b55f167d5f}{Modo}}(}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<ObjetoInteligente>\ objetos,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Comodo>\ comodos,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ligado,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ bloqueado}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_modo_a1e293dfc5f7652b26506955dc534fc5a}{setAtivoModo}}(\textcolor{keywordtype}{bool}\ ativo);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_modo_a05baa809c2ff44d55861f1ef66efc5c1}{getAtivoModo}}();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_modo_a8d46b7efcfedc8097f9968b0bf6524a1}{setBloqueadoModo}}(\textcolor{keywordtype}{bool}\ bloqueado);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_modo_a6bfb007cc70a82864a4a64fa9766d0bd}{getBloqueadoModo}}();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ std::vector<ObjetoInteligente>\ \doxymbox{\hyperlink{class_modo_a0cc310b999b1f87fec4f025441f0fc44}{getObjetosRelacionados}}();}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ std::vector<Comodo>\ \doxymbox{\hyperlink{class_modo_aa74946a717c0b58cb604809d4e3c9f04}{getComodosRelacionados}}();}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,38 @@
+\doxysection{Smart\+Home.\+hpp}
+\hypertarget{_smart_home_8hpp_source}{}\label{_smart_home_8hpp_source}\index{C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-\/2026-\/PF-\/grupo2/include/SmartHome.hpp@{C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-\/2026-\/PF-\/grupo2/include/SmartHome.hpp}}
+\doxymbox{\hyperlink{_smart_home_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_comodo_8hpp}{Comodo.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_modo_8hpp}{Modo.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_objeto_inteligente_8hpp}{ObjetoInteligente.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_conta_8hpp}{Conta.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ SMARTHOME\_HPP}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ SMARTHOME\_HPP}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }SmartHome\{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ Conta\ usuario;}
+\DoxyCodeLine{00014\ \ \ \ \ std::vector<Comodo>\ comodos;}
+\DoxyCodeLine{00015\ \ \ \ \ std::vector<Modo>\ modos;}
+\DoxyCodeLine{00016\ \ \ \ \ std::vector<ObjetoInteligente>\ objetos;}
+\DoxyCodeLine{00017\ \ \ \ \ std::string\ nome;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00026\ \ \ \ \ SmartHome(Conta\ usuario,\ \textcolor{keywordtype}{string}\ nome);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ adicionarModo(Modo\&\ modo);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ adicionarComodo(Comodo\&\ comodo);}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ adicionarObjeto(Objeto\&\ objeto);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \ \ \ \ Conta\ getUsuario();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \string~SmartHome();}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

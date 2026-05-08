@@ -8,8 +8,6 @@
 #include "Sensor.hpp"
 #include "Comodo.hpp"
 #include "Modo.hpp"
-
-
 #include <vector>
 
 

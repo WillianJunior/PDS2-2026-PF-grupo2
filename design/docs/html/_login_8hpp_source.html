@@ -118,27 +118,37 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('_login_8hpp_so
   <div class="headertitle"><div class="title">Login.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_login_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// // Métodos de Regra de Negócio (User Story 1 e 2)</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span>    </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//     /**</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">//      * @brief Valida se a formatação do e-mail é válida (ex: contém &#39;@&#39; e &#39;.&#39;).</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//      * @return true se for válido, false caso contrário.</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//      */</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">//     bool validarEmailFormato() const;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//     /**</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">//      * @brief Verifica se a senha fornecida atende aos requisitos mínimos de segurança.</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">//      * @return true se a senha for segura.</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">//      */</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">//     bool validarSenhaSegura() const;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">//     /**</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">//      * @brief Autentica o usuário comparando a senha digitada com a senha armazenada.</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">//      * @param senhaTentativa Senha digitada no login.</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">//      * @return true se as senhas baterem.</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">//      */</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">//     bool autenticar(const std::string&amp; senhaTentativa) const;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    </div>
+<a href="_login_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef LOGIN_HPP</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define LOGIN_HPP</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_conta_8hpp.html">Conta.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_login.html">   14</a></span> <span class="keyword">class </span><a class="code hl_function" href="class_login.html#a06c51ce9c72f03de932b6283ad92d875">Login</a>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        std::vector&lt;Conta&gt; contas;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_login.html#a06c51ce9c72f03de932b6283ad92d875">   26</a></span>        <a class="code hl_function" href="class_login.html#a06c51ce9c72f03de932b6283ad92d875">Login</a>(std::vector&lt;Conta&gt; contasCadastradas);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_login.html#a84f8f32858ee8726b21aa6f3246eadef">   31</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_login.html#a84f8f32858ee8726b21aa6f3246eadef">criarConta</a>(<a class="code hl_class" href="class_conta.html">Conta</a> contaNova);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_login.html#af87874db9a6a1f29fa20bb24bd207eee">   39</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_login.html#af87874db9a6a1f29fa20bb24bd207eee">autenticarConta</a>(std::string email, std::string senha);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_login.html#a6a017db490b36ad661813f258d34cd7a">   44</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_login.html#a6a017db490b36ad661813f258d34cd7a">bloquearConta</a>(std::string email);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_login.html#ae92106307291acc46234b61da66d1728">   49</a></span>        std::vector&lt;Conta&gt; <a class="code hl_function" href="class_login.html#ae92106307291acc46234b61da66d1728">getContasCadastradas</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    };</div>
+</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_conta_8hpp_html"><div class="ttname"><a href="_conta_8hpp.html">Conta.hpp</a></div></div>
+<div class="ttc" id="aclass_conta_html"><div class="ttname"><a href="class_conta.html">Conta</a></div><div class="ttdoc">Classe responsável por gerenciar o perfil do usuário no sistema.</div><div class="ttdef"><b>Definition</b> Conta.hpp:20</div></div>
+<div class="ttc" id="aclass_login_html_a06c51ce9c72f03de932b6283ad92d875"><div class="ttname"><a href="class_login.html#a06c51ce9c72f03de932b6283ad92d875">Login::Login</a></div><div class="ttdeci">Login(std::vector&lt; Conta &gt; contasCadastradas)</div><div class="ttdoc">Construtor da classe Login.</div></div>
+<div class="ttc" id="aclass_login_html_a6a017db490b36ad661813f258d34cd7a"><div class="ttname"><a href="class_login.html#a6a017db490b36ad661813f258d34cd7a">Login::bloquearConta</a></div><div class="ttdeci">bool bloquearConta(std::string email)</div><div class="ttdoc">Verifica se a conta está bloqueada true= conta bloqueada.</div></div>
+<div class="ttc" id="aclass_login_html_a84f8f32858ee8726b21aa6f3246eadef"><div class="ttname"><a href="class_login.html#a84f8f32858ee8726b21aa6f3246eadef">Login::criarConta</a></div><div class="ttdeci">void criarConta(Conta contaNova)</div><div class="ttdoc">Cadastra uma nova conta.</div></div>
+<div class="ttc" id="aclass_login_html_ae92106307291acc46234b61da66d1728"><div class="ttname"><a href="class_login.html#ae92106307291acc46234b61da66d1728">Login::getContasCadastradas</a></div><div class="ttdeci">std::vector&lt; Conta &gt; getContasCadastradas()</div><div class="ttdoc">Retorna as contas cadastradas.</div></div>
+<div class="ttc" id="aclass_login_html_af87874db9a6a1f29fa20bb24bd207eee"><div class="ttname"><a href="class_login.html#af87874db9a6a1f29fa20bb24bd207eee">Login::autenticarConta</a></div><div class="ttdeci">bool autenticarConta(std::string email, std::string senha)</div><div class="ttdoc">Realiza autenticação de uma conta. Procura o email e verifica se a senha fornecida está correta.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

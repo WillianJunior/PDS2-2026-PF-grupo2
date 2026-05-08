@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sensor_0',['Sensor',['../class_sensor.html',1,'']]]
+  ['modo_0',['Modo',['../class_modo.html',1,'']]]
 ];
