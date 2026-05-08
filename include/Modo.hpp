@@ -33,8 +33,17 @@ class Modo{
     public:
         /**
          * @brief Construtor da classe.
+        * @param objetos Objetos relacionados ao modo.
+        * @param comodos Cômodos relacionados ao modo.
+        * @param ligado Estado inicial do modo.
+        * @param bloqueado Estado de bloqueio do modo.
          */
-         Modo();
+         Modo(
+            std::vector<ObjetoInteligente> objetos,
+            std::vector<Comodo> comodos,
+            bool ligado,
+            bool bloqueado
+        );
 
          /**
          * @brief Ativa ou desativa o modo.
@@ -56,6 +65,5 @@ class Modo{
 
 
 };
-
 
 #endif
