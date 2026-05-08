@@ -77,6 +77,12 @@ public:
      * @param nome Nome do cômodo.
      */
     void criarCômodo(Smarthome smarthome, std::string nome);
+
+    /**
+     * @brief Comando para apagar um cômodo.
+     * @param smarthome Smarthome em que o cômodo será apagado.
+     * @param nome Nome do cômodo.
+     */
     void apagarCômodo(Smarthome smarthome, std::string nome);
 
     /**
