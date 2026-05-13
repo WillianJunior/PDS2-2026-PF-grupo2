@@ -1,0 +1,3 @@
+ - Bom começo, poderiam ter colocado mais detalhes nas classes
+ - Muitas referências (&) poucos consts. Exemplo: SmartHome.adicionarModo()
+ - Não vi nada de como isso será impresso na tela. Isso me preocupa um pouco.
