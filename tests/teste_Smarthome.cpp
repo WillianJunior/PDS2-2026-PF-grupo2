@@ -3,7 +3,7 @@
 #include <iostream>
 #include "Smarthome.hpp"
 #include "Sensor.hpp"
-#include "doctest/doctest.h"
+#include "doctest.h"
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
 
