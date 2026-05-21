@@ -1,0 +1,10 @@
+build/
+bin/
+*.o
+*.d
+*.gcda
+*.gcno
+*.gcov
+coverage.html
+.vscode/
+Thumbs.db
