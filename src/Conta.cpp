@@ -33,12 +33,12 @@ void Conta::apagarSmarthome(Smarthome smarthome) {
     (void)smarthome;
 }
 
-void Conta::criarCômodo(Smarthome smarthome, std::string nome) {
+void Conta::criarComodo(Smarthome smarthome, std::string nome) {
     (void)smarthome;
     (void)nome;
 }
 
-void Conta::apagarCômodo(Smarthome smarthome, std::string nome) {
+void Conta::apagarComodo(Smarthome smarthome, std::string nome) {
     (void)smarthome;
     (void)nome;
 }
@@ -96,7 +96,7 @@ void Conta::moverSensor(Smarthome smarthome, Comodo atual, std::string nome, Com
     (void)destino;
 }
 
-float Conta::gerarRelatórioDeEnergia(Smarthome smarthome) {
+float Conta::gerarRelatorioDeEnergia(Smarthome smarthome) {
     (void)smarthome;
     return 0.0f;
 }
@@ -106,7 +106,7 @@ bool Conta::validarFormatoEmail() const {
 }
 
 bool Conta::validarSenha() const {
-    return false;
+    return senha.length() >= 8;
 }
 
 bool Conta::autenticar(const std::string& tentativaSenha) const {
