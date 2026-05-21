@@ -1,12 +1,14 @@
+#ifndef COMODO_HPP
+#define COMODO_HPP
+#pragma once
+class Smarthome;
 #include <string>
 #include <vector>
 #include "Conta.hpp"
-#include "SmartHome.hpp"
 #include "Sensor.hpp"
-#include "ObjetoInteligente.hpp”
+#include "ObjetoInteligente.hpp"
 #include "Modo.hpp"
-#ifndef COMODO_HPP
-#define COMODO_HPP
+
 
 /**
  * @class Comodo
@@ -20,18 +22,46 @@ public:
      * @param nome Nome do cômodo.
      * @param casa Ponteiro para a SmartHome à qual o cômodo pertence.
      */ 
-    Comodo(std::string nome, SmartHome* casa);
-
-    void adicionarObjeto(ObjetoInteligente* objeto);
-    void adicionarSensor(Sensor* sensor); 
-    void adicionarModo(Modo* modo);
+    Comodo(std::string nome, Smarthome* casa);
+    /**
+     * @brief Adiciona um objeto a um comodo.
+     * @param objeto ObjetoInteligente a ser adicionado ao comodo.
+     */
+    void adicionarObjeto(const ObjetoInteligente* objeto);
+    /**
+     * @brief Adiciona um sensor a um comodo.
+     * @param sensor Sensor a ser adicionado ao comodo.
+     */
+    void adicionarSensor(const Sensor* sensor); 
+    /**
+     * @brief Adiciona um modo a um comodo.
+     * @param modo Modo a ser adicionado ao comodo.
+     */
+    void adicionarModo(const Modo* modo);
+    /**
+     * @brief Retorna objetos no comodo.
+     */
+    const std :: vector <ObjetoInteligente*>& getObjetos() const;
+    /**
+     * @brief Retorna sensores no comodo.
+     */
+    const std :: vector <Sensor*>& getSensores() const;
+    /**
+     * @brief Retorna modos no comodo.
+     */
+    const std :: vector <Modo*>& getModos() const;
+    /**
+     * @brief Remove objeto do comodo.
+     * @param objeto ObjetoInteligente a ser removido do comodo.
+     */
+    void removerObjeto(const ObjetoInteligente* objeto);
 
     /**
      * @brief Define uma conta que esta no cômodo.
      * 
      * @param conta Ponteiro para a conta que entrou no cômodo.
      */
-    void entrarConta(Conta* conta);
+    void entrarConta(const Conta* conta);
      /**
      * @brief Remove a conta presente do cômodo.
      */
@@ -42,13 +72,19 @@ public:
      * 
      * @param modo Ponteiro para o modo que vai receber a instrução.
      */
-    void repassarInstrucao(Modo* modo);
-
-    Conta * getContaPresente();
+    void repassarInstrucao(const Modo* modo);
+    /**
+     * @brief Retorna Contas dentro do cômodo.
+     */
+    const std :: vector <Conta*>&  getContasPresentes() const;
     /**
      * @brief Retorna o nome do cômodo.
      */
-    std :: string getNome();
+    std :: string getNome() const;
+    /**
+     * @brief Retorna Smarthome a qual o cômodo pertence.
+     */
+    Smarthome* getSmarthome() const;
 
     ~Comodo();
                 
@@ -58,10 +94,10 @@ private:
      */
     std::string nome;
     /**
-     * @brief SmartHome que o cômodo pertence.
+     * @brief Smarthome que o cômodo pertence.
      */
-    SmartHome* casa;                
-    Conta* contaPresente;           // conta presente em certos momentos
+    Smarthome* casa;                
+    std::vector<Conta*> contasPresentes;           // contas presentes em certos momentos
     std::vector<ObjetoInteligente*> objetos;
     std::vector<Sensor*> sensores;
     std::vector<Modo*> modos;
