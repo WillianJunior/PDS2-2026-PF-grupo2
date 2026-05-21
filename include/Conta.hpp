@@ -74,14 +74,14 @@ public:
      * @param smarthome Smarthome em que o cômodo será adicionado.
      * @param nome Nome do cômodo.
      */
-    void criarCômodo(Smarthome smarthome, std::string nome);
+    void criarComodo(Smarthome smarthome, std::string nome);
 
     /**
      * @brief Comando para apagar um cômodo.
      * @param smarthome Smarthome em que o cômodo será apagado.
      * @param nome Nome do cômodo.
      */
-    void apagarCômodo(Smarthome smarthome, std::string nome);
+    void apagarComodo(Smarthome smarthome, std::string nome);
 
     /**
      * @brief Comando para criar um modo.
@@ -160,7 +160,7 @@ public:
      * @brief Comando para gerar relatório de gasto de energia.
      * @param smarthome Smarthome a ter seu gasto de energia calculado.
      */
-    float gerarRelatórioDeEnergia(Smarthome smarthome);
+    float gerarRelatorioDeEnergia(Smarthome smarthome);
 
      /**
      * @brief Valida se o formato do e-mail é válido.
