@@ -35,3 +35,37 @@ TEST_CASE("Testando a classe Conta - Validacao de Seguranca e Controle Parental"
         CHECK(contaInvalida.isPerfilAdulto() == false);
     }
 }
+
+TEST_CASE("Testando a classe Conta - Chamadas de Metodos") {
+    Conta conta("1", "Admin", "admin@smart.com", "admin1234", true);
+    
+    Smarthome sh("SH01", "Casa1");
+    Comodo com("COM01", "Sala1");
+    
+    SUBCASE("Metodos de manipulacao da Smarthome e Comodos") {
+        conta.criarSmarthome("sh1", "Casa");
+        conta.apagarSmarthome(sh);
+        conta.criarComodo(sh, "Sala");
+        conta.apagarComodo(sh, "Sala");
+    }
+
+    SUBCASE("Metodos de manipulacao de Modos") {
+        conta.criarModo(sh, "Seguranca");
+        conta.apagarModo(sh, "Seguranca");
+        conta.editarModo(sh, "Seguranca");
+    }
+
+    SUBCASE("Metodos de manipulacao de Objetos e Sensores") {
+        conta.criarObjeto(sh, com, "SmartTV");
+        conta.apagarObjeto(sh, com, "SmartTV");
+        conta.moverObjeto(sh, com, "SmartTV", com);
+        
+        conta.criarSensor(sh, com, "Presenca");
+        conta.apagarSensor(sh, com, "Presenca");
+        conta.moverSensor(sh, com, "Presenca", com);
+    }
+    
+    SUBCASE("Metodos de Relatorio") {
+        CHECK(conta.gerarRelatorioDeEnergia(sh) == 42.0f);
+    }
+}
