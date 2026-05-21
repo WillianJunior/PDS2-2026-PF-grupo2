@@ -5,7 +5,7 @@
 #include "Smarthome.hpp"
 #include "Sensor.hpp"
 #include "Modo.hpp"
-#include "doctest/doctest.h"
+#include "doctest.h"
 
 ObjetoInteligente DummyObjeto() {
     std::vector<Sensor> sensores; // vazio ou falso
