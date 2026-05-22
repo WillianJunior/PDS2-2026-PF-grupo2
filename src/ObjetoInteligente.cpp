@@ -1,9 +1,10 @@
 #include "ObjetoInteligente.hpp"
 #include <algorithm>
+#include "Sensor.hpp"
 
 ObjetoInteligente::ObjetoInteligente(
     bool restricaoAdulto,
-    std::vector<Sensor> sensores,
+    std::vector<Sensor*> sensores,
     std::vector<std::string> statusPossiveis,
     float consumoMedioDeEnergia,
     std::vector<std::function<void()>> funcoes,
@@ -25,7 +26,7 @@ void ObjetoInteligente::setRestricaoAdulto() {
 }
 
 
-std::vector<Sensor> ObjetoInteligente::getSensores() {
+std::vector<Sensor*> ObjetoInteligente::getSensores() {
     return sensores;
 }
 

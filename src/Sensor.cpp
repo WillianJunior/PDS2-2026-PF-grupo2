@@ -1,11 +1,14 @@
 #include "Sensor.hpp"
+#include "ObjetoInteligente.hpp"
+#include "Modo.hpp"
 
 Sensor::Sensor(
-    bool ligado, 
-    bool ativado, 
-    std::vector<ObjetoInteligente> objetosConectados, 
-    std::vector<Modo> modosConectados
-) {
+    bool ligado,
+    bool ativado,
+    std::vector<ObjetoInteligente*> objetosConectados,
+    std::vector<Modo*> modosConectados
+)
+{
     this->estaLigado = ligado;
     this->estaAtivado = ativado;
     this->objetosConectados = objetosConectados;
@@ -16,31 +19,31 @@ void Sensor::setEstaLigado() {
 }
 
 bool Sensor::getEstaLigado() {
-    return this->estaLigado;
+    return estaLigado;
 }
 
 void Sensor::setEstaAtivado() {
 }
 
 bool Sensor::getEstaAtivado() {
-    return this->estaAtivado;
+    return estaAtivado;
 }
 
-ObjetoInteligente Sensor::getObjetosConectados() {
-    ObjetoInteligente objVazio; 
-    return objVazio;
+std::vector<ObjetoInteligente*> Sensor::getObjetosConectados() {
+    return objetosConectados;
 }
 
-Modo Sensor::getModosConectados() {
-    Modo modoVazio;
-    return modoVazio;
+std::vector<Modo*> Sensor::getModosConectados() {
+    return modosConectados;
 }
 
 void Sensor::checarAmbiente() {
 }
 
-void Sensor::ativarModo(Modo modo) {
+void Sensor::ativarModo(Modo* modo) {
+    (void)modo;
 }
 
-void Sensor::ativarObjeto(ObjetoInteligente objeto) {
+void Sensor::ativarObjeto(ObjetoInteligente* objeto) {
+    (void)objeto;
 }

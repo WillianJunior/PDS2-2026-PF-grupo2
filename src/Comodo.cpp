@@ -1,5 +1,9 @@
 #include "Comodo.hpp"
 #include <algorithm>
+#include "Conta.hpp"
+#include "Sensor.hpp"
+#include "ObjetoInteligente.hpp"
+#include "Modo.hpp"
 
 Comodo::Comodo(std::string nome, Smarthome* casa) : nome(nome), casa(casa) {
     // Não lança exceção se casa == nullptr, apenas aceita

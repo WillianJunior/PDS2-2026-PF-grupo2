@@ -1,12 +1,14 @@
-#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+
 #include "doctest.h"
 
 #include "Modo.hpp"
+#include "ObjetoInteligente.hpp"
+#include "Comodo.hpp"
 
 TEST_CASE("Modo começa ligado") {
 
-    std::vector<ObjetoInteligente> objetos;
-    std::vector<Comodo> comodos;
+    std::vector<ObjetoInteligente*> objetos;
+    std::vector<Comodo*> comodos;
 
     Modo modo(objetos, comodos, true, false);
 
@@ -15,8 +17,8 @@ TEST_CASE("Modo começa ligado") {
 
 TEST_CASE("Modo começa bloqueado") {
 
-    std::vector<ObjetoInteligente> objetos;
-    std::vector<Comodo> comodos;
+    std::vector<ObjetoInteligente*> objetos;
+    std::vector<Comodo*> comodos;
 
     Modo modo(objetos, comodos, false, true);
 
@@ -25,8 +27,8 @@ TEST_CASE("Modo começa bloqueado") {
 
 TEST_CASE("Ativar modo funciona") {
 
-    std::vector<ObjetoInteligente> objetos;
-    std::vector<Comodo> comodos;
+    std::vector<ObjetoInteligente*> objetos;
+    std::vector<Comodo*> comodos;
 
     Modo modo(objetos, comodos, false, false);
 
@@ -37,8 +39,8 @@ TEST_CASE("Ativar modo funciona") {
 
 TEST_CASE("Bloquear modo funciona") {
 
-    std::vector<ObjetoInteligente> objetos;
-    std::vector<Comodo> comodos;
+    std::vector<ObjetoInteligente*> objetos;
+    std::vector<Comodo*> comodos;
 
     Modo modo(objetos, comodos, false, false);
 
@@ -49,8 +51,8 @@ TEST_CASE("Bloquear modo funciona") {
 
 TEST_CASE("Lista de objetos começa vazia") {
 
-    std::vector<ObjetoInteligente> objetos;
-    std::vector<Comodo> comodos;
+    std::vector<ObjetoInteligente*> objetos;
+    std::vector<Comodo*> comodos;
 
     Modo modo(objetos, comodos, false, false);
 
@@ -59,8 +61,8 @@ TEST_CASE("Lista de objetos começa vazia") {
 
 TEST_CASE("Lista de comodos começa vazia") {
 
-    std::vector<ObjetoInteligente> objetos;
-    std::vector<Comodo> comodos;
+    std::vector<ObjetoInteligente*> objetos;
+    std::vector<Comodo*> comodos;
 
     Modo modo(objetos, comodos, false, false);
 

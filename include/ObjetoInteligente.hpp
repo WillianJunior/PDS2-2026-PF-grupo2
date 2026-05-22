@@ -3,7 +3,8 @@
 #include <vector>
 #include <string>
 #include <functional>
-#include "Sensor.hpp"
+
+class Sensor;
 
 /**
  * @class ObjetoInteligente
@@ -15,7 +16,7 @@
 class ObjetoInteligente {
 private:
     bool restricaoAdulto; 
-    std::vector<Sensor> sensores;
+    std::vector<Sensor*> sensores;
     std::vector<std::string> statusPossiveis;
     float consumoMedioDeEnergia;
     std::vector<std::function<void()>> funcoes;
@@ -36,7 +37,7 @@ public:
 
     ObjetoInteligente(
         bool restricaoAdulto,
-        std::vector<Sensor> sensores,
+        std::vector<Sensor*> sensores,
         std::vector<std::string> statusPossiveis,
         float consumoMedioDeEnergia,
         std::vector<std::function<void()>> funcoes,
@@ -50,7 +51,7 @@ public:
     /**
      * @brief Retorna os sensores associados ao objeto.
      */
-    std::vector<Sensor> getSensores();
+    std::vector<Sensor*> getSensores();
     /**
      * @brief Retorna o status atual do objeto.
      */

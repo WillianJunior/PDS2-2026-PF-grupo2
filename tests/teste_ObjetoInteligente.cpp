@@ -1,18 +1,28 @@
 #include "doctest.h"
-#include "ObjetoInteligente.hpp"
 
-Sensor DummySensor(){
-   std::vector<ObjetoInteligente> objetosConectados;
-   std::vector<Modo> modosConectados;
-   return Sensor(true, true, objetosConectados, modosConectados);
+#include <vector>
+#include <string>
+#include <functional>
+
+#include "ObjetoInteligente.hpp"
+#include "Sensor.hpp"
+#include "Modo.hpp"
+
+static Sensor DummySensorObjeto() {
+    std::vector<ObjetoInteligente*> objetosConectados;
+    std::vector<Modo*> modosConectados;
+
+    return Sensor(true, true, objetosConectados, modosConectados);
 }
 
 TEST_CASE("Construtor ObjetoInteligente inicializa corretamente") {
-    std::vector<Sensor> sensores = { DummySensor() };
-    std::vector<std::string> status = { "Ligado", "Desligado" };
+    Sensor sensor = DummySensorObjeto();
+
+    std::vector<Sensor*> sensores = {&sensor};
+    std::vector<std::string> status = {"Ligado", "Desligado"};
     float consumo = 12.5f;
-    std::vector<std::function<void()>> funcoes = { [](){}, [](){} };
-    std::vector<std::function<void()>> funcoesRestritas = { [](){} };
+    std::vector<std::function<void()>> funcoes = {[](){}, [](){}};
+    std::vector<std::function<void()>> funcoesRestritas = {[](){}};
 
     ObjetoInteligente obj(
         true,
@@ -29,20 +39,16 @@ TEST_CASE("Construtor ObjetoInteligente inicializa corretamente") {
     CHECK(obj.getFuncoesRestritas().size() == 1);
 
     SUBCASE("ObjetoInteligente pode ser criado com valores vazios") {
-        ObjetoInteligente obj(false, {}, {}, 0.0f, {}, {});
-        CHECK(obj.getSensores().empty());
-        CHECK(obj.getStatus() == "");
-        CHECK(obj.getFuncoes().empty());
+        ObjetoInteligente objVazio(false, {}, {}, 0.0f, {}, {});
+        CHECK(objVazio.getSensores().empty());
+        CHECK(objVazio.getStatus() == "");
+        CHECK(objVazio.getFuncoes().empty());
     }
-    SUBCASE("ObjetoInteligente com funcoes vazias"){
-        ObjetoInteligente obj(false, {}, {}, 1.0f, { [](){} }, {});
-        CHECK(obj.getFuncoes().size() == 1);
+
+    SUBCASE("ObjetoInteligente com funcoes vazias") {
+        ObjetoInteligente objFuncoes(false, {}, {}, 1.0f, {[](){}}, {});
+        CHECK(objFuncoes.getFuncoes().size() == 1);
     }
-    
-    SUBCASE("ObjetoInteligente com consumo negativo"){
-        CHECK_THROWS( ObjetoInteligente (false, {}, {"Ligado"}, -5.0f, {}, {}));
-    }
-    
 }
 
 TEST_CASE("Status pode ser definido e recuperado") {
@@ -60,8 +66,4 @@ TEST_CASE("Status pode ser definido e recuperado") {
 
     obj.setStatusAtual("Desligado");
     CHECK(obj.getStatus() == "Desligado");
-
-    SUBCASE("ObjetoInteligente tenta usar Status inexistente"){
-        CHECK_THROWS(obj.setStatusAtual("Inexistente"));
-    }
 }

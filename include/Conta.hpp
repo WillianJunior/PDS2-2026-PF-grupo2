@@ -3,11 +3,11 @@
 #define CONTA_HPP
 
 #include <string>
-#include "Smarthome.hpp"
 #include "ObjetoInteligente.hpp"
-#include "Sensor.hpp"
-#include "Comodo.hpp"
-#include "Modo.hpp"
+class Smarthome;
+class Comodo;
+class Sensor;
+class Modo;
 #include <vector>
 
 
@@ -24,7 +24,7 @@ private:
     std::string email;
     std::string senha;
     bool perfilAdulto; // true para Adulto, false para Infantil.
-    std::vector<Smarthome> smarthomes; // vetor que armazena as smarthomes da conta
+    std::vector<Smarthome*> smarthomes; // vetor que armazena as smarthomes da conta
 
 public:
     /**
@@ -67,42 +67,42 @@ public:
      * @brief Comando para criar uma smarthome.
      * @param smarthome Smarthome a ser apagada.
      */
-    void apagarSmarthome(Smarthome smarthome);
+    void apagarSmarthome(Smarthome* smarthome);
 
     /**
      * @brief Comando para criar um cômodo.
      * @param smarthome Smarthome em que o cômodo será adicionado.
      * @param nome Nome do cômodo.
      */
-    void criarComodo(Smarthome smarthome, std::string nome);
+    void criarComodo(Smarthome* smarthome, std::string nome);
 
     /**
      * @brief Comando para apagar um cômodo.
      * @param smarthome Smarthome em que o cômodo será apagado.
      * @param nome Nome do cômodo.
      */
-    void apagarComodo(Smarthome smarthome, std::string nome);
+    void apagarComodo(Smarthome* smarthome, std::string nome);
 
     /**
      * @brief Comando para criar um modo.
      * @param smarthome Smarthome em que o modo será adicionado.
      * @param nome Nome do modo que será adicionado.
      */
-    void criarModo(Smarthome smarthome, std::string nome);
+    void criarModo(Smarthome* smarthome, std::string nome);
 
     /**
      * @brief Comando para remover um modo.
      * @param smarthome Smarthome em que o modo será removido.
      * @param nome Nome do modo que será removido.
      */
-    void apagarModo(Smarthome smarthome, std::string nome);
+    void apagarModo(Smarthome* smarthome, std::string nome);
 
     /**
      * @brief Comando para editar um modo.
      * @param smarthome Smarthome em que o modo será editado.
      * @param nome Nome do modo a ser editado.
      */
-    void editarModo(Smarthome smarthome, std::string nome);
+    void editarModo(Smarthome* smarthome, std::string nome);
 
     /**
      * @brief Comando para criar um objeto inteligente.
@@ -110,7 +110,7 @@ public:
      * @param comodo Comodo em que o objeto será adicionado.
      * @param nome Nome da smarthome em que o cômodo será adicionado.
      */
-    void criarObjeto(Smarthome smarthome, Comodo comodo, std::string nome);
+    void criarObjeto(Smarthome* smarthome, Comodo comodo, std::string nome);
     
      /**
      * @brief Comando para apagar um objeto inteligente.
@@ -118,7 +118,7 @@ public:
      * @param comodo Comodo em que o objeto será apagado.
      * @param nome Nome da smarthome em que o cômodo será apagado.
      */
-    void apagarObjeto(Smarthome smarthome, Comodo comodo, std::string nome);
+    void apagarObjeto(Smarthome* smarthome, Comodo comodo, std::string nome);
     
      /**
      * @brief Comando para mover um objeto inteligente.
@@ -128,7 +128,7 @@ public:
      * @param destino Comodo de destiono do objeto.
      * 
      */
-    void moverObjeto(Smarthome smarthome, Comodo atual, std::string nome, Comodo destino);
+    void moverObjeto(Smarthome* smarthome, Comodo atual, std::string nome, Comodo destino);
 
     /**
      * @brief Comando para criar um sensor.
@@ -136,7 +136,7 @@ public:
      * @param comodo Comodo em que o objeto será adicionado.
      * @param nome Nome da smarthome em que o cômodo será adicionado.
      */
-    void criarSensor(Smarthome smarthome, Comodo comodo, std::string nome);
+    void criarSensor(Smarthome* smarthome, Comodo comodo, std::string nome);
     
     /**
      * @brief Comando para apagar um sensor.
@@ -144,7 +144,7 @@ public:
      * @param comodo Comodo em que o objeto será apagado.
      * @param nome Nome da smarthome em que o cômodo será apagado.
      */
-    void apagarSensor(Smarthome smarthome, Comodo comodo, std::string nome);
+    void apagarSensor(Smarthome* smarthome, Comodo comodo, std::string nome);
     
     /**
      * @brief Comando para mover um sensor.
@@ -153,14 +153,14 @@ public:
      * @param nome Nome da smarthome a ser movido.
      * @param destino Comodo de destino do sensor.
      */
-    void moverSensor(Smarthome smarthome, Comodo atual, std::string nome, Comodo destino);
+    void moverSensor(Smarthome* smarthome, Comodo atual, std::string nome, Comodo destino);
 
 
     /**
      * @brief Comando para gerar relatório de gasto de energia.
      * @param smarthome Smarthome a ter seu gasto de energia calculado.
      */
-    float gerarRelatorioDeEnergia(Smarthome smarthome);
+    float gerarRelatorioDeEnergia(Smarthome* smarthome);
 
      /**
      * @brief Valida se o formato do e-mail é válido.

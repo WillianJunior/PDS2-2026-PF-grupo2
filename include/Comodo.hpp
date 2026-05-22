@@ -1,13 +1,14 @@
 #ifndef COMODO_HPP
 #define COMODO_HPP
 #pragma once
-class Smarthome;
 #include <string>
 #include <vector>
-#include "Conta.hpp"
-#include "Sensor.hpp"
-#include "ObjetoInteligente.hpp"
-#include "Modo.hpp"
+
+class Smarthome;
+class Conta;
+class Sensor;
+class ObjetoInteligente;
+class Modo;
 
 
 /**

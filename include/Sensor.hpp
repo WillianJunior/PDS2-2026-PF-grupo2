@@ -1,21 +1,25 @@
 #ifndef SENSOR_H
 #define SENSOR_H
-#include "ObjetoInteligente.hpp"
-#include "Modo.hpp"
+
 #include <vector>
+
+class ObjetoInteligente;
+class Modo;
 
 class Sensor {
 private:
 
     bool estaLigado;
     bool estaAtivado;
-    std::vector<ObjetoInteligente> objetosConectados;
-    std::vector<Modo> modosConectados;
 
-public: 
+    std::vector<ObjetoInteligente*> objetosConectados;
+    std::vector<Modo*> modosConectados;
+
+public:
+
     /**
      * @brief Função construtora do sensor.
-     * @param ligado Variável que determina se o sensor está ligado (se pode ser ativado).
+     * @param ligado Variável que determina se o sensor está ligado.
      * @param ativado Variável que indica se o sensor está ativado.
      * @param objetosConectados Vetor com todos objetos ligados ao sensor.
      * @param modosConectados Vetor com todos modos ligados ao sensor.
@@ -23,8 +27,8 @@ public:
     Sensor(
         bool ligado,
         bool ativado,
-        std::vector<ObjetoInteligente> objetosConectados,
-        std::vector<Modo> modosConectados
+        std::vector<ObjetoInteligente*> objetosConectados,
+        std::vector<Modo*> modosConectados
     );
 
     /**
@@ -33,7 +37,7 @@ public:
     void setEstaLigado();
 
     /**
-     * @brief Retorna se o sensor está ligado ou não (se está pronto para ser ativado).
+     * @brief Retorna se o sensor está ligado.
      */
     bool getEstaLigado();
 
@@ -41,37 +45,36 @@ public:
      * @brief Ativa ou desativa o sensor.
      */
     void setEstaAtivado();
-    
+
     /**
-     * @brief Ativa ou desativa o sensor.
+     * @brief Retorna se o sensor está ativado.
      */
     bool getEstaAtivado();
 
     /**
      * @brief Retorna a lista de objetos conectados.
      */
-    ObjetoInteligente getObjetosConectados();
+    std::vector<ObjetoInteligente*> getObjetosConectados();
 
     /**
      * @brief Retorna a lista de modos conectados.
      */
-    Modo getModosConectados();
+    std::vector<Modo*> getModosConectados();
 
     /**
-     * @brief Confere elementos do ambiente, podendo assim ativar.
+     * @brief Confere elementos do ambiente.
      */
     void checarAmbiente();
 
     /**
      * @brief Ativa um modo.
      */
-    void ativarModo(Modo modo);
+    void ativarModo(Modo* modo);
 
     /**
      * @brief Ativa um objeto.
      */
-    void ativarObjeto(ObjetoInteligente objeto);
-
+    void ativarObjeto(ObjetoInteligente* objeto);
 };
 
 #endif

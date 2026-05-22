@@ -1,8 +1,8 @@
 #include "Modo.hpp"
 
 Modo::Modo(
-    std::vector<ObjetoInteligente> objetos,
-    std::vector<Comodo> comodos,
+    std::vector<ObjetoInteligente*> objetos,
+    std::vector<Comodo*> comodos,
     bool ligado,
     bool bloqueado
 )
@@ -27,10 +27,10 @@ bool Modo::getBloqueadoModo() {
     return bloqueado;
 }
 
-std::vector<ObjetoInteligente> Modo::getObjetosRelacionados() {
+std::vector<ObjetoInteligente*> Modo::getObjetosRelacionados() {
     return objetosRelacionados;
 }
 
-std::vector<Comodo> Modo::getComodosRelacionados() {
+std::vector<Comodo*> Modo::getComodosRelacionados() {
     return comodosRelacionados;
 }

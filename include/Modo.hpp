@@ -1,8 +1,8 @@
 #ifndef MODO_HPP
 #define MODO_HPP
 
-#include "ObjetoInteligente.hpp"
-#include "Comodo.hpp"
+class ObjetoInteligente;
+class Comodo;
 
 #include <vector>
 
@@ -17,8 +17,8 @@ class Modo{
 
     private:
 
-        std::vector<ObjetoInteligente> objetosRelacionados;
-        std::vector<Comodo> comodosRelacionados;
+        std::vector<ObjetoInteligente*> objetosRelacionados;
+        std::vector<Comodo*> comodosRelacionados;
 
 
          /**
@@ -39,8 +39,8 @@ class Modo{
         * @param bloqueado Estado de bloqueio do modo.
          */
          Modo(
-            std::vector<ObjetoInteligente> objetos,
-            std::vector<Comodo> comodos,
+            std::vector<ObjetoInteligente*> objetos,
+            std::vector<Comodo*> comodos,
             bool ligado,
             bool bloqueado
         );
@@ -59,8 +59,8 @@ class Modo{
         void setBloqueadoModo(bool bloqueado);
         bool getBloqueadoModo();
 
-        std::vector<ObjetoInteligente> getObjetosRelacionados();
-        std::vector<Comodo> getComodosRelacionados();
+        std::vector<ObjetoInteligente*> getObjetosRelacionados();
+        std::vector<Comodo*> getComodosRelacionados();
 
 
 
