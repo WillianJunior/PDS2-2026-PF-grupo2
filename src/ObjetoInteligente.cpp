@@ -22,8 +22,8 @@ ObjetoInteligente::ObjetoInteligente(
 bool ObjetoInteligente :: operator==(const ObjetoInteligente& other) const {
         return restricaoAdulto == other.restricaoAdulto && sensores == other.sensores &&
          statusPossiveis == other.statusPossiveis && consumoMedioDeEnergia == other.consumoMedioDeEnergia &&
-         funcoes == other.funcoes && funcoesRestritas == other.funcoesRestritas;
-    }
+         funcoes.size() == other.funcoes.size() && funcoesRestritas.size() == other.funcoesRestritas.size();
+    } // funcoes nao podem ser comparadas diretamente entao usa o .size() 
 
 void ObjetoInteligente::setRestricaoAdulto() {
     restricaoAdulto = true;
