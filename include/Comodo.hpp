@@ -25,20 +25,26 @@ public:
      */ 
     Comodo(std::string nome, Smarthome* casa);
     /**
+     * @brief Define comparação entre comodos.
+     * @param other é comodo a ser comparado.
+     * @return Retorna true se comodos forem iguais.
+     */
+    bool operator == (const Comodo& other)const;
+    /**
      * @brief Adiciona um objeto a um comodo.
      * @param objeto ObjetoInteligente a ser adicionado ao comodo.
      */
-    void adicionarObjeto(const ObjetoInteligente* objeto);
+    void adicionarObjeto(ObjetoInteligente* objeto);
     /**
      * @brief Adiciona um sensor a um comodo.
      * @param sensor Sensor a ser adicionado ao comodo.
      */
-    void adicionarSensor(const Sensor* sensor); 
+    void adicionarSensor(Sensor* sensor); 
     /**
      * @brief Adiciona um modo a um comodo.
      * @param modo Modo a ser adicionado ao comodo.
      */
-    void adicionarModo(const Modo* modo);
+    void adicionarModo(Modo* modo);
     /**
      * @brief Retorna objetos no comodo.
      */
@@ -62,7 +68,7 @@ public:
      * 
      * @param conta Ponteiro para a conta que entrou no cômodo.
      */
-    void entrarConta(const Conta* conta);
+    void entrarConta(Conta* conta);
      /**
      * @brief Remove a conta presente do cômodo.
      */
@@ -86,6 +92,22 @@ public:
      * @brief Retorna Smarthome a qual o cômodo pertence.
      */
     Smarthome* getSmarthome() const;
+    /**
+     * @brief Imprime informações dos objetos do Comodo.
+     */
+    void printObjetosInfo()const;
+    /**
+     * @brief Imprime informações dos sensores do Comodo.
+     */
+    void printSensoresInfo()const;
+    /**
+     * @brief Imprime informações dos contas do Comodo.
+     */
+    void printContasInfo()const;
+    /**
+     * @brief Imprime informações dos modos do Comodo.
+     */
+    void printModosInfo()const;
 
     ~Comodo();
                 
