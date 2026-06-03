@@ -30,6 +30,7 @@ static Sensor DummySensorComodo() {
 }
 
 static Modo DummyModoComodo() {
+
     std::vector<ObjetoInteligente*> objetos;
     std::vector<Comodo*> comodos;
 
@@ -44,17 +45,15 @@ TEST_CASE("TESTE 1 construtor - Comodo") {
     CHECK(comodoTeste.getNome() == "comodoTeste");
     CHECK(comodoTeste.getSmarthome() == &smarthome);
 
-    SUBCASE("nome vazio") {
-        Comodo comodoVazio("", &smarthome);
-        CHECK(comodoVazio.getNome() == "");
+    SUBCASE("TESTE 1.1 nome nao pode ser vazio") {
+        CHECK_THROWS(Comodo("", &smarthome));
     }
 
-    SUBCASE("ponteiro smarthome nullptr") {
-        Comodo comodoNull("comodoTeste", nullptr);
-        CHECK(comodoNull.getSmarthome() == nullptr);
+    SUBCASE("TESTE 1.2 ponteiro smarthome nao pode ser nullptr") {
+        CHECK_THROWS (Comodo("comodoTeste", nullptr));
     }
 
-    SUBCASE("nome longo") {
+    SUBCASE("TESTE 1.3 nome longo") {
         std::string longName(1000, 'A');
         Comodo comodoLongo(longName, &smarthome);
         CHECK(comodoLongo.getNome().size() == 1000);
@@ -72,12 +71,12 @@ TEST_CASE("TESTE 2 adicionarObjeto - Comodo") {
 
     CHECK(comodoTeste.getObjetos().size() == 1);
 
-    SUBCASE("ponteiro nullptr nao adiciona") {
+    SUBCASE("TESTE 2.1 ponteiro nullptr nao adiciona") {
         comodoTeste.adicionarObjeto(nullptr);
         CHECK(comodoTeste.getObjetos().size() == 1);
     }
 
-    SUBCASE("objeto repetido nao duplica") {
+    SUBCASE("TESTE 2.2 objeto repetido nao duplica") {
         comodoTeste.adicionarObjeto(&obj);
         CHECK(comodoTeste.getObjetos().size() == 1);
     }
@@ -94,12 +93,12 @@ TEST_CASE("TESTE 3 adicionarSensor - Comodo") {
 
     CHECK(comodoTeste.getSensores().size() == 1);
 
-    SUBCASE("ponteiro nullptr nao adiciona") {
+    SUBCASE("TESTE 3.1 ponteiro nullptr nao adiciona") {
         comodoTeste.adicionarSensor(nullptr);
         CHECK(comodoTeste.getSensores().size() == 1);
     }
 
-    SUBCASE("sensor repetido nao duplica") {
+    SUBCASE("TESTE 3.2 sensor repetido nao duplica") {
         comodoTeste.adicionarSensor(&sensor);
         CHECK(comodoTeste.getSensores().size() == 1);
     }
@@ -116,12 +115,12 @@ TEST_CASE("TESTE 4 adicionarModo - Comodo") {
 
     CHECK(comodoTeste.getModos().size() == 1);
 
-    SUBCASE("modo repetido nao duplica") {
+    SUBCASE("TESTE 4.1 modo repetido nao duplica") {
         comodoTeste.adicionarModo(&modo);
         CHECK(comodoTeste.getModos().size() == 1);
     }
 
-    SUBCASE("modo nullptr nao adiciona") {
+    SUBCASE("TESTE 4.2 modo nullptr nao adiciona") {
         comodoTeste.adicionarModo(nullptr);
         CHECK(comodoTeste.getModos().size() == 1);
     }
@@ -136,32 +135,43 @@ TEST_CASE("TESTE 5 entrarConta - Comodo") {
 
     CHECK(comodoTeste.getContasPresentes().size() == 1);
 
-    SUBCASE("mais de uma conta") {
+    SUBCASE("TESTE 5.1 mais de uma conta") {
         Conta contaTeste2("2", "Usuario B", "usuarioB@email.com", "senha456", true);
         comodoTeste.entrarConta(&contaTeste2);
         CHECK(comodoTeste.getContasPresentes().size() == 2);
     }
 
-    SUBCASE("conta nullptr nao adiciona") {
+    SUBCASE("TESTE 5.2 conta nullptr nao adiciona") {
         comodoTeste.entrarConta(nullptr);
+        CHECK(comodoTeste.getContasPresentes().size() == 1);
+    }
+
+    SUBCASE("TESTE 5.3 conta nao pode entrar duas vezes"){
+        comodoTeste.entrarConta(&contaTeste);
         CHECK(comodoTeste.getContasPresentes().size() == 1);
     }
 }
 
 TEST_CASE("TESTE 6 sairConta - Comodo") {
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+    Conta contaTeste2("2", "Usuario B", "usuariob@email.com", "senha1234", true);
     Smarthome smarthome(contaTeste, "Minha Casa");
     Comodo comodoTeste("comodoTeste", &smarthome);
-
     comodoTeste.entrarConta(&contaTeste);
-    CHECK(comodoTeste.getContasPresentes().size() == 1);
+    comodoTeste.entrarConta(&contaTeste2);
+
+    CHECK(comodoTeste.getContasPresentes().size() == 2);
+    CHECK(comodoTeste.getContasPresentes().front() == &contaTeste);
 
     comodoTeste.sairConta();
-    CHECK(comodoTeste.getContasPresentes().size() == 0);
+    CHECK(comodoTeste.getContasPresentes().size() == 1);
+    CHECK(comodoTeste.getContasPresentes().front() == &contaTeste2);
+    comodoTeste.sairConta();
+    CHECK(comodoTeste.getContasPresentes().empty());
 
-    SUBCASE("sair sem conta nao quebra") {
+    SUBCASE("TESTE 6.1 sair sem conta nao quebra") {
         comodoTeste.sairConta();
-        CHECK(comodoTeste.getContasPresentes().size() == 0);
+        CHECK(comodoTeste.getContasPresentes().empty());
     }
 }
 
@@ -177,4 +187,58 @@ TEST_CASE("TESTE 7 removerObjeto - Comodo") {
 
     comodoTeste.removerObjeto(&obj);
     CHECK(comodoTeste.getObjetos().size() == 0);
+}
+
+// ---- implementação incompleta dos metodos seguintes -----
+
+TEST_CASE("TESTE 8 printObjetosInfo - Comodo"){
+    Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+    Smarthome smarthome(contaTeste, "Minha Casa");
+    Comodo comodoTeste("comodoTeste", &smarthome);
+
+    auto obj = DummyObjetoComodo();
+
+    comodoTeste.adicionarObjeto(&obj);
+    
+    comodoTeste.printObjetosInfo();
+    //CHECK();
+}
+TEST_CASE("TESTE 9 printModosInfo - Comodo" ){
+    Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+    Smarthome smarthome(contaTeste, "Minha Casa");
+    Comodo comodoTeste("comodoTeste", &smarthome);
+
+    auto modo = DummyModoComodo();
+
+    comodoTeste.adicionarModo(&modo);
+
+    comodoTeste.printModosInfo();
+    // CHECK(); 
+
+}
+
+TEST_CASE("TESTE 10 printContasInfo - Comodo"){
+    Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+    Smarthome smarthome(contaTeste, "Minha Casa");
+    Comodo comodoTeste("comodoTeste", &smarthome);
+
+    comodoTeste.entrarConta(&contaTeste);
+
+    comodoTeste.printContasInfo();
+    //CHECK();
+
+}
+
+TEST_CASE("TESTE 11 printSensoresInfo - Comodo"){
+    Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+    Smarthome smarthome(contaTeste, "Minha Casa");
+    Comodo comodoTeste("comodoTeste", &smarthome);
+    
+    auto sensor = DummySensorComodo();
+
+    comodoTeste.adicionarSensor(&sensor);
+
+    comodoTeste.printSensoresInfo();
+   //CHECK();
+
 }
