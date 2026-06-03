@@ -41,11 +41,15 @@ public:
      * @param objeto Objeto a ser adicionado à smarthome.
      */
     void adicionarObjeto(const ObjetoInteligente& objeto);
-
+    /**
+     * @brief Remove um cômodo de uma smarthome.
+     * @param comodo Comodo a ser removido da smarthome.
+     */
+    void removerComodo(const Comodo& comodo);
     /**
      * @brief Retorna o usuário dono da smarthome.
      */
-    Conta getNomeUsuario()const;
+    Conta getUsuario()const;
     /**
      * @brief Retorna nome da smarthome.
      */
@@ -62,8 +66,19 @@ public:
      * @brief Retorna a quantidade de Objetos da smarthome.
      */
     size_t getQuantidadeObjetos()const;
-
-
+    /**
+     * @brief Imprime informações dos comodos de Smarthome.
+     */
+    void printComodosInfo()const;
+    /**
+     * @brief Imprime informações dos objetos de Smarthome.
+     */
+    void printObjetosInfo()const;
+    /**
+     * @brief Imprime informações dos modos de Smarthome.
+     */
+    void printModosInfo()const;
+    
     ~Smarthome();
 };
 #endif
