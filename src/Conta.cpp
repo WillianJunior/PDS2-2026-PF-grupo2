@@ -109,3 +109,12 @@ bool Conta::validarSenha() const {
 bool Conta::autenticar(const std::string& tentativaSenha) const {
     return senha == tentativaSenha;
 }
+
+bool Conta :: operator == (const Conta& other) const{
+    return id == other.id && nome == other.nome &&
+    email == other.email && senha == other.senha && perfilAdulto == other.perfilAdulto;
+}
+
+void Conta :: printMembrosInfo() const{
+    //implemetação
+}

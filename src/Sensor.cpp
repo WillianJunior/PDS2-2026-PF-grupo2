@@ -47,3 +47,12 @@ void Sensor::ativarModo(Modo* modo) {
 void Sensor::ativarObjeto(ObjetoInteligente* objeto) {
     (void)objeto;
 }
+
+bool Sensor :: operator== (const Sensor& other) const{
+    return estaLigado == other.estaLigado && estaAtivado == other.estaAtivado && objetosConectados == other.objetosConectados &&
+    modosConectados == other.modosConectados;
+}
+
+void Sensor :: printMembrosInfo() const{
+    //implemetação
+}

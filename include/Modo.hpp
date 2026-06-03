@@ -62,8 +62,16 @@ class Modo{
         std::vector<ObjetoInteligente*> getObjetosRelacionados();
         std::vector<Comodo*> getComodosRelacionados();
 
+        /**
+         * @brief Define comparação entre modos.
+         * @return Retorna se modos são iguais ou não.
+         */
+        bool operator== (const Modo& other) const;
 
-
+        /**
+         * @brief Imprime informações do membro do modo.
+         * */
+        void printMembrosInfo() const;
 };
 
 #endif

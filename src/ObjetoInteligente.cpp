@@ -19,7 +19,11 @@ ObjetoInteligente::ObjetoInteligente(
 {
     
 }
-
+bool ObjetoInteligente :: operator==(const ObjetoInteligente& other) const {
+        return restricaoAdulto == other.restricaoAdulto && sensores == other.sensores &&
+         statusPossiveis == other.statusPossiveis && consumoMedioDeEnergia == other.consumoMedioDeEnergia &&
+         funcoes == other.funcoes && funcoesRestritas == other.funcoesRestritas;
+    }
 
 void ObjetoInteligente::setRestricaoAdulto() {
     restricaoAdulto = true;
@@ -56,4 +60,8 @@ std::vector<std::function<void()>> ObjetoInteligente::getFuncoes() {
 
 std::vector<std::function<void()>> ObjetoInteligente::getFuncoesRestritas() {
     return funcoesRestritas;
+}
+
+void ObjetoInteligente :: printMembrosInfo() const{
+    //implemetação
 }

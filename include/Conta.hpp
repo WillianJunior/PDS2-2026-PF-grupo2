@@ -178,5 +178,15 @@ public:
      * @return true = correta.
      */
     bool autenticar(const std::string& tentativaSenha) const;
+    /**
+     * @brief Define comparação entre contas
+     * @param other é conta a ser comparada.
+     * @return true = iguais.
+     */
+    bool operator == (const Conta& other) const;
+    /**
+     * @brief Imprime informações do membro da conta.
+     **/
+    void printMembrosInfo() const;
 };
 #endif

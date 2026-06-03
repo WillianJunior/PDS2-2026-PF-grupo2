@@ -75,6 +75,18 @@ public:
      * @brief Ativa um objeto.
      */
     void ativarObjeto(ObjetoInteligente* objeto);
+
+    /**
+     * @brief Define comparação entre sensores.
+     * @param other é sensor a ser comparado.
+     * @return Retorna true se sensores são iguais.
+     */
+    bool operator== (const Sensor& other)const;
+
+    /**
+     * @brief Imprime informações do membro do sensor.
+     * */
+    void printMembrosInfo() const;
 };
 
 #endif

@@ -73,7 +73,14 @@ public:
      * @brief Retorna a lista de funções restritas a crianças do objeto.
      * */
     std::vector<std::function<void()>> getFuncoesRestritas();
-
+    /**
+     * @brief Define comparação entre objetos.
+     * */
+    bool operator==(const ObjetoInteligente& other) const;
+    /**
+     * @brief Imprime informações do membro do objeto.
+     * */
+    void printMembrosInfo() const;
 };
 
 #endif

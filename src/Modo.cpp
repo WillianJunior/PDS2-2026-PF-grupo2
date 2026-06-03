@@ -34,3 +34,10 @@ std::vector<ObjetoInteligente*> Modo::getObjetosRelacionados() {
 std::vector<Comodo*> Modo::getComodosRelacionados() {
     return comodosRelacionados;
 }
+bool Modo :: operator == (const Modo& other) const{
+    return objetosRelacionados == other.objetosRelacionados && comodosRelacionados == other.comodosRelacionados &&
+    ligado == other.ligado && bloqueado == other.bloqueado;
+}
+void Modo :: printMembrosInfo() const{
+    //implemetação
+}
