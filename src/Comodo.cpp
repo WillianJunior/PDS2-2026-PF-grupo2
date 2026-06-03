@@ -4,29 +4,50 @@
 #include "Sensor.hpp"
 #include "ObjetoInteligente.hpp"
 #include "Modo.hpp"
-
-Comodo::Comodo(std::string nome, Smarthome* casa) : nome(nome), casa(casa) {
-    // Não lança exceção se casa == nullptr, apenas aceita
+#include <vector>
+#include <iostream>
+using namespace std;
+Comodo::Comodo(std::string nome, Smarthome* casa) {
+    //adicionar asserção para nome vazio e casa nullptr
 }
 
-void Comodo::adicionarObjeto(const ObjetoInteligente* objeto) {
+bool Comodo :: operator== (const Comodo& other) const{
+    return nome == other.nome && casa == other.casa;
+}
+
+void Comodo::adicionarObjeto(ObjetoInteligente* objeto) {
     if (objeto) {
-        if (std::find(objetos.begin(), objetos.end(), objeto) == objetos.end())
-            objetos.push_back(const_cast<ObjetoInteligente*>(objeto));
+        for (const auto& o : objetos) {
+            if (*o == *objeto) { 
+                std::cout << "Objeto já existente no Comodo " << nome << std::endl; // por nome do comodo
+                return;
+            }
+        }
+        objetos.push_back(objeto);
     }
 }
 
-void Comodo::adicionarSensor(const Sensor* sensor) {
+void Comodo::adicionarSensor(Sensor* sensor) {
     if (sensor) {
-        if (std::find(sensores.begin(), sensores.end(), sensor) == sensores.end())
-            sensores.push_back(const_cast<Sensor*>(sensor));
+        for (const auto& s : sensores) {
+            if (*s == *sensor) { 
+                std::cout << "Sensor já existente no Comodo " << nome << std::endl;
+                return;
+            }
+        }
+        sensores.push_back(sensor);
     }
 }
 
-void Comodo::adicionarModo(const Modo* modo) {
+void Comodo::adicionarModo(Modo* modo) {
     if (modo) {
-        if (std::find(modos.begin(), modos.end(), modo) == modos.end())
-            modos.push_back(const_cast<Modo*>(modo));
+        for (const auto& m : modos) {
+            if (*m == *modo) { 
+                std::cout << "Modo já existente no Comodo " << nome << std::endl;
+                return;
+            }
+        }
+        modos.push_back(modo);
     }
 }
 
@@ -49,15 +70,21 @@ void Comodo::removerObjeto(const ObjetoInteligente* objeto) {
     }
 }
 
-void Comodo::entrarConta(const Conta* conta) {
+void Comodo::entrarConta(Conta* conta) {
     if (conta) {
-        contasPresentes.push_back(const_cast<Conta*>(conta));
+        for (const auto& c : contasPresentes) {
+            if (*c == *conta) { 
+                std::cout << "Conta já existente no Comodo " << nome << std::endl;
+                return;
+            }
+        }
+        contasPresentes.push_back(conta);
     }
 }
 
 void Comodo::sairConta() {
     if (!contasPresentes.empty()) {
-        contasPresentes.pop_back();
+        contasPresentes.erase(contasPresentes.begin());// comportamento de fila FIFO
     }
 }
 
@@ -77,4 +104,38 @@ Smarthome* Comodo::getSmarthome() const {
     return casa;
 }
 
+void Comodo :: printObjetosInfo() const{
+    std::cout << "Comodo "<< nome << " da smarthome: " << casa << endl;
+    std::cout<< "Objetos inteligentes presentes em "<< nome << " :" << endl;
+    for(int i=0; i<objetos.size(); i++){
+        objetos[i]->printMembrosInfo();  // falta add metodos prints certos
+        std::cout << endl;
+    }
+}
+void Comodo :: printSensoresInfo() const{ 
+    std::cout << "Comodo "<< nome << " da smarthome: " << casa << endl;
+    std::cout<< "Sensores presentes em "<< nome << " :" << endl;
+    for(int i=0; i<sensores.size(); i++){
+        sensores[i]->printMembrosInfo(); // falta add metodos prints certos 
+        std::cout << endl;
+    }
+}
+
+void Comodo :: printModosInfo() const{
+    std::cout << "Comodo "<< nome << " da smarthome: " << casa << endl;
+    std::cout<< "Modos presentes em "<< nome << " :" << endl;
+    for(int i=0; i<modos.size(); i++){
+        modos[i]->printMembrosInfo();// falta add metodos prints certos  
+        std::cout << endl;
+    }
+}
+
+void Comodo :: printContasInfo() const{
+    std::cout << "Comodo "<< nome << " da smarthome: " << casa << endl;
+    std::cout<< "Contas presentes em "<< nome << " :" << endl;
+    for(int i=0; i<contasPresentes.size(); i++){
+        contasPresentes[i]->printMembrosInfo();// falta add metodos prints certos  
+        std::cout << endl;
+    }
+}
 Comodo::~Comodo() = default;
