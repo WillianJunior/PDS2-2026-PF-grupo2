@@ -107,7 +107,7 @@ Smarthome* Comodo::getSmarthome() const {
 void Comodo :: printObjetosInfo() const{
     std::cout << "Comodo "<< nome << " da smarthome: " << casa << endl;
     std::cout<< "Objetos inteligentes presentes em "<< nome << " :" << endl;
-    for(int i=0; i<objetos.size(); i++){
+    for(size_t i=0; i<objetos.size(); i++){
         objetos[i]->printMembrosInfo();  // falta add metodos prints certos
         std::cout << endl;
     }
@@ -115,7 +115,7 @@ void Comodo :: printObjetosInfo() const{
 void Comodo :: printSensoresInfo() const{ 
     std::cout << "Comodo "<< nome << " da smarthome: " << casa << endl;
     std::cout<< "Sensores presentes em "<< nome << " :" << endl;
-    for(int i=0; i<sensores.size(); i++){
+    for(size_t i=0; i<sensores.size(); i++){
         sensores[i]->printMembrosInfo(); // falta add metodos prints certos 
         std::cout << endl;
     }
@@ -124,7 +124,7 @@ void Comodo :: printSensoresInfo() const{
 void Comodo :: printModosInfo() const{
     std::cout << "Comodo "<< nome << " da smarthome: " << casa << endl;
     std::cout<< "Modos presentes em "<< nome << " :" << endl;
-    for(int i=0; i<modos.size(); i++){
+    for(size_t i=0; i<modos.size(); i++){
         modos[i]->printMembrosInfo();// falta add metodos prints certos  
         std::cout << endl;
     }
@@ -133,7 +133,7 @@ void Comodo :: printModosInfo() const{
 void Comodo :: printContasInfo() const{
     std::cout << "Comodo "<< nome << " da smarthome: " << casa << endl;
     std::cout<< "Contas presentes em "<< nome << " :" << endl;
-    for(int i=0; i<contasPresentes.size(); i++){
+    for(size_t i=0; i<contasPresentes.size(); i++){
         contasPresentes[i]->printMembrosInfo();// falta add metodos prints certos  
         std::cout << endl;
     }

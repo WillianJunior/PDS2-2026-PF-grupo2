@@ -63,7 +63,7 @@ size_t Smarthome::getQuantidadeObjetos() const {
 void Smarthome:: printComodosInfo()const{
     std::cout << "Smarthome " << nome << " de: " << usuario.getNome() << endl;
     std::cout<< "Comodos presentes em "<< nome << " :" << endl;
-    for(int i=0; i<comodos.size(); i++){
+    for(size_t i=0; i<comodos.size(); i++){
         comodos[i].printObjetosInfo(); 
         comodos[i].printModosInfo();
         comodos[i].printSensoresInfo();
@@ -75,7 +75,7 @@ void Smarthome:: printComodosInfo()const{
 void Smarthome:: printObjetosInfo() const{
     std::cout << "Smarthome " << nome << " de: " << usuario.getNome() << endl;
     std::cout << "Objetos Inteligentes presentes em " << nome << " :" << endl;
-    for(int i=0; i<objetos.size(); i++){
+    for(size_t i=0; i<objetos.size(); i++){
         objetos[i].printMembrosInfo(); // falta add metodos prints certos
         std::cout<< endl;
     } 
@@ -84,7 +84,7 @@ void Smarthome:: printObjetosInfo() const{
 void Smarthome:: printModosInfo() const{
     std::cout << "Smarthome " << nome << " de: " << usuario.getNome() << endl;
     std::cout << "Modos presentes em " << nome << " :" << endl;
-    for(int i=0; i<modos.size(); i++){
+    for(size_t i=0; i<modos.size(); i++){
          modos[i].printMembrosInfo(); // falta add metodos prints certos
         std::cout<< endl;
     }
