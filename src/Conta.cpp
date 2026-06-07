@@ -1,6 +1,11 @@
 #include "Conta.hpp"
 #include "Smarthome.hpp"
 #include "Comodo.hpp"
+#include "Modo.hpp"
+#include "ObjetoInteligente.hpp"
+#include "Sensor.hpp"
+#include <iostream>
+#include <vector>
 
 Conta::Conta(std::string id, std::string nome, std::string email, std::string senha, bool adulto)
     : id(id), nome(nome), email(email), senha(senha), perfilAdulto(adulto) {}
@@ -23,23 +28,36 @@ bool Conta::isPerfilAdulto() const {
 
 void Conta::criarSmarthome(std::string id, std::string nome) {
     (void)id;
-    (void)nome;
+    Smarthome* nova_smarthome = new Smarthome(*this, nome);
+    smarthomes.push_back(nova_smarthome);
 }
 
 void Conta::apagarSmarthome(Smarthome* smarthome) {
-    (void)smarthome;
+    for (auto it = smarthomes.begin(); it != smarthomes.end(); ++it) {
+        if (*it == smarthome) {
+            delete *it;
+            smarthomes.erase(it);
+            break;
+        }
+    }
 }
 
 void Conta::criarComodo(Smarthome* smarthome, std::string nome) {
-    (void)smarthome;
-    (void)nome;
+    if (smarthome != nullptr) {
+        Comodo novoComodo(nome, smarthome);
+        smarthome->adicionarComodo(novoComodo);
+    }
 }
 
 void Conta::apagarComodo(Smarthome* smarthome, std::string nome) {
-    (void)smarthome;
-    (void)nome;
+    if (smarthome != nullptr) {
+        Comodo comodoRemover(nome, smarthome);
+        smarthome->removerComodo(comodoRemover);
+    }
 }
 
+
+// A partir daqui até Conta, aguardar implementação de atributo NOME no Modo, ObjetoInteligente e Sensor.
 void Conta::criarModo(Smarthome* smarthome, std::string nome) {
     (void)smarthome;
     (void)nome;
@@ -115,6 +133,7 @@ bool Conta :: operator == (const Conta& other) const{
     email == other.email && senha == other.senha && perfilAdulto == other.perfilAdulto;
 }
 
-void Conta :: printMembrosInfo() const{
-    //implemetação
+void Conta::printMembrosInfo() const {
+    std::cout << "ID: " << id << "\nNome: " << nome << "\nE-mail: " << email 
+              << "\nPerfil: " << (perfilAdulto ? "Adulto" : "Infantil") << std::endl;
 }
