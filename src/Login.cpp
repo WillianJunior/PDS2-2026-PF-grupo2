@@ -4,6 +4,12 @@ Login::Login(std::vector<Conta> contasCadastradas)
     : contas(contasCadastradas) {}
 
 void Login::criarConta(Conta contaNova) {
+    for (int i = 0; i < contas.size(); i++) {
+        if (contas[i].getEmail() == contaNova.getEmail()) {
+            return;
+        }
+    }
+
     contas.push_back(contaNova);
 }
 
