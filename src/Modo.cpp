@@ -18,6 +18,11 @@ std::string Modo::getNome() const {
 }
 
 void Modo::setAtivoModo(bool ativo) {
+    if (bloqueado && ativo) {
+        ligado = false;
+        return;
+    }
+
     ligado = ativo;
 }
 
@@ -27,6 +32,10 @@ bool Modo::getAtivoModo() {
 
 void Modo::setBloqueadoModo(bool estado) {
     bloqueado = estado;
+
+    if (bloqueado) {
+        ligado = false;
+    }
 }
 
 bool Modo::getBloqueadoModo() {
@@ -51,5 +60,4 @@ bool Modo::operator==(const Modo& other) const {
 
 void Modo::printMembrosInfo() const {
     // ainda vou implementar
-
 }

@@ -46,6 +46,29 @@ TEST_CASE("Alteracao de estado do Modo") {
 
         CHECK(modo.getBloqueadoModo() == true);
     }
+
+    SUBCASE("Modo bloqueado nao pode ser ativado") {
+        modo.setBloqueadoModo(true);
+        modo.setAtivoModo(true);
+
+        CHECK(modo.getAtivoModo() == false);
+    }
+
+    SUBCASE("Bloquear modo desativa o modo") {
+        modo.setAtivoModo(true);
+        modo.setBloqueadoModo(true);
+
+        CHECK(modo.getAtivoModo() == false);
+        CHECK(modo.getBloqueadoModo() == true);
+    }
+
+    SUBCASE("Modo desbloqueado pode ser ativado novamente") {
+        modo.setBloqueadoModo(true);
+        modo.setBloqueadoModo(false);
+        modo.setAtivoModo(true);
+
+        CHECK(modo.getAtivoModo() == true);
+    }
 }
 
 TEST_CASE("Listas relacionadas ao Modo") {
