@@ -73,6 +73,18 @@ public:
     void removerObjeto(const ObjetoInteligente* objeto);
 
     /**
+     * @brief Remove um objeto do comodo buscando pelo nome.
+     * @param nomeObjeto Nome do objeto a ser removido.
+     */
+    void removerObjetoPorNome(std::string nomeObjeto);
+    
+    /**
+     * @brief Remove um sensor do comodo buscando pelo nome.
+     * @param nomeSensor Nome do sensor a ser removido.
+     */
+    void removerSensorPorNome(std::string nomeSensor);
+    
+    /**
      * @brief Define uma conta que esta no cômodo.
      * 
      * @param conta Ponteiro para a conta que entrou no cômodo.

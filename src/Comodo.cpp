@@ -148,4 +148,27 @@ void Comodo :: printContasInfo() const{
         std::cout << endl;
     }
 }
+
+void Comodo::removerObjetoPorNome(std::string nomeObjeto) {
+    for (auto it = objetos.begin(); it != objetos.end(); ++it) {
+        if ((*it)->getNome() == nomeObjeto) {
+            objetos.erase(it);
+            std::cout << "Objeto " << nomeObjeto << " removido do Comodo " << nome << std::endl;
+            return;
+        }
+    }
+    std::cout << "Objeto " << nomeObjeto << " nao encontrado no Comodo " << nome << std::endl;
+}
+
+void Comodo::removerSensorPorNome(std::string nomeSensor) {
+    for (auto it = sensores.begin(); it != sensores.end(); ++it) {
+        if ((*it)->getNome() == nomeSensor) {
+            sensores.erase(it);
+            std::cout << "Sensor " << nomeSensor << " removido do Comodo " << nome << std::endl;
+            return;
+        }
+    }
+    std::cout << "Sensor " << nomeSensor << " nao encontrado no Comodo " << nome << std::endl;
+}
+
 Comodo::~Comodo() = default;
