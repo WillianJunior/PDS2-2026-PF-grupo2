@@ -21,6 +21,10 @@ std::vector<std::string> Comodo::getCondicoesDoComodo() {
     return condicoesDoComodo;
 }
 
+void Comodo::adicionarCondicao(std::string condicao) {
+    condicoesDoComodo.push_back(condicao);
+}
+
 void Comodo::adicionarObjeto(ObjetoInteligente* objeto) {
     if (objeto) {
         for (const auto& o : objetos) {

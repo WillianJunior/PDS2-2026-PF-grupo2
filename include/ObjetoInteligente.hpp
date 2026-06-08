@@ -4,6 +4,8 @@
 #include <string>
 #include <functional>
 
+//TODO: adicionar tipos de objetos (lampada, ar condicionado, tv, etc.)
+
 class Sensor;
 
 /**

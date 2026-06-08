@@ -35,6 +35,11 @@ public:
      */
     std::vector<std::string> getCondicoesDoComodo();
     /**
+     * @brief Adiciona uma nova condição ao cômodo.
+     * @param condicao Qual condição será adicionada.
+     */
+    void adicionarCondicao(std::string condicao);
+    /**
      * @brief Adiciona um objeto a um comodo.
      * @param objeto ObjetoInteligente a ser adicionado ao comodo.
      */
