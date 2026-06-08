@@ -3,16 +3,22 @@
 #include "Modo.hpp"
 
 Sensor::Sensor(
+    std::string nome,
     bool ligado,
     bool ativado,
     std::vector<ObjetoInteligente*> objetosConectados,
     std::vector<Modo*> modosConectados
 )
 {
+    this->nome = nome;
     this->estaLigado = ligado;
     this->estaAtivado = ativado;
     this->objetosConectados = objetosConectados;
     this->modosConectados = modosConectados;
+}
+
+std::string Sensor::getNome() const {
+    return nome;
 }
 
 void Sensor::setEstaLigado() {
@@ -49,8 +55,11 @@ void Sensor::ativarObjeto(ObjetoInteligente* objeto) {
 }
 
 bool Sensor :: operator== (const Sensor& other) const{
-    return estaLigado == other.estaLigado && estaAtivado == other.estaAtivado && objetosConectados == other.objetosConectados &&
-    modosConectados == other.modosConectados;
+    return nome == other.nome &&
+           estaLigado == other.estaLigado && 
+           estaAtivado == other.estaAtivado && 
+           objetosConectados == other.objetosConectados &&
+           modosConectados == other.modosConectados;
 }
 
 void Sensor :: printMembrosInfo() const{
