@@ -54,4 +54,27 @@ TEST_CASE("Autenticacao de contas") {
     SUBCASE("Email inexistente") {
         CHECK(login.autenticarConta("naoexiste@email.com", "123456") == false);
     }
+
+    SUBCASE("Conta bloqueada nao autentica") {
+        login.bloquearConta("mariapaula@email.com");
+
+        CHECK(login.autenticarConta("mariapaula@email.com", "123456") == false);
+    }
+}
+
+TEST_CASE("Bloqueio de contas") {
+
+    Conta conta("1", "Maria", "mariapaula@email.com", "123456", true);
+
+    std::vector<Conta> contas = {conta};
+
+    Login login(contas);
+
+    SUBCASE("Bloquear conta existente") {
+        CHECK(login.bloquearConta("mariapaula@email.com") == true);
+    }
+
+    SUBCASE("Nao bloquear conta inexistente") {
+        CHECK(login.bloquearConta("naoexiste@email.com") == false);
+    }
 }
