@@ -3,16 +3,20 @@
 #include "Sensor.hpp"
 
 ObjetoInteligente::ObjetoInteligente(
+    std::string nome,
     bool restricaoAdulto,
     std::vector<Sensor*> sensores,
     std::vector<std::string> statusPossiveis,
+    std::string statusAtual,
     float consumoMedioDeEnergia,
     std::vector<std::function<void()>> funcoes,
     std::vector<std::function<void()>> funcoesRestritas
 ) :
+    nome(nome),
     restricaoAdulto(restricaoAdulto),
     sensores(std::move(sensores)),
     statusPossiveis(std::move(statusPossiveis)),
+    statusAtual(statusAtual),
     consumoMedioDeEnergia(consumoMedioDeEnergia),
     funcoes(std::move(funcoes)),
     funcoesRestritas(std::move(funcoesRestritas))
@@ -25,8 +29,8 @@ bool ObjetoInteligente :: operator==(const ObjetoInteligente& other) const {
          funcoes.size() == other.funcoes.size() && funcoesRestritas.size() == other.funcoesRestritas.size();
     } // funcoes nao podem ser comparadas diretamente entao usa o .size() 
 
-void ObjetoInteligente::setRestricaoAdulto() {
-    restricaoAdulto = true;
+void ObjetoInteligente::setRestricaoAdulto(bool restricao) {
+    restricaoAdulto = restricao;
 }
 
 
@@ -35,16 +39,20 @@ std::vector<Sensor*> ObjetoInteligente::getSensores() {
 }
 
 
-std::string ObjetoInteligente::getStatus() {
+std::vector<std::string> ObjetoInteligente::getStatusPossiveis() {
     if (!statusPossiveis.empty()) {
-        return statusPossiveis.back();
+        return statusPossiveis;
     }
-    return "";
+    return {};
 }
 
+std::string ObjetoInteligente::getStatusAtual() {
+    return statusAtual;
+}
 
 void ObjetoInteligente::setStatusAtual(std::string status) {
-    statusPossiveis.push_back(status);
+
+    statusAtual = status; 
 }
 
 

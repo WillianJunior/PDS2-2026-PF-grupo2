@@ -9,10 +9,16 @@
 using namespace std;
 Comodo::Comodo(std::string nome, Smarthome* casa) {
     //adicionar asserção para nome vazio e casa nullptr
+    this->nome = nome;
+    this->casa = casa;
 }
 
 bool Comodo :: operator== (const Comodo& other) const{
     return nome == other.nome && casa == other.casa;
+}
+
+std::vector<std::string> Comodo::getCondicoesDoComodo() {
+    return condicoesDoComodo;
 }
 
 void Comodo::adicionarObjeto(ObjetoInteligente* objeto) {

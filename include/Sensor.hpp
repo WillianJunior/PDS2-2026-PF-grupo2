@@ -2,6 +2,7 @@
 #define SENSOR_H
 
 #include <vector>
+#include "Comodo.hpp"
 
 class ObjetoInteligente;
 class Modo;
@@ -9,8 +10,12 @@ class Modo;
 class Sensor {
 private:
 
+    std::string nome;
+
     bool estaLigado;
     bool estaAtivado;
+
+    Comodo comodoPertencente;
 
     std::vector<ObjetoInteligente*> objetosConectados;
     std::vector<Modo*> modosConectados;
@@ -19,22 +24,27 @@ public:
 
     /**
      * @brief Função construtora do sensor.
+     * @param nome Nome do sensor.
      * @param ligado Variável que determina se o sensor está ligado.
      * @param ativado Variável que indica se o sensor está ativado.
+     * @param comodoPertencente A qual cômodo pertence o sensor.
      * @param objetosConectados Vetor com todos objetos ligados ao sensor.
      * @param modosConectados Vetor com todos modos ligados ao sensor.
      */
     Sensor(
+        std::string nome,
         bool ligado,
         bool ativado,
+        Comodo comodoPertencente,
         std::vector<ObjetoInteligente*> objetosConectados,
         std::vector<Modo*> modosConectados
     );
 
     /**
      * @brief Liga ou desliga o sensor.
+     * @param ligado Valor que determina se o sensor está ligado (1) ou desligado (0).
      */
-    void setEstaLigado();
+    void setEstaLigado(bool ligado);
 
     /**
      * @brief Retorna se o sensor está ligado.
@@ -43,8 +53,9 @@ public:
 
     /**
      * @brief Ativa ou desativa o sensor.
+     * @param ativado Valor que determina se o sensor está ativado (1) ou desativado (0).
      */
-    void setEstaAtivado();
+    void setEstaAtivado(bool ativado);
 
     /**
      * @brief Retorna se o sensor está ativado.
@@ -62,9 +73,10 @@ public:
     std::vector<Modo*> getModosConectados();
 
     /**
-     * @brief Confere elementos do ambiente.
+     * @brief Confere um elemento do ambiente. Se encontrá-lo, retorna 1. Se não, retorna 0.
+     * @param condicao Qual condição do ambiente procurar
      */
-    void checarAmbiente();
+    bool checarAmbiente(std::string condicao);
 
     /**
      * @brief Ativa um modo.
@@ -73,8 +85,9 @@ public:
 
     /**
      * @brief Ativa um objeto.
+     * @param indexFuncao Qual função do objeto ativar.
      */
-    void ativarObjeto(ObjetoInteligente* objeto);
+    void ativarObjeto(ObjetoInteligente* objeto, int indexFuncao);
 
     /**
      * @brief Define comparação entre sensores.

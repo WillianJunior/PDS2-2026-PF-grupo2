@@ -1,28 +1,37 @@
 #include "Sensor.hpp"
 #include "ObjetoInteligente.hpp"
 #include "Modo.hpp"
+#include "Comodo.hpp"
+#include <algorithm>
 
 Sensor::Sensor(
+    std::string nome,
     bool ligado,
     bool ativado,
+    Comodo comodoPertencente,
     std::vector<ObjetoInteligente*> objetosConectados,
     std::vector<Modo*> modosConectados
 )
+:
+    nome(nome),
+    estaLigado(ligado),
+    estaAtivado(ativado),
+    comodoPertencente(comodoPertencente),
+    objetosConectados(objetosConectados),
+    modosConectados(modosConectados)
 {
-    this->estaLigado = ligado;
-    this->estaAtivado = ativado;
-    this->objetosConectados = objetosConectados;
-    this->modosConectados = modosConectados;
 }
 
-void Sensor::setEstaLigado() {
+void Sensor::setEstaLigado(bool ligado) {
+    estaLigado = ligado;
 }
 
 bool Sensor::getEstaLigado() {
     return estaLigado;
 }
 
-void Sensor::setEstaAtivado() {
+void Sensor::setEstaAtivado(bool ativado) {
+    estaAtivado = ativado;
 }
 
 bool Sensor::getEstaAtivado() {
@@ -37,15 +46,21 @@ std::vector<Modo*> Sensor::getModosConectados() {
     return modosConectados;
 }
 
-void Sensor::checarAmbiente() {
+bool Sensor::checarAmbiente(std::string condicao) {
+    std::vector<std::string> condicoes = comodoPertencente.getCondicoesDoComodo();
+    return std::find(
+        condicoes.begin(),
+        condicoes.end(),
+        condicao
+    ) != condicoes.end(); //retorna 1 se a condicao foi encontrada no ambiente
 }
 
 void Sensor::ativarModo(Modo* modo) {
-    (void)modo;
+    modo->setAtivoModo(1);
 }
 
-void Sensor::ativarObjeto(ObjetoInteligente* objeto) {
-    (void)objeto;
+void Sensor::ativarObjeto(ObjetoInteligente* objeto, int indexFuncao) {
+    objeto->getFuncoes()[indexFuncao];
 }
 
 bool Sensor :: operator== (const Sensor& other) const{

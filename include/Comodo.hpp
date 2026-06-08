@@ -31,6 +31,10 @@ public:
      */
     bool operator == (const Comodo& other)const;
     /**
+     * @brief Retorna as condições atuais do cômodo (Ex: iluminado, escuro, quente, frio, etc).
+     */
+    std::vector<std::string> getCondicoesDoComodo();
+    /**
      * @brief Adiciona um objeto a um comodo.
      * @param objeto ObjetoInteligente a ser adicionado ao comodo.
      */
@@ -120,6 +124,7 @@ private:
      * @brief Smarthome que o cômodo pertence.
      */
     Smarthome* casa;                
+    std::vector<std::string> condicoesDoComodo;     // condicoes para o sensor identificar. Ex: iluminado, quente, frio, etc.
     std::vector<Conta*> contasPresentes;           // contas presentes em certos momentos
     std::vector<ObjetoInteligente*> objetos;
     std::vector<Sensor*> sensores;

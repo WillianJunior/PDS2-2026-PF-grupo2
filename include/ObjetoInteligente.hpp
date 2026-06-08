@@ -15,9 +15,11 @@ class Sensor;
 
 class ObjetoInteligente {
 private:
+    std::string nome;
     bool restricaoAdulto; 
     std::vector<Sensor*> sensores;
     std::vector<std::string> statusPossiveis;
+    std::string statusAtual;
     float consumoMedioDeEnergia;
     std::vector<std::function<void()>> funcoes;
     std::vector<std::function<void()>> funcoesRestritas;
@@ -26,19 +28,22 @@ public:
 
     /**
      * @brief Construtor da classe ObjetoInteligente.
-     * 
+     * @param nome Nome do objeto.
      * @param restricaoAdulto Define se o objeto possui restrição para adultos.
      * @param sensores Vetor dos sensores associados ao objeto.
      * @param statusPossiveis Vetor com os estados possíveis do objeto.
+     * @param statusAtual Status atual do objeto.
      * @param consumoMedioDeEnergia Consumo médio de energia do objeto.
      * @param funcoes Vetor das funções disponíveis.
      * @param funcoesRestritas Vetor das funções restritas.
      */
 
     ObjetoInteligente(
+        std::string nome,
         bool restricaoAdulto,
         std::vector<Sensor*> sensores,
         std::vector<std::string> statusPossiveis,
+        std::string statusAtual,
         float consumoMedioDeEnergia,
         std::vector<std::function<void()>> funcoes,
         std::vector<std::function<void()>> funcoesRestritas
@@ -47,15 +52,23 @@ public:
     ~ObjetoInteligente() = default;
 
     /// Métodos setters e getters
-    void setRestricaoAdulto();
+    /**
+     * @brief Define se o objeto é restrito para adultos apenas.
+     * @param restricao define se a restrição está ligada (1) ou não (0).
+     */
+    void setRestricaoAdulto(bool restricao);
     /**
      * @brief Retorna os sensores associados ao objeto.
      */
     std::vector<Sensor*> getSensores();
     /**
+     * @brief Retorna os status possíveis do objeto.
+     */
+    std::vector<std::string> getStatusPossiveis();
+    /**
      * @brief Retorna o status atual do objeto.
      */
-    std::string getStatus();
+    std::string getStatusAtual();
     /**
      * @brief Define o status atual do objeto.
      * @param status é o nome dos status a ser definido.
