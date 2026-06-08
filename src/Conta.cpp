@@ -8,7 +8,7 @@
 #include <vector>
 
 Conta::Conta(std::string id, std::string nome, std::string email, std::string senha, bool adulto)
-    : id(id), nome(nome), email(email), senha(senha), perfilAdulto(adulto) {}
+    : id(id), nome(nome), email(email), senha(senha), perfilAdulto(adulto), bloqueada(false) {}
 
 std::string Conta::getId() const {
     return id;
@@ -24,6 +24,18 @@ std::string Conta::getEmail() const {
 
 bool Conta::isPerfilAdulto() const {
     return perfilAdulto;
+}
+
+bool Conta::estaBloqueada() const {
+    return bloqueada;
+}
+
+void Conta::bloquear() {
+    bloqueada = true;
+}
+
+void Conta::desbloquear() {
+    bloqueada = false;
 }
 
 void Conta::criarSmarthome(std::string id, std::string nome) {
