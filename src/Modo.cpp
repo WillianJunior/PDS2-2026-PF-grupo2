@@ -1,15 +1,21 @@
 #include "Modo.hpp"
 
 Modo::Modo(
+    std::string nome,
     std::vector<ObjetoInteligente*> objetos,
     std::vector<Comodo*> comodos,
     bool ligado,
     bool bloqueado
 )
-    : objetosRelacionados(objetos),
+    : nome(nome),
+      objetosRelacionados(objetos),
       comodosRelacionados(comodos),
       ligado(ligado),
       bloqueado(bloqueado) {}
+
+std::string Modo::getNome() const {
+    return nome;
+}
 
 void Modo::setAtivoModo(bool ativo) {
     ligado = ativo;
@@ -34,10 +40,16 @@ std::vector<ObjetoInteligente*> Modo::getObjetosRelacionados() {
 std::vector<Comodo*> Modo::getComodosRelacionados() {
     return comodosRelacionados;
 }
-bool Modo :: operator == (const Modo& other) const{
-    return objetosRelacionados == other.objetosRelacionados && comodosRelacionados == other.comodosRelacionados &&
-    ligado == other.ligado && bloqueado == other.bloqueado;
+
+bool Modo::operator==(const Modo& other) const {
+    return nome == other.nome &&
+           objetosRelacionados == other.objetosRelacionados &&
+           comodosRelacionados == other.comodosRelacionados &&
+           ligado == other.ligado &&
+           bloqueado == other.bloqueado;
 }
-void Modo :: printMembrosInfo() const{
-    //implemetação
+
+void Modo::printMembrosInfo() const {
+    // ainda vou implementar
+
 }

@@ -5,72 +5,50 @@ class ObjetoInteligente;
 class Comodo;
 
 #include <vector>
+#include <string>
 
 /**
  * @class Modo
  * @brief Representa um modo de funcionamento da smarthome.
- * Armazena informações sobre os objetos inteligentese cômodos relacionados, além de controlar se o modo está ativo/desativado ou bloqueado/permitido.
- */ 
+ * Armazena informações sobre os objetos inteligentes e cômodos relacionados,
+ * além de controlar se o modo está ativo/desativado ou bloqueado/permitido.
+ */
 
-class Modo{
-
+class Modo {
 
     private:
+
+        std::string nome;
 
         std::vector<ObjetoInteligente*> objetosRelacionados;
         std::vector<Comodo*> comodosRelacionados;
 
-
-         /**
-         * @brief Indica se o modo está ativo  (true = ligado/false = desligado)
-         */
-        bool ligado; 
-         /**
-         * @brief Indica se o modo está bloqueado: se estiver bloqueado, o modo não funcionará mesmo estando ligado.
-         */
+        bool ligado;
         bool bloqueado;
 
     public:
-        /**
-         * @brief Construtor da classe.
-        * @param objetos Objetos relacionados ao modo.
-        * @param comodos Cômodos relacionados ao modo.
-        * @param ligado Estado inicial do modo.
-        * @param bloqueado Estado de bloqueio do modo.
-         */
-         Modo(
+
+        Modo(
+            std::string nome,
             std::vector<ObjetoInteligente*> objetos,
             std::vector<Comodo*> comodos,
             bool ligado,
             bool bloqueado
         );
 
-         /**
-         * @brief Ativa ou desativa o modo.
-         * @param ativo Estado do modo.
-         */
+        std::string getNome() const;
+
         void setAtivoModo(bool ativo);
         bool getAtivoModo();
 
-        /**
-         * @brief Retorna se o modo está ativo.
-         * @return Estado do modo.
-         */
         void setBloqueadoModo(bool bloqueado);
         bool getBloqueadoModo();
 
         std::vector<ObjetoInteligente*> getObjetosRelacionados();
         std::vector<Comodo*> getComodosRelacionados();
 
-        /**
-         * @brief Define comparação entre modos.
-         * @return Retorna se modos são iguais ou não.
-         */
-        bool operator== (const Modo& other) const;
+        bool operator==(const Modo& other) const;
 
-        /**
-         * @brief Imprime informações do membro do modo.
-         * */
         void printMembrosInfo() const;
 };
 

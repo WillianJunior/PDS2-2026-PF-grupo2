@@ -1,70 +1,65 @@
-
 #include "doctest.h"
 
 #include "Modo.hpp"
 #include "ObjetoInteligente.hpp"
 #include "Comodo.hpp"
 
-TEST_CASE("Modo começa ligado") {
+TEST_CASE("Construtor do Modo") {
 
     std::vector<ObjetoInteligente*> objetos;
     std::vector<Comodo*> comodos;
 
-    Modo modo(objetos, comodos, true, false);
+    SUBCASE("Modo guarda o nome corretamente") {
+        Modo modo("Noturno", objetos, comodos, true, false);
 
-    CHECK(modo.getAtivoModo() == true);
+        CHECK(modo.getNome() == "Noturno");
+    }
+
+    SUBCASE("Modo começa ligado") {
+        Modo modo("Noturno", objetos, comodos, true, false);
+
+        CHECK(modo.getAtivoModo() == true);
+    }
+
+    SUBCASE("Modo começa bloqueado") {
+        Modo modo("Seguranca", objetos, comodos, false, true);
+
+        CHECK(modo.getBloqueadoModo() == true);
+    }
 }
 
-TEST_CASE("Modo começa bloqueado") {
+TEST_CASE("Alteracao de estado do Modo") {
 
     std::vector<ObjetoInteligente*> objetos;
     std::vector<Comodo*> comodos;
 
-    Modo modo(objetos, comodos, false, true);
+    Modo modo("Economia", objetos, comodos, false, false);
 
-    CHECK(modo.getBloqueadoModo() == true);
+    SUBCASE("Ativar modo funciona") {
+        modo.setAtivoModo(true);
+
+        CHECK(modo.getAtivoModo() == true);
+    }
+
+    SUBCASE("Bloquear modo funciona") {
+        modo.setBloqueadoModo(true);
+
+        CHECK(modo.getBloqueadoModo() == true);
+    }
 }
 
-TEST_CASE("Ativar modo funciona") {
+TEST_CASE("Listas relacionadas ao Modo") {
 
     std::vector<ObjetoInteligente*> objetos;
     std::vector<Comodo*> comodos;
 
-    Modo modo(objetos, comodos, false, false);
+    Modo modo("Padrao", objetos, comodos, false, false);
 
-    modo.setAtivoModo(true);
+    SUBCASE("Lista de objetos começa vazia") {
+        CHECK(modo.getObjetosRelacionados().size() == 0);
+    }
 
-    CHECK(modo.getAtivoModo() == true);
-}
-
-TEST_CASE("Bloquear modo funciona") {
-
-    std::vector<ObjetoInteligente*> objetos;
-    std::vector<Comodo*> comodos;
-
-    Modo modo(objetos, comodos, false, false);
-
-    modo.setBloqueadoModo(true);
-
-    CHECK(modo.getBloqueadoModo() == true);
-}
-
-TEST_CASE("Lista de objetos começa vazia") {
-
-    std::vector<ObjetoInteligente*> objetos;
-    std::vector<Comodo*> comodos;
-
-    Modo modo(objetos, comodos, false, false);
-
-    CHECK(modo.getObjetosRelacionados().size() == 0);
-}
-
-TEST_CASE("Lista de comodos começa vazia") {
-
-    std::vector<ObjetoInteligente*> objetos;
-    std::vector<Comodo*> comodos;
-
-    Modo modo(objetos, comodos, false, false);
-
-    CHECK(modo.getComodosRelacionados().size() == 0);
+    SUBCASE("Lista de comodos começa vazia") {
+        CHECK(modo.getComodosRelacionados().size() == 0);
+    }
 }
