@@ -85,38 +85,38 @@ void Conta::editarModo(Smarthome* smarthome, std::string nome) {
     (void)nome;
 }
 
-void Conta::criarObjeto(Smarthome* smarthome, Comodo comodo, std::string nome) {
+void Conta::criarObjeto(Smarthome* smarthome, Comodo* comodo, std::string nome) {
     (void)smarthome;
     (void)comodo;
     (void)nome;
 }
 
-void Conta::apagarObjeto(Smarthome* smarthome, Comodo comodo, std::string nome) {
+void Conta::apagarObjeto(Smarthome* smarthome, Comodo* comodo, std::string nome) {
     (void)smarthome;
     (void)comodo;
     (void)nome;
 }
 
-void Conta::moverObjeto(Smarthome* smarthome, Comodo atual, std::string nome, Comodo destino) {
+void Conta::moverObjeto(Smarthome* smarthome, Comodo* atual, std::string nome, Comodo* destino) {
     (void)smarthome;
     (void)atual;
     (void)nome;
     (void)destino;
 }
 
-void Conta::criarSensor(Smarthome* smarthome, Comodo comodo, std::string nome) {
+void Conta::criarSensor(Smarthome* smarthome, Comodo* comodo, std::string nome) {
     (void)smarthome;
     (void)comodo;
     (void)nome;
 }
 
-void Conta::apagarSensor(Smarthome* smarthome, Comodo comodo, std::string nome) {
+void Conta::apagarSensor(Smarthome* smarthome, Comodo* comodo, std::string nome) {
     (void)smarthome;
     (void)comodo;
     (void)nome;
 }
 
-void Conta::moverSensor(Smarthome* smarthome, Comodo atual, std::string nome, Comodo destino) {
+void Conta::moverSensor(Smarthome* smarthome, Comodo* atual, std::string nome, Comodo* destino) {
     (void)smarthome;
     (void)atual;
     (void)nome;
