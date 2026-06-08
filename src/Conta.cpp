@@ -144,8 +144,14 @@ void Conta::moverSensor(Smarthome* smarthome, Comodo* atual, std::string nome, C
 }
 
 float Conta::gerarRelatorioDeEnergia(Smarthome* smarthome) {
-    (void)smarthome;
-    return 0.0f;
+    float total = 0.0f;
+    if (smarthome != nullptr) {
+        std::vector<ObjetoInteligente> objetosDaCasa = smarthome->getObjetos();
+        for (size_t i = 0; i < objetosDaCasa.size(); ++i) {
+            total += objetosDaCasa[i].getConsumoMedioDeEnergia();
+        }
+    }
+    return total;
 }
 
 bool Conta::validarFormatoEmail() const {
