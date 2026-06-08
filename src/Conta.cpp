@@ -69,20 +69,25 @@ void Conta::apagarComodo(Smarthome* smarthome, std::string nome) {
 }
 
 
-// A partir daqui até Conta, aguardar implementação de atributo NOME no Modo, ObjetoInteligente e Sensor.
 void Conta::criarModo(Smarthome* smarthome, std::string nome) {
-    (void)smarthome;
-    (void)nome;
+    if (smarthome != nullptr) {
+        std::vector<ObjetoInteligente*> objetosVazios;
+        std::vector<Comodo*> comodosVazios;
+        Modo novoModo(nome, objetosVazios, comodosVazios, false, false);
+        smarthome->adicionarModo(novoModo);
+    }
 }
 
 void Conta::apagarModo(Smarthome* smarthome, std::string nome) {
-    (void)smarthome;
-    (void)nome;
+    if (smarthome != nullptr) {
+        smarthome->removerModo(nome); 
+    }
 }
 
 void Conta::editarModo(Smarthome* smarthome, std::string nome) {
     (void)smarthome;
     (void)nome;
+    // ver como e se será implementado em Smarthome
 }
 
 void Conta::criarObjeto(Smarthome* smarthome, Comodo* comodo, std::string nome) {
