@@ -2,6 +2,7 @@
 #define SENSOR_H
 
 #include <vector>
+#include <string>
 
 class ObjetoInteligente;
 class Modo;
@@ -9,6 +10,7 @@ class Modo;
 class Sensor {
 private:
 
+    std::string nome;
     bool estaLigado;
     bool estaAtivado;
 
@@ -19,17 +21,24 @@ public:
 
     /**
      * @brief Função construtora do sensor.
+     * @param nome Nome do sensor.
      * @param ligado Variável que determina se o sensor está ligado.
      * @param ativado Variável que indica se o sensor está ativado.
      * @param objetosConectados Vetor com todos objetos ligados ao sensor.
      * @param modosConectados Vetor com todos modos ligados ao sensor.
      */
     Sensor(
+        std::string nome,
         bool ligado,
         bool ativado,
         std::vector<ObjetoInteligente*> objetosConectados,
         std::vector<Modo*> modosConectados
     );
+
+    /**
+     * @brief Retorna o nome do sensor.
+     */
+    std::string getNome() const;
 
     /**
      * @brief Liga ou desliga o sensor.
