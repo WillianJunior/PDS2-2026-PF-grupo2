@@ -15,16 +15,21 @@ TEST_CASE("Construtor do Modo") {
         CHECK(modo.getNome() == "Noturno");
     }
 
+    SUBCASE("Nome do modo nao pode ser vazio") {
+        CHECK_THROWS(Modo("", objetos, comodos, true, false));
+    }
+
     SUBCASE("Modo começa ligado") {
         Modo modo("Noturno", objetos, comodos, true, false);
 
         CHECK(modo.getAtivoModo() == true);
     }
 
-    SUBCASE("Modo começa bloqueado") {
-        Modo modo("Seguranca", objetos, comodos, false, true);
+    SUBCASE("Modo começa bloqueado e desligado") {
+        Modo modo("Seguranca", objetos, comodos, true, true);
 
         CHECK(modo.getBloqueadoModo() == true);
+        CHECK(modo.getAtivoModo() == false);
     }
 }
 

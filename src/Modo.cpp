@@ -1,4 +1,6 @@
 #include "Modo.hpp"
+#include <stdexcept>
+#include <iostream>
 
 Modo::Modo(
     std::string nome,
@@ -11,7 +13,16 @@ Modo::Modo(
       objetosRelacionados(objetos),
       comodosRelacionados(comodos),
       ligado(ligado),
-      bloqueado(bloqueado) {}
+      bloqueado(bloqueado) {
+
+    if (nome.empty()) {
+        throw std::invalid_argument("Nome do modo nao pode ser vazio");
+    }
+
+    if (bloqueado) {
+        this->ligado = false;
+    }
+}
 
 std::string Modo::getNome() const {
     return nome;
@@ -59,5 +70,9 @@ bool Modo::operator==(const Modo& other) const {
 }
 
 void Modo::printMembrosInfo() const {
-    // ainda vou implementar
+    std::cout << "Nome do modo: " << nome << std::endl;
+    std::cout << "Estado: " << (ligado ? "Ligado" : "Desligado") << std::endl;
+    std::cout << "Bloqueio: " << (bloqueado ? "Bloqueado" : "Desbloqueado") << std::endl;
+    std::cout << "Objetos relacionados: " << objetosRelacionados.size() << std::endl;
+    std::cout << "Comodos relacionados: " << comodosRelacionados.size() << std::endl;
 }
