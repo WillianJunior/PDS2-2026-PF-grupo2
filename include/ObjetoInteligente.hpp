@@ -11,8 +11,7 @@ class Sensor;
 /**
  * @class ObjetoInteligente
  * @brief Representa um objeto inteligente da smarthome
- * 
- * A classe armazena sensores, funções disponíveis, restrições de acesso e informações de consumo de energia.
+ * * A classe armazena sensores, funções disponíveis, restrições de acesso e informações de consumo de energia.
  */
 
 class ObjetoInteligente {
@@ -54,6 +53,12 @@ public:
     ~ObjetoInteligente() = default;
 
     /// Métodos setters e getters
+    
+    /**
+     * @brief Retorna o nome do objeto.
+     */
+    std::string getNome() const;
+
     /**
      * @brief Define se o objeto é restrito para adultos apenas.
      * @param restricao define se a restrição está ligada (1) ou não (0).

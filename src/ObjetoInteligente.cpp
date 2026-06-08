@@ -23,6 +23,11 @@ ObjetoInteligente::ObjetoInteligente(
 {
     
 }
+
+std::string ObjetoInteligente::getNome() const {
+    return nome;
+}
+
 bool ObjetoInteligente :: operator==(const ObjetoInteligente& other) const {
         return nome == other.nome &&
             restricaoAdulto == other.restricaoAdulto &&
