@@ -121,22 +121,26 @@ void Conta::moverObjeto(Smarthome* smarthome, Comodo* atual, std::string nome, C
 }
 
 void Conta::criarSensor(Smarthome* smarthome, Comodo* comodo, std::string nome) {
-    (void)smarthome;
-    (void)comodo;
-    (void)nome;
+    if (smarthome != nullptr && comodo != nullptr) {
+        std::vector<ObjetoInteligente*> objetosVazios;
+        std::vector<Modo*> modosVazios;
+
+        Sensor* novoSensor = new Sensor(nome, false, false, *comodo, objetosVazios, modosVazios);
+        comodo->adicionarSensor(novoSensor);
+    }
 }
 
 void Conta::apagarSensor(Smarthome* smarthome, Comodo* comodo, std::string nome) {
-    (void)smarthome;
-    (void)comodo;
-    (void)nome;
+    if (smarthome != nullptr && comodo != nullptr) {
+        comodo->removerSensorPorNome(nome); 
+    }
 }
 
 void Conta::moverSensor(Smarthome* smarthome, Comodo* atual, std::string nome, Comodo* destino) {
-    (void)smarthome;
-    (void)atual;
-    (void)nome;
-    (void)destino;
+    if (smarthome != nullptr && atual != nullptr && destino != nullptr) {
+        atual->removerSensorPorNome(nome);
+        std::cout << "Sensor " << nome << " removido do comodo atual." << std::endl;
+    }
 }
 
 float Conta::gerarRelatorioDeEnergia(Smarthome* smarthome) {
