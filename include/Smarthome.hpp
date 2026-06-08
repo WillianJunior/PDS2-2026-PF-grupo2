@@ -2,6 +2,7 @@
 #define SMARTHOME_HPP
 #include <vector>
 #include <string>
+#include <algorithm>
 #include "Comodo.hpp"
 #include "Modo.hpp"
 #include "ObjetoInteligente.hpp"
@@ -46,6 +47,22 @@ public:
      * @param comodo Comodo a ser removido da smarthome.
      */
     void removerComodo(const Comodo& comodo);
+
+    /**
+     * @brief Remove um modo da smarthome pelo nome.
+     * @param nomeModo Nome do modo a ser removido.
+     */
+    void removerModo(std::string nomeModo);
+    /**
+     * @brief Remove um objeto da smarthome pelo nome.
+     * @param nomeObjeto Nome do objeto a ser removido.
+     */
+    void removerObjeto(std::string nomeObjeto);
+    /**
+     * @brief Retorna os objetos da smarthome.
+     */
+    const std::vector<ObjetoInteligente>& getObjetos() const;
+
     /**
      * @brief Retorna o usuário dono da smarthome.
      */

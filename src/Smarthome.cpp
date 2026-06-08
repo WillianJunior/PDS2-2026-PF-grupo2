@@ -40,6 +40,28 @@ void Smarthome :: removerComodo(const Comodo& comodo){
     }
 }
 
+void Smarthome::removerModo(std::string nomeModo) {
+    for (auto it = modos.begin(); it != modos.end(); ++it) {
+        if (it->getNome() == nomeModo) {
+            modos.erase(it);
+            return;
+        }
+    }
+}
+
+void Smarthome::removerObjeto(std::string nomeObjeto) {
+    for (auto it = objetos.begin(); it != objetos.end(); ++it) {
+        if (it->getNome() == nomeObjeto) {
+            objetos.erase(it);
+            return;
+        }
+    }
+}
+
+const std::vector<ObjetoInteligente>& Smarthome::getObjetos() const {
+    return objetos;
+}
+
 Conta Smarthome::getUsuario() const {
     return usuario;
 }
