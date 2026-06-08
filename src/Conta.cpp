@@ -91,22 +91,33 @@ void Conta::editarModo(Smarthome* smarthome, std::string nome) {
 }
 
 void Conta::criarObjeto(Smarthome* smarthome, Comodo* comodo, std::string nome) {
-    (void)smarthome;
-    (void)comodo;
-    (void)nome;
+    if (smarthome != nullptr && comodo != nullptr) {
+        std::vector<Sensor*> sensoresVazios;
+        std::vector<std::string> statusPossiveis = {"Desligado", "Ligado"};
+        std::vector<std::function<void()>> funcoes;
+        std::vector<std::function<void()>> funcoesRestritas;
+
+        ObjetoInteligente* novoObjeto = new ObjetoInteligente(
+            nome, false, sensoresVazios, statusPossiveis, "Desligado", 0.0f, funcoes, funcoesRestritas
+        );
+
+        smarthome->adicionarObjeto(*novoObjeto);
+        comodo->adicionarObjeto(novoObjeto);
+    }
 }
 
 void Conta::apagarObjeto(Smarthome* smarthome, Comodo* comodo, std::string nome) {
-    (void)smarthome;
-    (void)comodo;
-    (void)nome;
+    if (smarthome != nullptr && comodo != nullptr) {
+        smarthome->removerObjeto(nome); 
+        comodo->removerObjetoPorNome(nome); 
+    }
 }
 
 void Conta::moverObjeto(Smarthome* smarthome, Comodo* atual, std::string nome, Comodo* destino) {
-    (void)smarthome;
-    (void)atual;
-    (void)nome;
-    (void)destino;
+    if (smarthome != nullptr && atual != nullptr && destino != nullptr) {
+        atual->removerObjetoPorNome(nome);
+        std::cout << "Objeto " << nome << " removido do comodo atual." << std::endl;
+    }
 }
 
 void Conta::criarSensor(Smarthome* smarthome, Comodo* comodo, std::string nome) {
