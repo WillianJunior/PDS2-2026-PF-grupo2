@@ -1,20 +1,32 @@
 #include "Login.hpp"
+#include <cstddef>
 
 Login::Login(std::vector<Conta> contasCadastradas)
     : contas(contasCadastradas) {}
 
 void Login::criarConta(Conta contaNova) {
+
+    for (size_t i = 0; i < contas.size(); i++) {
+
+        if (contas[i].getEmail() == contaNova.getEmail()) {
+            return;
+        }
+    }
+
     contas.push_back(contaNova);
 }
 
 bool Login::autenticarConta(std::string email, std::string senha) {
 
-    for (int i = 0; i < contas.size(); i++) {
+    for (size_t i = 0; i < contas.size(); i++) {
 
-        if (contas[i].getEmail() == email &&
-            contas[i].autenticar(senha)) {
+        if (contas[i].getEmail() == email) {
 
-            return true;
+            if (contas[i].estaBloqueada()) {
+                return false;
+            }
+
+            return contas[i].autenticar(senha);
         }
     }
 
@@ -23,9 +35,10 @@ bool Login::autenticarConta(std::string email, std::string senha) {
 
 bool Login::bloquearConta(std::string email) {
 
-    for (int i = 0; i < contas.size(); i++) {
+    for (size_t i = 0; i < contas.size(); i++) {
 
         if (contas[i].getEmail() == email) {
+            contas[i].bloquear();
             return true;
         }
     }

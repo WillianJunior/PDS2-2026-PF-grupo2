@@ -62,7 +62,7 @@ TEST_CASE("TESTE 2 adicionarModo - Smarthome") {
     std::vector<Comodo*> comodos;
     std::string nome;
 
-    Modo modoTeste(objetos, comodos, true, false);
+    Modo modoTeste("ModoTeste", objetos, comodos, true, false);
 
     casaTeste.adicionarModo(modoTeste);
 
@@ -257,7 +257,7 @@ TEST_CASE("TESTE 8 printModosInfo - Smarthome"){
     std::vector<Comodo*> comodos;
     std::string nome;
 
-    Modo modoTeste(objetos, comodos, true, false);
+    Modo modoTeste("ModoTeste", objetos, comodos, true, false);
 
     casaTeste.adicionarModo(modoTeste);
 

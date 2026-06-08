@@ -1,17 +1,39 @@
 #include "Modo.hpp"
+#include <stdexcept>
+#include <iostream>
 
 Modo::Modo(
+    std::string nome,
     std::vector<ObjetoInteligente*> objetos,
     std::vector<Comodo*> comodos,
     bool ligado,
     bool bloqueado
 )
-    : objetosRelacionados(objetos),
+    : nome(nome),
+      objetosRelacionados(objetos),
       comodosRelacionados(comodos),
       ligado(ligado),
-      bloqueado(bloqueado) {}
+      bloqueado(bloqueado) {
+
+    if (nome.empty()) {
+        throw std::invalid_argument("Nome do modo nao pode ser vazio");
+    }
+
+    if (bloqueado) {
+        this->ligado = false;
+    }
+}
+
+std::string Modo::getNome() const {
+    return nome;
+}
 
 void Modo::setAtivoModo(bool ativo) {
+    if (bloqueado && ativo) {
+        ligado = false;
+        return;
+    }
+
     ligado = ativo;
 }
 
@@ -21,6 +43,10 @@ bool Modo::getAtivoModo() {
 
 void Modo::setBloqueadoModo(bool estado) {
     bloqueado = estado;
+
+    if (bloqueado) {
+        ligado = false;
+    }
 }
 
 bool Modo::getBloqueadoModo() {
@@ -34,10 +60,19 @@ std::vector<ObjetoInteligente*> Modo::getObjetosRelacionados() {
 std::vector<Comodo*> Modo::getComodosRelacionados() {
     return comodosRelacionados;
 }
-bool Modo :: operator == (const Modo& other) const{
-    return objetosRelacionados == other.objetosRelacionados && comodosRelacionados == other.comodosRelacionados &&
-    ligado == other.ligado && bloqueado == other.bloqueado;
+
+bool Modo::operator==(const Modo& other) const {
+    return nome == other.nome &&
+           objetosRelacionados == other.objetosRelacionados &&
+           comodosRelacionados == other.comodosRelacionados &&
+           ligado == other.ligado &&
+           bloqueado == other.bloqueado;
 }
-void Modo :: printMembrosInfo() const{
-    //implemetação
+
+void Modo::printMembrosInfo() const {
+    std::cout << "Nome do modo: " << nome << std::endl;
+    std::cout << "Estado: " << (ligado ? "Ligado" : "Desligado") << std::endl;
+    std::cout << "Bloqueio: " << (bloqueado ? "Bloqueado" : "Desbloqueado") << std::endl;
+    std::cout << "Objetos relacionados: " << objetosRelacionados.size() << std::endl;
+    std::cout << "Comodos relacionados: " << comodosRelacionados.size() << std::endl;
 }

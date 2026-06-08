@@ -1,4 +1,3 @@
-
 #include "doctest.h"
 
 #include "Conta.hpp"
@@ -13,6 +12,18 @@ TEST_CASE("Testando a classe Conta - Gerenciamento de Dados Cadastrais") {
         CHECK(conta.getNome() == "Aline Sayuri");
         CHECK(conta.getEmail() == "aline@ufmg.br");
         CHECK(conta.isPerfilAdulto() == true);
+    }
+
+    SUBCASE("Verificando bloqueio e desbloqueio da conta") {
+        CHECK(conta.estaBloqueada() == false);
+
+        conta.bloquear();
+
+        CHECK(conta.estaBloqueada() == true);
+
+        conta.desbloquear();
+
+        CHECK(conta.estaBloqueada() == false);
     }
 }
 

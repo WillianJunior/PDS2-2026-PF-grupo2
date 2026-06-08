@@ -1,5 +1,3 @@
-
-
 #include "doctest.h"
 #include "Login.hpp"
 
@@ -12,41 +10,71 @@ TEST_CASE("Login inicia sem contas") {
     CHECK(login.getContasCadastradas().size() == 0);
 }
 
-TEST_CASE("Criar conta adiciona conta") {
+TEST_CASE("Criacao de contas") {
 
     std::vector<Conta> contas;
 
     Login login(contas);
 
-    Conta conta(
-        "1",
-        "Maria",
-        "mariapaula@email.com",
-        "123456",
-        true
-    );
+    SUBCASE("Criar uma conta") {
+        Conta conta("1", "Maria", "mariapaula@email.com", "123456", true);
 
-    login.criarConta(conta);
+        login.criarConta(conta);
 
-    CHECK(login.getContasCadastradas().size() == 1);
+        CHECK(login.getContasCadastradas().size() == 1);
+    }
+
+    SUBCASE("Nao permitir email duplicado") {
+        Conta conta1("1", "Maria", "mariapaula@email.com", "123456", true);
+        Conta conta2("2", "Maria 2", "mariapaula@email.com", "abcdef", true);
+
+        login.criarConta(conta1);
+        login.criarConta(conta2);
+
+        CHECK(login.getContasCadastradas().size() == 1);
+    }
 }
 
-TEST_CASE("Autenticar conta com dados corretos") {
+TEST_CASE("Autenticacao de contas") {
 
-    Conta conta(
-        "1",
-        "Maria",
-        "mariapaula@email.com",
-        "123456",
-        true
-    );
+    Conta conta("1", "Maria", "mariapaula@email.com", "123456", true);
 
     std::vector<Conta> contas = {conta};
 
     Login login(contas);
 
-    CHECK(login.autenticarConta(
-        "mariapaula@email.com",
-        "123456"
-    ) == true);
+    SUBCASE("Email e senha corretos") {
+        CHECK(login.autenticarConta("mariapaula@email.com", "123456") == true);
+    }
+
+    SUBCASE("Senha incorreta") {
+        CHECK(login.autenticarConta("mariapaula@email.com", "senhaErrada") == false);
+    }
+
+    SUBCASE("Email inexistente") {
+        CHECK(login.autenticarConta("naoexiste@email.com", "123456") == false);
+    }
+
+    SUBCASE("Conta bloqueada nao autentica") {
+        login.bloquearConta("mariapaula@email.com");
+
+        CHECK(login.autenticarConta("mariapaula@email.com", "123456") == false);
+    }
+}
+
+TEST_CASE("Bloqueio de contas") {
+
+    Conta conta("1", "Maria", "mariapaula@email.com", "123456", true);
+
+    std::vector<Conta> contas = {conta};
+
+    Login login(contas);
+
+    SUBCASE("Bloquear conta existente") {
+        CHECK(login.bloquearConta("mariapaula@email.com") == true);
+    }
+
+    SUBCASE("Nao bloquear conta inexistente") {
+        CHECK(login.bloquearConta("naoexiste@email.com") == false);
+    }
 }

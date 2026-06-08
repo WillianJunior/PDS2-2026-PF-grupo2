@@ -34,7 +34,7 @@ static Modo DummyModoComodo() {
     std::vector<ObjetoInteligente*> objetos;
     std::vector<Comodo*> comodos;
 
-    return Modo(objetos, comodos, true, false);
+    return Modo("ModoTeste", objetos, comodos, true, false);
 }
 
 TEST_CASE("TESTE 1 construtor - Comodo") {

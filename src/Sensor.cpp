@@ -20,10 +20,19 @@ Sensor::Sensor(
     objetosConectados(objetosConectados),
     modosConectados(modosConectados)
 {
+    this->nome = nome;
+    this->estaLigado = ligado;
+    this->estaAtivado = ativado;
+    this->objetosConectados = objetosConectados;
+    this->modosConectados = modosConectados;
 }
 
 void Sensor::setEstaLigado(bool ligado) {
     estaLigado = ligado;
+}
+
+std::string Sensor::getNome() const {
+    return nome;
 }
 
 bool Sensor::getEstaLigado() {
@@ -64,8 +73,11 @@ void Sensor::ativarObjeto(ObjetoInteligente* objeto, int indexFuncao) {
 }
 
 bool Sensor :: operator== (const Sensor& other) const{
-    return estaLigado == other.estaLigado && estaAtivado == other.estaAtivado && objetosConectados == other.objetosConectados &&
-    modosConectados == other.modosConectados;
+    return nome == other.nome &&
+           estaLigado == other.estaLigado && 
+           estaAtivado == other.estaAtivado && 
+           objetosConectados == other.objetosConectados &&
+           modosConectados == other.modosConectados;
 }
 
 void Sensor :: printMembrosInfo() const{

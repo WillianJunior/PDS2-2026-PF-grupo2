@@ -41,6 +41,11 @@ public:
     );
 
     /**
+     * @brief Retorna o nome do sensor.
+     */
+    std::string getNome() const;
+
+    /**
      * @brief Liga ou desliga o sensor.
      * @param ligado Valor que determina se o sensor está ligado (1) ou desligado (0).
      */
