@@ -24,6 +24,7 @@ private:
     std::string email;
     std::string senha;
     bool perfilAdulto; // true para Adulto, false para Infantil.
+    bool bloqueada; // true para conta bloqueada, false para conta ativa.
     std::vector<Smarthome*> smarthomes; // vetor que armazena as smarthomes da conta
 
 public:
@@ -56,6 +57,21 @@ public:
      * @brief Retorna o nome da conta.
      */
     bool isPerfilAdulto() const; 
+    /**
+     * @brief Verifica se a conta está bloqueada.
+     * @return true = bloqueada.
+     */
+    bool estaBloqueada() const;
+
+    /**
+     * @brief Bloqueia a conta.
+     */
+    void bloquear();
+
+    /**
+     * @brief Desbloqueia a conta.
+     */
+    void desbloquear();
 
     /**
      * @brief Comando para criar uma smarthome.
