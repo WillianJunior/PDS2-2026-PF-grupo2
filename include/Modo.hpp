@@ -39,17 +39,19 @@ class Modo {
         std::string getNome() const;
 
         void setAtivoModo(bool ativo);
-        bool getAtivoModo();
+        bool getAtivoModo()const;
 
         void setBloqueadoModo(bool bloqueado);
-        bool getBloqueadoModo();
+        bool getBloqueadoModo()const;
 
-        std::vector<ObjetoInteligente*> getObjetosRelacionados();
-        std::vector<Comodo*> getComodosRelacionados();
+        std::vector<ObjetoInteligente*> getObjetosRelacionados()const;
+        std::vector<Comodo*> getComodosRelacionados()const;
 
         bool operator==(const Modo& other) const;
 
         void printMembrosInfo() const;
+
+        void Modo::executarInstrucao(ObjetoInteligente* objeto) const;
 };
 
 #endif

@@ -37,7 +37,7 @@ void Modo::setAtivoModo(bool ativo) {
     ligado = ativo;
 }
 
-bool Modo::getAtivoModo() {
+bool Modo::getAtivoModo() const {
     return ligado;
 }
 
@@ -49,15 +49,15 @@ void Modo::setBloqueadoModo(bool estado) {
     }
 }
 
-bool Modo::getBloqueadoModo() {
+bool Modo::getBloqueadoModo()const {
     return bloqueado;
 }
 
-std::vector<ObjetoInteligente*> Modo::getObjetosRelacionados() {
+std::vector<ObjetoInteligente*> Modo::getObjetosRelacionados() const{
     return objetosRelacionados;
 }
 
-std::vector<Comodo*> Modo::getComodosRelacionados() {
+std::vector<Comodo*> Modo::getComodosRelacionados() const{
     return comodosRelacionados;
 }
 
@@ -75,4 +75,8 @@ void Modo::printMembrosInfo() const {
     std::cout << "Bloqueio: " << (bloqueado ? "Bloqueado" : "Desbloqueado") << std::endl;
     std::cout << "Objetos relacionados: " << objetosRelacionados.size() << std::endl;
     std::cout << "Comodos relacionados: " << comodosRelacionados.size() << std::endl;
+}
+
+void Modo::executarInstrucao(ObjetoInteligente* objeto) const{
+    
 }
