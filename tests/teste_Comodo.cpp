@@ -19,14 +19,16 @@ static ObjetoInteligente DummyObjetoComodo() {
     std::vector<std::function<void()>> funcoes = {[]{}};
     std::vector<std::function<void()>> funcoesRestritas = {[]{}};
 
-    return ObjetoInteligente(false, sensores, status, consumo, funcoes, funcoesRestritas);
+    return ObjetoInteligente("ObjetoTeste", false, sensores, status, "on", consumo, funcoes, funcoesRestritas);
 }
 
 static Sensor DummySensorComodo() {
     std::vector<ObjetoInteligente*> objetosConectados;
     std::vector<Modo*> modosConectados;
-
-    return Sensor(true, true, objetosConectados, modosConectados);
+    Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+    Smarthome smarthomeDummy(contaTeste, "MinhaCasa");
+    Comodo comodoDummy("SalaTeste", &smarthomeDummy);
+    return Sensor("SensorTeste", true, true, comodoDummy, objetosConectados, modosConectados);
 }
 
 static Modo DummyModoComodo() {
@@ -199,9 +201,35 @@ TEST_CASE("TESTE 8 printObjetosInfo - Comodo"){
     auto obj = DummyObjetoComodo();
 
     comodoTeste.adicionarObjeto(&obj);
+
+    // Captura a saída do cout
+    std::ostringstream oss;
+    std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
+
     
     comodoTeste.printObjetosInfo();
-    //CHECK();
+    
+     // Restaura cout
+    std::cout.rdbuf(oldCout);
+
+    CHECK(oss.str() == 
+        "Comodo comodoTeste da smarthome: Minha Casa\n"
+        "Objetos presentes em comodoTeste :\n"
+        "");
+    SUBCASE("TESTE 8.1 comodo sem objetos nao imprime nada "){
+        Comodo comodoTeste2("comodoTeste2", &smarthome);
+         // Captura a saída do cout
+        std::ostringstream oss;
+        std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
+
+        comodoTeste2.printModosInfo();
+
+        // Restaura cout
+        std::cout.rdbuf(oldCout);
+
+        CHECK(oss.str().empty());
+    }
+
 }
 TEST_CASE("TESTE 9 printModosInfo - Comodo" ){
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
@@ -212,8 +240,37 @@ TEST_CASE("TESTE 9 printModosInfo - Comodo" ){
 
     comodoTeste.adicionarModo(&modo);
 
+    // Captura a saída do cout
+    std::ostringstream oss;
+    std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
+
     comodoTeste.printModosInfo();
-    // CHECK(); 
+
+    // Restaura cout
+    std::cout.rdbuf(oldCout);
+
+    CHECK(oss.str() == 
+        "Comodo comodoTeste da smarthome: Minha Casa\n"
+        "Modos presentes em comodoTeste :\n"
+        "Nome do modo: ModoTeste\n"
+        "Estado: Ligado\n"
+        "Bloqueio: Desbloqueado\n"
+        "Objetos relacionados: 0\n"
+        "Comodos relacionados: 0\n"
+    );
+    SUBCASE("TESTE 9.1 comodo sem modos nao imprime nada "){
+        Comodo comodoTeste2("comodoTeste2", &smarthome);
+         // Captura a saída do cout
+        std::ostringstream oss;
+        std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
+
+        comodoTeste2.printModosInfo();
+
+        // Restaura cout
+        std::cout.rdbuf(oldCout);
+
+        CHECK(oss.str().empty());
+    }
 
 }
 
@@ -223,10 +280,33 @@ TEST_CASE("TESTE 10 printContasInfo - Comodo"){
     Comodo comodoTeste("comodoTeste", &smarthome);
 
     comodoTeste.entrarConta(&contaTeste);
+    // Captura a saída do cout
+    std::ostringstream oss;
+    std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
 
     comodoTeste.printContasInfo();
-    //CHECK();
 
+    // Restaura cout
+    std::cout.rdbuf(oldCout);
+
+    CHECK(oss.str() == 
+        "Comodo comodoTeste da smarthome: Minha Casa\n"
+        "Contas presentes em comodoTeste :\n"
+        "ID: 1\nNome: Usuario A\nE-mail: usuarioA@email.com\nPerfil: Adulto\n\n"
+    );
+    SUBCASE("TESTE 10.1 comodo sem contas nao imprime nada "){
+        Comodo comodoTeste2("comodoTeste2", &smarthome);
+         // Captura a saída do cout
+        std::ostringstream oss;
+        std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
+
+        comodoTeste2.printContasInfo();
+
+        // Restaura cout
+        std::cout.rdbuf(oldCout);
+
+        CHECK(oss.str().empty());
+    }
 }
 
 TEST_CASE("TESTE 11 printSensoresInfo - Comodo"){
@@ -238,7 +318,103 @@ TEST_CASE("TESTE 11 printSensoresInfo - Comodo"){
 
     comodoTeste.adicionarSensor(&sensor);
 
+     // Captura a saída do cout
+    std::ostringstream oss;
+    std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
+
     comodoTeste.printSensoresInfo();
-   //CHECK();
+   
+    // Restaura cout
+    std::cout.rdbuf(oldCout);
+
+    CHECK(oss.str() == 
+        "Comodo comodoTeste da smarthome: Minha Casa\n"
+        "Sensores presentes em comodoTeste :\n"
+        "");
+    SUBCASE("TESTE 11.1 comodo sem sensores nao imprime nada "){
+        Comodo comodoTeste2("comodoTeste2", &smarthome);
+         // Captura a saída do cout
+        std::ostringstream oss;
+        std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
+
+        comodoTeste2.printModosInfo();
+
+        // Restaura cout
+        std::cout.rdbuf(oldCout);
+
+        CHECK(oss.str().empty());
+    }
 
 }
+TEST_CASE("TESTE 12 repassarInstrucao - Comodo") {
+    Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+    Smarthome smarthome(contaTeste, "Minha Casa");
+    Comodo quarto("Quarto", &smarthome);
+
+    ObjetoInteligente* luz = new ObjetoInteligente
+        ("Luz", false, {}, {"Ligado","Desligado"}, "Ligado", 10.0, {}, {});
+    ObjetoInteligente* abajur = new ObjetoInteligente
+        ("Abajur", false, {}, {"Ligado","Desligado"}, "Desligado", 5.0, {}, {});
+    ObjetoInteligente* tv = new ObjetoInteligente
+        ("TV", false, {}, {"Ligado","Desligado"}, "Desligado", 50.0, {}, {});
+
+    quarto.adicionarObjeto(luz);
+    quarto.adicionarObjeto(abajur);
+    quarto.adicionarObjeto(tv);
+
+    Modo dormir("Dormir", {luz, abajur, tv}, {&quarto}, true, false);
+
+    quarto.entrarConta(&contaTeste);
+
+    quarto.repassarInstrucao(&dormir);
+
+    CHECK(luz->getStatusAtual() == "Desligado");
+    CHECK(abajur->getStatusAtual() == "Ligado");
+    CHECK(tv->getStatusAtual() == "Ligado");
+
+    delete luz;
+    delete abajur;
+    delete tv;
+
+    SUBCASE("TESTE 12.1 comodo com modo inativo nao passa instrucao"){
+        Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+        Smarthome smarthome(contaTeste, "Minha Casa");
+        Comodo quarto("Quarto", &smarthome);
+
+        ObjetoInteligente* luz = new ObjetoInteligente
+            ("Luz", false, {}, {"Ligado","Desligado"}, "Ligado", 10.0, {}, {});
+
+        quarto.adicionarObjeto(luz);
+
+        Modo dormir("Dormir", {luz}, {&quarto}, false, false); // modo inativo
+
+        quarto.entrarConta(&contaTeste);
+        quarto.repassarInstrucao(&dormir);
+
+        CHECK(luz->getStatusAtual() == "Ligado"); 
+
+        delete luz;
+    }
+    
+    SUBCASE("TESTE 12.2 comodo sem conta presente nao passa instrucao"){
+        Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+        Smarthome smarthome(contaTeste, "Minha Casa");
+        Comodo quarto("Quarto", &smarthome);
+
+        ObjetoInteligente* luz = new ObjetoInteligente
+            ("Luz", false, {}, {"Ligado","Desligado"}, "Ligado", 10.0, {}, {});
+
+        quarto.adicionarObjeto(luz);
+
+        Modo dormir("Dormir", {luz}, {&quarto}, true, false);
+
+        // Não chama entrarConta → cômodo vazio
+        quarto.repassarInstrucao(&dormir);
+
+        CHECK(luz->getStatusAtual() == "Ligado"); // não mudou
+
+        delete luz;
+        
+    }
+}
+
