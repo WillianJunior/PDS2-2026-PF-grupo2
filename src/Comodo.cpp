@@ -99,7 +99,15 @@ void Comodo::sairConta() {
 }
 
 void Comodo::repassarInstrucao(const Modo* modo) {
-    
+    if (!modo->getAtivoModo()) return;
+    if (contasPresentes.empty()) return; // só aplica se há alguém no cômodo
+
+    for (auto* objeto : objetos) {
+        auto relacionados = modo->getObjetosRelacionados();
+        if (std::find(relacionados.begin(), relacionados.end(), objeto) != relacionados.end()) {
+            modo->executarInstrucao(objeto); // delega ao modo
+        }
+    }
 }
 
 const std::vector<Conta*>& Comodo::getContasPresentes() const {
@@ -135,7 +143,7 @@ void Comodo :: printModosInfo() const{
     std::cout << "Comodo "<< nome << " da smarthome: " << casa << endl;
     std::cout<< "Modos presentes em "<< nome << " :" << endl;
     for(size_t i=0; i<modos.size(); i++){
-        modos[i]->printMembrosInfo();// falta add metodos prints certos  
+        modos[i]->printMembrosInfo(); 
         std::cout << endl;
     }
 }
@@ -144,7 +152,7 @@ void Comodo :: printContasInfo() const{
     std::cout << "Comodo "<< nome << " da smarthome: " << casa << endl;
     std::cout<< "Contas presentes em "<< nome << " :" << endl;
     for(size_t i=0; i<contasPresentes.size(); i++){
-        contasPresentes[i]->printMembrosInfo();// falta add metodos prints certos  
+        contasPresentes[i]->printMembrosInfo(); 
         std::cout << endl;
     }
 }
