@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <sstream>
 
 #include "Smarthome.hpp"
 #include "Sensor.hpp"
@@ -127,15 +128,16 @@ TEST_CASE("TESTE 4 adicionarObjeto - Smarthome") {
     std::vector<std::function<void()>> funcoes = {
         [](){}
     };
-
     std::vector<std::function<void()>> funcoesRestritas = {
         [](){}
     };
 
     ObjetoInteligente objetoTeste(
+        "ObjetoTeste",
         false,
         sensores,
         statusPossiveis,
+        "Ligado",
         consumoMedio,
         funcoes,
         funcoesRestritas
@@ -193,9 +195,16 @@ TEST_CASE("TESTE 6 printComodosInfo - Smarthome"){
 
     casaTeste.adicionarComodo(comodoTeste);
 
+    std::ostringstream oss;
+    std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
+
     casaTeste.printComodosInfo();
-    //CHECK();
+    
+    std::cout.rdbuf(oldCout);
+    
+    //CHECK(oss.str() == );
 }
+
 TEST_CASE("TESTE 7 printObjetosInfo - Smarthome"){
      std::string id = "1";
 
@@ -227,9 +236,11 @@ TEST_CASE("TESTE 7 printObjetosInfo - Smarthome"){
     };
 
     ObjetoInteligente objetoTeste(
+        "ObjetoTeste",
         false,
         sensores,
         statusPossiveis,
+        "Ligado",
         consumoMedio,
         funcoes,
         funcoesRestritas
@@ -237,7 +248,12 @@ TEST_CASE("TESTE 7 printObjetosInfo - Smarthome"){
 
     casaTeste.adicionarObjeto(objetoTeste);
 
+    std::ostringstream oss;
+    std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
+
     casaTeste.printObjetosInfo();
+
+    std::cout.rdbuf(oldCout);
     //CHECK();
 }
 TEST_CASE("TESTE 8 printModosInfo - Smarthome"){
@@ -260,7 +276,114 @@ TEST_CASE("TESTE 8 printModosInfo - Smarthome"){
     Modo modoTeste("ModoTeste", objetos, comodos, true, false);
 
     casaTeste.adicionarModo(modoTeste);
+    // Captura a saída do cout
+    std::ostringstream oss;
+    std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
 
     casaTeste.printModosInfo();
-    //CHECK();
+
+    // Restaura cout
+    std::cout.rdbuf(oldCout);
+
+    CHECK(oss.str() == 
+        "Smarthome Minha Casa de: Usuario A\n"
+        "Modos presentes em Minha Casa :\n"
+        "Nome do modo: ModoTeste\n"
+        "Estado: Ligado\n"
+        "Bloqueio: Desbloqueado\n"
+        "Objetos relacionados: 0\n"
+        "Comodos relacionados: 0\n"
+    );
+    SUBCASE("TESTE 8.1 smarthome sem modos nao imprime nada "){
+        Smarthome casaTeste2(contaTeste, "Minha Casa2");
+         // Captura a saída do cout
+        std::ostringstream oss;
+        std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
+
+        casaTeste2.printModosInfo();
+
+        // Restaura cout
+        std::cout.rdbuf(oldCout);
+
+        CHECK(oss.str().empty());
+    }
+}
+
+TEST_CASE("TESTE 9 removerObjeto - Smarthome"){
+    std::string id = "1";
+
+    Conta contaTeste(
+        id,
+        "Usuario A",
+        "usuarioA@email.com",
+        "senha123",
+        true
+    );
+
+    Smarthome casaTeste(contaTeste, "Minha Casa");
+
+
+    std::vector<Sensor*> sensores;
+
+    std::vector<std::string> statusPossiveis = {
+        "Ligado",
+        "Desligado"
+    };
+
+    float consumoMedio = 11.5f;
+
+    std::vector<std::function<void()>> funcoes = {
+        [](){}
+    };
+    std::vector<std::function<void()>> funcoesRestritas = {
+        [](){}
+    };
+
+    ObjetoInteligente objetoTeste(
+        "ObjetoTeste",
+        false,
+        sensores,
+        statusPossiveis,
+        "Ligado",
+        consumoMedio,
+        funcoes,
+        funcoesRestritas
+    );
+
+    casaTeste.adicionarObjeto(objetoTeste);
+
+    CHECK(casaTeste.getQuantidadeObjetos() == 1);
+
+    casaTeste.removerObjeto("ObjetoTeste");
+
+    CHECK(casaTeste.getQuantidadeObjetos() == 0);
+}
+
+TEST_CASE("TESTE 10 removerModo - Smarthome"){
+    std::string id = "1";
+
+    Conta contaTeste(
+        id,
+        "Usuario A",
+        "usuarioA@email.com",
+        "senha123",
+        true
+    );
+
+    Smarthome casaTeste(contaTeste, "Minha Casa");
+
+
+    std::vector<ObjetoInteligente*> objetos;
+    std::vector<Comodo*> comodos;
+    std::string nome;
+
+    Modo modoTeste("ModoTeste", objetos, comodos, true, false);
+
+    casaTeste.adicionarModo(modoTeste);
+
+    CHECK(casaTeste.getQuantidadeModos() == 1);
+
+    casaTeste.removerObjeto("ModoTeste");
+
+    CHECK(casaTeste.getQuantidadeObjetos() == 0);
 }
