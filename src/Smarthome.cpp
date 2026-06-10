@@ -100,8 +100,8 @@ void Smarthome:: printObjetosInfo() const{
     std::cout << "Smarthome " << nome << " de: " << usuario.getNome() << endl;
     std::cout << "Objetos Inteligentes presentes em " << nome << " :" << endl;
     for(size_t i=0; i<objetos.size(); i++){
-        objetos[i].printMembrosInfo(); // falta add metodos prints certos
-        std::cout<< endl;
+        objetos[i].printObjetosInfo(); // falta add metodos prints certos
+               std::cout<< endl;
     } 
 }
 
