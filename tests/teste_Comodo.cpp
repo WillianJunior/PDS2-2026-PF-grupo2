@@ -48,11 +48,11 @@ TEST_CASE("TESTE 1 construtor - Comodo") {
     CHECK(comodoTeste.getSmarthome() == &smarthome);
 
     SUBCASE("TESTE 1.1 nome nao pode ser vazio") {
-        CHECK_THROWS(Comodo("", &smarthome));
+        CHECK_THROWS(Comodo("", &smarthome)); //checar se devia mesmo ser check throws, isso é uma exceção ou um erro?
     }
 
     SUBCASE("TESTE 1.2 ponteiro smarthome nao pode ser nullptr") {
-        CHECK_THROWS (Comodo("comodoTeste", nullptr));
+        CHECK_THROWS (Comodo("comodoTeste", nullptr));//checar se devia mesmo ser check throws, isso é uma exceção ou um erro?
     }
 
     SUBCASE("TESTE 1.3 nome longo") {
@@ -177,7 +177,7 @@ TEST_CASE("TESTE 6 sairConta - Comodo") {
     }
 }
 
-TEST_CASE("TESTE 7 removerObjeto - Comodo") {
+TEST_CASE("TESTE 7 removerObjetoPorNome - Comodo") {
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
     Smarthome smarthome(contaTeste, "Minha Casa");
     Comodo comodoTeste("comodoTeste", &smarthome);
@@ -187,8 +187,19 @@ TEST_CASE("TESTE 7 removerObjeto - Comodo") {
     comodoTeste.adicionarObjeto(&obj);
     CHECK(comodoTeste.getObjetos().size() == 1);
 
-    comodoTeste.removerObjeto(&obj);
+    comodoTeste.removerObjetoPorNome("ObjetoTeste");
     CHECK(comodoTeste.getObjetos().size() == 0);
+
+    SUBCASE("TESTE 7.1 tenta remover objeto nao adicionado"){
+        std::ostringstream oss;
+        std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
+
+        comodoTeste.removerObjetoPorNome("ObjetoTeste2");
+
+        std::cout.rdbuf(oldCout);
+
+        CHECK (oss.str() == "Objeto ObjetoTeste2 nao encontrado no Comodo comodoTeste\n");
+    }
 }
 
 // ---- implementação incompleta dos metodos seguintes -----
@@ -418,3 +429,101 @@ TEST_CASE("TESTE 12 repassarInstrucao - Comodo") {
     }
 }
 
+TEST_CASE("TESTE 13 removerModoPorNome - Comodo") {
+    Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+    Smarthome smarthome(contaTeste, "Minha Casa");
+    Comodo comodoTeste("comodoTeste", &smarthome);
+
+    auto modo = DummyModoComodo();
+
+    comodoTeste.adicionarModo(&modo);
+    CHECK(comodoTeste.getModos().size() == 1);
+
+    comodoTeste.removerModoPorNome("ModoTeste");
+    CHECK(comodoTeste.getModos().size() == 0);
+
+    SUBCASE("TESTE 13.1 tenta remover modo nao adicionado"){
+        std::ostringstream oss;
+        std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
+
+        comodoTeste.removerModoPorNome("ModoTeste2");
+
+        std::cout.rdbuf(oldCout);
+
+        CHECK (oss.str() == "Modo ModoTeste2 nao encontrado no Comodo comodoTeste\n");
+    }
+}
+TEST_CASE("TESTE 14 removerSensorPorNome - Comodo") {
+    Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+    Smarthome smarthome(contaTeste, "Minha Casa");
+    Comodo comodoTeste("comodoTeste", &smarthome);
+
+    auto sensor = DummySensorComodo();
+
+    comodoTeste.adicionarSensor(&sensor);
+    CHECK(comodoTeste.getSensores().size() == 1);
+
+    comodoTeste.removerSensorPorNome("SensorTeste");
+    CHECK(comodoTeste.getSensores().size() == 0);
+
+    SUBCASE("TESTE 14.1 tenta remover sensor nao adicionado"){
+        std::ostringstream oss;
+        std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
+
+        comodoTeste.removerSensorPorNome("SensorTeste2");
+
+        std::cout.rdbuf(oldCout);
+
+        CHECK (oss.str() == "Sensor SensorTeste2 nao encontrado no Comodo comodoTeste\n");
+    }
+}
+TEST_CASE("TESTE 15 mudarCondicao - Comodo") {
+    Comodo quarto("Quarto", nullptr);
+
+    SUBCASE("TESTE 15.1 Adicionar primeira condição") {
+        quarto.mudarCondicao("Iluminado");
+        auto condicoes = quarto.getCondicoesDoComodo();
+        CHECK(condicoes.size() == 1);
+        CHECK(condicoes[0] == "Iluminado");
+    }
+
+    SUBCASE("TESTE 15.2 Trocar condição exclusiva (Iluminado -> Escuro)") {
+        quarto.mudarCondicao("Iluminado");
+        quarto.mudarCondicao("Escuro");
+        auto condicoes = quarto.getCondicoesDoComodo();
+        CHECK(condicoes.size() == 1);
+        CHECK(condicoes[0] == "Escuro");
+    }
+
+    SUBCASE("TESTE 15.3 Adicionar múltiplas condições não exclusivas") {
+        quarto.mudarCondicao("Quente");
+        quarto.mudarCondicao("Barulhento");
+        auto condicoes = quarto.getCondicoesDoComodo();
+        CHECK(condicoes.size() == 2);
+        CHECK(std::find(condicoes.begin(), condicoes.end(), "Quente") != condicoes.end());
+        CHECK(std::find(condicoes.begin(), condicoes.end(), "Barulhento") != condicoes.end());
+    }
+
+    SUBCASE("TESTE 15.4 Trocar condição exclusiva (Quente -> Frio)") {
+        quarto.mudarCondicao("Quente");
+        quarto.mudarCondicao("Frio");
+        auto condicoes = quarto.getCondicoesDoComodo();
+        CHECK(condicoes.size() == 1);
+        CHECK(condicoes[0] == "Frio");
+    }
+
+    SUBCASE("TESTE 15.5 Condição inválida") {
+        quarto.mudarCondicao("Claro"); // não está na lista de pares
+        auto condicoes = quarto.getCondicoesDoComodo();
+        CHECK(condicoes.size() == 1); // adiciona mesmo assim
+        CHECK(condicoes[0] == "Claro"); // mas não remove nada
+    }
+
+    SUBCASE("TESTE 15.6 Repetição da mesma condição") {
+        quarto.mudarCondicao("Iluminado");
+        quarto.mudarCondicao("Iluminado");
+        auto condicoes = quarto.getCondicoesDoComodo();
+        CHECK(condicoes.size() == 1); // não deve duplicar
+        CHECK(condicoes[0] == "Iluminado");
+    }
+}
