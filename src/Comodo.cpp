@@ -52,7 +52,13 @@ void Comodo::mudarCondicao(std::string condicao) {
         );
     }
 
+
     condicoesDoComodo.push_back(condicao);
+}
+
+
+void Comodo::adicionarCondicao(std::string condicao) {
+    mudarCondicao(condicao);
 }
 
 void Comodo::adicionarObjeto(ObjetoInteligente* objeto) {
@@ -154,7 +160,7 @@ void Comodo :: printObjetosInfo() const{
     std::cout << "Comodo "<< nome << " da smarthome: " << casa << endl;
     std::cout<< "Objetos inteligentes presentes em "<< nome << " :" << endl;
     for(size_t i=0; i<objetos.size(); i++){
-        objetos[i]->printMembrosInfo();  // falta add metodos prints certos
+        objetos[i]->printObjetosInfo();
         std::cout << endl;
     }
 }
@@ -162,7 +168,7 @@ void Comodo :: printSensoresInfo() const{
     std::cout << "Comodo "<< nome << " da smarthome: " << casa << endl;
     std::cout<< "Sensores presentes em "<< nome << " :" << endl;
     for(size_t i=0; i<sensores.size(); i++){
-        sensores[i]->printMembrosInfo(); // falta add metodos prints certos 
+        sensores[i]->printSensorInfo();
         std::cout << endl;
     }
 }
