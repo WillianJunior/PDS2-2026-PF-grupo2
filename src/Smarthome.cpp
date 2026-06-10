@@ -86,6 +86,8 @@ void Smarthome:: printComodosInfo()const{
     std::cout << "Smarthome " << nome << " de: " << usuario.getNome() << endl;
     std::cout<< "Comodos presentes em "<< nome << " :" << endl;
     for(size_t i=0; i<comodos.size(); i++){
+        comodos[i].getNome();
+        comodos[i].getCondicoesDoComodo();
         comodos[i].printObjetosInfo(); 
         comodos[i].printModosInfo();
         comodos[i].printSensoresInfo();
