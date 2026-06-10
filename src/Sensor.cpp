@@ -2,6 +2,8 @@
 #include "ObjetoInteligente.hpp"
 #include "Modo.hpp"
 #include "Comodo.hpp"
+#include <vector>
+#include <iostream>
 #include <algorithm>
 
 Sensor::Sensor(
@@ -35,7 +37,7 @@ std::string Sensor::getNome() const {
     return nome;
 }
 
-bool Sensor::getEstaLigado() {
+bool Sensor::getEstaLigado() const{
     return estaLigado;
 }
 
@@ -43,15 +45,15 @@ void Sensor::setEstaAtivado(bool ativado) {
     estaAtivado = ativado;
 }
 
-bool Sensor::getEstaAtivado() {
+bool Sensor::getEstaAtivado() const {
     return estaAtivado;
 }
 
-std::vector<ObjetoInteligente*> Sensor::getObjetosConectados() {
+std::vector<ObjetoInteligente*> Sensor::getObjetosConectados() const {
     return objetosConectados;
 }
 
-std::vector<Modo*> Sensor::getModosConectados() {
+std::vector<Modo*> Sensor::getModosConectados() const {
     return modosConectados;
 }
 
@@ -81,6 +83,16 @@ bool Sensor :: operator== (const Sensor& other) const{
         modosConectados == other.modosConectados;
 }
 
-void Sensor :: printMembrosInfo() const{
-    //implemetação
+void Sensor :: printSensorInfo() const{
+    std::cout << "Sensor " << this->nome << " do cômodo " << this->comodoPertencente.getNome() << std::endl;
+    std::cout << "Sensor está ligado? " << this->getEstaLigado() << std::endl;
+    std::cout << "Sensor está ativado? " << this->getEstaAtivado() << std::endl;
+    std::cout << "Objetos conectados: "; 
+    for (int i=0; i>objetosConectados.size(); i++) {
+        std::cout << objetosConectados.at(i)->getNome();
+    }
+    std::cout << "Modos conectados: "; 
+    for (int i=0; i>modosConectados.size(); i++) {
+        std::cout << modosConectados.at(i)->getNome();
+    }
 }

@@ -1,4 +1,5 @@
 #include "ObjetoInteligente.hpp"
+#include <iostream>
 #include <algorithm>
 #include "Sensor.hpp"
 
@@ -44,19 +45,19 @@ void ObjetoInteligente::setRestricaoAdulto(bool restricao) {
 }
 
 
-std::vector<Sensor*> ObjetoInteligente::getSensores() {
+std::vector<Sensor*> ObjetoInteligente::getSensores() const {
     return sensores;
 }
 
 
-std::vector<std::string> ObjetoInteligente::getStatusPossiveis() {
+std::vector<std::string> ObjetoInteligente::getStatusPossiveis() const{
     if (!statusPossiveis.empty()) {
         return statusPossiveis;
     }
     return {};
 }
 
-std::string ObjetoInteligente::getStatusAtual() {
+std::string ObjetoInteligente::getStatusAtual() const {
     return statusAtual;
 }
 
@@ -66,20 +67,31 @@ void ObjetoInteligente::setStatusAtual(std::string status) {
 }
 
 
-float ObjetoInteligente::getConsumoMedioDeEnergia() {
+float ObjetoInteligente::getConsumoMedioDeEnergia() const {
     return consumoMedioDeEnergia;
 }
 
 
-std::vector<std::function<void()>> ObjetoInteligente::getFuncoes() {
+std::vector<std::function<void()>> ObjetoInteligente::getFuncoes() const{
     return funcoes;
 }
 
 
-std::vector<std::function<void()>> ObjetoInteligente::getFuncoesRestritas() {
+std::vector<std::function<void()>> ObjetoInteligente::getFuncoesRestritas() const{
     return funcoesRestritas;
 }
 
-void ObjetoInteligente :: printMembrosInfo() const{
-    //implemetação
+void ObjetoInteligente :: printObjetosInfo() const{
+    std::cout << "Objeto " << this->nome;
+    std::cout << "Objeto tem restrição parental?" << this->restricaoAdulto << std::endl;
+    std::cout << "Consumo médio de energia: " << this->consumoMedioDeEnergia << std::endl;
+    std::cout << "Sensores conectados: "; 
+    for (int i=0; i>sensores.size(); i++) {
+        std::cout << sensores.at(i)->getNome();
+    }
+    std::cout << "Status possíveis: "; 
+    for (int i=0; i>statusPossiveis.size(); i++) {
+        std::cout << this->getStatusPossiveis().at(i);
+    }
+    std::cout << "Status atual: " << this->statusAtual << std::endl;
 }

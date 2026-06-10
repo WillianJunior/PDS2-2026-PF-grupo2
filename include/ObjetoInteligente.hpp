@@ -67,15 +67,15 @@ public:
     /**
      * @brief Retorna os sensores associados ao objeto.
      */
-    std::vector<Sensor*> getSensores();
+    std::vector<Sensor*> getSensores() const;
     /**
      * @brief Retorna os status possíveis do objeto.
      */
-    std::vector<std::string> getStatusPossiveis();
+    std::vector<std::string> getStatusPossiveis() const;
     /**
      * @brief Retorna o status atual do objeto.
      */
-    std::string getStatusAtual();
+    std::string getStatusAtual() const;
     /**
      * @brief Define o status atual do objeto.
      * @param status é o nome dos status a ser definido.
@@ -84,15 +84,15 @@ public:
     /**
      * @brief Retorna o valor de consumo médio de energia do objeto.
      */
-    float getConsumoMedioDeEnergia();
+    float getConsumoMedioDeEnergia() const;
     /**
      * @brief Retorna a lista de funções do objeto.
      * */
-    std::vector<std::function<void()>> getFuncoes();
+    std::vector<std::function<void()>> getFuncoes() const;
     /**
      * @brief Retorna a lista de funções restritas a crianças do objeto.
      * */
-    std::vector<std::function<void()>> getFuncoesRestritas();
+    std::vector<std::function<void()>> getFuncoesRestritas() const;
     /**
      * @brief Define comparação entre objetos.
      * */
@@ -100,7 +100,7 @@ public:
     /**
      * @brief Imprime informações do membro do objeto.
      * */
-    void printMembrosInfo() const;
+    void printObjetosInfo() const;
 };
 
 #endif

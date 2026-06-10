@@ -56,7 +56,7 @@ public:
     /**
      * @brief Retorna se o sensor está ligado.
      */
-    bool getEstaLigado();
+    bool getEstaLigado() const;
 
     /**
      * @brief Ativa ou desativa o sensor.
@@ -67,17 +67,17 @@ public:
     /**
      * @brief Retorna se o sensor está ativado.
      */
-    bool getEstaAtivado();
+    bool getEstaAtivado() const;
 
     /**
      * @brief Retorna a lista de objetos conectados.
      */
-    std::vector<ObjetoInteligente*> getObjetosConectados();
+    std::vector<ObjetoInteligente*> getObjetosConectados() const;
 
     /**
      * @brief Retorna a lista de modos conectados.
      */
-    std::vector<Modo*> getModosConectados();
+    std::vector<Modo*> getModosConectados() const;
 
     /**
      * @brief Confere um elemento do ambiente. Se encontrá-lo, retorna 1. Se não, retorna 0.
@@ -106,7 +106,7 @@ public:
     /**
      * @brief Imprime informações do membro do sensor.
      * */
-    void printMembrosInfo() const;
+    void printSensorInfo() const;
 };
 
 #endif
