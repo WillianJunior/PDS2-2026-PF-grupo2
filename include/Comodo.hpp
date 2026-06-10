@@ -1,6 +1,7 @@
 #ifndef COMODO_HPP
 #define COMODO_HPP
 #pragma once
+
 #include <string>
 #include <vector>
 
@@ -10,144 +11,59 @@ class Sensor;
 class ObjetoInteligente;
 class Modo;
 
-
-/**
- * @class Comodo
- * @brief Representa um cômodo da SmartHome responsável por armazenar objetos inteligentes, sensores, modos e controlar a presença de uma conta no ambiente.
- */
 class Comodo {
 public:
-
-    /**
-     * @brief Construtor da classe Comodo.
-     * @param nome Nome do cômodo.
-     * @param casa Ponteiro para a SmartHome à qual o cômodo pertence.
-     */ 
     Comodo(std::string nome, Smarthome* casa);
-    /**
-     * @brief Define comparação entre comodos.
-     * @param other é comodo a ser comparado.
-     * @return Retorna true se comodos forem iguais.
-     */
-    bool operator == (const Comodo& other)const;
-    /**
-     * @brief Retorna as condições atuais do cômodo (Ex: iluminado, escuro, quente, frio, etc).
-     */
-    std::vector<std::string> getCondicoesDoComodo() const;
-    /**
-     * @brief Muda a condição do cômodo.
-     * @param condicao Em qual condição o cômodo estará.
-     */
-    void mudarCondicao(std::string condicao);
-    /**
-     * @brief Adiciona um objeto a um comodo.
-     * @param objeto ObjetoInteligente a ser adicionado ao comodo.
-     */
-    void adicionarObjeto(ObjetoInteligente* objeto);
-    /**
-     * @brief Adiciona um sensor a um comodo.
-     * @param sensor Sensor a ser adicionado ao comodo.
-     */
-    void adicionarSensor(Sensor* sensor); 
-    /**
-     * @brief Adiciona um modo a um comodo.
-     * @param modo Modo a ser adicionado ao comodo.
-     */
-    void adicionarModo(Modo* modo);
-    /**
-     * @brief Retorna objetos no comodo.
-     */
-    const std :: vector <ObjetoInteligente*>& getObjetos() const;
-    /**
-     * @brief Retorna sensores no comodo.
-     */
-    const std :: vector <Sensor*>& getSensores() const;
-    /**
-     * @brief Retorna modos no comodo.
-     */
-    const std :: vector <Modo*>& getModos() const;
-    /**
-     * @brief Remove modo do comodo.
-     * @param nomeModo Modo a ser removido do comodo.
-     */
-    void removerModoPorNome(std::string nomeModo);
 
-    /**
-     * @brief Remove um objeto do comodo buscando pelo nome.
-     * @param nomeObjeto Nome do objeto a ser removido.
-     */
+    bool operator==(const Comodo& other) const;
+
+    std::vector<std::string> getCondicoesDoComodo() const;
+
+    void mudarCondicao(std::string condicao);
+    void adicionarCondicao(std::string condicao);
+
+    void adicionarObjeto(ObjetoInteligente* objeto);
+    void adicionarSensor(Sensor* sensor);
+    void adicionarModo(Modo* modo);
+
+    const std::vector<ObjetoInteligente*>& getObjetos() const;
+    const std::vector<Sensor*>& getSensores() const;
+    const std::vector<Modo*>& getModos() const;
+
+    void removerModoPorNome(std::string nomeModo);
     void removerObjetoPorNome(std::string nomeObjeto);
-    
-    /**
-     * @brief Remove um sensor do comodo buscando pelo nome.
-     * @param nomeSensor Nome do sensor a ser removido.
-     */
     void removerSensorPorNome(std::string nomeSensor);
-    
-    /**
-     * @brief Define uma conta que esta no cômodo.
-     * 
-     * @param conta Ponteiro para a conta que entrou no cômodo.
-     */
+
     void entrarConta(Conta* conta);
-     /**
-     * @brief Remove a conta presente do cômodo.
-     */
     void sairConta();
 
-    /**
-     * @brief Controla a ativação de um modo.
-     * 
-     * @param modo Ponteiro para o modo que vai receber a instrução.
-     */
     void repassarInstrucao(Modo* modo);
-    /**
-     * @brief Retorna Contas dentro do cômodo.
-     */
-    const std :: vector <Conta*>&  getContasPresentes() const;
-    /**
-     * @brief Retorna o nome do cômodo.
-     */
-    std :: string getNome() const;
-    /**
-     * @brief Retorna Smarthome a qual o cômodo pertence.
-     */
+
+    const std::vector<Conta*>& getContasPresentes() const;
+
+    std::string getNome() const;
     Smarthome* getSmarthome() const;
-    /**
-     * @brief Imprime informações dos objetos do Comodo.
-     */
-    void printObjetosInfo()const;
-    /**
-     * @brief Imprime informações dos sensores do Comodo.
-     */
-    void printSensoresInfo()const;
-    /**
-     * @brief Imprime informações dos contas do Comodo.
-     */
-    void printContasInfo()const;
-    /**
-     * @brief Imprime informações dos modos do Comodo.
-     */
-    void printModosInfo()const;
+
+    void printObjetosInfo() const;
+    void printSensoresInfo() const;
+    void printContasInfo() const;
+    void printModosInfo() const;
 
     ~Comodo();
-                
+
 private:
-    /**
-     * @brief Nome do cômodo.
-     */
     std::string nome;
-    /**
-     * @brief Smarthome que o cômodo pertence.
-     */
-    Smarthome* casa;                
-    std::vector<std::string> condicoesDoComodo = {"Iluminado", "Escuro", "Quente", "Frio", 
-                                                "Umido", "Seco", "Barulhento", "Silencioso"}; 
-                                                // condicoes para o sensor identificar.
-    std::vector<Conta*> contasPresentes; // contas presentes em certos momentos
+    Smarthome* casa;
+
+    std::vector<std::string> condicoesDoComodo = {
+        "Iluminado", "Escuro", "Quente", "Frio",
+        "Umido", "Seco", "Barulhento", "Silencioso"
+    };
+
+    std::vector<Conta*> contasPresentes;
     std::vector<ObjetoInteligente*> objetos;
     std::vector<Sensor*> sensores;
     std::vector<Modo*> modos;
 };
-#endif
 
+#endif 
