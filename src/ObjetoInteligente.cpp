@@ -3,6 +3,7 @@
 #include <algorithm>
 #include "Sensor.hpp"
 
+
 ObjetoInteligente::ObjetoInteligente(
     std::string nome,
     bool restricaoAdulto,
@@ -86,12 +87,13 @@ void ObjetoInteligente :: printObjetosInfo() const{
     std::cout << "Objeto tem restrição parental?" << this->restricaoAdulto << std::endl;
     std::cout << "Consumo médio de energia: " << this->consumoMedioDeEnergia << std::endl;
     std::cout << "Sensores conectados: "; 
-    for (int i=0; i>sensores.size(); i++) {
+    for (int i=0; i < sensores.size(); i++) {
         std::cout << sensores.at(i)->getNome();
     }
+   
     std::cout << "Status possíveis: "; 
-    for (int i=0; i>statusPossiveis.size(); i++) {
-        std::cout << this->getStatusPossiveis().at(i);
-    }
+for (size_t i = 0; i < statusPossiveis.size(); i++) {
+    std::cout << this->getStatusPossiveis().at(i);
+}
     std::cout << "Status atual: " << this->statusAtual << std::endl;
 }
