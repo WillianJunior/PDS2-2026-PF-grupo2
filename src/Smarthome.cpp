@@ -107,7 +107,7 @@ void Smarthome:: printModosInfo() const{
     std::cout << "Smarthome " << nome << " de: " << usuario.getNome() << endl;
     std::cout << "Modos presentes em " << nome << " :" << endl;
     for(size_t i=0; i<modos.size(); i++){
-         modos[i].printMembrosInfo(); // falta add metodos prints certos
+         modos[i].printMembrosInfo();
         std::cout<< endl;
     }
 }
