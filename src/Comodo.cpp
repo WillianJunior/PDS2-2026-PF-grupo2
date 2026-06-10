@@ -17,18 +17,48 @@ bool Comodo :: operator== (const Comodo& other) const{
     return nome == other.nome && casa == other.casa;
 }
 
-std::vector<std::string> Comodo::getCondicoesDoComodo() {
+std::vector<std::string> Comodo::getCondicoesDoComodo() const{
     return condicoesDoComodo;
 }
 
-void Comodo::adicionarCondicao(std::string condicao) {
+void Comodo::mudarCondicao(std::string condicao) {
+    // remove qualquer condição do mesmo grupo (exemplo : se estiver Iluminado, Escuro é removido)
+    if (condicao == "Iluminado" || condicao == "Escuro") {
+        condicoesDoComodo.erase(
+            std::remove_if(condicoesDoComodo.begin(), condicoesDoComodo.end(),
+                [](const std::string& c){ return c=="Iluminado" || c=="Escuro"; }),
+            condicoesDoComodo.end()
+        );
+    }
+    if (condicao == "Quente" || condicao == "Frio") {
+        condicoesDoComodo.erase(
+            std::remove_if(condicoesDoComodo.begin(), condicoesDoComodo.end(),
+                [](const std::string& c){ return c=="Quente" || c=="Frio"; }),
+            condicoesDoComodo.end()
+        );
+    }
+    if (condicao == "Barulhento" || condicao == "Silencioso"){
+        condicoesDoComodo.erase(
+            std::remove_if(condicoesDoComodo.begin(), condicoesDoComodo.end(),
+                [](const std::string& c){ return c=="Barulhento" || c=="Silencioso"; }),
+            condicoesDoComodo.end()
+        );
+    }
+    if (condicao == "Umido" || condicao == "Seco"){
+        condicoesDoComodo.erase(
+            std::remove_if(condicoesDoComodo.begin(), condicoesDoComodo.end(),
+                [](const std::string& c){ return c=="Umido" || c=="Seco"; }),
+            condicoesDoComodo.end()
+        );
+    }
+
     condicoesDoComodo.push_back(condicao);
 }
 
 void Comodo::adicionarObjeto(ObjetoInteligente* objeto) {
     if (objeto) {
         for (const auto& o : objetos) {
-            if (*o == *objeto) { 
+            if (*o == *objeto || o->getNome() == objeto->getNome()) { 
                 std::cout << "Objeto já existente no Comodo " << nome << std::endl; // por nome do comodo
                 return;
             }
@@ -40,7 +70,7 @@ void Comodo::adicionarObjeto(ObjetoInteligente* objeto) {
 void Comodo::adicionarSensor(Sensor* sensor) {
     if (sensor) {
         for (const auto& s : sensores) {
-            if (*s == *sensor) { 
+            if (*s == *sensor || s->getNome() == sensor->getNome()) { 
                 std::cout << "Sensor já existente no Comodo " << nome << std::endl;
                 return;
             }
@@ -52,7 +82,7 @@ void Comodo::adicionarSensor(Sensor* sensor) {
 void Comodo::adicionarModo(Modo* modo) {
     if (modo) {
         for (const auto& m : modos) {
-            if (*m == *modo) { 
+            if (*m == *modo || m->getNome() == modo->getNome()) { 
                 std::cout << "Modo já existente no Comodo " << nome << std::endl;
                 return;
             }
@@ -73,13 +103,6 @@ const std::vector<Modo*>& Comodo::getModos() const {
     return modos;
 }
 
-void Comodo::removerObjeto(const ObjetoInteligente* objeto) {
-    auto it = std::find(objetos.begin(), objetos.end(), objeto);
-    if (it != objetos.end()) {
-        objetos.erase(it);
-    }
-}
-
 void Comodo::entrarConta(Conta* conta) {
     if (conta) {
         for (const auto& c : contasPresentes) {
@@ -98,14 +121,19 @@ void Comodo::sairConta() {
     }
 }
 
-void Comodo::repassarInstrucao(const Modo* modo) {
-    if (!modo->getAtivoModo()) return;
-    if (contasPresentes.empty()) return; // só aplica se há alguém no cômodo
+void Comodo::repassarInstrucao( Modo* modo) {
+     
+    if (contasPresentes.empty()) return;
+
+    auto relacionados = modo->getObjetosRelacionados();
 
     for (auto* objeto : objetos) {
-        auto relacionados = modo->getObjetosRelacionados();
         if (std::find(relacionados.begin(), relacionados.end(), objeto) != relacionados.end()) {
-            modo->executarInstrucao(objeto); // delega ao modo
+            if (modo->getAtivoModo()) {
+                modo->executarInstrucao(objeto, this); // passa o comodo junto
+            } else {
+                modo->desfazerInstrucao(objeto, this); // lógica de desativação
+            }
         }
     }
 }
@@ -177,6 +205,17 @@ void Comodo::removerSensorPorNome(std::string nomeSensor) {
         }
     }
     std::cout << "Sensor " << nomeSensor << " nao encontrado no Comodo " << nome << std::endl;
+}
+
+void Comodo::removerModoPorNome(std::string nomeModo){
+    for (auto it = modos.begin(); it != modos.end(); ++it) {
+        if ((*it)->getNome() == nomeModo) {
+            modos.erase(it);
+            std::cout << "Modo " << nomeModo << " removido do Comodo " << nome << std::endl;
+            return;
+        }
+    }
+    std::cout << "Modo " << nomeModo << " nao encontrado no Comodo " << nome << std::endl;
 }
 
 Comodo::~Comodo() = default;
