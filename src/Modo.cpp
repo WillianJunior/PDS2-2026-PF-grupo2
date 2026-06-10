@@ -35,6 +35,9 @@ void Modo::setAtivoModo(bool ativo) {
     }
 
     ligado = ativo;
+   // for (auto* comodo : comodosRelacionados) {
+   //     comodo->repassarInstrucao(this);
+    //}
 }
 
 bool Modo::getAtivoModo() const {
@@ -77,6 +80,9 @@ void Modo::printMembrosInfo() const {
     std::cout << "Comodos relacionados: " << comodosRelacionados.size() << std::endl;
 }
 
-void Modo::executarInstrucao(ObjetoInteligente* objeto) const{
+void Modo::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) {
     
+}
+void Modo ::  desfazerInstrucao (ObjetoInteligente* objeto, Comodo* comodo){
+
 }

@@ -51,7 +51,8 @@ class Modo {
 
         void printMembrosInfo() const;
 
-        void Modo::executarInstrucao(ObjetoInteligente* objeto) const;
+        void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo);
+        void desfazerInstrucao(ObjetoInteligente* objeto, Comodo* comodo);
 };
 
 #endif
