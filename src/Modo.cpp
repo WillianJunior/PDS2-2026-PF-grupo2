@@ -1,6 +1,7 @@
 #include "Modo.hpp"
 #include <stdexcept>
 #include <iostream>
+#include "ObjetoInteligente.hpp"
 
 Modo::Modo(
     std::string nome,
@@ -81,8 +82,20 @@ void Modo::printMembrosInfo() const {
 }
 
 void Modo::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) {
-    
+      (void)comodo;
+
+    if (objeto == nullptr || bloqueado) {
+        return;
+    }
+
+    objeto->setStatusAtual("Ligado");
 }
 void Modo ::  desfazerInstrucao (ObjetoInteligente* objeto, Comodo* comodo){
+     (void)comodo;
 
+    if (objeto == nullptr || bloqueado) {
+        return;
+    }
+
+    objeto->setStatusAtual("Desligado");
 }
