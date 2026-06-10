@@ -33,12 +33,12 @@ public:
     /**
      * @brief Retorna as condições atuais do cômodo (Ex: iluminado, escuro, quente, frio, etc).
      */
-    std::vector<std::string> getCondicoesDoComodo();
+    std::vector<std::string> getCondicoesDoComodo() const;
     /**
-     * @brief Adiciona uma nova condição ao cômodo.
-     * @param condicao Qual condição será adicionada.
+     * @brief Muda a condição do cômodo.
+     * @param condicao Em qual condição o cômodo estará.
      */
-    void adicionarCondicao(std::string condicao);
+    void mudarCondicao(std::string condicao);
     /**
      * @brief Adiciona um objeto a um comodo.
      * @param objeto ObjetoInteligente a ser adicionado ao comodo.
@@ -67,10 +67,10 @@ public:
      */
     const std :: vector <Modo*>& getModos() const;
     /**
-     * @brief Remove objeto do comodo.
-     * @param objeto ObjetoInteligente a ser removido do comodo.
+     * @brief Remove modo do comodo.
+     * @param nomeModo Modo a ser removido do comodo.
      */
-    void removerObjeto(const ObjetoInteligente* objeto);
+    void removerModoPorNome(std::string nomeModo);
 
     /**
      * @brief Remove um objeto do comodo buscando pelo nome.
@@ -100,7 +100,7 @@ public:
      * 
      * @param modo Ponteiro para o modo que vai receber a instrução.
      */
-    void repassarInstrucao(const Modo* modo);
+    void repassarInstrucao(Modo* modo);
     /**
      * @brief Retorna Contas dentro do cômodo.
      */
@@ -141,8 +141,10 @@ private:
      * @brief Smarthome que o cômodo pertence.
      */
     Smarthome* casa;                
-    std::vector<std::string> condicoesDoComodo;     // condicoes para o sensor identificar. Ex: iluminado, quente, frio, etc.
-    std::vector<Conta*> contasPresentes;           // contas presentes em certos momentos
+    std::vector<std::string> condicoesDoComodo = {"Iluminado", "Escuro", "Quente", "Frio", 
+                                                "Umido", "Seco", "Barulhento", "Silencioso"}; 
+                                                // condicoes para o sensor identificar.
+    std::vector<Conta*> contasPresentes; // contas presentes em certos momentos
     std::vector<ObjetoInteligente*> objetos;
     std::vector<Sensor*> sensores;
     std::vector<Modo*> modos;
