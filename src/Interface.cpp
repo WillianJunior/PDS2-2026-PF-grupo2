@@ -61,7 +61,9 @@ void Interface::exibirMenuConta() {
     std::cout << "\n======================================\n";
     std::cout << "   PAINEL DA CONTA [" << usuarioLogado->getNome() << "]\n";
     std::cout << "======================================\n";
-    std::cout << "1. Fazer Logout (Sair da conta)\n";
+    std::cout << "1. Criar nova Smarthome\n";
+    std::cout << "2. Acessar minhas Smarthomes\n";
+    std::cout << "3. Fazer Logout\n";
     std::cout << "Escolha uma opcao: ";
     
     int op;
@@ -74,12 +76,36 @@ void Interface::exibirMenuConta() {
     }
     std::cin.ignore();
     
-    if (op == 1) {
-        usuarioLogado.reset();
-        std::cout << "\nLogout efetuado com sucesso.\n";
-    } else {
-        std::cout << "\nOpcao em construcao ou invalida!\n";
+    switch (op) {
+        case 1: {
+            std::string nomeCasa;
+            std::cout << "\nDigite o nome da sua nova Smarthome: ";
+            std::getline(std::cin, nomeCasa);
+            
+            // Gerando um ID simples provisório
+            std::string idGerado = std::to_string(rand() % 10000); 
+            
+            // A sua interface conversando com o backend!
+            usuarioLogado->criarSmarthome(idGerado, nomeCasa);
+            
+            std::cout << "Smarthome '" << nomeCasa << "' criada com sucesso!\n";
+            break;
+        }
+        case 2:
+            exibirMenuSmarthome();
+            break;
+        case 3:
+            usuarioLogado.reset();
+            std::cout << "\nLogout efetuado com sucesso.\n";
+            break;
+        default:
+            std::cout << "\nOpcao invalida! Escolha 1, 2 ou 3.\n";
+            break;
     }
+}
+
+void Interface::exibirMenuSmarthome() {
+    std::cout << "\n[Acessando o interior da Smarthome... (Em construcao)]\n";
 }
 void Interface::realizarLogin() {
     std::string email, senha;
