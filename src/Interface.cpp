@@ -41,10 +41,11 @@ void Interface::exibirMenuInicial() {
 
     switch (opcao) {
         case 1:
-            std::cout << "\n[Em construcao: Direcionando para Login...]\n";
+            std::cout << "\nDirecionando para Login...\n";
+            realizarLogin();
             break;
         case 2:
-            std::cout << "\n[Direcionando para Cadastro de Nova Conta...]\n";
+            std::cout << "\nDirecionando para Cadastro de Nova Conta...\n";
             cadastrarConta();
             break;
         case 3:
@@ -101,7 +102,7 @@ void Interface::realizarLogin() {
         }
         std::cout << "Bem-vindo(a), " << usuarioLogado->getNome() << "!\n";
     } else {
-        std::cout << "\nErro de autenticacao! E-mail ou senha incorretos ou conta bloqueada).\n";
+        std::cout << "\nErro de autenticacao! E-mail ou senha incorretos ou conta bloqueada.\n";
     }
 }
 
