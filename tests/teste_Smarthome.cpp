@@ -42,7 +42,7 @@ TEST_CASE("TESTE 1 construtor - Smarthome") {
     }
 
     SUBCASE("TESTE 1.3 nome da smarthome contem caracteres invalidos") {
-        std :: string InvalidName (10, '§');
+         std::string InvalidName = "§c4s4§";
 
         CHECK_THROWS_WITH(Smarthome (contaTeste, InvalidName), "Nome da SmartHome com usos de caracteres invalidos");
     }
