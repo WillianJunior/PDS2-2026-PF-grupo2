@@ -16,6 +16,7 @@ private:
     void exibirMenuConta();       // Tela após logar - Gerenciar Smarthomes
     void exibirMenuSmarthome();   // Tela de listagem e seleção de Smarthomes
     void gerenciarSmarthome(Smarthome* casa); // Tela de controle da Smarthome escolhida
+    void exibirMenuComodos(Smarthome* casa);  // Tela de gestao de comodos da casa
 
     void realizarLogin();
     void cadastrarConta();

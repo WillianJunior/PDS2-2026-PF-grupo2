@@ -233,7 +233,7 @@ void Interface::gerenciarSmarthome(Smarthome* casa) {
 
         switch (op) {
             case 1:
-                std::cout << "\n[Acessando modulo de Comodos... (Em construcao)]\n";
+                exibirMenuComodos(casa);
                 break;
             case 2:
                 std::cout << "\n[Acessando modulo de Modos... (Em construcao)]\n";
@@ -252,6 +252,60 @@ void Interface::gerenciarSmarthome(Smarthome* casa) {
                 return;
             default:
                 std::cout << "\nOpcao invalida! Escolha de 1 a 4.\n";
+                break;
+        }
+    }
+}
+void Interface::exibirMenuComodos(Smarthome* casa) {
+    while (true) {
+        std::cout << "\n--- GERENCIAR COMODOS [" << casa->getNome() << "] ---\n";
+        std::cout << "1. Listar Comodos\n";
+        std::cout << "2. Adicionar novo Comodo\n";
+        std::cout << "3. Remover Comodo\n";
+        std::cout << "4. Voltar\n";
+        std::cout << "Escolha uma opcao: ";
+
+        int op;
+        if (!(std::cin >> op)) {
+            std::cin.clear();
+            std::string lixo;
+            std::getline(std::cin, lixo);
+            std::cout << "Opcao invalida! Digite apenas numeros.\n";
+            continue;
+        }
+        std::cin.ignore();
+
+        switch (op) {
+            case 1:
+                std::cout << "\n[Lista de Comodos]\n";
+                if (casa->getQuantidadeComodos() == 0) {
+                    std::cout << "Nenhum comodo cadastrado nesta casa.\n";
+                } else {
+                    casa->printComodosInfo();
+                }
+                break;
+            case 2: {
+                std::string nomeComodo;
+                std::cout << "Digite o nome do novo comodo (ex: Sala de Estar): ";
+                std::getline(std::cin, nomeComodo);
+                
+                usuarioLogado->criarComodo(casa, nomeComodo);
+                std::cout << "Comodo '" << nomeComodo << "' criado com sucesso!\n";
+                break;
+            }
+            case 3: {
+                std::string nomeComodo;
+                std::cout << "Digite o nome do comodo a ser removido: ";
+                std::getline(std::cin, nomeComodo);
+                
+                usuarioLogado->apagarComodo(casa, nomeComodo);
+                std::cout << "Comando de remocao executado.\n";
+                break;
+            }
+            case 4:
+                return;
+            default:
+                std::cout << "Opcao invalida! Escolha de 1 a 4.\n";
                 break;
         }
     }
