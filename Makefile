@@ -6,7 +6,7 @@ SRC_DIR = src
 TEST_DIR = tests
 BUILD_DIR = build
 
-SRCS = $(wildcard $(SRC_DIR)/*.cpp)
+SRCS = $(filter-out $(SRC_DIR)/main.cpp, $(wildcard $(SRC_DIR)/*.cpp))
 TESTS = $(wildcard $(TEST_DIR)/*.cpp)
 
 MAIN_EXEC = $(BUILD_DIR)/sistema
@@ -16,9 +16,9 @@ TEST_EXEC = $(BUILD_DIR)/execute_tests
 
 all: $(MAIN_EXEC)
 
-$(MAIN_EXEC): main.cpp $(SRCS)
+$(MAIN_EXEC): $(SRC_DIR)/main.cpp $(SRCS)
 	@mkdir -p $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) main.cpp $(SRCS) -o $(MAIN_EXEC)
+	$(CXX) $(CXXFLAGS) $(SRC_DIR)/main.cpp $(SRCS) -o $(MAIN_EXEC)
 
 $(TEST_EXEC): $(SRCS) $(TESTS)
 	@mkdir -p $(BUILD_DIR)
