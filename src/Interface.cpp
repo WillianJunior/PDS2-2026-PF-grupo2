@@ -1,9 +1,20 @@
 #include "Interface.hpp"
+#include <iostream>
 
-Interface::Interface() : sistemaLogin(std::vector<Conta>()), usuarioLogado(nullptr) {}
+Interface::Interface() : sistemaLogin(std::vector<Conta>()) {
+    Conta adminTeste("1", "Administrador", "admin@smarthome.com", "12345678", true);
+    sistemaLogin.criarConta(adminTeste);
+}
 
-// Métodos declarados no .hpp, mas ainda sem implementação
-void Interface::iniciar() {}
+Interface::~Interface() {}
+
+// Ponto de partida visual do sistema
+void Interface::iniciar() {
+    std::cout << "======================================\n";
+    std::cout << "   BEM-VINDO AO SISTEMA SMARTHOME\n";
+    std::cout << "======================================\n";
+}
+
 void Interface::exibirMenuInicial() {}
 void Interface::exibirMenuConta() {}
 void Interface::realizarLogin() {}

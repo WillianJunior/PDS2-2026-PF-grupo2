@@ -5,11 +5,12 @@
 #include "Conta.hpp"
 #include <iostream>
 #include <vector>
+#include <memory>
 
 class Interface {
 private:
     Login sistemaLogin;
-    Conta* usuarioLogado;
+    std::unique_ptr<Conta> usuarioLogado;
 
     void exibirMenuInicial();     // Tela de Login / Cadastro
     void exibirMenuConta();       // Tela após logar - Gerenciar Smarthomes
