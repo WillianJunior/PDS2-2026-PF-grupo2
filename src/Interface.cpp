@@ -56,8 +56,35 @@ void Interface::exibirMenuInicial() {
     }
 }
 
-void Interface::exibirMenuConta() {}
-void Interface::realizarLogin() {}
+void Interface::exibirMenuConta() {
+    std::cout << "\n[Logado com sucesso! Menu da conta em construcao...]\n";
+    std::cout << "[Fazendo logout automatico por seguranca. É temporário para não dar erro.]\n";
+    usuarioLogado.reset();
+}
+void Interface::realizarLogin() {
+    std::string email, senha;
+
+    std::cout << "\n--- TELA DE LOGIN ---\n";
+    std::cout << "Digite seu e-mail: ";
+    std::getline(std::cin, email);
+    std::cout << "Digite sua senha: ";
+    std::getline(std::cin, senha);
+
+    if (sistemaLogin.autenticarConta(email, senha)) {
+        std::cout << "\nLogin realizado com sucesso!\n";
+        
+        std::vector<Conta> lista = sistemaLogin.getContasCadastradas();
+        for (size_t i = 0; i < lista.size(); i++) {
+            if (lista[i].getEmail() == email) {
+                usuarioLogado = std::make_unique<Conta>(lista[i]);
+                break;
+            }
+        }
+        std::cout << "Bem-vindo(a), " << usuarioLogado->getNome() << "!\n";
+    } else {
+        std::cout << "\nErro de autenticacao! E-mail ou senha incorretos ou conta bloqueada).\n";
+    }
+}
 
 void Interface::cadastrarConta() {
     std::string id, nome, email, senha;
