@@ -6,9 +6,6 @@ Interface::Interface() : sistemaLogin(std::vector<Conta>()) {
     sistemaLogin.criarConta(adminTeste);
 }
 
-Interface::~Interface() {}
-
-// Ponto de partida visual do sistema
 void Interface::iniciar() {
     std::cout << "======================================\n";
     std::cout << "   BEM-VINDO AO SISTEMA SMARTHOME\n";
