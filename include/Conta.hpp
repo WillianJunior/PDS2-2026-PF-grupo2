@@ -63,6 +63,11 @@ public:
     bool estaBloqueada() const;
 
     /**
+     * @brief Retorna a lista de smarthomes da conta.
+     */
+    std::vector<Smarthome*> getSmarthomes() const;
+
+    /**
      * @brief Bloqueia a conta.
      */
     void bloquear();
