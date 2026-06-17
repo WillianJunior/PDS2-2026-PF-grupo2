@@ -1,8 +1,24 @@
 #include "Smarthome.hpp"
 #include <iostream>
+#include <stdexcept>
+#include <cctype>
 using namespace std;
 Smarthome::Smarthome(Conta usuario, std::string nome)
-    : usuario(usuario), nome(nome) {} // adicionar asserções para instanciamentos invalidos ex: nome vazio
+    : usuario(usuario), nome(nome) {
+        if(nome.empty()){
+            throw std::invalid_argument("Nome da SmartHome nao pode ser vazio");
+        } 
+        else if (nome.size() > 20) {
+            throw std::invalid_argument("Nome da SmartHome nao pode ter tamanho maior que 20");
+        }
+        else if(!CaracteresInvalidos(nome)) {
+            throw std::invalid_argument("Nome da SmartHome com usos de caracteres invalidos");
+        }
+        else{
+            this -> nome = nome;
+        }
+    } // adicionar validação de entrada para instanciamentos invalidos ex: nome vazio
+
 
 void Smarthome::adicionarModo(const Modo& modo) {
     for (const auto& m : modos) {
@@ -38,6 +54,9 @@ void Smarthome :: removerComodo(const Comodo& comodo){
     if (it != comodos.end()) {
         comodos.erase(it);
     }
+    else{
+        throw std::invalid_argument("Comodo " + comodo.getNome() + " nao encontrado na samrthome " + nome + " para remocao");
+    }
 }
 
 void Smarthome::removerModo(std::string nomeModo) {
@@ -47,6 +66,8 @@ void Smarthome::removerModo(std::string nomeModo) {
             return;
         }
     }
+    throw std::invalid_argument("Modo " + nomeModo + " nao encontrado para remocao");
+
 }
 
 void Smarthome::removerObjeto(std::string nomeObjeto) {
@@ -56,6 +77,7 @@ void Smarthome::removerObjeto(std::string nomeObjeto) {
             return;
         }
     }
+    throw std::invalid_argument("Objeto " + nomeObjeto + " nao encontrado para remocao");
 }
 
 const std::vector<ObjetoInteligente>& Smarthome::getObjetos() const {
@@ -100,7 +122,7 @@ void Smarthome:: printObjetosInfo() const{
     std::cout << "Smarthome " << nome << " de: " << usuario.getNome() << endl;
     std::cout << "Objetos Inteligentes presentes em " << nome << " :" << endl;
     for(size_t i=0; i<objetos.size(); i++){
-        objetos[i].printObjetosInfo(); // falta add metodos prints certos
+        objetos[i].printObjetosInfo(); 
                std::cout<< endl;
     } 
 }
@@ -113,4 +135,15 @@ void Smarthome:: printModosInfo() const{
         std::cout<< endl;
     }
 }
+
+bool Smarthome :: CaracteresInvalidos (const std::string& str) {
+    for (unsigned char ch : str) {
+        // só aceita letras, números e espaços
+        if (!(std::isalnum(ch) || std::isspace(ch))) {
+            return false;
+        }
+    }
+    return true;
+}
+
 Smarthome::~Smarthome() = default;
