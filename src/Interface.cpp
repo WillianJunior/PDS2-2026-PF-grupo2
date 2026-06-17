@@ -83,10 +83,8 @@ void Interface::exibirMenuConta() {
             std::cout << "\nDigite o nome da sua nova Smarthome: ";
             std::getline(std::cin, nomeCasa);
             
-            // Gerando um ID simples provisório
             std::string idGerado = std::to_string(rand() % 10000); 
             
-            // A sua interface conversando com o backend!
             usuarioLogado->criarSmarthome(idGerado, nomeCasa);
             
             std::cout << "Smarthome '" << nomeCasa << "' criada com sucesso!\n";
@@ -136,11 +134,14 @@ void Interface::exibirMenuSmarthome() {
     }
     std::cin.ignore();
 
-    if (op == opcaoVoltar) {
+if (op == opcaoVoltar) {
         return;
     } else if (op > 0 && op <= (int)casas.size()) {
         Smarthome* casaEscolhida = casas[op - 1];
+        
         std::cout << "\n[Entrando na casa: " << casaEscolhida->getNome() << " ...]\n";
+        
+        gerenciarSmarthome(casaEscolhida); 
     } else {
         std::cout << "\nOpcao invalida!\n";
     }
@@ -207,4 +208,45 @@ void Interface::cadastrarConta() {
 
     sistemaLogin.criarConta(novaConta);
     std::cout << "\nConta cadastrada com sucesso! Voce ja pode entrar no sistema.\n";
+}
+
+void Interface::gerenciarSmarthome(Smarthome* casa) {
+    while (true) {
+        std::cout << "\n======================================\n";
+        std::cout << "   GERENCIANDO: " << casa->getNome() << "\n";
+        std::cout << "======================================\n";
+        std::cout << "1. Gerenciar Comodos (Adicionar/Remover)\n";
+        std::cout << "2. Gerenciar Modos da Casa\n";
+        std::cout << "3. Relatorio de Consumo de Energia\n";
+        std::cout << "4. Voltar para Minhas Smarthomes\n";
+        std::cout << "Escolha uma opcao: ";
+
+        int op;
+        if (!(std::cin >> op)) {
+            std::cin.clear();
+            std::string lixo;
+            std::getline(std::cin, lixo);
+            std::cout << "Opcao invalida! Digite apenas numeros.\n";
+            continue;
+        }
+        std::cin.ignore();
+
+        switch (op) {
+            case 1:
+                std::cout << "\n[Acessando modulo de Comodos... (Em construcao)]\n";
+                break;
+            case 2:
+                std::cout << "\n[Acessando modulo de Modos... (Em construcao)]\n";
+                break;
+            case 3:
+                std::cout << "\n[Gerando relatorio... (Em construcao)]\n";
+                break;
+            case 4:
+                std::cout << "\nSaindo da casa " << casa->getNome() << "...\n";
+                return;
+            default:
+                std::cout << "\nOpcao invalida! Escolha de 1 a 4.\n";
+                break;
+        }
+    }
 }
