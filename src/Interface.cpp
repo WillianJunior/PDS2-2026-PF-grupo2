@@ -1,4 +1,5 @@
 #include "Interface.hpp"
+#include "Smarthome.hpp"
 #include <iostream>
 
 Interface::Interface() : sistemaLogin(std::vector<Conta>()) {
@@ -105,8 +106,46 @@ void Interface::exibirMenuConta() {
 }
 
 void Interface::exibirMenuSmarthome() {
-    std::cout << "\n[Acessando o interior da Smarthome... (Em construcao)]\n";
+    std::cout << "\n======================================\n";
+    std::cout << "          MINHAS SMARTHOMES\n";
+    std::cout << "======================================\n";
+
+    std::vector<Smarthome*> casas = usuarioLogado->getSmarthomes();
+
+    if (casas.empty()) {
+        std::cout << "Voce ainda nao possui nenhuma Smarthome cadastrada.\n";
+        std::cout << "Retornando ao menu anterior...\n";
+        return;
+    }
+
+    for (size_t i = 0; i < casas.size(); i++) {
+        std::cout << i + 1 << ". " << casas[i]->getNome() << "\n";
+    }
+    
+    int opcaoVoltar = casas.size() + 1;
+    std::cout << opcaoVoltar << ". Voltar ao Menu Anterior\n";
+    std::cout << "Escolha uma casa para acessar (ou " << opcaoVoltar << " para voltar): ";
+
+    int op;
+    if (!(std::cin >> op)) {
+        std::cin.clear();
+        std::string lixo;
+        std::getline(std::cin, lixo);
+        std::cout << "Opcao invalida! Digite apenas numeros.\n";
+        return;
+    }
+    std::cin.ignore();
+
+    if (op == opcaoVoltar) {
+        return;
+    } else if (op > 0 && op <= (int)casas.size()) {
+        Smarthome* casaEscolhida = casas[op - 1];
+        std::cout << "\n[Entrando na casa: " << casaEscolhida->getNome() << " ...]\n";
+    } else {
+        std::cout << "\nOpcao invalida!\n";
+    }
 }
+
 void Interface::realizarLogin() {
     std::string email, senha;
 
