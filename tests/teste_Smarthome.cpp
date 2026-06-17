@@ -31,17 +31,20 @@ TEST_CASE("TESTE 1 construtor - Smarthome") {
     CHECK(smarthome.getUsuario().getNome() == contaTeste.getNome());
 
     SUBCASE("TESTE 1.1 nome da smarthome nao pode ser vazio") {
-
-        CHECK_THROWS(Smarthome(contaTeste, ""));
+    
+        CHECK_THROWS_WITH( Smarthome(contaTeste, ""), "Nome da SmartHome nao pode ser vazio");
     }
 
-    SUBCASE("TESTE 1.2 nome da smarthome eh longo") {
+    SUBCASE("TESTE 1.2  nome da smarthome eh longo"){
+        std::string longName(21, 'A');
 
-        std::string longName(1000, 'A');
+        CHECK_THROWS_WITH(Smarthome smarthome2(contaTeste, longName), "Nome da SmartHome nao pode ter tamanho maior que 20");
+    }
 
-        Smarthome smarthome4(contaTeste, longName);
+    SUBCASE("TESTE 1.3 nome da smarthome contem caracteres invalidos") {
+        std :: string InvalidName (10, '§');
 
-        CHECK(smarthome4.getNome().size() == 1000);
+        CHECK_THROWS_WITH(Smarthome (contaTeste, InvalidName), "Nome da SmartHome com usos de caracteres invalidos");
     }
 }
 
@@ -174,6 +177,12 @@ TEST_CASE("TESTE 5 removerComodo - Smarthome"){
     casaTeste.removerComodo(comodoTeste);
 
     CHECK(casaTeste.getQuantidadeComodos() == 0);
+
+    SUBCASE("TESTE 5.1 remocao de comodo nao existente na smarthome nao funciona"){
+        Comodo comodoTeste2("comodoTeste2", &casaTeste);
+
+        CHECK_THROWS_WITH(casaTeste.removerComodo(comodoTeste2), "Comodo comodoTeste2 nao encontrado na smarthome Minha Casa para remocao");
+    }
 }
 
 // ---- implementação incompleta dos metodos seguintes -----
@@ -357,6 +366,21 @@ TEST_CASE("TESTE 9 removerObjeto - Smarthome"){
     casaTeste.removerObjeto("ObjetoTeste");
 
     CHECK(casaTeste.getQuantidadeObjetos() == 0);
+
+    SUBCASE("TESTE 9.1 remocao de objeto nao existente na smarthome nao funciona"){
+       ObjetoInteligente objetoTeste2(
+        "ObjetoTeste2",
+        false,
+        sensores,
+        statusPossiveis,
+        "Ligado",
+        consumoMedio,
+        funcoes,
+        funcoesRestritas
+    );
+
+        CHECK_THROWS_WITH(casaTeste.removerObjeto("ObjetoTeste2"), "Comodo ObjetoTeste2 nao encontrado na smarthome Minha Casa para remocao");
+    }
 }
 
 TEST_CASE("TESTE 10 removerModo - Smarthome"){
@@ -386,4 +410,45 @@ TEST_CASE("TESTE 10 removerModo - Smarthome"){
     casaTeste.removerObjeto("ModoTeste");
 
     CHECK(casaTeste.getQuantidadeObjetos() == 0);
+
+    SUBCASE("TESTE 10.1 remocao de modo nao existente na smarthome nao funciona"){
+       Modo modoTeste2("ModoTeste2", objetos, comodos, true, false);
+
+        CHECK_THROWS_WITH(casaTeste.removerObjeto("ModoTeste2"), "Comodo ModoTeste2 nao encontrado na smarthome Minha Casa para remocao");
+    }
+}
+
+TEST_CASE("TESTE 11 CaracteresValidos - Smarthome") {
+     std::string id = "1";
+
+    Conta contaTeste(
+        id,
+        "Usuario A",
+        "usuarioA@email.com",
+        "senha123",
+        true
+    );
+
+    Smarthome casaTeste(contaTeste, "Minha Casa");
+
+    SUBCASE("TESTE 11.5 nome valido - apenas letras e numeros") {
+        CHECK(casaTeste.CaracteresValidos("Casa123") == true);
+    }
+
+    SUBCASE("TESTE 11.2 nome valido - com espaços") {
+        CHECK(casaTeste.CaracteresValidos("Minha Casa") == true);
+    }
+
+    SUBCASE("TESTE 11.3 nome invalido - contem caractere especial") {
+        CHECK(casaTeste.CaracteresValidos("Casa@123") == false);
+    }
+
+    SUBCASE("TESTE 11.4 nome invalido - contem símbolo §") {
+        CHECK(casaTeste.CaracteresValidos("§c4s4§") == false);
+    }
+
+    SUBCASE("TESTE 11.5 nome vazio eh tecnicamente valido") {
+        CHECK(casaTeste.CaracteresValidos("") == true);
+        // Aqui eh invalido mas esse tipo de erro nao eh tratado nesse metodo
+    }
 }
