@@ -95,6 +95,10 @@ public:
      * @brief Imprime informações dos modos de Smarthome.
      */
     void printModosInfo()const;
+    /**
+     * @brief Checa se o str contem caracteres que nao sao espaços, letras ou numeros, se houver retorna false.
+     */
+    bool CaracteresValidos(const std::string& str);
     
     ~Smarthome();
 };
