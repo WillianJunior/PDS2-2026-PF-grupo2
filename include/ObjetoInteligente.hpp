@@ -16,7 +16,7 @@ class Sensor;
  */
 
 class ObjetoInteligente {
-private:
+protected:
     std::string nome;
     bool restricaoAdulto; 
     std::vector<Sensor*> sensores;
@@ -108,6 +108,7 @@ class Luz : public ObjetoInteligente {
     
     public:
         Luz(std::string nome);
+        void setApagada(bool apagado);
 };
 
 #endif

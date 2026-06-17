@@ -108,6 +108,12 @@ Luz::Luz(std::string nome)
         10.0f,
         {},
         {}
-    )
-{
+    ) {}
+
+void Luz::setApagada(bool apagado) {
+    if (apagado) {
+        this->statusAtual = "apagada";
+    } else {
+        this->statusAtual = "acesa";
+    }
 }
