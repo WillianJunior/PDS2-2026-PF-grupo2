@@ -97,3 +97,17 @@ for (size_t i = 0; i < statusPossiveis.size(); i++) {
 }
     std::cout << "Status atual: " << this->statusAtual << std::endl;
 }
+
+Luz::Luz(std::string nome)
+    : ObjetoInteligente(
+        nome,
+        false,
+        {},
+        {"acesa", "apagada"},
+        "apagada",
+        10.0f,
+        {},
+        {}
+    )
+{
+}

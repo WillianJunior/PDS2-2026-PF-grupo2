@@ -10,8 +10,9 @@ class Sensor;
 
 /**
  * @class ObjetoInteligente
- * @brief Representa um objeto inteligente da smarthome
- * * A classe armazena sensores, funções disponíveis, restrições de acesso e informações de consumo de energia.
+ * @brief Representa um objeto inteligente da smarthome.
+ * * A classe armazena sensores, funções disponíveis, restrições de acesso e informações de consumo de energia. Tem os seguintes tipos: luz
+ * 
  */
 
 class ObjetoInteligente {
@@ -101,6 +102,12 @@ public:
      * @brief Imprime informações do membro do objeto.
      * */
     void printObjetosInfo() const;
+};
+
+class Luz : public ObjetoInteligente {
+    
+    public:
+        Luz(std::string nome);
 };
 
 #endif
