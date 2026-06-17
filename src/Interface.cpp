@@ -57,9 +57,28 @@ void Interface::exibirMenuInicial() {
 }
 
 void Interface::exibirMenuConta() {
-    std::cout << "\n[Logado com sucesso! Menu da conta em construcao...]\n";
-    std::cout << "[Fazendo logout automatico por seguranca. É temporário para não dar erro.]\n";
-    usuarioLogado.reset();
+    std::cout << "\n======================================\n";
+    std::cout << "   PAINEL DA CONTA [" << usuarioLogado->getNome() << "]\n";
+    std::cout << "======================================\n";
+    std::cout << "1. Fazer Logout (Sair da conta)\n";
+    std::cout << "Escolha uma opcao: ";
+    
+    int op;
+    if (!(std::cin >> op)) {
+        std::cin.clear();
+        std::string lixo;
+        std::getline(std::cin, lixo);
+        std::cout << "Opcao invalida! Digite apenas numeros.\n";
+        return;
+    }
+    std::cin.ignore();
+    
+    if (op == 1) {
+        usuarioLogado.reset();
+        std::cout << "\nLogout efetuado com sucesso.\n";
+    } else {
+        std::cout << "\nOpcao em construcao ou invalida!\n";
+    }
 }
 void Interface::realizarLogin() {
     std::string email, senha;
