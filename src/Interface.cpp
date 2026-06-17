@@ -238,9 +238,15 @@ void Interface::gerenciarSmarthome(Smarthome* casa) {
             case 2:
                 std::cout << "\n[Acessando modulo de Modos... (Em construcao)]\n";
                 break;
-            case 3:
-                std::cout << "\n[Gerando relatorio... (Em construcao)]\n";
+            case 3: {
+                std::cout << "\n--- RELATORIO DE ENERGIA ---\n";
+                float consumoTotal = usuarioLogado->gerarRelatorioDeEnergia(casa);
+                
+                std::cout << "Consumo medio total da casa '" << casa->getNome() << "': " 
+                          << consumoTotal << " kWh\n";
+                std::cout << "----------------------------\n";
                 break;
+            }
             case 4:
                 std::cout << "\nSaindo da casa " << casa->getNome() << "...\n";
                 return;
