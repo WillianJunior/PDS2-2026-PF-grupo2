@@ -11,7 +11,7 @@ Smarthome::Smarthome(Conta usuario, std::string nome)
         else if (nome.size() > 20) {
             throw std::invalid_argument("Nome da SmartHome nao pode ter tamanho maior que 20");
         }
-        else if(!CaracteresInvalidos(nome)) {
+        else if(!CaracteresValidos(nome)) {
             throw std::invalid_argument("Nome da SmartHome com usos de caracteres invalidos");
         }
         else{
@@ -136,7 +136,7 @@ void Smarthome:: printModosInfo() const{
     }
 }
 
-bool Smarthome :: CaracteresInvalidos (const std::string& str) {
+bool Smarthome :: CaracteresValidos (const std::string& str) {
     for (unsigned char ch : str) {
         // só aceita letras, números e espaços
         if (!(std::isalnum(ch) || std::isspace(ch))) {
