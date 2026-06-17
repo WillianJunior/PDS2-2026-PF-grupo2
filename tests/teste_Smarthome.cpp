@@ -301,7 +301,7 @@ TEST_CASE("TESTE 8 printModosInfo - Smarthome"){
         "Estado: Ligado\n"
         "Bloqueio: Desbloqueado\n"
         "Objetos relacionados: 0\n"
-        "Comodos relacionados: 0\n"
+        "Comodos relacionados: 0"
     );
     SUBCASE("TESTE 8.1 smarthome sem modos nao imprime nada "){
         Smarthome casaTeste2(contaTeste, "Minha Casa2");
@@ -379,7 +379,7 @@ TEST_CASE("TESTE 9 removerObjeto - Smarthome"){
         funcoesRestritas
     );
 
-        CHECK_THROWS_WITH(casaTeste.removerObjeto("ObjetoTeste2"), "Comodo ObjetoTeste2 nao encontrado na smarthome Minha Casa para remocao");
+        CHECK_THROWS_WITH(casaTeste.removerObjeto("ObjetoTeste2"), "Objeto ObjetoTeste2 nao encontrado na smarthome Minha Casa para remocao");
     }
 }
 
@@ -414,7 +414,7 @@ TEST_CASE("TESTE 10 removerModo - Smarthome"){
     SUBCASE("TESTE 10.1 remocao de modo nao existente na smarthome nao funciona"){
        Modo modoTeste2("ModoTeste2", objetos, comodos, true, false);
 
-        CHECK_THROWS_WITH(casaTeste.removerObjeto("ModoTeste2"), "Comodo ModoTeste2 nao encontrado na smarthome Minha Casa para remocao");
+        CHECK_THROWS_WITH(casaTeste.removerObjeto("ModoTeste2"), "Modo ModoTeste2 nao encontrado na smarthome Minha Casa para remocao");
     }
 }
 

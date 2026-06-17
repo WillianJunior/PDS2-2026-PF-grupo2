@@ -4,7 +4,7 @@
 #include <cctype>
 using namespace std;
 Smarthome::Smarthome(Conta usuario, std::string nome)
-    : usuario(usuario), nome(nome) {
+    : usuario(usuario) {
         if(nome.empty()){
             throw std::invalid_argument("Nome da SmartHome nao pode ser vazio");
         } 
@@ -55,7 +55,7 @@ void Smarthome :: removerComodo(const Comodo& comodo){
         comodos.erase(it);
     }
     else{
-        throw std::invalid_argument("Comodo " + comodo.getNome() + " nao encontrado na samrthome " + nome + " para remocao");
+        throw std::invalid_argument("Comodo " + comodo.getNome() + " nao encontrado na smarthome " + nome + " para remocao");
     }
 }
 
@@ -66,7 +66,7 @@ void Smarthome::removerModo(std::string nomeModo) {
             return;
         }
     }
-    throw std::invalid_argument("Modo " + nomeModo + " nao encontrado para remocao");
+    throw std::invalid_argument("Modo " + nomeModo + " nao encontrado na smarthome " + nome + " para remocao");
 
 }
 
@@ -77,7 +77,7 @@ void Smarthome::removerObjeto(std::string nomeObjeto) {
             return;
         }
     }
-    throw std::invalid_argument("Objeto " + nomeObjeto + " nao encontrado para remocao");
+    throw std::invalid_argument("Objeto " + nomeObjeto + " nao encontrado na smarthome " + nome + " para remocao");
 }
 
 const std::vector<ObjetoInteligente>& Smarthome::getObjetos() const {
