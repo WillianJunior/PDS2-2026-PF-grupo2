@@ -175,3 +175,7 @@ void Conta::printMembrosInfo() const {
     std::cout << "ID: " << id << "\nNome: " << nome << "\nE-mail: " << email 
               << "\nPerfil: " << (perfilAdulto ? "Adulto" : "Infantil") << std::endl;
 }
+
+std::vector<Smarthome*> Conta::getSmarthomes() const {
+    return smarthomes;
+}
