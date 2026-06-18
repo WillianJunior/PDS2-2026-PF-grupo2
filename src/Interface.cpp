@@ -424,9 +424,8 @@ void Interface::exibirMenuModos(Smarthome* casa) {
         std::cout << "\n--- GERENCIAR MODOS [" << casa->getNome() << "] ---\n";
         std::cout << "1. Listar Modos da Casa\n";
         std::cout << "2. Criar novo Modo\n";
-        std::cout << "3. Editar Modo\n";
-        std::cout << "4. Remover Modo\n";
-        std::cout << "5. Voltar\n";
+        std::cout << "3. Remover Modo\n";
+        std::cout << "4. Voltar\n";
         std::cout << "Escolha uma opcao: ";
 
         int op;
@@ -463,18 +462,6 @@ void Interface::exibirMenuModos(Smarthome* casa) {
             }
             case 3: {
                 if (!usuarioLogado->isPerfilAdulto()) {
-                    std::cout << "\n[ACESSO NEGADO] Controle Parental: Apenas adultos editam Modos.\n";
-                    break;
-                }
-                std::string nomeModo;
-                std::cout << "Digite o nome do modo que deseja configurar: ";
-                std::getline(std::cin, nomeModo);
-                usuarioLogado->editarModo(casa, nomeModo);
-                std::cout << "\nRetornando ao menu de modos...\n";
-                break;
-            }
-            case 4: {
-                if (!usuarioLogado->isPerfilAdulto()) {
                     std::cout << "\n[ACESSO NEGADO] Controle Parental: Apenas adultos removem Modos.\n";
                     break;
                 }
@@ -485,10 +472,10 @@ void Interface::exibirMenuModos(Smarthome* casa) {
                 std::cout << "Comando de remocao executado.\n";
                 break;
             }
-            case 5:
+            case 4:
                 return;
             default:
-                std::cout << "Opcao invalida! Escolha de 1 a 5.\n";
+                std::cout << "Opcao invalida! Escolha de 1 a 4.\n";
                 break;
         }
     }
