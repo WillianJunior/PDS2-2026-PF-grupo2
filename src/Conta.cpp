@@ -40,14 +40,12 @@ void Conta::desbloquear() {
 
 void Conta::criarSmarthome(std::string id, std::string nome) {
     (void)id;
-    Smarthome* nova_smarthome = new Smarthome(*this, nome);
-    smarthomes.push_back(nova_smarthome);
+    smarthomes.push_back(std::make_unique<Smarthome>(this, nome));
 }
 
-void Conta::apagarSmarthome(Smarthome* smarthome) {
+void Conta::apagarSmarthome(const Smarthome& smarthome) {
     for (auto it = smarthomes.begin(); it != smarthomes.end(); ++it) {
-        if (*it == smarthome) {
-            delete *it;
+        if (**it == smarthome) {
             smarthomes.erase(it);
             break;
         }
@@ -170,7 +168,7 @@ void Conta::printMembrosInfo() const {
               << "\nPerfil: " << (perfilAdulto ? "Adulto" : "Infantil") << std::endl;
 }
 
-std::vector<Smarthome*> Conta::getSmarthomes() const {
+const std::vector<std::unique_ptr<Smarthome>>& Conta::getSmarthomes() const {
     return smarthomes;
 }
 

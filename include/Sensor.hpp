@@ -17,7 +17,7 @@ private:
     bool estaLigado;
     bool estaAtivado;
 
-    Comodo comodoPertencente;
+    Comodo* comodoPertencente;
 
     std::vector<ObjetoInteligente*> objetosConectados;
     std::vector<Modo*> modosConectados;
@@ -37,7 +37,7 @@ public:
         std::string nome,
         bool ligado,
         bool ativado,
-        Comodo comodoPertencente,
+        Comodo* comodoPertencente,
         std::vector<ObjetoInteligente*> objetosConectados,
         std::vector<Modo*> modosConectados
     );

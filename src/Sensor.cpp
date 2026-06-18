@@ -3,6 +3,7 @@
 #include "Modo.hpp"
 #include "Comodo.hpp"
 #include <vector>
+#include <string>
 #include <iostream>
 #include <algorithm>
 
@@ -10,7 +11,7 @@ Sensor::Sensor(
     std::string nome,
     bool ligado,
     bool ativado,
-    Comodo comodoPertencente,
+    Comodo* comodoPertencente,
     std::vector<ObjetoInteligente*> objetosConectados,
     std::vector<Modo*> modosConectados
 )
@@ -84,7 +85,7 @@ bool Sensor :: operator== (const Sensor& other) const{
 }
 
 void Sensor :: printSensorInfo() const{
-    std::cout << "Sensor " << this->nome << " do cômodo " << this->comodoPertencente.getNome() << std::endl;
+    std::cout << "Sensor " << this->nome << " do cômodo " << (*comodoPertencente).getNome() << std::endl;
     std::cout << "Sensor está ligado? " << this->getEstaLigado() << std::endl;
     std::cout << "Sensor está ativado? " << this->getEstaAtivado() << std::endl;
     std::cout << "Objetos conectados: "; 

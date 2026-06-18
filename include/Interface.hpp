@@ -3,6 +3,8 @@
 
 #include "Login.hpp"
 #include "Conta.hpp"
+#include "Smarthome.hpp"
+#include "Comodo.hpp"
 #include <iostream>
 #include <vector>
 #include <memory>

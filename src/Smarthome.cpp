@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <cctype>
 using namespace std;
-Smarthome::Smarthome(Conta usuario, std::string nome)
+Smarthome::Smarthome(Conta* usuario, std::string nome)
     : usuario(usuario) {
         if(nome.empty()){
             throw std::invalid_argument("Nome da SmartHome nao pode ser vazio");
@@ -19,7 +19,14 @@ Smarthome::Smarthome(Conta usuario, std::string nome)
         }
     } // adicionar validação de entrada para instanciamentos invalidos ex: nome vazio
 
-
+bool Smarthome::operator==(const Smarthome& other) const {
+    return usuario == other.usuario
+        && comodos == other.comodos
+        && modos == other.modos
+        && objetos == other.objetos
+        && nome == other.nome;
+}
+    
 void Smarthome::adicionarModo(const Modo& modo) {
     for (const auto& m : modos) {
         if (m == modo) {
@@ -84,7 +91,7 @@ const std::vector<ObjetoInteligente>& Smarthome::getObjetos() const {
     return objetos;
 }
 
-Conta Smarthome::getUsuario() const {
+Conta* Smarthome::getUsuario() const {
     return usuario;
 }
 
@@ -105,7 +112,7 @@ size_t Smarthome::getQuantidadeObjetos() const {
 }
 
 void Smarthome:: printComodosInfo()const{
-    std::cout << "Smarthome " << nome << " de: " << usuario.getNome() << endl;
+    std::cout << "Smarthome " << nome << " de: " << (*usuario).getNome() << endl;
     std::cout<< "Comodos presentes em "<< nome << " :" << endl;
     for(size_t i=0; i<comodos.size(); i++){
         comodos[i].getNome();
@@ -119,7 +126,7 @@ void Smarthome:: printComodosInfo()const{
 }
 
 void Smarthome:: printObjetosInfo() const{
-    std::cout << "Smarthome " << nome << " de: " << usuario.getNome() << endl;
+    std::cout << "Smarthome " << nome << " de: " << (*usuario).getNome() << endl;
     std::cout << "Objetos Inteligentes presentes em " << nome << " :" << endl;
     for(size_t i=0; i<objetos.size(); i++){
         objetos[i].printObjetosInfo(); 
@@ -128,7 +135,7 @@ void Smarthome:: printObjetosInfo() const{
 }
 
 void Smarthome:: printModosInfo() const{
-    std::cout << "Smarthome " << nome << " de: " << usuario.getNome() << endl;
+    std::cout << "Smarthome " << nome << " de: " << (*usuario).getNome() << endl;
     std::cout << "Modos presentes em " << nome << " :" << endl;
     for(size_t i=0; i<modos.size(); i++){
          modos[i].printMembrosInfo();

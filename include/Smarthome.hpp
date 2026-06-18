@@ -12,7 +12,7 @@
 class Smarthome{
 private:
 
-    Conta usuario;
+    Conta* usuario;
     std::vector<Comodo> comodos;
     std::vector<Modo> modos;
     std::vector<ObjetoInteligente> objetos;
@@ -25,7 +25,9 @@ public:
      * @param usuario Conta dona da smarthome.
      * @param nome Nome da smarthome.
      */
-    Smarthome(Conta usuario, std :: string nome);
+    Smarthome(Conta* usuario, std :: string nome);
+
+    bool operator==(const Smarthome& other) const;
 
     /**
      * @brief Adiciona um modo a uma smarthome.
@@ -76,7 +78,7 @@ public:
     /**
      * @brief Retorna o usuário dono da smarthome.
      */
-    Conta getUsuario()const;
+    Conta* getUsuario() const;
     /**
      * @brief Retorna nome da smarthome.
      */

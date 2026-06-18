@@ -3,6 +3,7 @@
 #define CONTA_HPP
 
 #include <string>
+#include <memory>
 #include "ObjetoInteligente.hpp"
 #include <vector>
 #include <fstream>
@@ -24,7 +25,7 @@ private:
     std::string senha;
     bool perfilAdulto; // true para Adulto, false para Infantil.
     bool bloqueada; // true para conta bloqueada, false para conta ativa.
-    std::vector<Smarthome*> smarthomes; // vetor que armazena as smarthomes da conta
+    std::vector<std::unique_ptr<Smarthome>> smarthomes; // vetor que armazena as smarthomes da conta
 
 public:
     /**
@@ -65,7 +66,7 @@ public:
     /**
      * @brief Retorna a lista de smarthomes da conta.
      */
-    std::vector<Smarthome*> getSmarthomes() const;
+    const std::vector<std::unique_ptr<Smarthome>>& getSmarthomes() const;
 
     /**
      * @brief Bloqueia a conta.
@@ -87,7 +88,14 @@ public:
      * @brief Comando para criar uma smarthome.
      * @param smarthome Smarthome a ser apagada.
      */
-    void apagarSmarthome(Smarthome* smarthome);
+    void apagarSmarthome(const Smarthome& smarthome) {
+        for (auto it = smarthomes.begin(); it != smarthomes.end(); ++it) {
+            if (**it == smarthome) {
+                smarthomes.erase(it);
+                break;
+            }
+        }
+    }
 
     /**
      * @brief Comando para criar um cômodo.
