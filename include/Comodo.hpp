@@ -49,6 +49,8 @@ public:
     void printContasInfo() const;
     void printModosInfo() const;
 
+    bool CaracteresValidos (const std::string& str);
+
     ~Comodo();
 
 private:
@@ -65,5 +67,6 @@ private:
     std::vector<Sensor*> sensores;
     std::vector<Modo*> modos;
 };
+
 
 #endif 
