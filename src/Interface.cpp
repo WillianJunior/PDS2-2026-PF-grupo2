@@ -79,12 +79,16 @@ void Interface::exibirMenuConta() {
     
     switch (op) {
         case 1: {
+            if (!usuarioLogado->isPerfilAdulto()) {
+                std::cout << "\n[ACESSO NEGADO] Controle Parental: Perfis infantis nao podem criar Smarthomes.\n";
+                break;
+            }
+
             std::string nomeCasa;
             std::cout << "\nDigite o nome da sua nova Smarthome: ";
             std::getline(std::cin, nomeCasa);
             
             std::string idGerado = std::to_string(rand() % 10000); 
-            
             usuarioLogado->criarSmarthome(idGerado, nomeCasa);
             
             std::cout << "Smarthome '" << nomeCasa << "' criada com sucesso!\n";
@@ -285,6 +289,10 @@ void Interface::exibirMenuComodos(Smarthome* casa) {
                 }
                 break;
             case 2: {
+                if (!usuarioLogado->isPerfilAdulto()) {
+                    std::cout << "\n[ACESSO NEGADO] Controle Parental: Apenas adultos podem adicionar comodos.\n";
+                    break;
+                }
                 std::string nomeComodo;
                 std::cout << "Digite o nome do novo comodo (ex: Sala de Estar): ";
                 std::getline(std::cin, nomeComodo);
@@ -294,6 +302,10 @@ void Interface::exibirMenuComodos(Smarthome* casa) {
                 break;
             }
             case 3: {
+                if (!usuarioLogado->isPerfilAdulto()) {
+                    std::cout << "\n[ACESSO NEGADO] Controle Parental: Apenas adultos podem remover comodos.\n";
+                    break;
+                }
                 std::string nomeComodo;
                 std::cout << "Digite o nome do comodo a ser removido: ";
                 std::getline(std::cin, nomeComodo);
@@ -347,6 +359,10 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
 
         switch (op) {
             case 1: {
+                if (!usuarioLogado->isPerfilAdulto()) {
+                    std::cout << "\n[ACESSO NEGADO] Controle Parental: Nao e permitido adicionar objetos.\n";
+                    break;
+                }
                 std::string nomeObjeto;
                 std::cout << "Digite o nome do novo objeto (ex: Lampada): ";
                 std::getline(std::cin, nomeObjeto);
@@ -355,6 +371,10 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
                 break;
             }
             case 2: {
+                if (!usuarioLogado->isPerfilAdulto()) {
+                    std::cout << "\n[ACESSO NEGADO] Controle Parental: Nao e permitido remover objetos.\n";
+                    break;
+                }
                 std::string nomeObjeto;
                 std::cout << "Digite o nome do objeto a ser removido: ";
                 std::getline(std::cin, nomeObjeto);
@@ -363,6 +383,10 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
                 break;
             }
             case 3: {
+                if (!usuarioLogado->isPerfilAdulto()) {
+                    std::cout << "\n[ACESSO NEGADO] Controle Parental: Nao e permitido adicionar sensores.\n";
+                    break;
+                }
                 std::string nomeSensor;
                 std::cout << "Digite o nome do novo sensor (ex: Sensor de Presenca): ";
                 std::getline(std::cin, nomeSensor);
@@ -371,6 +395,10 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
                 break;
             }
             case 4: {
+                if (!usuarioLogado->isPerfilAdulto()) {
+                    std::cout << "\n[ACESSO NEGADO] Controle Parental: Nao e permitido remover sensores.\n";
+                    break;
+                }
                 std::string nomeSensor;
                 std::cout << "Digite o nome do sensor a ser removido: ";
                 std::getline(std::cin, nomeSensor);
@@ -413,6 +441,7 @@ void Interface::exibirMenuModos(Smarthome* casa) {
 
         switch (op) {
             case 1:
+                // Listar Modos (Permitido)
                 std::cout << "\n[Lista de Modos]\n";
                 if (casa->getQuantidadeModos() == 0) {
                     std::cout << "Nenhum modo cadastrado nesta casa.\n";
@@ -421,28 +450,37 @@ void Interface::exibirMenuModos(Smarthome* casa) {
                 }
                 break;
             case 2: {
+                if (!usuarioLogado->isPerfilAdulto()) {
+                    std::cout << "\n[ACESSO NEGADO] Controle Parental: Apenas adultos criam Modos.\n";
+                    break;
+                }
                 std::string nomeModo;
-                std::cout << "Digite o nome do novo modo (ex: Modo Cinema, Modo Noite): ";
+                std::cout << "Digite o nome do novo modo (ex: Modo Cinema): ";
                 std::getline(std::cin, nomeModo);
-                
                 usuarioLogado->criarModo(casa, nomeModo);
                 std::cout << "Modo '" << nomeModo << "' criado com sucesso!\n";
                 break;
             }
             case 3: {
+                if (!usuarioLogado->isPerfilAdulto()) {
+                    std::cout << "\n[ACESSO NEGADO] Controle Parental: Apenas adultos editam Modos.\n";
+                    break;
+                }
                 std::string nomeModo;
                 std::cout << "Digite o nome do modo que deseja configurar: ";
                 std::getline(std::cin, nomeModo);
-                
                 usuarioLogado->editarModo(casa, nomeModo);
                 std::cout << "\nRetornando ao menu de modos...\n";
                 break;
             }
             case 4: {
+                if (!usuarioLogado->isPerfilAdulto()) {
+                    std::cout << "\n[ACESSO NEGADO] Controle Parental: Apenas adultos removem Modos.\n";
+                    break;
+                }
                 std::string nomeModo;
                 std::cout << "Digite o nome do modo a ser removido: ";
                 std::getline(std::cin, nomeModo);
-                
                 usuarioLogado->apagarModo(casa, nomeModo);
                 std::cout << "Comando de remocao executado.\n";
                 break;
