@@ -85,13 +85,31 @@ void Interface::exibirMenuConta() {
             }
 
             std::string nomeCasa;
-            std::cout << "\nDigite o nome da sua nova Smarthome: ";
-            std::getline(std::cin, nomeCasa);
-            
-            std::string idGerado = std::to_string(rand() % 10000); 
-            usuarioLogado->criarSmarthome(idGerado, nomeCasa);
-            
-            std::cout << "Smarthome '" << nomeCasa << "' criada com sucesso!\n";
+            bool sucesso = false;
+            int tentativas = 0;
+            while (!sucesso && tentativas < 3) {
+                std::cout << "\nDigite o nome da sua nova Smarthome: ";
+                std::getline(std::cin, nomeCasa);
+
+                std::string idGerado = std::to_string(rand() % 10000);
+
+                try {
+                    usuarioLogado->criarSmarthome(idGerado, nomeCasa);
+                    std::cout << "Smarthome '" << nomeCasa << "' criada com sucesso!\n";
+                    sucesso = true;
+                } catch (const std::invalid_argument& e) {
+                    std::cerr << "Erro: " << e.what() << "\n";
+                    std::cerr << "Tentativa " << (tentativas+1) << " falhou. Tente novamente...\n";
+                    tentativas++;
+                }
+                catch (...) {
+                std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
+                }
+            }
+
+            if (!sucesso) {
+                std::cerr << "Falha após 3 tentativas.\n";
+            }
             break;
         }
         case 2:
@@ -198,8 +216,17 @@ void Interface::cadastrarConta() {
         ehAdulto = false;
     }
 
-    Conta novaConta(id, nome, email, senha, ehAdulto);
+    Conta novaConta("", "", "", "", true); // inicialização provisória
 
+    try {
+        novaConta = Conta(id, nome, email, senha, ehAdulto);
+    } 
+    catch (const std::invalid_argument& e) {
+        std::cerr << "Erro ao criar conta: " << e.what() << "\n";
+        return; // encerra se não conseguiu criar
+    }catch (...) {
+        std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
+    }
     if (!novaConta.validarFormatoEmail()) {
         std::cout << "\nErro no cadastro: Formato de e-mail invalido (deve conter '@').\n";
         return;
@@ -294,11 +321,30 @@ void Interface::exibirMenuComodos(Smarthome* casa) {
                     break;
                 }
                 std::string nomeComodo;
-                std::cout << "Digite o nome do novo comodo (ex: Sala de Estar): ";
-                std::getline(std::cin, nomeComodo);
-                
-                usuarioLogado->criarComodo(casa, nomeComodo);
-                std::cout << "Comodo '" << nomeComodo << "' criado com sucesso!\n";
+                bool sucesso = false;
+                int tentativas = 0;
+
+                while (!sucesso && tentativas < 3) {
+                    std::cout << "Digite o nome do novo comodo (ex: Sala de Estar): ";
+                    std::getline(std::cin, nomeComodo);
+
+                    try {
+                        usuarioLogado->criarComodo(casa, nomeComodo);
+                        std::cout << "Comodo '" << nomeComodo << "' criado com sucesso!\n";
+                        sucesso = true;
+                    } catch (const std::invalid_argument& e) {
+                        std::cerr << "Erro: " << e.what() << "\n";
+                        std::cerr << "Tentativa " << (tentativas+1) << " falhou. Tente novamente...\n";
+                        tentativas++;
+                    }catch (...) {
+                    std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
+                    }
+                }
+
+                if (!sucesso) {
+                    std::cerr << "Falha após 3 tentativas.\n";
+                }
+
                 break;
             }
             case 3: {
@@ -309,9 +355,16 @@ void Interface::exibirMenuComodos(Smarthome* casa) {
                 std::string nomeComodo;
                 std::cout << "Digite o nome do comodo a ser removido: ";
                 std::getline(std::cin, nomeComodo);
-                
+                try{
                 usuarioLogado->apagarComodo(casa, nomeComodo);
                 std::cout << "Comando de remocao executado.\n";
+                }
+                catch(std::invalid_argument& e){
+                    std:: cerr << "Erro: "<< e.what()<< '\n';
+                }catch (...) {
+                std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
+                }
+                
                 break;
             }
             case 4: {
@@ -364,10 +417,30 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
                     break;
                 }
                 std::string nomeObjeto;
-                std::cout << "Digite o nome do novo objeto (ex: Lampada): ";
-                std::getline(std::cin, nomeObjeto);
-                usuarioLogado->criarObjeto(casa, comodo, nomeObjeto);
-                std::cout << "Objeto adicionado com sucesso!\n";
+                bool sucesso = false;
+                int tentativas = 0;
+
+                while (!sucesso && tentativas < 3) {
+                    std::cout << "Digite o nome do novo objeto (ex: Lampada): ";
+                    std::getline(std::cin, nomeObjeto);
+
+                    try {
+                        usuarioLogado->criarObjeto(casa, comodo, nomeObjeto);
+                        std::cout << "Objeto '" << nomeObjeto << "' adicionado com sucesso!\n";
+                        sucesso = true;
+                    } catch (const std::invalid_argument& e) {
+                        std::cerr << "Erro: " << e.what() << "\n";
+                        std::cerr << "Tentativa " << (tentativas+1) << " falhou. Tente novamente...\n";
+                        tentativas++;
+                    }catch (...) {
+                    std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
+                    }
+                }
+
+                if (!sucesso) {
+                    std::cerr << "Falha após 3 tentativas.\n";
+                }
+
                 break;
             }
             case 2: {
@@ -378,8 +451,15 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
                 std::string nomeObjeto;
                 std::cout << "Digite o nome do objeto a ser removido: ";
                 std::getline(std::cin, nomeObjeto);
+                try{
                 usuarioLogado->apagarObjeto(casa, comodo, nomeObjeto);
                 std::cout << "Comando de remocao executado.\n";
+                }
+                catch(std::invalid_argument& e){
+                    std:: cerr << "Erro: "<< e.what()<< '\n';
+                }catch (...) {
+                std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
+                }
                 break;
             }
             case 3: {
@@ -388,10 +468,29 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
                     break;
                 }
                 std::string nomeSensor;
-                std::cout << "Digite o nome do novo sensor (ex: Sensor de Presenca): ";
-                std::getline(std::cin, nomeSensor);
-                usuarioLogado->criarSensor(casa, comodo, nomeSensor);
-                std::cout << "Sensor adicionado com sucesso!\n";
+                bool sucesso = false;
+                int tentativas = 0;
+
+                while (!sucesso && tentativas < 3) {
+                    std::cout << "Digite o nome do novo sensor (ex: Sensor de Presenca): ";
+                    std::getline(std::cin, nomeSensor);
+
+                    try {
+                        usuarioLogado->criarSensor(casa, comodo, nomeSensor);
+                        std::cout << "Sensor '" << nomeSensor << "' adicionado com sucesso!\n";
+                        sucesso = true;
+                    } catch (const std::invalid_argument& e) {
+                        std::cerr << "Erro: " << e.what() << "\n";
+                        std::cerr << "Tentativa " << (tentativas+1) << " falhou. Tente novamente...\n";
+                        tentativas++;
+                    }catch (...) {
+                    std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
+                    }
+                }
+
+                if (!sucesso) {
+                    std::cerr << "Falha após 3 tentativas.\n";
+                }
                 break;
             }
             case 4: {
@@ -402,8 +501,15 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
                 std::string nomeSensor;
                 std::cout << "Digite o nome do sensor a ser removido: ";
                 std::getline(std::cin, nomeSensor);
+                try{
                 usuarioLogado->apagarSensor(casa, comodo, nomeSensor);
                 std::cout << "Comando de remocao executado.\n";
+                }
+                catch(std::invalid_argument& e){
+                    std:: cerr << "Erro: "<< e.what()<< '\n';
+                }catch (...) {
+                std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
+                }
                 break;
             }
             case 5:
@@ -454,10 +560,28 @@ void Interface::exibirMenuModos(Smarthome* casa) {
                     break;
                 }
                 std::string nomeModo;
-                std::cout << "Digite o nome do novo modo (ex: Modo Cinema): ";
-                std::getline(std::cin, nomeModo);
-                usuarioLogado->criarModo(casa, nomeModo);
-                std::cout << "Modo '" << nomeModo << "' criado com sucesso!\n";
+                bool sucesso = false;
+                int tentativas = 0;
+
+                while (!sucesso && tentativas < 3) {
+                    std::cout << "Digite o nome do novo modo (ex: Modo Cinema): ";
+                    std::getline(std::cin, nomeModo);
+
+                    try {
+                        usuarioLogado->criarModo(casa, nomeModo);
+                        std::cout << "Modo '" << nomeModo << "' criado com sucesso!\n";
+                        sucesso = true;
+                    } catch (const std::invalid_argument& e) {
+                        std::cerr << "Erro: " << e.what() << "\n";
+                        std::cerr << "Tentativa " << (tentativas+1) << " falhou. Tente novamente...\n";
+                        tentativas++;
+                    }
+                }
+
+                if (!sucesso) {
+                    std::cerr << "Falha após 3 tentativas.\n";
+                }
+
                 break;
             }
             case 3: {
@@ -468,8 +592,15 @@ void Interface::exibirMenuModos(Smarthome* casa) {
                 std::string nomeModo;
                 std::cout << "Digite o nome do modo a ser removido: ";
                 std::getline(std::cin, nomeModo);
+                try{
                 usuarioLogado->apagarModo(casa, nomeModo);
                 std::cout << "Comando de remocao executado.\n";
+                }
+                catch(std::invalid_argument& e){
+                    std:: cerr << "Erro: "<< e.what()<< '\n';
+                }catch (...) {
+                std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
+                }
                 break;
             }
             case 4:
