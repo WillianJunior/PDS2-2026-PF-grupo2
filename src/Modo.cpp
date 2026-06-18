@@ -108,3 +108,9 @@ ModoNoturno::ModoNoturno(std::string nome)
         false,
         false
     ) {}
+
+void ModoNoturno::executarInstrucao() {
+    for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
+        item->setStatusAtual(0);
+    }
+}

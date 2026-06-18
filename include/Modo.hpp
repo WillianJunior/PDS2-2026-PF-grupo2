@@ -58,6 +58,7 @@ class Modo {
 class ModoNoturno : public Modo {
     public:
         ModoNoturno(std::string nome);
+        void executarInstrucao();
 };
 
 #endif
