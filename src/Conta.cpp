@@ -132,13 +132,16 @@ void Conta::moverObjeto(Smarthome* smarthome, Comodo* atual, std::string nome, C
 
 void Conta::criarSensor(Smarthome* smarthome, Comodo* comodo, std::string nome) {
     if (smarthome != nullptr && comodo != nullptr) {
-        std::vector<ObjetoInteligente*> objetosVazios;
-        std::vector<Modo*> modosVazios;
 
-        Sensor* novoSensor = std::unique_ptr<Sensor>(nome, false, false, *comodo);//std::shared_ptr
-        comodo->adicionarSensor(novoSensor);
+        auto novoSensor = std::make_unique<Sensor>(
+            nome,
+            false,
+            false,
+            *comodo
+        );
+
+        comodo->adicionarSensor(std::move(novoSensor));
     }
-    
 }
 
 void Conta::apagarSensor(Smarthome* smarthome, Comodo* comodo, std::string nome) {

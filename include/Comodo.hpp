@@ -4,6 +4,7 @@
 
 #include <string>
 #include <vector>
+#include <memory>
 
 class Smarthome;
 class Conta;
@@ -23,11 +24,11 @@ public:
     void adicionarCondicao(std::string condicao);
 
     void adicionarObjeto(ObjetoInteligente* objeto);
-    void adicionarSensor(Sensor* sensor);
+    void adicionarSensor(std::unique_ptr<Sensor> sensor);
     void adicionarModo(Modo* modo);
 
     const std::vector<ObjetoInteligente*>& getObjetos() const;
-    const std::vector<Sensor*>& getSensores() const;
+    const std::vector<std::unique_ptr<Sensor>>& getSensores() const;
     const std::vector<Modo*>& getModos() const;
 
     void removerModoPorNome(std::string nomeModo);
@@ -64,7 +65,7 @@ private:
 
     std::vector<Conta*> contasPresentes;
     std::vector<ObjetoInteligente*> objetos;
-    std::vector<Sensor*> sensores;
+    std::vector<std::unique_ptr<Sensor>> sensores;
     std::vector<Modo*> modos;
 };
 

@@ -98,20 +98,23 @@ void Comodo::adicionarObjeto(ObjetoInteligente* objeto) {
     }
 }
 
-void Comodo::adicionarSensor(Sensor* sensor) {
-    if (sensor == nullptr){
-        throw std::invalid_argument("Tentativa de adicionar sensor nulo ao Comodo " + nome);
+void Comodo::adicionarSensor(std::unique_ptr<Sensor> sensor) {
+    if (!sensor) {
+        throw std::invalid_argument(
+            "Tentativa de adicionar sensor nulo ao Comodo " + nome
+        );
+    }
 
-    }
-    else {
-        for (const auto& s : sensores) {
-            if (*s == *sensor || s->getNome() == sensor->getNome()) { 
-                throw std::invalid_argument("Sensor " + sensor->getNome() + " ja existe no Comodo " + nome);
-            }
-            
+    for (const auto& s : sensores) {
+        if (*s == *sensor || s->getNome() == sensor->getNome()) {
+            throw std::invalid_argument(
+                "Sensor " + sensor->getNome() +
+                " ja existe no Comodo " + nome
+            );
         }
-        sensores.push_back(sensor);
     }
+
+    sensores.push_back(std::move(sensor));
 }
 
 void Comodo::adicionarModo(Modo* modo) {
@@ -133,7 +136,7 @@ const std::vector<ObjetoInteligente*>& Comodo::getObjetos() const {
     return objetos;
 }
 
-const std::vector<Sensor*>& Comodo::getSensores() const {
+const std::vector<unique_ptr<Sensor>>& Comodo::getSensores() const {
     return sensores;
 }
 
