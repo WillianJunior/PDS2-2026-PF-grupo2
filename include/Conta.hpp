@@ -209,6 +209,10 @@ public:
      **/
     void printMembrosInfo() const;
     /**
+     * @brief Checa se str contem caracteres que nao sao letras, espacos ou numeros. Se conter retorna false.
+     */
+    bool CaracteresValidos (const std::string& str);
+    /**
      * @brief Retorna a senha da conta.
      */
     std::string getSenha() const;

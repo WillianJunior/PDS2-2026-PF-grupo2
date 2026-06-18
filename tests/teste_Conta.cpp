@@ -25,6 +25,24 @@ TEST_CASE("Testando a classe Conta - Gerenciamento de Dados Cadastrais") {
 
         CHECK(conta.estaBloqueada() == false);
     }
+
+    SUBCASE("Verificando se nome, email e id da Conta sao vazios"){
+        CHECK_THROWS_WITH(Conta contaVazia("", "", "", "senhA123", true),
+        "Nome, Email, id da Conta nao podem ser vazios - Tente novamente...");
+
+    }
+
+    SUBCASE("Verificando se nome da Conta eh muito longo"){
+        CHECK_THROWS_WITH(Conta contaNomeLongo("123", "Nomelongodemaismesmo ", "conta@email.com", "senhA123", true),
+        "Nome da Conta nao pode ter tamanho maior que 20  - Tente novamente...");
+
+    }
+
+    SUBCASE("Verificando se nome da Conta contem caracteres invalidos"){
+        CHECK_THROWS_WITH(Conta contaNomeLongo("123", "###@!", "conta@email.com", "senhA123", true),
+        "Nome da Conta com usos de caracteres invalidos  - Tente novamente...");
+
+    }
 }
 
 // ------------------------------------------------------------

@@ -102,6 +102,11 @@ public:
      * @brief Imprime informações do membro do objeto.
      * */
     void printObjetosInfo() const;
+    /**
+     * @brief Checa se str contem que nao sao letras, espacos ou numeros.Se houver retorna false.
+     * */
+    bool CaracteresValidos (const std::string& str);
+
 };
 
 class Luz : public ObjetoInteligente {

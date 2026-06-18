@@ -48,11 +48,11 @@ TEST_CASE("TESTE 1 construtor - Comodo") {
     CHECK(comodoTeste.getSmarthome() == &smarthome);
 
     SUBCASE("TESTE 1.1 nome nao pode ser vazio") {
-        CHECK_THROWS(Comodo("", &smarthome)); //checar se devia mesmo ser check throws, isso é uma exceção ou um erro?
+        CHECK_THROWS(Comodo("", &smarthome)); 
     }
 
     SUBCASE("TESTE 1.2 ponteiro smarthome nao pode ser nullptr") {
-        CHECK_THROWS (Comodo("comodoTeste", nullptr));//checar se devia mesmo ser check throws, isso é uma exceção ou um erro?
+        CHECK_THROWS (Comodo("comodoTeste", nullptr));
     }
 
     SUBCASE("TESTE 1.3 nome nao pode ter tamanho maior que 20") {
@@ -81,7 +81,7 @@ TEST_CASE("TESTE 2 adicionarObjeto - Comodo") {
         comodoTeste.adicionarObjeto(nullptr);
         CHECK(comodoTeste.getObjetos().size() == 1);
         CHECK_THROWS_WITH(comodoTeste.adicionarObjeto(nullptr),
-        "Tentativa de adicionar objeto nulo ao Comodo comodoTeste");
+        "Tentativa de adicionar objeto nulo ao Comodo "+ comodoTeste.getNome());
     }
 
     SUBCASE("TESTE 2.2 objeto repetido nao duplica") {
@@ -209,9 +209,15 @@ TEST_CASE("TESTE 7 removerObjetoPorNome - Comodo") {
     comodoTeste.adicionarObjeto(&obj);
     CHECK(comodoTeste.getObjetos().size() == 1);
 
-    comodoTeste.removerObjetoPorNome("ObjetoTeste");
-    CHECK(comodoTeste.getObjetos().size() == 0);
+    std::ostringstream oss;
+    std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
 
+    comodoTeste.removerObjetoPorNome("ObjetoTeste");
+
+    std::cout.rdbuf(oldCout);
+    CHECK(comodoTeste.getObjetos().size() == 0);
+    CHECK(oss.str()== "Objeto ObjetoTeste removido do Comodo comodoTeste\n");
+    
     SUBCASE("TESTE 7.1 tenta remover objeto nao adicionado"){
         CHECK_THROWS_WITH(comodoTeste.removerObjetoPorNome("ObjetoTeste2"),
         "Objeto ObjetoTeste2 nao encontrado no Comodo comodoTeste");
@@ -419,6 +425,8 @@ TEST_CASE("TESTE 12 repassarInstrucao - Comodo") {
         quarto.repassarInstrucao(&dormir);
 
         CHECK(luz->getStatusAtual() == "Ligado"); 
+        CHECK_THROWS_WITH(quarto.repassarInstrucao(&dormir),
+         "Modo invalido (nullptr) ao repassar instrucao no Comodo comodoTeste");
 
         delete luz;
     }
@@ -454,19 +462,22 @@ TEST_CASE("TESTE 13 removerModoPorNome - Comodo") {
 
     comodoTeste.adicionarModo(&modo);
     CHECK(comodoTeste.getModos().size() == 1);
+    
+    std::ostringstream oss;
+    std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
 
     comodoTeste.removerModoPorNome("ModoTeste");
     CHECK(comodoTeste.getModos().size() == 0);
-
+    
+    std::cout.rdbuf(oldCout);
+    
+    CHECK (oss.str() == "Modo ModoTeste removido do Comodo comodoTeste\n");
     SUBCASE("TESTE 13.1 tenta remover modo nao adicionado"){
-        std::ostringstream oss;
-        std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
 
-        comodoTeste.removerModoPorNome("ModoTeste2");
+        CHECK_THROWS_WITH(comodoTeste.removerModoPorNome("ModoTeste2"),
+          "Modo ModoTeste2 nao encontrado no Comodo comodoTeste");
 
-        std::cout.rdbuf(oldCout);
-
-        CHECK (oss.str() == "Modo ModoTeste2 nao encontrado no Comodo comodoTeste\n");
+        
     }
 }
 TEST_CASE("TESTE 14 removerSensorPorNome - Comodo") {
@@ -479,18 +490,21 @@ TEST_CASE("TESTE 14 removerSensorPorNome - Comodo") {
     comodoTeste.adicionarSensor(&sensor);
     CHECK(comodoTeste.getSensores().size() == 1);
 
+    std::ostringstream oss;
+    std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
+
     comodoTeste.removerSensorPorNome("SensorTeste");
     CHECK(comodoTeste.getSensores().size() == 0);
 
+    std::cout.rdbuf(oldCout);
+
+    CHECK (oss.str() == "Sensor SensorTeste removido do Comodo comodoTeste\n");
+    
     SUBCASE("TESTE 14.1 tenta remover sensor nao adicionado"){
-        std::ostringstream oss;
-        std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
 
-        comodoTeste.removerSensorPorNome("SensorTeste2");
-
-        std::cout.rdbuf(oldCout);
-
-        CHECK (oss.str() == "Sensor SensorTeste2 nao encontrado no Comodo comodoTeste\n");
+        CHECK_THROWS_WITH(comodoTeste.removerSensorPorNome("SensorTeste2"),
+        "Sensor SensorTeste2 nao encontrado no Comodo comodoTeste");
+       
     }
 }
 TEST_CASE("TESTE 15 mudarCondicao - Comodo") {

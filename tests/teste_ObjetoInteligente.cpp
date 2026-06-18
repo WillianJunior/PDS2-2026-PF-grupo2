@@ -49,16 +49,31 @@ TEST_CASE("Construtor ObjetoInteligente inicializa corretamente") {
     CHECK(obj.getFuncoes().size() == 2);
     CHECK(obj.getFuncoesRestritas().size() == 1);
 
-    SUBCASE("ObjetoInteligente pode ser criado com valores vazios") {
-        ObjetoInteligente objVazio("", false, {}, {}, "", 0.0f, {}, {});
+    SUBCASE("ObjetoInteligente pode ser criado com valores vazios menos nome") {
+        ObjetoInteligente objVazio("ObjetoTeste", false, {}, {}, "", 0.0f, {}, {});
         CHECK(objVazio.getSensores().empty());
         CHECK(objVazio.getStatusAtual() == "");
         CHECK(objVazio.getFuncoes().empty());
     }
 
     SUBCASE("ObjetoInteligente com funcoes vazias") {
-        ObjetoInteligente objFuncoes("", false, {}, {}, "", 1.0f, {[](){}}, {});
+        ObjetoInteligente objFuncoes("ObjetoTeste", false, {}, {}, "", 1.0f, {[](){}}, {});
         CHECK(objFuncoes.getFuncoes().size() == 1);
+    }
+
+    SUBCASE("ObjetoInteligente com nome vazio"){
+        CHECK_THROWS_WITH(ObjetoInteligente objNomeVazio("", false, {}, {}, "", 0.0f, {}, {}),
+         "Nome do Objeto nao pode ser vazio - Tente novamente...");
+    }
+
+    SUBCASE("ObjetoInteligente com nome longo"){
+        CHECK_THROWS_WITH(ObjetoInteligente objNomeLongo("Nomemuitoooolooongooo", false, {}, {}, "", 0.0f, {}, {}),
+        "Nome do Objeto nao pode ter tamanho maior que 20 - Tente novamente...");
+    }
+
+    SUBCASE("ObjetoInteligente com nome com carcteres invalidos"){
+        CHECK_THROWS_WITH(ObjetoInteligente objNomeInvalido("## $% ##", false, {}, {}, "", 0.0f, {}, {}),
+        "Nome do Objeto com usos de caracteres invalidos - Tente novamente...");
     }
 }
 
@@ -79,6 +94,11 @@ TEST_CASE("Status pode ser definido e recuperado") {
 
     obj.setStatusAtual("Desligado");
     CHECK(obj.getStatusAtual() == "Desligado");
+
+    SUBCASE("Status atual passado eh invalido"){
+        CHECK_THROWS_WITH(obj.setStatusAtual("StatusInvalido"),
+        "Status invalido para este objeto");
+    }
 }
 
 TEST_CASE("getSensores retorna os sensores associados") {

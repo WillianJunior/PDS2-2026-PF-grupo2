@@ -53,6 +53,9 @@ class Modo {
 
         void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo);
         void desfazerInstrucao(ObjetoInteligente* objeto, Comodo* comodo);
+
+        bool CaracteresValidos (const std::string& str);
+
 };
 
 class ModoNoturno : public Modo {

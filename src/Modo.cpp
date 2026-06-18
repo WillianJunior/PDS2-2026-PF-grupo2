@@ -2,6 +2,8 @@
 #include <stdexcept>
 #include <iostream>
 #include "ObjetoInteligente.hpp"
+#include <cctype>
+#include <stdexcept>
 
 Modo::Modo(
     std::string nome,
@@ -10,21 +12,29 @@ Modo::Modo(
     bool ligado,
     bool bloqueado
 )
-    : nome(nome),
+    :
       objetosRelacionados(objetos),
       comodosRelacionados(comodos),
       ligado(ligado),
       bloqueado(bloqueado) {
 
     if (nome.empty()) {
-        throw std::invalid_argument("Nome do modo nao pode ser vazio");
+        throw std::invalid_argument("Nome do Modo nao pode ser vazio - Tente novamente...");
     }
+    else if (nome.size() > 20) {
+        throw std::invalid_argument("Nome do Modo nao pode ter tamanho maior que 20  - Tente novamente..." );
+    }
+    else if(!CaracteresValidos(nome)) {
+        throw std::invalid_argument("Nome do Modo com usos de caracteres invalidos  - Tente novamente..." );
+    }
+    else{
+            this->nome=nome;
+        }
 
     if (bloqueado) {
         this->ligado = false;
-    }
-}
-
+    } 
+}   
 std::string Modo::getNome() const {
     return nome;
 }
@@ -84,21 +94,38 @@ void Modo::printMembrosInfo() const {
 void Modo::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) {
       (void)comodo;
 
-    if (objeto == nullptr || bloqueado) {
+    if (objeto == nullptr){
+        throw std::invalid_argument("Modo nao pode executar instrucao em Objeto nullptr");
+    } if (bloqueado) {
+        std::cout<< "Modo" << nome << "bloqueado" << std::endl;
         return;
     }
 
     objeto->setStatusAtual("Ligado");
 }
-void Modo ::  desfazerInstrucao (ObjetoInteligente* objeto, Comodo* comodo){
+void Modo :: desfazerInstrucao (ObjetoInteligente* objeto, Comodo* comodo){
      (void)comodo;
 
-    if (objeto == nullptr || bloqueado) {
+    if (objeto == nullptr){
+        throw std::invalid_argument("Modo nao pode desfazer instrucao em Objeto nullptr");
+    } if (bloqueado) {
+        std::cout<< "Modo" << nome << "bloqueado" << std::endl;
         return;
     }
 
     objeto->setStatusAtual("Desligado");
 }
+    bool Modo :: CaracteresValidos (const std::string& str) {
+    for (unsigned char ch : str) {
+        // só aceita letras, números e espaços
+        if (!(std::isalnum(ch) || std::isspace(ch))) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
 
 ModoNoturno::ModoNoturno(std::string nome)
     : Modo(

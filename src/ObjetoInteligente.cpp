@@ -2,7 +2,8 @@
 #include <iostream>
 #include <algorithm>
 #include "Sensor.hpp"
-
+#include <cctype>
+#include <stdexcept>
 
 ObjetoInteligente::ObjetoInteligente(
     std::string nome,
@@ -14,7 +15,6 @@ ObjetoInteligente::ObjetoInteligente(
     std::vector<std::function<void()>> funcoes,
     std::vector<std::function<void()>> funcoesRestritas
 ) :
-    nome(nome),
     restricaoAdulto(restricaoAdulto),
     sensores(std::move(sensores)),
     statusPossiveis(std::move(statusPossiveis)),
@@ -23,9 +23,19 @@ ObjetoInteligente::ObjetoInteligente(
     funcoes(std::move(funcoes)),
     funcoesRestritas(std::move(funcoesRestritas))
 {
-    
+    if(nome.empty()){
+            throw std::invalid_argument("Nome do Obejeto nao pode ser vazio - Tente novamente...");
+        } 
+    else if (nome.size() > 20) {
+            throw std::invalid_argument("Nome do Objeto nao pode ter tamanho maior que 20 - Tente novamente...");
+    }
+    else if(!CaracteresValidos(nome)) {
+            throw std::invalid_argument("Nome do Objeto com usos de caracteres invalidos - Tente novamente...");
+    }
+    else{
+    this->nome = nome;
+    }
 }
-
 std::string ObjetoInteligente::getNome() const {
     return nome;
 }
@@ -63,7 +73,9 @@ std::string ObjetoInteligente::getStatusAtual() const {
 }
 
 void ObjetoInteligente::setStatusAtual(std::string status) {
-
+    if (std::find(statusPossiveis.begin(), statusPossiveis.end(), status) == statusPossiveis.end()) {
+        throw std::invalid_argument("Status invalido para este objeto");
+    }
     statusAtual = status; 
 }
 
@@ -142,4 +154,13 @@ void CaixaDeSom::setStatusAtual(int indexStatus) {
     } else {
         this->statusAtual = "tocando música";
     }
+}
+bool ObjetoInteligente :: CaracteresValidos (const std::string& str) {
+    for (unsigned char ch : str) {
+        // só aceita letras, números e espaços
+        if (!(std::isalnum(ch) || std::isspace(ch))) {
+            return false;
+        }
+    }
+    return true;
 }

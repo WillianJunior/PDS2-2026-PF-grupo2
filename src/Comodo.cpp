@@ -12,16 +12,16 @@ using namespace std;
 Comodo::Comodo(std::string nome, Smarthome* casa) {
 
     if(nome.empty()){
-            throw std::invalid_argument("Nome do Comodo nao pode ser vazio");
+            throw std::invalid_argument("Nome do Comodo nao pode ser vazio - Tente novamente...");
         } 
     else if (nome.size() > 20) {
-            throw std::invalid_argument("Nome do Comodo nao pode ter tamanho maior que 20");
+            throw std::invalid_argument("Nome do Comodo nao pode ter tamanho maior que 20 - Tente novamente...");
     }
     else if(!CaracteresValidos(nome)) {
-            throw std::invalid_argument("Nome do Comodo com usos de caracteres invalidos");
+            throw std::invalid_argument("Nome do Comodo com usos de caracteres invalidos - Tente novamente...");
     }
     else if (casa == nullptr){
-        throw std :: invalid_argument("Ponteiro para smarthome do comodo eh nullptr");
+        throw std :: invalid_argument("Ponteiro para smarthome do comodo eh nullptr - Tente novamente...");
     }
     else{
     this->casa = casa;   
