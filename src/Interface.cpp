@@ -262,9 +262,9 @@ void Interface::exibirMenuComodos(Smarthome* casa) {
         std::cout << "1. Listar Comodos\n";
         std::cout << "2. Adicionar novo Comodo\n";
         std::cout << "3. Remover Comodo\n";
-        std::cout << "4. Voltar\n";
+        std::cout << "4. Acessar um Comodo Especifico\n";
+        std::cout << "5. Voltar\n";
         std::cout << "Escolha uma opcao: ";
-
         int op;
         if (!(std::cin >> op)) {
             std::cin.clear();
@@ -302,10 +302,91 @@ void Interface::exibirMenuComodos(Smarthome* casa) {
                 std::cout << "Comando de remocao executado.\n";
                 break;
             }
-            case 4:
+            case 4: {
+                std::string nomeComodo;
+                std::cout << "Digite o nome exato do comodo que deseja acessar: ";
+                std::getline(std::cin, nomeComodo);
+                
+                Comodo* comodoEncontrado = casa->getComodo(nomeComodo);
+                
+                if (comodoEncontrado != nullptr) {
+                    gerenciarComodoEspecifico(casa, comodoEncontrado);
+                } else {
+                    std::cout << "Comodo '" << nomeComodo << "' nao encontrado!\n";
+                }
+                break;
+            }
+            case 5:
                 return;
             default:
-                std::cout << "Opcao invalida! Escolha de 1 a 4.\n";
+                std::cout << "Opcao invalida! Escolha de 1 a 5.\n";
+                break;
+        }
+    }
+}
+void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
+    while (true) {
+        std::cout << "\n--- DENTRO DE: " << comodo->getNome() << " ---\n";
+        std::cout << "1. Adicionar Objeto Inteligente (Lâmpada, TV, etc)\n";
+        std::cout << "2. Remover Objeto Inteligente\n";
+        std::cout << "3. Adicionar Sensor\n";
+        std::cout << "4. Remover Sensor\n";
+        std::cout << "5. Listar Dispositivos neste Comodo\n";
+        std::cout << "6. Voltar para Menu da Casa\n";
+        std::cout << "Escolha uma opcao: ";
+
+        int op;
+        if (!(std::cin >> op)) {
+            std::cin.clear();
+            std::string lixo;
+            std::getline(std::cin, lixo);
+            std::cout << "Opcao invalida! Digite apenas numeros.\n";
+            continue;
+        }
+        std::cin.ignore();
+
+        switch (op) {
+            case 1: {
+                std::string nomeObjeto;
+                std::cout << "Digite o nome do novo objeto (ex: Lampada Teto): ";
+                std::getline(std::cin, nomeObjeto);
+                usuarioLogado->criarObjeto(casa, comodo, nomeObjeto);
+                std::cout << "Objeto adicionado com sucesso!\n";
+                break;
+            }
+            case 2: {
+                std::string nomeObjeto;
+                std::cout << "Digite o nome do objeto a ser removido: ";
+                std::getline(std::cin, nomeObjeto);
+                usuarioLogado->apagarObjeto(casa, comodo, nomeObjeto);
+                std::cout << "Comando de remocao executado.\n";
+                break;
+            }
+            case 3: {
+                std::string nomeSensor;
+                std::cout << "Digite o nome do novo sensor (ex: Sensor de Presenca): ";
+                std::getline(std::cin, nomeSensor);
+                usuarioLogado->criarSensor(casa, comodo, nomeSensor);
+                std::cout << "Sensor adicionado com sucesso!\n";
+                break;
+            }
+            case 4: {
+                std::string nomeSensor;
+                std::cout << "Digite o nome do sensor a ser removido: ";
+                std::getline(std::cin, nomeSensor);
+                usuarioLogado->apagarSensor(casa, comodo, nomeSensor);
+                std::cout << "Comando de remocao executado.\n";
+                break;
+            }
+            case 5:
+                std::cout << "\n[Dispositivos em " << comodo->getNome() << "]\n";
+                comodo->printObjetosInfo();
+                comodo->printSensoresInfo();
+                break;
+            case 6:
+                return;
+            default:
+                std::cout << "Opcao invalida! Escolha de 1 a 6.\n";
                 break;
         }
     }

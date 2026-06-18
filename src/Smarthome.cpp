@@ -145,5 +145,13 @@ bool Smarthome :: CaracteresValidos (const std::string& str) {
     }
     return true;
 }
+Comodo* Smarthome::getComodo(std::string nomeComodo) {
+    for (auto& c : comodos) {
+        if (c.getNome() == nomeComodo) {
+            return &c;
+        }
+    }
+    return nullptr;
+}
 
 Smarthome::~Smarthome() = default;

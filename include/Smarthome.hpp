@@ -99,6 +99,10 @@ public:
      * @brief Checa se o str contem caracteres que nao sao espaços, letras ou numeros, se houver retorna false.
      */
     bool CaracteresValidos(const std::string& str);
+    /**
+     * @brief Busca um comodo especifico pelo nome e retorna o ponteiro para ele.
+     */
+    Comodo* getComodo(std::string nomeComodo);
     
     ~Smarthome();
 };
