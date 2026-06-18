@@ -34,16 +34,28 @@ O desenvolvimento deste sistema é impulsionado pelo desafio de resolver problem
 
 ## Estrutura Técnica e Contratos (C++)
 
-### Arquivos de Cabeçalho - Contratos (.hpp)
-* Conta.hpp;
-* Login.hpp;
-* ObjetoInteligente.hpp;
-* Smarthome.hpp;
-* Comodo.hpp;
-* Sensor.hpp;
-* Modo.hpp;
+### Ficheiros de Cabeçalho - Contratos (.hpp)
+Localizados na pasta `include/`:
+* Comodo.hpp
+* Conta.hpp
+* Interface.hpp
+* Login.hpp
+* Modo.hpp
+* ObjetoInteligente.hpp
+* Sensor.hpp
+* Smarthome.hpp
 
----
+### Ficheiros de Código-Fonte - Implementações (.cpp)
+Localizados na pasta `src/`:
+* Comodo.cpp
+* Conta.cpp
+* Interface.cpp
+* Login.cpp
+* main.cpp
+* Modo.cpp
+* ObjetoInteligente.cpp
+* Sensor.cpp
+* Smarthome.cpp
 
 ## Organização do Repositório
 ```text
