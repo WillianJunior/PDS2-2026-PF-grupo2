@@ -153,4 +153,12 @@ Comodo* Smarthome::getComodo(std::string nomeComodo) {
     return nullptr;
 }
 
+const std::vector<Comodo>& Smarthome::getComodos() const {
+    return comodos;
+}
+
+const std::vector<Modo>& Smarthome::getListaModos() const {
+    return modos;
+}
+
 Smarthome::~Smarthome() = default;

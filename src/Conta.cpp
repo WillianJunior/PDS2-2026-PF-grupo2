@@ -173,3 +173,15 @@ void Conta::printMembrosInfo() const {
 std::vector<Smarthome*> Conta::getSmarthomes() const {
     return smarthomes;
 }
+
+std::string Conta::getSenha() const {
+    return senha;
+}
+
+void Conta::salvarSmarthomesEmArquivo() const {
+    // Será implementado ainda
+}
+
+void Conta::carregarSmarthomesDeArquivo() {
+    // Será implementado ainda
+}

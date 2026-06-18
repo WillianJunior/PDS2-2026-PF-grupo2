@@ -4,12 +4,12 @@
 
 #include <string>
 #include "ObjetoInteligente.hpp"
+#include <vector>
+#include <fstream>
 class Smarthome;
 class Comodo;
 class Sensor;
 class Modo;
-#include <vector>
-
 
 /**
  * @brief Classe responsável por gerenciar o perfil do usuário no sistema.
@@ -200,5 +200,17 @@ public:
      * @brief Imprime informações do membro da conta.
      **/
     void printMembrosInfo() const;
+    /**
+     * @brief Retorna a senha da conta.
+     */
+    std::string getSenha() const;
+    /**
+     * @brief Salva todas as smarthomes da conta em um arquivo txt.
+     */
+    void salvarSmarthomesEmArquivo() const;
+    /**
+     * @brief Carrega as smarthomes a partir do arquivo txt do usuario.
+     */
+    void carregarSmarthomesDeArquivo();
 };
 #endif

@@ -64,6 +64,16 @@ public:
     const std::vector<ObjetoInteligente>& getObjetos() const;
 
     /**
+     * @brief Retorna os comodos da smarthome.
+     */
+    const std::vector<Comodo>& getComodos() const;
+
+    /**
+     * @brief Retorna os modos da smarthome.
+     */
+    const std::vector<Modo>& getListaModos() const;
+
+    /**
      * @brief Retorna o usuário dono da smarthome.
      */
     Conta getUsuario()const;
