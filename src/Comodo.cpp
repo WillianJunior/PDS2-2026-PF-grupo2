@@ -6,11 +6,28 @@
 #include "Modo.hpp"
 #include <vector>
 #include <iostream>
+#include <stdexcept>
+#include <cctype>
 using namespace std;
 Comodo::Comodo(std::string nome, Smarthome* casa) {
-    //adicionar asserção para nome vazio e casa nullptr
+
+    if(nome.empty()){
+            throw std::invalid_argument("Nome do Comodo nao pode ser vazio");
+        } 
+    else if (nome.size() > 20) {
+            throw std::invalid_argument("Nome do Comodo nao pode ter tamanho maior que 20");
+    }
+    else if(!CaracteresValidos(nome)) {
+            throw std::invalid_argument("Nome do Comodo com usos de caracteres invalidos");
+    }
+    else if (casa == nullptr){
+        throw std :: invalid_argument("Ponteiro para smarthome do comodo eh nullptr");
+    }
+    else{
+    this->casa = casa;   
     this->nome = nome;
-    this->casa = casa;
+    }
+    
 }
 
 bool Comodo :: operator== (const Comodo& other) const{
@@ -23,6 +40,11 @@ std::vector<std::string> Comodo::getCondicoesDoComodo() const{
 
 void Comodo::mudarCondicao(std::string condicao) {
     // remove qualquer condição do mesmo grupo (exemplo : se estiver Iluminado, Escuro é removido)
+    if(condicao != "Iluminado" && condicao != "Escuro" && condicao != "Quente" && condicao != "Frio" &&
+     condicao != "Barulhento" && condicao != "Silencioso" && condicao != "Umido" && condicao != "Seco" ){
+
+        throw std::invalid_argument("Condicao invalida: " + condicao);
+    }
     if (condicao == "Iluminado" || condicao == "Escuro") {
         condicoesDoComodo.erase(
             std::remove_if(condicoesDoComodo.begin(), condicoesDoComodo.end(),
@@ -58,40 +80,50 @@ void Comodo::mudarCondicao(std::string condicao) {
 
 
 void Comodo::adicionarCondicao(std::string condicao) {
-    mudarCondicao(condicao);
+    mudarCondicao(condicao); // inconsitente com mudar condicao que baseia-se na ideia que tem numero limitado de condicoes
 }
 
 void Comodo::adicionarObjeto(ObjetoInteligente* objeto) {
-    if (objeto) {
+    if( objeto == nullptr){
+        throw std::invalid_argument("Tentativa de adicionar objeto nulo ao Comodo " + nome);
+    }
+    else {
         for (const auto& o : objetos) {
             if (*o == *objeto || o->getNome() == objeto->getNome()) { 
-                std::cout << "Objeto já existente no Comodo " << nome << std::endl; // por nome do comodo
-                return;
+                throw std::invalid_argument("Objeto " + objeto->getNome() + " ja existe no Comodo " + nome);
             }
+            
         }
         objetos.push_back(objeto);
     }
 }
 
 void Comodo::adicionarSensor(Sensor* sensor) {
-    if (sensor) {
+    if (sensor == nullptr){
+        throw std::invalid_argument("Tentativa de adicionar sensor nulo ao Comodo " + nome);
+
+    }
+    else {
         for (const auto& s : sensores) {
             if (*s == *sensor || s->getNome() == sensor->getNome()) { 
-                std::cout << "Sensor já existente no Comodo " << nome << std::endl;
-                return;
+                throw std::invalid_argument("Sensor " + sensor->getNome() + " ja existe no Comodo " + nome);
             }
+            
         }
         sensores.push_back(sensor);
     }
 }
 
 void Comodo::adicionarModo(Modo* modo) {
-    if (modo) {
+    if (modo == nullptr){
+        throw std::invalid_argument("Tentativa de adicionar modo nulo ao Comodo " + nome);
+    }
+    else{
         for (const auto& m : modos) {
             if (*m == *modo || m->getNome() == modo->getNome()) { 
-                std::cout << "Modo já existente no Comodo " << nome << std::endl;
-                return;
+                throw std::invalid_argument("Modo " + modo->getNome() + " ja existe no Comodo " + nome);
             }
+            
         }
         modos.push_back(modo);
     }
@@ -110,11 +142,13 @@ const std::vector<Modo*>& Comodo::getModos() const {
 }
 
 void Comodo::entrarConta(Conta* conta) {
-    if (conta) {
+    if(conta == nullptr){
+        throw std :: invalid_argument("Tentativa de adicionar conta nula ao Comodo " + nome);
+    }
+    else {
         for (const auto& c : contasPresentes) {
             if (*c == *conta) { 
-                std::cout << "Conta já existente no Comodo " << nome << std::endl;
-                return;
+                throw std::invalid_argument("Conta " + conta->getNome() + " ja existe no Comodo " + nome);
             }
         }
         contasPresentes.push_back(conta);
@@ -125,20 +159,28 @@ void Comodo::sairConta() {
     if (!contasPresentes.empty()) {
         contasPresentes.erase(contasPresentes.begin());// comportamento de fila FIFO
     }
+    else{
+        throw std::runtime_error("Nenhuma conta presente no Comodo " + nome + " para sair");
+    }
 }
 
 void Comodo::repassarInstrucao( Modo* modo) {
      
     if (contasPresentes.empty()) return;
 
-    auto relacionados = modo->getObjetosRelacionados();
+    if(modo == nullptr){
+        throw std::invalid_argument("Modo invalido (nullptr) ao repassar instrucao no Comodo " + nome);
+    } 
+    else {
+        auto relacionados = modo->getObjetosRelacionados();
 
-    for (auto* objeto : objetos) {
-        if (std::find(relacionados.begin(), relacionados.end(), objeto) != relacionados.end()) {
-            if (modo->getAtivoModo()) {
-                modo->executarInstrucao(objeto, this); // passa o comodo junto
-            } else {
-                modo->desfazerInstrucao(objeto, this); // lógica de desativação
+        for (auto* objeto : objetos) {
+            if (std::find(relacionados.begin(), relacionados.end(), objeto) != relacionados.end()) {
+                if (modo->getAtivoModo()) {
+                    modo->executarInstrucao(objeto, this); // passa o comodo junto
+                } else {
+                    modo->desfazerInstrucao(objeto, this); // lógica de desativação
+                }
             }
         }
     }
@@ -157,7 +199,7 @@ Smarthome* Comodo::getSmarthome() const {
 }
 
 void Comodo :: printObjetosInfo() const{
-    std::cout << "Comodo "<< nome << " da smarthome: " << casa << endl;
+    std::cout << "Comodo "<< nome << " :" << endl;
     std::cout<< "Objetos inteligentes presentes em "<< nome << " :" << endl;
     for(size_t i=0; i<objetos.size(); i++){
         objetos[i]->printObjetosInfo();
@@ -165,7 +207,7 @@ void Comodo :: printObjetosInfo() const{
     }
 }
 void Comodo :: printSensoresInfo() const{ 
-    std::cout << "Comodo "<< nome << " da smarthome: " << casa << endl;
+    std::cout << "Comodo "<< nome << " :" << endl;
     std::cout<< "Sensores presentes em "<< nome << " :" << endl;
     for(size_t i=0; i<sensores.size(); i++){
         sensores[i]->printSensorInfo();
@@ -174,7 +216,7 @@ void Comodo :: printSensoresInfo() const{
 }
 
 void Comodo :: printModosInfo() const{
-    std::cout << "Comodo "<< nome << " da smarthome: " << casa << endl;
+    std::cout << "Comodo "<< nome << " :" << endl;
     std::cout<< "Modos presentes em "<< nome << " :" << endl;
     for(size_t i=0; i<modos.size(); i++){
         modos[i]->printMembrosInfo(); 
@@ -183,7 +225,7 @@ void Comodo :: printModosInfo() const{
 }
 
 void Comodo :: printContasInfo() const{
-    std::cout << "Comodo "<< nome << " da smarthome: " << casa << endl;
+    std::cout << "Comodo "<< nome << " :" << endl;
     std::cout<< "Contas presentes em "<< nome << " :" << endl;
     for(size_t i=0; i<contasPresentes.size(); i++){
         contasPresentes[i]->printMembrosInfo(); 
@@ -199,7 +241,7 @@ void Comodo::removerObjetoPorNome(std::string nomeObjeto) {
             return;
         }
     }
-    std::cout << "Objeto " << nomeObjeto << " nao encontrado no Comodo " << nome << std::endl;
+    throw std::runtime_error("Objeto " + nomeObjeto + " nao encontrado no Comodo " + nome);
 }
 
 void Comodo::removerSensorPorNome(std::string nomeSensor) {
@@ -210,7 +252,7 @@ void Comodo::removerSensorPorNome(std::string nomeSensor) {
             return;
         }
     }
-    std::cout << "Sensor " << nomeSensor << " nao encontrado no Comodo " << nome << std::endl;
+    throw std::runtime_error("Sensor " + nomeSensor + " nao encontrado no Comodo " + nome);
 }
 
 void Comodo::removerModoPorNome(std::string nomeModo){
@@ -221,7 +263,18 @@ void Comodo::removerModoPorNome(std::string nomeModo){
             return;
         }
     }
-    std::cout << "Modo " << nomeModo << " nao encontrado no Comodo " << nome << std::endl;
+    throw std::runtime_error("Modo " + nomeModo + " nao encontrado no Comodo " + nome);
+
+}
+
+bool Comodo :: CaracteresValidos (const std::string& str) {
+    for (unsigned char ch : str) {
+        // só aceita letras, números e espaços
+        if (!(std::isalnum(ch) || std::isspace(ch))) {
+            return false;
+        }
+    }
+    return true;
 }
 
 Comodo::~Comodo() = default;
