@@ -55,10 +55,14 @@ TEST_CASE("TESTE 1 construtor - Comodo") {
         CHECK_THROWS (Comodo("comodoTeste", nullptr));//checar se devia mesmo ser check throws, isso é uma exceção ou um erro?
     }
 
-    SUBCASE("TESTE 1.3 nome longo") {
-        std::string longName(1000, 'A');
-        Comodo comodoLongo(longName, &smarthome);
-        CHECK(comodoLongo.getNome().size() == 1000);
+    SUBCASE("TESTE 1.3 nome nao pode ter tamanho maior que 20") {
+        std::string longName(20, 'A');
+        
+        CHECK_THROWS(Comodo (longName, &smarthome));
+    }
+
+    SUBCASE("TESE 1.4 caracteres invalidos"){
+        CHECK_THROWS(Comodo("Comodo@", &smarthome));
     }
 }
 
@@ -76,11 +80,15 @@ TEST_CASE("TESTE 2 adicionarObjeto - Comodo") {
     SUBCASE("TESTE 2.1 ponteiro nullptr nao adiciona") {
         comodoTeste.adicionarObjeto(nullptr);
         CHECK(comodoTeste.getObjetos().size() == 1);
+        CHECK_THROWS_WITH(comodoTeste.adicionarObjeto(nullptr),
+        "Tentativa de adicionar objeto nulo ao Comodo comodoTeste");
     }
 
     SUBCASE("TESTE 2.2 objeto repetido nao duplica") {
         comodoTeste.adicionarObjeto(&obj);
         CHECK(comodoTeste.getObjetos().size() == 1);
+        CHECK_THROWS_WITH(comodoTeste.adicionarObjeto(&obj),
+        "Objeto ObjetoTeste ja existe no Comodo comodoTeste");
     }
 }
 
@@ -98,11 +106,15 @@ TEST_CASE("TESTE 3 adicionarSensor - Comodo") {
     SUBCASE("TESTE 3.1 ponteiro nullptr nao adiciona") {
         comodoTeste.adicionarSensor(nullptr);
         CHECK(comodoTeste.getSensores().size() == 1);
+        CHECK_THROWS_WITH(comodoTeste.adicionarSensor(nullptr),
+        "Tentativa de adicionar sensor nulo ao Comodo comodoTeste");
     }
 
     SUBCASE("TESTE 3.2 sensor repetido nao duplica") {
         comodoTeste.adicionarSensor(&sensor);
         CHECK(comodoTeste.getSensores().size() == 1);
+        CHECK_THROWS_WITH(comodoTeste.adicionarSensor(&sensor),
+        "Sensor SensorTeste ja existe no Comodo comodoTeste");
     }
 }
 
@@ -120,11 +132,15 @@ TEST_CASE("TESTE 4 adicionarModo - Comodo") {
     SUBCASE("TESTE 4.1 modo repetido nao duplica") {
         comodoTeste.adicionarModo(&modo);
         CHECK(comodoTeste.getModos().size() == 1);
+        CHECK_THROWS_WITH(comodoTeste.adicionarModo(&modo),
+        "Modo ModoTeste ja existe no Comodo comodoTeste");
     }
 
     SUBCASE("TESTE 4.2 modo nullptr nao adiciona") {
         comodoTeste.adicionarModo(nullptr);
         CHECK(comodoTeste.getModos().size() == 1);
+        CHECK_THROWS_WITH(comodoTeste.adicionarModo(nullptr),
+        "Tentativa de adicionar modo nulo ao Comodo comodoTeste");
     }
 }
 
@@ -146,11 +162,15 @@ TEST_CASE("TESTE 5 entrarConta - Comodo") {
     SUBCASE("TESTE 5.2 conta nullptr nao adiciona") {
         comodoTeste.entrarConta(nullptr);
         CHECK(comodoTeste.getContasPresentes().size() == 1);
+        CHECK_THROWS_WITH(comodoTeste.entrarConta(nullptr),
+        "Tentativa de adicionar conta nula ao Comodo comodoTeste");
     }
 
     SUBCASE("TESTE 5.3 conta nao pode entrar duas vezes"){
         comodoTeste.entrarConta(&contaTeste);
         CHECK(comodoTeste.getContasPresentes().size() == 1);
+        CHECK_THROWS_WITH(comodoTeste.entrarConta(&contaTeste),
+        "Conta Usuario A ja existe no Comodo comodoTeste");
     }
 }
 
@@ -174,6 +194,8 @@ TEST_CASE("TESTE 6 sairConta - Comodo") {
     SUBCASE("TESTE 6.1 sair sem conta nao quebra") {
         comodoTeste.sairConta();
         CHECK(comodoTeste.getContasPresentes().empty());
+        CHECK_THROWS_WITH(comodoTeste.sairConta(),
+        "Nenhuma conta presente no Comodo comodoTeste para sair");
     }
 }
 
@@ -191,14 +213,8 @@ TEST_CASE("TESTE 7 removerObjetoPorNome - Comodo") {
     CHECK(comodoTeste.getObjetos().size() == 0);
 
     SUBCASE("TESTE 7.1 tenta remover objeto nao adicionado"){
-        std::ostringstream oss;
-        std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
-
-        comodoTeste.removerObjetoPorNome("ObjetoTeste2");
-
-        std::cout.rdbuf(oldCout);
-
-        CHECK (oss.str() == "Objeto ObjetoTeste2 nao encontrado no Comodo comodoTeste\n");
+        CHECK_THROWS_WITH(comodoTeste.removerObjetoPorNome("ObjetoTeste2"),
+        "Objeto ObjetoTeste2 nao encontrado no Comodo comodoTeste");
     }
 }
 
@@ -339,7 +355,7 @@ TEST_CASE("TESTE 11 printSensoresInfo - Comodo"){
     std::cout.rdbuf(oldCout);
 
     CHECK(oss.str() == 
-        "Comodo comodoTeste da smarthome: Minha Casa\n"
+        "Comodo comodoTeste :\n"
         "Sensores presentes em comodoTeste :\n"
         "");
     SUBCASE("TESTE 11.1 comodo sem sensores nao imprime nada "){
@@ -513,10 +529,12 @@ TEST_CASE("TESTE 15 mudarCondicao - Comodo") {
     }
 
     SUBCASE("TESTE 15.5 Condição inválida") {
-        quarto.mudarCondicao("Claro"); // não está na lista de pares
-        auto condicoes = quarto.getCondicoesDoComodo();
-        CHECK(condicoes.size() == 1); // adiciona mesmo assim
-        CHECK(condicoes[0] == "Claro"); // mas não remove nada
+        //quarto.mudarCondicao("Claro"); // não está na lista de pares
+        //auto condicoes = quarto.getCondicoesDoComodo();
+        //CHECK(condicoes.size() == 1); // adiciona mesmo assim
+        //CHECK(condicoes[0] == "Claro"); // mas não remove nada
+        CHECK_THROWS_WITH(quarto.mudarCondicao("Claro"),
+        "Condicao invalida: Claro");
     }
 
     SUBCASE("TESTE 15.6 Repetição da mesma condição") {
@@ -527,3 +545,4 @@ TEST_CASE("TESTE 15 mudarCondicao - Comodo") {
         CHECK(condicoes[0] == "Iluminado");
     }
 }
+
