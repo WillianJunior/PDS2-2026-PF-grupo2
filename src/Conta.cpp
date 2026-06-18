@@ -6,10 +6,26 @@
 #include "Sensor.hpp"
 #include <iostream>
 #include <vector>
+#include <stdexcept>
+#include <cctype>
 
 Conta::Conta(std::string id, std::string nome, std::string email, std::string senha, bool adulto)
-    : id(id), nome(nome), email(email), senha(senha), perfilAdulto(adulto), bloqueada(false) {}
-
+    : senha(senha), perfilAdulto(adulto), bloqueada(false) {
+    if(nome.empty() || email.empty() || id.empty() ){
+        throw std::invalid_argument("Nome, Email, id da Conta nao podem ser vazios - Tente novamente...");
+    } 
+    else if (nome.size() > 20) {
+        throw std::invalid_argument("Nome da Conta nao pode ter tamanho maior que 20  - Tente novamente..." );
+    }
+    else if(!CaracteresValidos(nome)) {
+        throw std::invalid_argument("Nome da Conta com usos de caracteres invalidos  - Tente novamente..." );
+    }
+    else{
+        this->nome = nome;
+        this->email =email;
+        this->id=id;
+    }
+}
 std::string Conta::getId() const {
     return id;
 }
@@ -40,7 +56,7 @@ void Conta::desbloquear() {
 
 void Conta::criarSmarthome(std::string id, std::string nome) {
     (void)id;
-    Smarthome* nova_smarthome = new Smarthome(*this, nome);
+    Smarthome* nova_smarthome = new Smarthome(*this, nome);//std::shared_ptr
     smarthomes.push_back(nova_smarthome);
 }
 
@@ -119,9 +135,10 @@ void Conta::criarSensor(Smarthome* smarthome, Comodo* comodo, std::string nome) 
         std::vector<ObjetoInteligente*> objetosVazios;
         std::vector<Modo*> modosVazios;
 
-        Sensor* novoSensor = new Sensor(nome, false, false, *comodo, objetosVazios, modosVazios);
+        Sensor* novoSensor = new Sensor(nome, false, false, *comodo, objetosVazios, modosVazios);//std::shared_ptr
         comodo->adicionarSensor(novoSensor);
     }
+    
 }
 
 void Conta::apagarSensor(Smarthome* smarthome, Comodo* comodo, std::string nome) {
@@ -172,6 +189,16 @@ void Conta::printMembrosInfo() const {
 
 std::vector<Smarthome*> Conta::getSmarthomes() const {
     return smarthomes;
+}
+
+bool Conta :: CaracteresValidos (const std::string& str) {
+    for (unsigned char ch : str) {
+        // só aceita letras, números e espaços
+        if (!(std::isalnum(ch) || std::isspace(ch))) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::string Conta::getSenha() const {

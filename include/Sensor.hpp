@@ -94,7 +94,7 @@ public:
      * @brief Ativa um objeto.
      * @param indexFuncao Qual função do objeto ativar.
      */
-    void ativarObjeto(ObjetoInteligente* objeto, int indexFuncao);
+    void ativarObjeto(ObjetoInteligente* objeto, size_t indexFuncao);
 
     /**
      * @brief Define comparação entre sensores.
@@ -107,6 +107,11 @@ public:
      * @brief Imprime informações do membro do sensor.
      * */
     void printSensorInfo() const;
+
+    /**
+     * @brief Checa se os caracteres de str sao algo alem de numeros, letras e espacos, se forem retorna false
+     * */
+    bool CaracteresValidos (const std::string& str);
 };
 
 #endif

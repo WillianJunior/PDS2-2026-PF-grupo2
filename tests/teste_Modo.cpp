@@ -19,6 +19,14 @@ TEST_CASE("Construtor do Modo") {
         CHECK_THROWS(Modo("", objetos, comodos, true, false));
     }
 
+    SUBCASE("Nome do modo nao pode ser maior que 20 caracteres") {
+        CHECK_THROWS(Modo("AAAAAAAAAAAAAAAAAAAAAA", objetos, comodos, true, false));
+    }
+
+    SUBCASE("Nome do modo nao pode conter caracteres invalidos") {
+        CHECK_THROWS(Modo("&&##$$", objetos, comodos, true, false));
+    }
+
     SUBCASE("Modo começa ligado") {
         Modo modo("Noturno", objetos, comodos, true, false);
 
@@ -89,5 +97,22 @@ TEST_CASE("Listas relacionadas ao Modo") {
 
     SUBCASE("Lista de comodos começa vazia") {
         CHECK(modo.getComodosRelacionados().size() == 0);
+    }
+}
+
+TEST_CASE("Modo executa e e desfaz instrucao"){
+    //teste de caso positivo
+    std::vector<ObjetoInteligente*> objetos;
+    std::vector<Comodo*> comodos;
+    Modo modo("Padrao", objetos, comodos, false, false);
+        
+    SUBCASE("executarInstrucao lança exceção") {
+        CHECK_THROWS_WITH(modo.executarInstrucao(nullptr, nullptr),
+            "Modo nao pode executar instrucao em Objeto nullptr");
+    }
+
+    SUBCASE("desfazerInstrucao lança exceção") {
+        CHECK_THROWS_WITH(modo.desfazerInstrucao(nullptr, nullptr),
+        "Modo nao pode desfazer instrucao em Objeto nullptr");
     }
 }
