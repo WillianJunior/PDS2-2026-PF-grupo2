@@ -18,6 +18,7 @@ private:
     void gerenciarSmarthome(Smarthome* casa); // Tela de controle da Smarthome escolhida
     void exibirMenuComodos(Smarthome* casa);  // Tela de gestao de comodos da casa
     void gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo); // Tela de controle de um comodo especifico
+    void exibirMenuModos(Smarthome* casa); // Tela de gestao de modos da casa
 
     void realizarLogin();
     void cadastrarConta();

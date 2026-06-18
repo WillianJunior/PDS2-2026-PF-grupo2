@@ -138,7 +138,6 @@ void Smarthome:: printModosInfo() const{
 
 bool Smarthome :: CaracteresValidos (const std::string& str) {
     for (unsigned char ch : str) {
-        // só aceita letras, números e espaços
         if (!(std::isalnum(ch) || std::isspace(ch))) {
             return false;
         }
