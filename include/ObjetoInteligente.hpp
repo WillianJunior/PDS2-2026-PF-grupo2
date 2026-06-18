@@ -81,7 +81,7 @@ public:
      * @brief Define o status atual do objeto.
      * @param status é o nome dos status a ser definido.
      */
-    void setStatusAtual(std::string status);
+    virtual void setStatusAtual(std::string status);
     /**
      * @brief Retorna o valor de consumo médio de energia do objeto.
      */
@@ -108,7 +108,14 @@ class Luz : public ObjetoInteligente {
     
     public:
         Luz(std::string nome);
-        void setApagada(bool apagado);
+        void setStatusAtual(int indexStatus);
+};
+
+class CaixaDeSom : public ObjetoInteligente {
+    
+    public:
+        CaixaDeSom(std::string nome);
+        void setStatusAtual(int indexStatus);
 };
 
 #endif

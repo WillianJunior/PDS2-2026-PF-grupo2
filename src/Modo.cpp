@@ -99,3 +99,12 @@ void Modo ::  desfazerInstrucao (ObjetoInteligente* objeto, Comodo* comodo){
 
     objeto->setStatusAtual("Desligado");
 }
+
+ModoNoturno::ModoNoturno(std::string nome)
+    : Modo(
+        nome,
+        {},
+        {},
+        false,
+        false
+    ) {}

@@ -16,7 +16,7 @@ class Comodo;
 
 class Modo {
 
-    private:
+    protected:
 
         std::string nome;
 
@@ -53,6 +53,11 @@ class Modo {
 
         void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo);
         void desfazerInstrucao(ObjetoInteligente* objeto, Comodo* comodo);
+};
+
+class ModoNoturno : public Modo {
+    public:
+        ModoNoturno(std::string nome);
 };
 
 #endif

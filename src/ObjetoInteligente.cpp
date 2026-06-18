@@ -98,6 +98,8 @@ for (size_t i = 0; i < statusPossiveis.size(); i++) {
     std::cout << "Status atual: " << this->statusAtual << std::endl;
 }
 
+// LUZ
+
 Luz::Luz(std::string nome)
     : ObjetoInteligente(
         nome,
@@ -110,10 +112,34 @@ Luz::Luz(std::string nome)
         {}
     ) {}
 
-void Luz::setApagada(bool apagado) {
-    if (apagado) {
+void Luz::setStatusAtual(int indexStatus) {
+    if (indexStatus = 0) {
         this->statusAtual = "apagada";
     } else {
         this->statusAtual = "acesa";
+    }
+}
+
+// CAIXA DE SOM
+
+CaixaDeSom::CaixaDeSom(std::string nome)
+    : ObjetoInteligente(
+        nome,
+        false,
+        {},
+        {"desligada", "standby", "tocando música"},
+        "desligada",
+        0.0f,
+        {},
+        {}
+    ) {}
+
+void CaixaDeSom::setStatusAtual(int indexStatus) {
+    if (indexStatus == 0) {
+        this->statusAtual = "desligado";
+    } else if (indexStatus == 1) {
+        this->statusAtual = "standby";
+    } else {
+        this->statusAtual = "tocando música";
     }
 }
