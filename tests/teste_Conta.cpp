@@ -71,7 +71,6 @@ TEST_CASE("Testando a classe Conta - Chamadas de Metodos") {
     SUBCASE("Metodos de manipulacao de Modos") {
         conta.criarModo(&sh, "Seguranca");
         conta.apagarModo(&sh, "Seguranca");
-        conta.editarModo(&sh, "Seguranca");
     }
 
     SUBCASE("Metodos de manipulacao de Objetos e Sensores") {

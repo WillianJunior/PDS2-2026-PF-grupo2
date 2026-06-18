@@ -118,13 +118,6 @@ public:
     void apagarModo(Smarthome* smarthome, std::string nome);
 
     /**
-     * @brief Comando para editar um modo.
-     * @param smarthome Smarthome em que o modo será editado.
-     * @param nome Nome do modo a ser editado.
-     */
-    void editarModo(Smarthome* smarthome, std::string nome);
-
-    /**
      * @brief Comando para criar um objeto inteligente.
      * @param smarthome Smarthome em que o objeto será adicionado.
      * @param comodo Comodo em que o objeto será adicionado.

@@ -84,12 +84,6 @@ void Conta::apagarModo(Smarthome* smarthome, std::string nome) {
     }
 }
 
-void Conta::editarModo(Smarthome* smarthome, std::string nome) {
-    (void)smarthome;
-    (void)nome;
-    // ver como e se será implementado em Smarthome
-}
-
 void Conta::criarObjeto(Smarthome* smarthome, Comodo* comodo, std::string nome) {
     if (smarthome != nullptr && comodo != nullptr) {
         std::vector<Sensor*> sensoresVazios;
