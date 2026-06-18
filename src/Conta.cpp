@@ -56,12 +56,9 @@ void Conta::desbloquear() {
 
 void Conta::criarSmarthome(std::string id, std::string nome) {
     (void)id;
-<<<<<<< HEAD
+
     smarthomes.push_back(std::make_unique<Smarthome>(this, nome));
-=======
-    Smarthome* nova_smarthome = new Smarthome(*this, nome);//std::shared_ptr
-    smarthomes.push_back(nova_smarthome);
->>>>>>> 34a878ac7c98ccc88787a34cd7c465ee115bd7d9
+
 }
 
 void Conta::apagarSmarthome(const Smarthome& smarthome) {
@@ -138,7 +135,7 @@ void Conta::criarSensor(Smarthome* smarthome, Comodo* comodo, std::string nome) 
         std::vector<ObjetoInteligente*> objetosVazios;
         std::vector<Modo*> modosVazios;
 
-        Sensor* novoSensor = new Sensor(nome, false, false, *comodo, objetosVazios, modosVazios);//std::shared_ptr
+        Sensor* novoSensor = std::unique_ptr<Sensor>(nome, false, false, *comodo);//std::shared_ptr
         comodo->adicionarSensor(novoSensor);
     }
     

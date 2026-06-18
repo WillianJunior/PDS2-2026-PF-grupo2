@@ -69,7 +69,7 @@ bool Sensor::checarAmbiente(std::string condicao) {
     if (condicao.empty()) {
         throw std::invalid_argument("Condicao vazia passada para checarAmbiente no Sensor " + nome);
     }
-    std::vector<std::string> condicoes = comodoPertencente.getCondicoesDoComodo();
+    std::vector<std::string> condicoes = (*comodoPertencente).getCondicoesDoComodo();
     return std::find(
         condicoes.begin(),
         condicoes.end(),
