@@ -651,7 +651,9 @@ void Interface::gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo) {
         std::cout << "1. Listar comodos associados\n";
         std::cout << "2. Adicionar comodo ao modo\n";
         std::cout << "3. Remover comodo do modo\n";
-        std::cout << "4. Voltar\n";
+        std::cout << "4. Ligar modo\n";
+        std::cout << "5. Desligar modo\n";
+        std::cout << "6. Voltar\n";
         std::cout << "Escolha uma opcao: ";
 
         int op;
@@ -695,7 +697,7 @@ void Interface::gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo) {
 
                 try {
                     modo->adicionarComodoRelacionado(comodo);
-                    std::cout << "Comodo '" << nomeComodo << "' associado ao modo '" 
+                    std::cout << "Comodo '" << nomeComodo << "' associado ao modo '"
                               << modo->getNome() << "' com sucesso!\n";
                 } catch (const std::exception& e) {
                     std::cerr << "Erro: " << e.what() << "\n";
@@ -711,7 +713,7 @@ void Interface::gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo) {
 
                 try {
                     modo->removerComodoRelacionado(nomeComodo);
-                    std::cout << "Comodo '" << nomeComodo << "' removido do modo '" 
+                    std::cout << "Comodo '" << nomeComodo << "' removido do modo '"
                               << modo->getNome() << "' com sucesso!\n";
                 } catch (const std::exception& e) {
                     std::cerr << "Erro: " << e.what() << "\n";
@@ -721,10 +723,20 @@ void Interface::gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo) {
             }
 
             case 4:
+                modo->setAtivoModo(true);
+                std::cout << "Modo '" << modo->getNome() << "' ligado.\n";
+                break;
+
+            case 5:
+                modo->setAtivoModo(false);
+                std::cout << "Modo '" << modo->getNome() << "' desligado.\n";
+                break;
+
+            case 6:
                 return;
 
             default:
-                std::cout << "Opcao invalida! Escolha de 1 a 4.\n";
+                std::cout << "Opcao invalida! Escolha de 1 a 6.\n";
                 break;
         }
     }
