@@ -667,6 +667,7 @@ void Interface::gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo) {
         std::cin.ignore();
 
         switch (op) {
+
             case 1: {
                 std::vector<Comodo*> comodos = modo->getComodosRelacionados();
 
@@ -674,17 +675,20 @@ void Interface::gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo) {
                     std::cout << "Nenhum comodo associado a este modo.\n";
                 } else {
                     std::cout << "Comodos associados:\n";
+
                     for (Comodo* c : comodos) {
                         if (c != nullptr) {
                             std::cout << "- " << c->getNome() << "\n";
                         }
                     }
                 }
+
                 break;
             }
 
             case 2: {
                 std::string nomeComodo;
+
                 std::cout << "Digite o nome do comodo que deseja associar: ";
                 std::getline(std::cin, nomeComodo);
 
@@ -697,9 +701,14 @@ void Interface::gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo) {
 
                 try {
                     modo->adicionarComodoRelacionado(comodo);
-                    std::cout << "Comodo '" << nomeComodo << "' associado ao modo '"
-                              << modo->getNome() << "' com sucesso!\n";
+
+                    std::cout << "Comodo '" << nomeComodo
+                              << "' associado ao modo '"
+                              << modo->getNome()
+                              << "' com sucesso!\n";
+
                 } catch (const std::exception& e) {
+
                     std::cerr << "Erro: " << e.what() << "\n";
                 }
 
@@ -708,14 +717,21 @@ void Interface::gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo) {
 
             case 3: {
                 std::string nomeComodo;
+
                 std::cout << "Digite o nome do comodo que deseja remover do modo: ";
                 std::getline(std::cin, nomeComodo);
 
                 try {
+
                     modo->removerComodoRelacionado(nomeComodo);
-                    std::cout << "Comodo '" << nomeComodo << "' removido do modo '"
-                              << modo->getNome() << "' com sucesso!\n";
+
+                    std::cout << "Comodo '" << nomeComodo
+                              << "' removido do modo '"
+                              << modo->getNome()
+                              << "' com sucesso!\n";
+
                 } catch (const std::exception& e) {
+
                     std::cerr << "Erro: " << e.what() << "\n";
                 }
 
@@ -723,19 +739,31 @@ void Interface::gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo) {
             }
 
             case 4:
+
                 modo->setAtivoModo(true);
-                std::cout << "Modo '" << modo->getNome() << "' ligado.\n";
+                modo->executarNosComodosRelacionados();
+
+                std::cout << "Modo '" << modo->getNome()
+                          << "' ligado e executado nos comodos associados.\n";
+
                 break;
 
             case 5:
+
                 modo->setAtivoModo(false);
-                std::cout << "Modo '" << modo->getNome() << "' desligado.\n";
+                modo->executarNosComodosRelacionados();
+
+                std::cout << "Modo '" << modo->getNome()
+                          << "' desligado nos comodos associados.\n";
+
                 break;
 
             case 6:
+
                 return;
 
             default:
+
                 std::cout << "Opcao invalida! Escolha de 1 a 6.\n";
                 break;
         }

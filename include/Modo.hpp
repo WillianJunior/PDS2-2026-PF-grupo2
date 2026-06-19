@@ -54,6 +54,7 @@ class Modo {
 
         void printMembrosInfo() const;
 
+        void executarNosComodosRelacionados();
         void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo);
         void desfazerInstrucao(ObjetoInteligente* objeto, Comodo* comodo);
 

@@ -1,4 +1,5 @@
 #include "Modo.hpp"
+#include "Comodo.hpp"
 #include <stdexcept>
 #include <iostream>
 #include "ObjetoInteligente.hpp"
@@ -176,5 +177,18 @@ ModoNoturno::ModoNoturno(std::string nome)
 void ModoNoturno::executarInstrucao() {
     for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
         item->setStatusAtual("Desligado");
+    }
+}
+
+void Modo::executarNosComodosRelacionados() {
+    if (bloqueado) {
+        std::cout << "Modo " << nome << " bloqueado.\n";
+        return;
+    }
+
+    for (Comodo* comodo : comodosRelacionados) {
+        if (comodo != nullptr) {
+            comodo->repassarInstrucao(this);
+        }
     }
 }
