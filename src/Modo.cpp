@@ -75,6 +75,43 @@ std::vector<Comodo*> Modo::getComodosRelacionados() const{
     return comodosRelacionados;
 }
 
+void Modo::adicionarComodoRelacionado(Comodo* comodo) {
+
+    if (comodo == nullptr) {
+        throw std::invalid_argument(
+            "Nao e possivel adicionar comodo nulo ao modo " + nome
+        );
+    }
+
+    for (Comodo* c : comodosRelacionados) {
+        if (c != nullptr && c->getNome() == comodo->getNome()) {
+            throw std::invalid_argument(
+                "Comodo " + comodo->getNome() +
+                " ja esta relacionado ao modo " + nome
+            );
+        }
+    }
+
+    comodosRelacionados.push_back(comodo);
+}
+
+void Modo::removerComodoRelacionado(std::string nomeComodo) {
+
+    for (auto it = comodosRelacionados.begin();
+         it != comodosRelacionados.end();
+         ++it) {
+
+        if ((*it) != nullptr && (*it)->getNome() == nomeComodo) {
+            comodosRelacionados.erase(it);
+            return;
+        }
+    }
+
+    throw std::runtime_error(
+        "Comodo " + nomeComodo +
+        " nao esta relacionado ao modo " + nome
+    );
+}
 bool Modo::operator==(const Modo& other) const {
     return nome == other.nome &&
            objetosRelacionados == other.objetosRelacionados &&
@@ -138,6 +175,6 @@ ModoNoturno::ModoNoturno(std::string nome)
 
 void ModoNoturno::executarInstrucao() {
     for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
-        item->setStatusAtual(0);
+        item->setStatusAtual("Desligado");
     }
 }

@@ -47,6 +47,9 @@ class Modo {
         std::vector<ObjetoInteligente*> getObjetosRelacionados()const;
         std::vector<Comodo*> getComodosRelacionados()const;
 
+        void adicionarComodoRelacionado(Comodo* comodo);
+        void removerComodoRelacionado(std::string nomeComodo);
+
         bool operator==(const Modo& other) const;
 
         void printMembrosInfo() const;
