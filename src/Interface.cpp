@@ -726,28 +726,60 @@ void Interface::gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo) {
 }
 
 void Interface::criarCasaPadrao(Smarthome* casa) {
+    int qtdQuartos;
+    int qtdBanheiros;
+    char temSala;
+    char temCozinha;
+    char temEscritorio;
 
-    std::vector<std::string> comodosPadrao = {
-        "Sala",
-        "Cozinha",
-        "Escritorio",
-        "Banheiro 1",
-        "Banheiro 2",
-        "Quarto 1",
-        "Quarto 2",
-        "Quarto 3"
-    };
+    std::cout << "\n--- CRIAR CASA PADRAO ---\n";
 
-    for (const auto& nomeComodo : comodosPadrao) {
+    std::cout << "Quantidade de quartos: ";
+    std::cin >> qtdQuartos;
 
+    std::cout << "Quantidade de banheiros: ";
+    std::cin >> qtdBanheiros;
+
+    std::cout << "Possui sala? (S/N): ";
+    std::cin >> temSala;
+
+    std::cout << "Possui cozinha? (S/N): ";
+    std::cin >> temCozinha;
+
+    std::cout << "Possui escritorio? (S/N): ";
+    std::cin >> temEscritorio;
+
+    std::cin.ignore();
+
+    for (int i = 1; i <= qtdQuartos; i++) {
         try {
-            usuarioLogado->criarComodo(casa, nomeComodo);
-        }
-        catch (...) {
-            // ignora caso o comodo ja exista
-        }
-
+            usuarioLogado->criarComodo(casa, "Quarto " + std::to_string(i));
+        } catch (...) {}
     }
 
-    std::cout << "\nCasa padrao criada com sucesso!\n";
+    for (int i = 1; i <= qtdBanheiros; i++) {
+        try {
+            usuarioLogado->criarComodo(casa, "Banheiro " + std::to_string(i));
+        } catch (...) {}
+    }
+
+    if (temSala == 'S' || temSala == 's') {
+        try {
+            usuarioLogado->criarComodo(casa, "Sala");
+        } catch (...) {}
+    }
+
+    if (temCozinha == 'S' || temCozinha == 's') {
+        try {
+            usuarioLogado->criarComodo(casa, "Cozinha");
+        } catch (...) {}
+    }
+
+    if (temEscritorio == 'S' || temEscritorio == 's') {
+        try {
+            usuarioLogado->criarComodo(casa, "Escritorio");
+        } catch (...) {}
+    }
+
+    std::cout << "\nCasa padrao personalizada criada com sucesso!\n";
 }
