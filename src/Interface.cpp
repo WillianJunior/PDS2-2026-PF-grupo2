@@ -726,8 +726,28 @@ void Interface::gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo) {
 }
 
 void Interface::criarCasaPadrao(Smarthome* casa) {
-    (void)casa;
 
-    std::cout << "\n--- CRIAR CASA PADRAO ---\n";
-    std::cout << "Funcionalidade sera implementada no proximo commit.\n";
+    std::vector<std::string> comodosPadrao = {
+        "Sala",
+        "Cozinha",
+        "Escritorio",
+        "Banheiro 1",
+        "Banheiro 2",
+        "Quarto 1",
+        "Quarto 2",
+        "Quarto 3"
+    };
+
+    for (const auto& nomeComodo : comodosPadrao) {
+
+        try {
+            usuarioLogado->criarComodo(casa, nomeComodo);
+        }
+        catch (...) {
+            // ignora caso o comodo ja exista
+        }
+
+    }
+
+    std::cout << "\nCasa padrao criada com sucesso!\n";
 }
