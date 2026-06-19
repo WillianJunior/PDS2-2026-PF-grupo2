@@ -779,11 +779,23 @@ void Interface::criarCasaPadrao(Smarthome* casa) {
 
     std::cout << "\n--- CRIAR CASA PADRAO ---\n";
 
-    std::cout << "Quantidade de quartos: ";
-    std::cin >> qtdQuartos;
+    std::cout << "Quantidade de quartos (0 a 3): ";
+    if (!(std::cin >> qtdQuartos) || qtdQuartos < 0 || qtdQuartos > 3) {
+        std::cin.clear();
+        std::string lixo;
+        std::getline(std::cin, lixo);
+        std::cout << "Quantidade invalida de quartos.\n";
+        return;
+    }
 
-    std::cout << "Quantidade de banheiros: ";
-    std::cin >> qtdBanheiros;
+    std::cout << "Quantidade de banheiros (0 a 2): ";
+    if (!(std::cin >> qtdBanheiros) || qtdBanheiros < 0 || qtdBanheiros > 2) {
+        std::cin.clear();
+        std::string lixo;
+        std::getline(std::cin, lixo);
+        std::cout << "Quantidade invalida de banheiros.\n";
+        return;
+    }
 
     std::cout << "Possui sala? (S/N): ";
     std::cin >> temSala;
@@ -795,6 +807,21 @@ void Interface::criarCasaPadrao(Smarthome* casa) {
     std::cin >> temEscritorio;
 
     std::cin.ignore();
+
+    if (temSala != 'S' && temSala != 's' && temSala != 'N' && temSala != 'n') {
+        std::cout << "Resposta invalida para sala.\n";
+        return;
+    }
+
+    if (temCozinha != 'S' && temCozinha != 's' && temCozinha != 'N' && temCozinha != 'n') {
+        std::cout << "Resposta invalida para cozinha.\n";
+        return;
+    }
+
+    if (temEscritorio != 'S' && temEscritorio != 's' && temEscritorio != 'N' && temEscritorio != 'n') {
+        std::cout << "Resposta invalida para escritorio.\n";
+        return;
+    }
 
     for (int i = 1; i <= qtdQuartos; i++) {
         try {
@@ -828,7 +855,6 @@ void Interface::criarCasaPadrao(Smarthome* casa) {
 
     std::cout << "\nCasa padrao personalizada criada com sucesso!\n";
 }
-
 void Interface::mostrarPlantaCasa(Smarthome* casa) {
     std::cout << "\n======================================\n";
     std::cout << "        PLANTA DA CASA: " << casa->getNome() << "\n";
