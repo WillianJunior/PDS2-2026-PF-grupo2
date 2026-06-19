@@ -159,6 +159,14 @@ Comodo* Smarthome::getComodo(std::string nomeComodo) {
     }
     return nullptr;
 }
+Modo* Smarthome::getModo(std::string nomeModo) {
+    for (auto& m : modos) {
+        if (m.getNome() == nomeModo) {
+            return &m;
+        }
+    }
+    return nullptr;
+}
 
 const std::vector<Comodo>& Smarthome::getComodos() const {
     return comodos;

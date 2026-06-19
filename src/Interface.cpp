@@ -625,8 +625,93 @@ void Interface::exibirMenuModos(Smarthome* casa) {
 }
 
 void Interface::gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo) {
-    (void)casa;
+    Modo* modo = casa->getModo(nomeModo);
 
-    std::cout << "\n--- MODO: " << nomeModo << " ---\n";
-    std::cout << "Funcionalidade de gerenciamento especifico do modo sera implementada no proximo commit.\n";
+    if (modo == nullptr) {
+        std::cout << "Modo '" << nomeModo << "' nao encontrado!\n";
+        return;
+    }
+
+    while (true) {
+        std::cout << "\n--- MODO: " << modo->getNome() << " ---\n";
+        std::cout << "1. Listar comodos associados\n";
+        std::cout << "2. Adicionar comodo ao modo\n";
+        std::cout << "3. Remover comodo do modo\n";
+        std::cout << "4. Voltar\n";
+        std::cout << "Escolha uma opcao: ";
+
+        int op;
+        if (!(std::cin >> op)) {
+            std::cin.clear();
+            std::string lixo;
+            std::getline(std::cin, lixo);
+            std::cout << "Opcao invalida! Digite apenas numeros.\n";
+            continue;
+        }
+        std::cin.ignore();
+
+        switch (op) {
+            case 1: {
+                std::vector<Comodo*> comodos = modo->getComodosRelacionados();
+
+                if (comodos.empty()) {
+                    std::cout << "Nenhum comodo associado a este modo.\n";
+                } else {
+                    std::cout << "Comodos associados:\n";
+                    for (Comodo* c : comodos) {
+                        if (c != nullptr) {
+                            std::cout << "- " << c->getNome() << "\n";
+                        }
+                    }
+                }
+                break;
+            }
+
+            case 2: {
+                std::string nomeComodo;
+                std::cout << "Digite o nome do comodo que deseja associar: ";
+                std::getline(std::cin, nomeComodo);
+
+                Comodo* comodo = casa->getComodo(nomeComodo);
+
+                if (comodo == nullptr) {
+                    std::cout << "Comodo '" << nomeComodo << "' nao encontrado!\n";
+                    break;
+                }
+
+                try {
+                    modo->adicionarComodoRelacionado(comodo);
+                    std::cout << "Comodo '" << nomeComodo << "' associado ao modo '" 
+                              << modo->getNome() << "' com sucesso!\n";
+                } catch (const std::exception& e) {
+                    std::cerr << "Erro: " << e.what() << "\n";
+                }
+
+                break;
+            }
+
+            case 3: {
+                std::string nomeComodo;
+                std::cout << "Digite o nome do comodo que deseja remover do modo: ";
+                std::getline(std::cin, nomeComodo);
+
+                try {
+                    modo->removerComodoRelacionado(nomeComodo);
+                    std::cout << "Comodo '" << nomeComodo << "' removido do modo '" 
+                              << modo->getNome() << "' com sucesso!\n";
+                } catch (const std::exception& e) {
+                    std::cerr << "Erro: " << e.what() << "\n";
+                }
+
+                break;
+            }
+
+            case 4:
+                return;
+
+            default:
+                std::cout << "Opcao invalida! Escolha de 1 a 4.\n";
+                break;
+        }
+    }
 }

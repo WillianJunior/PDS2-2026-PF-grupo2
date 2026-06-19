@@ -115,7 +115,11 @@ public:
      * @brief Busca um comodo especifico pelo nome e retorna o ponteiro para ele.
      */
     Comodo* getComodo(std::string nomeComodo);
-    
+    /**
+     * @brief Busca um modo especifico pelo nome e retorna o ponteiro para ele.
+     */
+    Modo* getModo(std::string nomeModo);
+
     ~Smarthome();
 };
 #endif
