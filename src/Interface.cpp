@@ -801,9 +801,37 @@ void Interface::mostrarPlantaCasa(Smarthome* casa) {
         return;
     }
 
+    const std::vector<Modo>& modos = casa->getListaModos();
+
     for (const auto& comodo : comodos) {
+
         std::cout << "+----------------------+\n";
         std::cout << "| " << comodo.getNome() << "\n";
         std::cout << "+----------------------+\n";
+
+        bool possuiModo = false;
+
+        for (const auto& modo : modos) {
+
+            std::vector<Comodo*> relacionados = modo.getComodosRelacionados();
+
+            for (Comodo* c : relacionados) {
+
+                if (c != nullptr && c->getNome() == comodo.getNome()) {
+
+                    std::cout << "   [Modo: "
+                              << modo.getNome()
+                              << "]\n";
+
+                    possuiModo = true;
+                }
+            }
+        }
+
+        if (!possuiModo) {
+            std::cout << "   [Nenhum modo associado]\n";
+        }
+
+        std::cout << std::endl;
     }
 }
