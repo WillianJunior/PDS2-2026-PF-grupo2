@@ -23,6 +23,7 @@ private:
     void exibirMenuModos(Smarthome* casa);
     void gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo);
     void criarCasaPadrao(Smarthome* casa);
+    void mostrarPlantaCasa(Smarthome* casa);
     void realizarLogin();
     void cadastrarConta();
 

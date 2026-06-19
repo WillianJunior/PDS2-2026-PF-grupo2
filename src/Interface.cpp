@@ -250,8 +250,9 @@ void Interface::gerenciarSmarthome(Smarthome* casa) {
         std::cout << "1. Gerenciar Comodos (Adicionar/Remover)\n";
         std::cout << "2. Gerenciar Modos da Casa\n";
         std::cout << "3. Criar Casa Padrao\n";
-        std::cout << "4. Relatorio de Consumo de Energia\n";
-        std::cout << "5. Voltar para Minhas Smarthomes\n";
+        std::cout << "4. Mostrar Planta da Casa\n";
+        std::cout << "5. Relatorio de Consumo de Energia\n";
+        std::cout << "6. Voltar para Minhas Smarthomes\n";
         std::cout << "Escolha uma opcao: ";
 
         int op;
@@ -277,7 +278,11 @@ void Interface::gerenciarSmarthome(Smarthome* casa) {
                 criarCasaPadrao(casa);
                 break;
 
-            case 4: {
+            case 4:
+                mostrarPlantaCasa(casa);
+                break;
+
+            case 5: {
                 std::cout << "\n--- RELATORIO DE ENERGIA ---\n";
                 float consumoTotal = usuarioLogado->gerarRelatorioDeEnergia(casa);
 
@@ -287,12 +292,12 @@ void Interface::gerenciarSmarthome(Smarthome* casa) {
                 break;
             }
 
-            case 5:
+            case 6:
                 std::cout << "\nSaindo da casa " << casa->getNome() << "...\n";
                 return;
 
             default:
-                std::cout << "\nOpcao invalida! Escolha de 1 a 5.\n";
+                std::cout << "\nOpcao invalida! Escolha de 1 a 6.\n";
                 break;
         }
     }
@@ -782,4 +787,23 @@ void Interface::criarCasaPadrao(Smarthome* casa) {
     }
 
     std::cout << "\nCasa padrao personalizada criada com sucesso!\n";
+}
+
+void Interface::mostrarPlantaCasa(Smarthome* casa) {
+    std::cout << "\n======================================\n";
+    std::cout << "        PLANTA DA CASA: " << casa->getNome() << "\n";
+    std::cout << "======================================\n";
+
+    const std::vector<Comodo>& comodos = casa->getComodos();
+
+    if (comodos.empty()) {
+        std::cout << "Nenhum comodo cadastrado para exibir.\n";
+        return;
+    }
+
+    for (const auto& comodo : comodos) {
+        std::cout << "+----------------------+\n";
+        std::cout << "| " << comodo.getNome() << "\n";
+        std::cout << "+----------------------+\n";
+    }
 }
