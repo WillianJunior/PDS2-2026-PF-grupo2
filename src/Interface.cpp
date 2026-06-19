@@ -103,7 +103,7 @@ void Interface::exibirMenuConta() {
                     tentativas++;
                 }
                 catch (...) {
-                std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
+                    std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
                 }
             }
 
@@ -156,7 +156,7 @@ void Interface::exibirMenuSmarthome() {
     }
     std::cin.ignore();
 
-if (op == opcaoVoltar) {
+    if (op == opcaoVoltar) {
         return;
     } else if (op > 0 && op <= (int)casas.size()) {
         Smarthome* casaEscolhida = casas[op - 1];
@@ -216,17 +216,18 @@ void Interface::cadastrarConta() {
         ehAdulto = false;
     }
 
-    Conta novaConta("", "", "", "", true); // inicialização provisória
+    Conta novaConta("", "", "", "", true);
 
     try {
         novaConta = Conta(id, nome, email, senha, ehAdulto);
     } 
     catch (const std::invalid_argument& e) {
         std::cerr << "Erro ao criar conta: " << e.what() << "\n";
-        return; // encerra se não conseguiu criar
-    }catch (...) {
+        return;
+    } catch (...) {
         std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
     }
+
     if (!novaConta.validarFormatoEmail()) {
         std::cout << "\nErro no cadastro: Formato de e-mail invalido (deve conter '@').\n";
         return;
@@ -267,7 +268,7 @@ void Interface::gerenciarSmarthome(Smarthome* casa) {
                 exibirMenuComodos(casa);
                 break;
             case 2:
-                exibirMenuModos(casa);;
+                exibirMenuModos(casa);
                 break;
             case 3: {
                 std::cout << "\n--- RELATORIO DE ENERGIA ---\n";
@@ -287,6 +288,7 @@ void Interface::gerenciarSmarthome(Smarthome* casa) {
         }
     }
 }
+
 void Interface::exibirMenuComodos(Smarthome* casa) {
     while (true) {
         std::cout << "\n--- GERENCIAR COMODOS [" << casa->getNome() << "] ---\n";
@@ -336,8 +338,8 @@ void Interface::exibirMenuComodos(Smarthome* casa) {
                         std::cerr << "Erro: " << e.what() << "\n";
                         std::cerr << "Tentativa " << (tentativas+1) << " falhou. Tente novamente...\n";
                         tentativas++;
-                    }catch (...) {
-                    std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
+                    } catch (...) {
+                        std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
                     }
                 }
 
@@ -355,14 +357,14 @@ void Interface::exibirMenuComodos(Smarthome* casa) {
                 std::string nomeComodo;
                 std::cout << "Digite o nome do comodo a ser removido: ";
                 std::getline(std::cin, nomeComodo);
-                try{
-                usuarioLogado->apagarComodo(casa, nomeComodo);
-                std::cout << "Comando de remocao executado.\n";
+                try {
+                    usuarioLogado->apagarComodo(casa, nomeComodo);
+                    std::cout << "Comando de remocao executado.\n";
                 }
-                catch(std::invalid_argument& e){
-                    std:: cerr << "Erro: "<< e.what()<< '\n';
-                }catch (...) {
-                std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
+                catch(std::invalid_argument& e) {
+                    std::cerr << "Erro: " << e.what() << '\n';
+                } catch (...) {
+                    std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
                 }
                 
                 break;
@@ -389,6 +391,7 @@ void Interface::exibirMenuComodos(Smarthome* casa) {
         }
     }
 }
+
 void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
     while (true) {
         std::cout << "\n--- DENTRO DE: " << comodo->getNome() << " ---\n";
@@ -432,8 +435,8 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
                         std::cerr << "Erro: " << e.what() << "\n";
                         std::cerr << "Tentativa " << (tentativas+1) << " falhou. Tente novamente...\n";
                         tentativas++;
-                    }catch (...) {
-                    std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
+                    } catch (...) {
+                        std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
                     }
                 }
 
@@ -451,14 +454,14 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
                 std::string nomeObjeto;
                 std::cout << "Digite o nome do objeto a ser removido: ";
                 std::getline(std::cin, nomeObjeto);
-                try{
-                usuarioLogado->apagarObjeto(casa, comodo, nomeObjeto);
-                std::cout << "Comando de remocao executado.\n";
+                try {
+                    usuarioLogado->apagarObjeto(casa, comodo, nomeObjeto);
+                    std::cout << "Comando de remocao executado.\n";
                 }
-                catch(std::invalid_argument& e){
-                    std:: cerr << "Erro: "<< e.what()<< '\n';
-                }catch (...) {
-                std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
+                catch(std::invalid_argument& e) {
+                    std::cerr << "Erro: " << e.what() << '\n';
+                } catch (...) {
+                    std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
                 }
                 break;
             }
@@ -483,8 +486,8 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
                         std::cerr << "Erro: " << e.what() << "\n";
                         std::cerr << "Tentativa " << (tentativas+1) << " falhou. Tente novamente...\n";
                         tentativas++;
-                    }catch (...) {
-                    std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
+                    } catch (...) {
+                        std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
                     }
                 }
 
@@ -501,14 +504,14 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
                 std::string nomeSensor;
                 std::cout << "Digite o nome do sensor a ser removido: ";
                 std::getline(std::cin, nomeSensor);
-                try{
-                usuarioLogado->apagarSensor(casa, comodo, nomeSensor);
-                std::cout << "Comando de remocao executado.\n";
+                try {
+                    usuarioLogado->apagarSensor(casa, comodo, nomeSensor);
+                    std::cout << "Comando de remocao executado.\n";
                 }
-                catch(std::invalid_argument& e){
-                    std:: cerr << "Erro: "<< e.what()<< '\n';
-                }catch (...) {
-                std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
+                catch(std::invalid_argument& e) {
+                    std::cerr << "Erro: " << e.what() << '\n';
+                } catch (...) {
+                    std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
                 }
                 break;
             }
@@ -525,13 +528,15 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
         }
     }
 }
+
 void Interface::exibirMenuModos(Smarthome* casa) {
     while (true) {
         std::cout << "\n--- GERENCIAR MODOS [" << casa->getNome() << "] ---\n";
         std::cout << "1. Listar Modos da Casa\n";
         std::cout << "2. Criar novo Modo\n";
         std::cout << "3. Remover Modo\n";
-        std::cout << "4. Voltar\n";
+        std::cout << "4. Acessar um Modo Especifico\n";
+        std::cout << "5. Voltar\n";
         std::cout << "Escolha uma opcao: ";
 
         int op;
@@ -546,7 +551,6 @@ void Interface::exibirMenuModos(Smarthome* casa) {
 
         switch (op) {
             case 1:
-                // Listar Modos (Permitido)
                 std::cout << "\n[Lista de Modos]\n";
                 if (casa->getQuantidadeModos() == 0) {
                     std::cout << "Nenhum modo cadastrado nesta casa.\n";
@@ -592,22 +596,37 @@ void Interface::exibirMenuModos(Smarthome* casa) {
                 std::string nomeModo;
                 std::cout << "Digite o nome do modo a ser removido: ";
                 std::getline(std::cin, nomeModo);
-                try{
-                usuarioLogado->apagarModo(casa, nomeModo);
-                std::cout << "Comando de remocao executado.\n";
+                try {
+                    usuarioLogado->apagarModo(casa, nomeModo);
+                    std::cout << "Comando de remocao executado.\n";
                 }
-                catch(std::invalid_argument& e){
-                    std:: cerr << "Erro: "<< e.what()<< '\n';
-                }catch (...) {
-                std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
+                catch(std::invalid_argument& e) {
+                    std::cerr << "Erro: " << e.what() << '\n';
+                } catch (...) {
+                    std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
                 }
                 break;
             }
-            case 4:
+            case 4: {
+                std::string nomeModo;
+                std::cout << "Digite o nome exato do modo que deseja acessar: ";
+                std::getline(std::cin, nomeModo);
+
+                gerenciarModoEspecifico(casa, nomeModo);
+                break;
+            }
+            case 5:
                 return;
             default:
-                std::cout << "Opcao invalida! Escolha de 1 a 4.\n";
+                std::cout << "Opcao invalida! Escolha de 1 a 5.\n";
                 break;
         }
     }
+}
+
+void Interface::gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo) {
+    (void)casa;
+
+    std::cout << "\n--- MODO: " << nomeModo << " ---\n";
+    std::cout << "Funcionalidade de gerenciamento especifico do modo sera implementada no proximo commit.\n";
 }

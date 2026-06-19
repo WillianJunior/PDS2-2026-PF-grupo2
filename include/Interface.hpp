@@ -14,13 +14,14 @@ private:
     Login sistemaLogin;
     std::unique_ptr<Conta> usuarioLogado;
 
-    void exibirMenuInicial();     // Tela de Login / Cadastro
-    void exibirMenuConta();       // Tela após logar - Gerenciar Smarthomes
-    void exibirMenuSmarthome();   // Tela de listagem e seleção de Smarthomes
-    void gerenciarSmarthome(Smarthome* casa); // Tela de controle da Smarthome escolhida
-    void exibirMenuComodos(Smarthome* casa);  // Tela de gestao de comodos da casa
-    void gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo); // Tela de controle de um comodo especifico
-    void exibirMenuModos(Smarthome* casa); // Tela de gestao de modos da casa
+    void exibirMenuInicial();
+    void exibirMenuConta();
+    void exibirMenuSmarthome();
+    void gerenciarSmarthome(Smarthome* casa);
+    void exibirMenuComodos(Smarthome* casa);
+    void gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo);
+    void exibirMenuModos(Smarthome* casa);
+    void gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo);
 
     void realizarLogin();
     void cadastrarConta();
