@@ -4,6 +4,7 @@
 #include "Sensor.hpp"
 #include <cctype>
 #include <stdexcept>
+#include <Comodo.hpp>
 
 ObjetoInteligente::ObjetoInteligente(
     std::string nome,

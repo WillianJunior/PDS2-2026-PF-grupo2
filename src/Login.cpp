@@ -46,6 +46,6 @@ bool Login::bloquearConta(std::string email) {
     return false;
 }
 
-std::vector<Conta> Login::getContasCadastradas() {
+const std::vector<Conta>& Login::getContasCadastradas() const {
     return contas;
 }

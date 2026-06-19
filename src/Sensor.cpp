@@ -19,7 +19,10 @@ Sensor::Sensor(
     nome(nome),
     estaLigado(ligado),
     estaAtivado(ativado),
-    comodoPertencente(comodoPertencente)
+    comodoPertencente(comodoPertencente),
+    objetosConectados(objetosConectados),
+    modosConectados(modosConectados)
+
 {
     if(nome.empty()){
             throw std::invalid_argument("Nome do Sensor nao pode ser vazio - Tente novamente...");

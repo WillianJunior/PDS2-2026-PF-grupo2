@@ -5,6 +5,7 @@
 #include <string>
 #include <memory>
 #include "ObjetoInteligente.hpp"
+#include "Smarthome.hpp"
 #include <vector>
 #include <fstream>
 class Smarthome;
@@ -88,14 +89,7 @@ public:
      * @brief Comando para criar uma smarthome.
      * @param smarthome Smarthome a ser apagada.
      */
-    void apagarSmarthome(const Smarthome& smarthome) {
-        for (auto it = smarthomes.begin(); it != smarthomes.end(); ++it) {
-            if (**it == smarthome) {
-                smarthomes.erase(it);
-                break;
-            }
-        }
-    }
+    void apagarSmarthome(const Smarthome& smarthome);
 
     /**
      * @brief Comando para criar um cômodo.

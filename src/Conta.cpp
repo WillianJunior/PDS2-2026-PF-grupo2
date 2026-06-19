@@ -137,7 +137,9 @@ void Conta::criarSensor(Smarthome* smarthome, Comodo* comodo, std::string nome) 
             nome,
             false,
             false,
-            *comodo
+            comodo,
+            std::vector<ObjetoInteligente*>{},
+            std::vector<Modo*>{}
         );
 
         comodo->adicionarSensor(std::move(novoSensor));

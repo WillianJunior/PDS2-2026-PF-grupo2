@@ -130,7 +130,7 @@ void Interface::exibirMenuSmarthome() {
     std::cout << "          MINHAS SMARTHOMES\n";
     std::cout << "======================================\n";
 
-    std::vector<Smarthome*> casas = usuarioLogado->getSmarthomes();
+    const std::vector<std::unique_ptr<Smarthome>>& casas = usuarioLogado->getSmarthomes();
 
     if (casas.empty()) {
         std::cout << "Voce ainda nao possui nenhuma Smarthome cadastrada.\n";
@@ -159,7 +159,7 @@ void Interface::exibirMenuSmarthome() {
     if (op == opcaoVoltar) {
         return;
     } else if (op > 0 && op <= (int)casas.size()) {
-        Smarthome* casaEscolhida = casas[op - 1];
+        Smarthome* casaEscolhida = casas[op - 1].get();
         
         std::cout << "\n[Entrando na casa: " << casaEscolhida->getNome() << " ...]\n";
         

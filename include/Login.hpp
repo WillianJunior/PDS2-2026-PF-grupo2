@@ -46,7 +46,7 @@
          * @brief Retorna as contas cadastradas.
          * @return Vetor de contas.
          */
-        std::vector<Conta> getContasCadastradas();
+        const std::vector<Conta>& getContasCadastradas() const;
 
     };
 #endif
