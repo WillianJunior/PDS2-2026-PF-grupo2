@@ -116,3 +116,78 @@ TEST_CASE("Modo executa e e desfaz instrucao"){
         "Modo nao pode desfazer instrucao em Objeto nullptr");
     }
 }
+
+TEST_CASE("Associacao de comodos aos modos") {
+
+    Conta usuario("1", "Maria", "maria@gmail.com", "12345678");
+    Smarthome casa(&usuario, "Casa");
+
+    Comodo sala("Sala", &casa);
+    Comodo quarto("Quarto", &casa);
+
+    Modo modo("Cinema", {}, {}, false, false);
+
+    SUBCASE("Adicionar um comodo") {
+
+        modo.adicionarComodoRelacionado(&sala);
+
+        CHECK(modo.getComodosRelacionados().size() == 1);
+        CHECK(modo.getComodosRelacionados()[0]->getNome() == "Sala");
+    }
+
+    SUBCASE("Adicionar dois comodos") {
+
+        modo.adicionarComodoRelacionado(&sala);
+        modo.adicionarComodoRelacionado(&quarto);
+
+        CHECK(modo.getComodosRelacionados().size() == 2);
+    }
+
+    SUBCASE("Adicionar comodo repetido deve lancar excecao") {
+
+        modo.adicionarComodoRelacionado(&sala);
+
+        CHECK_THROWS(modo.adicionarComodoRelacionado(&sala));
+    }
+
+    SUBCASE("Adicionar ponteiro nulo deve lancar excecao") {
+
+        CHECK_THROWS(modo.adicionarComodoRelacionado(nullptr));
+    }
+}
+
+TEST_CASE("Remocao de comodos dos modos") {
+
+    Conta usuario("1", "Maria", "maria@gmail.com", "12345678");
+    Smarthome casa(&usuario, "Casa");
+
+    Comodo sala("Sala", &casa);
+    Comodo quarto("Quarto", &casa);
+
+    Modo modo("Cinema", {}, {}, false, false);
+
+    SUBCASE("Remover um comodo existente") {
+
+        modo.adicionarComodoRelacionado(&sala);
+
+        modo.removerComodoRelacionado("Sala");
+
+        CHECK(modo.getComodosRelacionados().empty());
+    }
+
+    SUBCASE("Remover entre dois comodos") {
+
+        modo.adicionarComodoRelacionado(&sala);
+        modo.adicionarComodoRelacionado(&quarto);
+
+        modo.removerComodoRelacionado("Sala");
+
+        CHECK(modo.getComodosRelacionados().size() == 1);
+        CHECK(modo.getComodosRelacionados()[0]->getNome() == "Quarto");
+    }
+
+    SUBCASE("Remover comodo inexistente deve lancar excecao") {
+
+        CHECK_THROWS(modo.removerComodoRelacionado("Sala"));
+    }
+}
