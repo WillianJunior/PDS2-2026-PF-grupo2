@@ -452,3 +452,19 @@ TEST_CASE("TESTE 11 CaracteresValidos - Smarthome") {
         // Aqui eh invalido mas esse tipo de erro nao eh tratado nesse metodo
     }
 }
+
+TEST_CASE("Buscar modo pelo nome") {
+
+    Conta usuario("1", "Maria", "maria@gmail.com", "12345678");
+    Smarthome casa(&usuario, "Casa");
+
+    Modo modo1("Cinema", {}, {}, false, false);
+    Modo modo2("Noturno", {}, {}, false, false);
+
+    casa.adicionarModo(modo1);
+    casa.adicionarModo(modo2);
+
+    CHECK(casa.getModo("Cinema") != nullptr);
+    CHECK(casa.getModo("Noturno") != nullptr);
+    CHECK(casa.getModo("Trabalho") == nullptr);
+}
