@@ -22,7 +22,7 @@ private:
     void gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo);
     void exibirMenuModos(Smarthome* casa);
     void gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo);
-
+    void criarCasaPadrao(Smarthome* casa);
     void realizarLogin();
     void cadastrarConta();
 

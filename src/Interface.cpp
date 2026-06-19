@@ -249,8 +249,9 @@ void Interface::gerenciarSmarthome(Smarthome* casa) {
         std::cout << "======================================\n";
         std::cout << "1. Gerenciar Comodos (Adicionar/Remover)\n";
         std::cout << "2. Gerenciar Modos da Casa\n";
-        std::cout << "3. Relatorio de Consumo de Energia\n";
-        std::cout << "4. Voltar para Minhas Smarthomes\n";
+        std::cout << "3. Criar Casa Padrao\n";
+        std::cout << "4. Relatorio de Consumo de Energia\n";
+        std::cout << "5. Voltar para Minhas Smarthomes\n";
         std::cout << "Escolha uma opcao: ";
 
         int op;
@@ -267,23 +268,31 @@ void Interface::gerenciarSmarthome(Smarthome* casa) {
             case 1:
                 exibirMenuComodos(casa);
                 break;
+
             case 2:
                 exibirMenuModos(casa);
                 break;
-            case 3: {
+
+            case 3:
+                criarCasaPadrao(casa);
+                break;
+
+            case 4: {
                 std::cout << "\n--- RELATORIO DE ENERGIA ---\n";
                 float consumoTotal = usuarioLogado->gerarRelatorioDeEnergia(casa);
-                
-                std::cout << "Consumo medio total da casa '" << casa->getNome() << "': " 
+
+                std::cout << "Consumo medio total da casa '" << casa->getNome() << "': "
                           << consumoTotal << " kWh\n";
                 std::cout << "----------------------------\n";
                 break;
             }
-            case 4:
+
+            case 5:
                 std::cout << "\nSaindo da casa " << casa->getNome() << "...\n";
                 return;
+
             default:
-                std::cout << "\nOpcao invalida! Escolha de 1 a 4.\n";
+                std::cout << "\nOpcao invalida! Escolha de 1 a 5.\n";
                 break;
         }
     }
@@ -714,4 +723,11 @@ void Interface::gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo) {
                 break;
         }
     }
+}
+
+void Interface::criarCasaPadrao(Smarthome* casa) {
+    (void)casa;
+
+    std::cout << "\n--- CRIAR CASA PADRAO ---\n";
+    std::cout << "Funcionalidade sera implementada no proximo commit.\n";
 }
