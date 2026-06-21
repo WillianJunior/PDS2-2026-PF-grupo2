@@ -414,7 +414,8 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
         std::cout << "3. Adicionar Sensor\n";
         std::cout << "4. Remover Sensor\n";
         std::cout << "5. Listar Dispositivos neste Comodo\n";
-        std::cout << "6. Voltar para Menu da Casa\n";
+        std::cout << "6. Testar comunicacao entre dispositivos\n";
+        std::cout << "7. Voltar para Menu da Casa\n";
         std::cout << "Escolha uma opcao: ";
 
         int op;
@@ -428,7 +429,7 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
         std::cin.ignore();
 
         switch (op) {
-                        case 1: {
+            case 1: {
                 if (!usuarioLogado->isPerfilAdulto()) {
                     std::cout << "\n[ACESSO NEGADO] Controle Parental: Nao e permitido adicionar objetos.\n";
                     break;
@@ -483,31 +484,35 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
 
                 break;
             }
-           
+
             case 2: {
                 if (!usuarioLogado->isPerfilAdulto()) {
                     std::cout << "\n[ACESSO NEGADO] Controle Parental: Nao e permitido remover objetos.\n";
                     break;
                 }
+
                 std::string nomeObjeto;
                 std::cout << "Digite o nome do objeto a ser removido: ";
                 std::getline(std::cin, nomeObjeto);
+
                 try {
                     usuarioLogado->apagarObjeto(casa, comodo, nomeObjeto);
                     std::cout << "Comando de remocao executado.\n";
-                }
-                catch(std::invalid_argument& e) {
+                } catch (std::invalid_argument& e) {
                     std::cerr << "Erro: " << e.what() << '\n';
                 } catch (...) {
                     std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
                 }
+
                 break;
             }
+
             case 3: {
                 if (!usuarioLogado->isPerfilAdulto()) {
                     std::cout << "\n[ACESSO NEGADO] Controle Parental: Nao e permitido adicionar sensores.\n";
                     break;
                 }
+
                 std::string nomeSensor;
                 bool sucesso = false;
                 int tentativas = 0;
@@ -522,7 +527,7 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
                         sucesso = true;
                     } catch (const std::invalid_argument& e) {
                         std::cerr << "Erro: " << e.what() << "\n";
-                        std::cerr << "Tentativa " << (tentativas+1) << " falhou. Tente novamente...\n";
+                        std::cerr << "Tentativa " << (tentativas + 1) << " falhou. Tente novamente...\n";
                         tentativas++;
                     } catch (...) {
                         std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
@@ -530,38 +535,97 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
                 }
 
                 if (!sucesso) {
-                    std::cerr << "Falha após 3 tentativas.\n";
+                    std::cerr << "Falha apos 3 tentativas.\n";
                 }
+
                 break;
             }
+
             case 4: {
                 if (!usuarioLogado->isPerfilAdulto()) {
                     std::cout << "\n[ACESSO NEGADO] Controle Parental: Nao e permitido remover sensores.\n";
                     break;
                 }
+
                 std::string nomeSensor;
                 std::cout << "Digite o nome do sensor a ser removido: ";
                 std::getline(std::cin, nomeSensor);
+
                 try {
                     usuarioLogado->apagarSensor(casa, comodo, nomeSensor);
                     std::cout << "Comando de remocao executado.\n";
-                }
-                catch(std::invalid_argument& e) {
+                } catch (std::invalid_argument& e) {
                     std::cerr << "Erro: " << e.what() << '\n';
                 } catch (...) {
                     std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
                 }
+
                 break;
             }
+
             case 5:
                 std::cout << "\n[Dispositivos em " << comodo->getNome() << "]\n";
                 comodo->printObjetosInfo();
                 comodo->printSensoresInfo();
                 break;
-            case 6:
+
+            case 6: {
+                std::string nome1, nome2;
+
+                std::cout << "Digite o nome do primeiro dispositivo: ";
+                std::getline(std::cin, nome1);
+
+                std::cout << "Digite o nome do segundo dispositivo: ";
+                std::getline(std::cin, nome2);
+
+                ObjetoInteligente* obj1 = nullptr;
+                ObjetoInteligente* obj2 = nullptr;
+
+                for (ObjetoInteligente* obj : comodo->getObjetos()) {
+                    if (obj != nullptr) {
+                        if (obj->getNome() == nome1) {
+                            obj1 = obj;
+                        }
+
+                        if (obj->getNome() == nome2) {
+                            obj2 = obj;
+                        }
+                    }
+                }
+
+                if (obj1 == nullptr || obj2 == nullptr) {
+                    std::cout << "Um ou ambos os dispositivos nao foram encontrados.\n";
+                    break;
+                }
+
+                if (obj1->comunicaCom(*obj2)) {
+                    std::cout << obj1->getNome()
+                              << " pode se comunicar com "
+                              << obj2->getNome() << ".\n";
+
+                    std::cout << "Protocolo compartilhado: "
+                              << obj1->getProtocoloComoString()
+                              << "\n";
+                } else {
+                    std::cout << obj1->getNome()
+                              << " NAO pode se comunicar com "
+                              << obj2->getNome() << ".\n";
+
+                    std::cout << "Protocolos: "
+                              << obj1->getProtocoloComoString()
+                              << " e "
+                              << obj2->getProtocoloComoString()
+                              << "\n";
+                }
+
+                break;
+            }
+
+            case 7:
                 return;
+
             default:
-                std::cout << "Opcao invalida! Escolha de 1 a 6.\n";
+                std::cout << "Opcao invalida! Escolha de 1 a 7.\n";
                 break;
         }
     }
