@@ -26,6 +26,7 @@ Conta::Conta(std::string id, std::string nome, std::string email, std::string se
         this->id=id;
     }
 }
+
 std::string Conta::getId() const {
     return id;
 }
@@ -58,7 +59,6 @@ void Conta::criarSmarthome(std::string id, std::string nome) {
     (void)id;
 
     smarthomes.push_back(std::make_unique<Smarthome>(this, nome));
-
 }
 
 void Conta::apagarSmarthome(const Smarthome& smarthome) {
@@ -83,7 +83,6 @@ void Conta::apagarComodo(Smarthome* smarthome, std::string nome) {
         smarthome->removerComodo(comodoRemover);
     }
 }
-
 
 void Conta::criarModo(Smarthome* smarthome, std::string nome) {
     if (smarthome != nullptr) {
@@ -114,6 +113,46 @@ void Conta::criarObjeto(Smarthome* smarthome, Comodo* comodo, std::string nome) 
         smarthome->adicionarObjeto(*novoObjeto);
         comodo->adicionarObjeto(novoObjeto);
     }
+}
+
+void Conta::criarObjetoPorTipo(Smarthome* smarthome, Comodo* comodo, std::string nome, int tipoObjeto) {
+    if (smarthome == nullptr || comodo == nullptr) {
+        throw std::invalid_argument("Smarthome ou Comodo invalido ao criar objeto");
+    }
+
+    ObjetoInteligente* novoObjeto = nullptr;
+
+    switch (tipoObjeto) {
+        case 1:
+            novoObjeto = new Luz(nome);
+            break;
+
+        case 2:
+            novoObjeto = new TV(nome);
+            break;
+
+        case 3:
+            novoObjeto = new CaixaDeSom(nome);
+            break;
+
+        case 4:
+            novoObjeto = new ArCondicionado(nome);
+            break;
+
+        case 5:
+            novoObjeto = new Portao(nome);
+            break;
+
+        case 6:
+            novoObjeto = new Termostato(nome);
+            break;
+
+        default:
+            throw std::invalid_argument("Tipo de objeto invalido");
+    }
+
+    smarthome->adicionarObjeto(*novoObjeto);
+    comodo->adicionarObjeto(novoObjeto);
 }
 
 void Conta::apagarObjeto(Smarthome* smarthome, Comodo* comodo, std::string nome) {
@@ -198,7 +237,6 @@ const std::vector<std::unique_ptr<Smarthome>>& Conta::getSmarthomes() const {
 
 bool Conta :: CaracteresValidos (const std::string& str) {
     for (unsigned char ch : str) {
-        // só aceita letras, números e espaços
         if (!(std::isalnum(ch) || std::isspace(ch))) {
             return false;
         }

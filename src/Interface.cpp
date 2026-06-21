@@ -428,38 +428,62 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
         std::cin.ignore();
 
         switch (op) {
-            case 1: {
+                        case 1: {
                 if (!usuarioLogado->isPerfilAdulto()) {
                     std::cout << "\n[ACESSO NEGADO] Controle Parental: Nao e permitido adicionar objetos.\n";
                     break;
                 }
+
                 std::string nomeObjeto;
+                int tipoObjeto;
                 bool sucesso = false;
                 int tentativas = 0;
 
                 while (!sucesso && tentativas < 3) {
-                    std::cout << "Digite o nome do novo objeto (ex: Lampada): ";
+                    std::cout << "Digite o nome do novo objeto: ";
                     std::getline(std::cin, nomeObjeto);
 
+                    std::cout << "\nEscolha o tipo do objeto:\n";
+                    std::cout << "1. Luz\n";
+                    std::cout << "2. TV\n";
+                    std::cout << "3. Caixa de Som\n";
+                    std::cout << "4. Ar Condicionado\n";
+                    std::cout << "5. Portao\n";
+                    std::cout << "6. Termostato\n";
+                    std::cout << "Opcao: ";
+
+                    if (!(std::cin >> tipoObjeto)) {
+                        std::cin.clear();
+                        std::string lixo;
+                        std::getline(std::cin, lixo);
+                        std::cout << "Tipo invalido. Digite apenas numeros.\n";
+                        tentativas++;
+                        continue;
+                    }
+
+                    std::cin.ignore();
+
                     try {
-                        usuarioLogado->criarObjeto(casa, comodo, nomeObjeto);
+                        usuarioLogado->criarObjetoPorTipo(casa, comodo, nomeObjeto, tipoObjeto);
                         std::cout << "Objeto '" << nomeObjeto << "' adicionado com sucesso!\n";
                         sucesso = true;
                     } catch (const std::invalid_argument& e) {
                         std::cerr << "Erro: " << e.what() << "\n";
-                        std::cerr << "Tentativa " << (tentativas+1) << " falhou. Tente novamente...\n";
+                        std::cerr << "Tentativa " << (tentativas + 1) << " falhou. Tente novamente...\n";
                         tentativas++;
                     } catch (...) {
                         std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
+                        tentativas++;
                     }
                 }
 
                 if (!sucesso) {
-                    std::cerr << "Falha após 3 tentativas.\n";
+                    std::cerr << "Falha apos 3 tentativas.\n";
                 }
 
                 break;
             }
+           
             case 2: {
                 if (!usuarioLogado->isPerfilAdulto()) {
                     std::cout << "\n[ACESSO NEGADO] Controle Parental: Nao e permitido remover objetos.\n";

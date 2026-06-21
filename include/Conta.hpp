@@ -218,5 +218,20 @@ public:
      * @brief Carrega as smarthomes a partir do arquivo txt do usuario.
      */
     void carregarSmarthomesDeArquivo();
+     /**
+     * @brief Comando para criar um objeto inteligente de um tipo específico.
+     * @param smarthome Smarthome em que o objeto será adicionado.
+     * @param comodo Cômodo em que o objeto será adicionado.
+     * @param nome Nome do objeto inteligente.
+     * @param tipoObjeto Tipo do objeto a ser criado.
+     * 1 = Luz
+     * 2 = TV
+     * 3 = Caixa de Som
+     * 4 = Ar Condicionado
+     * 5 = Portão
+     * 6 = Termostato
+     */
+    void criarObjetoPorTipo(Smarthome* smarthome, Comodo* comodo, std::string nome, int tipoObjeto);
 };
+
 #endif

@@ -39,7 +39,7 @@ public:
         std::vector<std::function<void()>> funcoesRestritas
     );
 
-    ~ObjetoInteligente() = default;
+   virtual  ~ObjetoInteligente() = default;
 
     std::string getNome() const;
 
