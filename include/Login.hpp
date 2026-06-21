@@ -16,19 +16,19 @@
         /**
          * @brief Vetor que armazena as contas cadastradas.
          */
-        std::vector<Conta> contas;
+        std::vector<std::unique_ptr<Conta>> contas;
 
     public:
         /**
          * @brief Construtor da classe Login.
          * @param contasCadastradas Vetor inicial das contas já cadastradas.
          */
-        Login(std::vector<Conta> contasCadastradas);
+        Login(std::vector<std::unique_ptr<Conta>>&& contasCadastradas);;
         /**
          * @brief Cadastra uma nova conta
          * @param contaNova Conta que sera cadastrada.
          */
-        void criarConta(Conta contaNova);
+        void criarConta(std::unique_ptr<Conta> contaNova);
         /**
          * @brief Realiza autenticação de uma conta.
          *  Procura o email e verifica se a senha fornecida está correta.
@@ -46,7 +46,7 @@
          * @brief Retorna as contas cadastradas.
          * @return Vetor de contas.
          */
-        const std::vector<Conta>& getContasCadastradas() const;
+        const std::vector<std::unique_ptr<Conta>>& getContasCadastradas() const;
 
     };
 #endif

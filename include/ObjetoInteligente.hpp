@@ -44,9 +44,6 @@ public:
 
     std::string getNome() const;
 
-    void setRestricaoAdulto(bool restricao);
-    bool getRestricaoAdulto() const;
-
     std::vector<Sensor*> getSensores() const;
     std::vector<std::string> getStatusPossiveis() const;
 

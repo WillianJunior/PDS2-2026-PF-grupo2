@@ -9,7 +9,7 @@
 #include <stdexcept>
 #include <cctype>
 
-Conta::Conta::Conta(const std::string& id,
+Conta::Conta(const std::string& id,
              const std::string& nome,
              const std::string& email,
              const std::string& senha,
