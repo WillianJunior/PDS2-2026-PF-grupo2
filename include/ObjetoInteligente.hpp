@@ -1,19 +1,17 @@
 #ifndef OBJETOINTELIGENTE_H
 #define OBJETOINTELIGENTE_H
+
 #include <vector>
 #include <string>
 #include <functional>
 
-//TODO: adicionar tipos de objetos (lampada, ar condicionado, tv, etc.)
-
 class Sensor;
 
-/**
- * @class ObjetoInteligente
- * @brief Representa um objeto inteligente da smarthome.
- * * A classe armazena sensores, funções disponíveis, restrições de acesso e informações de consumo de energia. Tem os seguintes tipos: luz
- * 
- */
+enum class Protocolo {
+    WIFI,
+    BLUETOOTH,
+    ZIGBEE
+};
 
 class ObjetoInteligente {
 protected:
@@ -26,20 +24,10 @@ protected:
     std::vector<std::function<void()>> funcoes;
     std::vector<std::function<void()>> funcoesRestritas;
 
+    Protocolo protocolo = Protocolo::WIFI;
+    bool emFalha = false;
+
 public:
-
-    /**
-     * @brief Construtor da classe ObjetoInteligente.
-     * @param nome Nome do objeto.
-     * @param restricaoAdulto Define se o objeto possui restrição para adultos.
-     * @param sensores Vetor dos sensores associados ao objeto.
-     * @param statusPossiveis Vetor com os estados possíveis do objeto.
-     * @param statusAtual Status atual do objeto.
-     * @param consumoMedioDeEnergia Consumo médio de energia do objeto.
-     * @param funcoes Vetor das funções disponíveis.
-     * @param funcoesRestritas Vetor das funções restritas.
-     */
-
     ObjetoInteligente(
         std::string nome,
         bool restricaoAdulto,
@@ -53,74 +41,87 @@ public:
 
     ~ObjetoInteligente() = default;
 
-    /// Métodos setters e getters
-    
-    /**
-     * @brief Retorna o nome do objeto.
-     */
     std::string getNome() const;
 
-    /**
-     * @brief Define se o objeto é restrito para adultos apenas.
-     * @param restricao define se a restrição está ligada (1) ou não (0).
-     */
     void setRestricaoAdulto(bool restricao);
-    /**
-     * @brief Retorna os sensores associados ao objeto.
-     */
-    std::vector<Sensor*> getSensores() const;
-    /**
-     * @brief Retorna os status possíveis do objeto.
-     */
-    std::vector<std::string> getStatusPossiveis() const;
-    /**
-     * @brief Retorna o status atual do objeto.
-     */
-    std::string getStatusAtual() const;
-    /**
-     * @brief Define o status atual do objeto.
-     * @param status é o nome dos status a ser definido.
-     */
-    virtual void setStatusAtual(std::string status);
-    /**
-     * @brief Retorna o valor de consumo médio de energia do objeto.
-     */
-    float getConsumoMedioDeEnergia() const;
-    /**
-     * @brief Retorna a lista de funções do objeto.
-     * */
-    std::vector<std::function<void()>> getFuncoes() const;
-    /**
-     * @brief Retorna a lista de funções restritas a crianças do objeto.
-     * */
-    std::vector<std::function<void()>> getFuncoesRestritas() const;
-    /**
-     * @brief Define comparação entre objetos.
-     * */
-    bool operator==(const ObjetoInteligente& other) const;
-    /**
-     * @brief Imprime informações do membro do objeto.
-     * */
-    void printObjetosInfo() const;
-    /**
-     * @brief Checa se str contem que nao sao letras, espacos ou numeros.Se houver retorna false.
-     * */
-    bool CaracteresValidos (const std::string& str);
+    bool getRestricaoAdulto() const;
 
+    std::vector<Sensor*> getSensores() const;
+    std::vector<std::string> getStatusPossiveis() const;
+
+    std::string getStatusAtual() const;
+    virtual void setStatusAtual(std::string status);
+
+    float getConsumoMedioDeEnergia() const;
+
+    std::vector<std::function<void()>> getFuncoes() const;
+    std::vector<std::function<void()>> getFuncoesRestritas() const;
+
+    Protocolo getProtocolo() const;
+    void setProtocolo(Protocolo protocolo);
+    bool comunicaCom(const ObjetoInteligente& outro) const;
+    std::string getProtocoloComoString() const;
+
+    void simularFalha();
+    void repararFalha();
+    bool estaEmFalha() const;
+
+    bool operator==(const ObjetoInteligente& other) const;
+    void printObjetosInfo() const;
+
+    bool CaracteresValidos(const std::string& str);
 };
 
 class Luz : public ObjetoInteligente {
-    
-    public:
-        Luz(std::string nome);
-        void setStatusAtual(int indexStatus);
+public:
+    Luz(std::string nome);
+    void setStatusAtual(int indexStatus);
 };
 
 class CaixaDeSom : public ObjetoInteligente {
-    
-    public:
-        CaixaDeSom(std::string nome);
-        void setStatusAtual(int indexStatus);
+public:
+    CaixaDeSom(std::string nome);
+    void setStatusAtual(int indexStatus);
+};
+
+class TV : public ObjetoInteligente {
+public:
+    TV(std::string nome);
+    void ligar();
+    void desligar();
+};
+
+class ArCondicionado : public ObjetoInteligente {
+private:
+    float temperatura;
+
+public:
+    ArCondicionado(std::string nome);
+    void resfriar();
+    void aquecer();
+    void desligar();
+    void setTemperatura(float temperatura);
+    float getTemperatura() const;
+};
+
+class Portao : public ObjetoInteligente {
+public:
+    Portao(std::string nome);
+    void abrir();
+    void fechar();
+};
+
+class Termostato : public ObjetoInteligente {
+private:
+    float temperaturaAtual;
+
+public:
+    Termostato(std::string nome);
+    void setTemperaturaAtual(float temperatura);
+    float getTemperaturaAtual() const;
+    void normalizar();
+    void aquecer();
+    void resfriar();
 };
 
 #endif
