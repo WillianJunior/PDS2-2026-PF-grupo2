@@ -13,6 +13,7 @@ enum class Protocolo {
     ZIGBEE
 };
 
+
 class ObjetoInteligente {
 protected:
     std::string nome;
@@ -70,6 +71,9 @@ public:
     void printObjetosInfo() const;
 
     bool CaracteresValidos(const std::string& str);
+
+    void setRestricaoAdulto(bool restricao);
+    bool getRestricaoAdulto() const;
 };
 
 class Luz : public ObjetoInteligente {
@@ -123,5 +127,4 @@ public:
     void aquecer();
     void resfriar();
 };
-
 #endif

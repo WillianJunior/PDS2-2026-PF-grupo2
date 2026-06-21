@@ -859,25 +859,73 @@ void Interface::gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo) {
                 break;
             }
 
-            case 4:
+            case 4: {
 
-                modo->setAtivoModo(true);
-                modo->executarNosComodosRelacionados();
+    bool temObjetoRestrito = false;
 
-                std::cout << "Modo '" << modo->getNome()
-                          << "' ligado e executado nos comodos associados.\n";
+    for (Comodo* c : modo->getComodosRelacionados()) {
 
-                break;
+        if (c != nullptr) {
 
-            case 5:
+            for (ObjetoInteligente* obj : c->getObjetos()) {
 
-                modo->setAtivoModo(false);
-                modo->executarNosComodosRelacionados();
+                if (obj != nullptr && obj->getRestricaoAdulto()) {
+                    temObjetoRestrito = true;
+                }
+            }
+        }
+    }
 
-                std::cout << "Modo '" << modo->getNome()
-                          << "' desligado nos comodos associados.\n";
+    if (temObjetoRestrito && !usuarioLogado->isPerfilAdulto()) {
 
-                break;
+        std::cout << "\n[ACESSO NEGADO] Controle Parental: "
+                  << "este modo controla objetos restritos.\n";
+
+        break;
+    }
+
+    modo->setAtivoModo(true);
+    modo->executarNosComodosRelacionados();
+
+    std::cout << "Modo '" << modo->getNome()
+              << "' ligado e executado nos comodos associados.\n";
+
+    break;
+}
+
+case 5: {
+
+    bool temObjetoRestrito = false;
+
+    for (Comodo* c : modo->getComodosRelacionados()) {
+
+        if (c != nullptr) {
+
+            for (ObjetoInteligente* obj : c->getObjetos()) {
+
+                if (obj != nullptr && obj->getRestricaoAdulto()) {
+                    temObjetoRestrito = true;
+                }
+            }
+        }
+    }
+
+    if (temObjetoRestrito && !usuarioLogado->isPerfilAdulto()) {
+
+        std::cout << "\n[ACESSO NEGADO] Controle Parental: "
+                  << "este modo controla objetos restritos.\n";
+
+        break;
+    }
+
+    modo->setAtivoModo(false);
+    modo->executarNosComodosRelacionados();
+
+    std::cout << "Modo '" << modo->getNome()
+              << "' desligado nos comodos associados.\n";
+
+    break;
+}
 
             case 6:
 
