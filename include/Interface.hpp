@@ -12,7 +12,7 @@
 class Interface {
 private:
     Login sistemaLogin;
-    std::unique_ptr<Conta> usuarioLogado;
+    Conta* usuarioLogado = nullptr;
 
     void exibirMenuInicial();
     void exibirMenuConta();

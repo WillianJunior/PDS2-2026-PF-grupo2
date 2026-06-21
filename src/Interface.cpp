@@ -2,9 +2,19 @@
 #include "Smarthome.hpp"
 #include <iostream>
 
-Interface::Interface() : sistemaLogin(std::vector<Conta>()) {
-    Conta adminTeste("1", "Administrador", "admin@smarthome.com", "12345678", true);
-    sistemaLogin.criarConta(adminTeste);
+Interface::Interface()
+    : sistemaLogin(std::vector<std::unique_ptr<Conta>>{})
+{
+    auto adminTeste =
+        std::make_unique<Conta>(
+            "1",
+            "Administrador",
+            "admin@smarthome.com",
+            "12345678",
+            true
+        );
+
+    sistemaLogin.criarConta(std::move(adminTeste));
 }
 
 void Interface::iniciar() {
@@ -115,10 +125,10 @@ void Interface::exibirMenuConta() {
         case 2:
             exibirMenuSmarthome();
             break;
-        case 3:
-            usuarioLogado.reset();
-            std::cout << "\nLogout efetuado com sucesso.\n";
-            break;
+        // case 3: não há método reset() na classe conta
+        //     usuarioLogado->reset();
+        //     std::cout << "\nLogout efetuado com sucesso.\n";
+        //     break;
         default:
             std::cout << "\nOpcao invalida! Escolha 1, 2 ou 3.\n";
             break;
@@ -175,22 +185,28 @@ void Interface::realizarLogin() {
     std::cout << "\n--- TELA DE LOGIN ---\n";
     std::cout << "Digite seu e-mail: ";
     std::getline(std::cin, email);
+
     std::cout << "Digite sua senha: ";
     std::getline(std::cin, senha);
 
     if (sistemaLogin.autenticarConta(email, senha)) {
         std::cout << "\nLogin realizado com sucesso!\n";
-        
-        std::vector<Conta> lista = sistemaLogin.getContasCadastradas();
-        for (size_t i = 0; i < lista.size(); i++) {
-            if (lista[i].getEmail() == email) {
-                usuarioLogado = std::make_unique<Conta>(lista[i]);
+
+        for (const auto& conta : sistemaLogin.getContasCadastradas()) {
+            if (conta->getEmail() == email) {
+                usuarioLogado = conta.get();
                 break;
             }
         }
-        std::cout << "Bem-vindo(a), " << usuarioLogado->getNome() << "!\n";
-    } else {
-        std::cout << "\nErro de autenticacao! E-mail ou senha incorretos ou conta bloqueada.\n";
+
+        std::cout << "Bem-vindo(a), "
+                  << usuarioLogado->getNome()
+                  << "!\n";
+    }
+    else {
+        std::cout
+            << "\nErro de autenticacao! "
+            << "E-mail ou senha incorretos ou conta bloqueada.\n";
     }
 }
 
@@ -202,12 +218,16 @@ void Interface::cadastrarConta() {
     std::cout << "\n--- CADASTRO DE NOVA CONTA ---\n";
     std::cout << "ID unico da conta: ";
     std::getline(std::cin, id);
+
     std::cout << "Nome completo: ";
     std::getline(std::cin, nome);
+
     std::cout << "E-mail de acesso: ";
     std::getline(std::cin, email);
+
     std::cout << "Senha de acesso: ";
     std::getline(std::cin, senha);
+
     std::cout << "Tipo de perfil - Adulto ou Infantil? (A/I): ";
     std::cin >> tipoPerfil;
     std::cin.ignore();
@@ -216,30 +236,44 @@ void Interface::cadastrarConta() {
         ehAdulto = false;
     }
 
-    Conta novaConta("", "", "", "", true);
-
     try {
-        novaConta = Conta(id, nome, email, senha, ehAdulto);
-    } 
+        auto novaConta =
+            std::make_unique<Conta>(
+                id,
+                nome,
+                email,
+                senha,
+                ehAdulto
+            );
+
+        if (!novaConta->validarFormatoEmail()) {
+            std::cout
+                << "\nErro no cadastro: Formato de e-mail invalido "
+                << "(deve conter '@').\n";
+            return;
+        }
+
+        if (!novaConta->validarSenha()) {
+            std::cout
+                << "\nErro no cadastro: A senha precisa ter "
+                << "pelo menos 8 caracteres.\n";
+            return;
+        }
+
+        sistemaLogin.criarConta(std::move(novaConta));
+
+        std::cout
+            << "\nConta cadastrada com sucesso! "
+            << "Voce ja pode entrar no sistema.\n";
+    }
     catch (const std::invalid_argument& e) {
         std::cerr << "Erro ao criar conta: " << e.what() << "\n";
-        return;
-    } catch (...) {
-        std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
     }
-
-    if (!novaConta.validarFormatoEmail()) {
-        std::cout << "\nErro no cadastro: Formato de e-mail invalido (deve conter '@').\n";
-        return;
+    catch (...) {
+        std::cerr
+            << "Erro inesperado capturado. "
+            << "Verifique os dados e tente novamente.\n";
     }
-
-    if (!novaConta.validarSenha()) {
-        std::cout << "\nErro no cadastro: A senha precisa ter pelo menos 8 caracteres.\n";
-        return;
-    }
-
-    sistemaLogin.criarConta(novaConta);
-    std::cout << "\nConta cadastrada com sucesso! Voce ja pode entrar no sistema.\n";
 }
 
 void Interface::gerenciarSmarthome(Smarthome* casa) {
