@@ -415,7 +415,10 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
         std::cout << "4. Remover Sensor\n";
         std::cout << "5. Listar Dispositivos neste Comodo\n";
         std::cout << "6. Testar comunicacao entre dispositivos\n";
-        std::cout << "7. Voltar para Menu da Casa\n";
+        std::cout << "7. Simular falha em dispositivo\n";
+        std::cout << "8. Reparar dispositivo\n";
+        std::cout << "9. Listar dispositivos em falha\n";
+        std::cout << "10. Voltar para Menu da Casa\n";
         std::cout << "Escolha uma opcao: ";
 
         int op;
@@ -470,7 +473,6 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
                         sucesso = true;
                     } catch (const std::invalid_argument& e) {
                         std::cerr << "Erro: " << e.what() << "\n";
-                        std::cerr << "Tentativa " << (tentativas + 1) << " falhou. Tente novamente...\n";
                         tentativas++;
                     } catch (...) {
                         std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
@@ -527,7 +529,6 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
                         sucesso = true;
                     } catch (const std::invalid_argument& e) {
                         std::cerr << "Erro: " << e.what() << "\n";
-                        std::cerr << "Tentativa " << (tentativas + 1) << " falhou. Tente novamente...\n";
                         tentativas++;
                     } catch (...) {
                         std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
@@ -571,7 +572,6 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
 
             case 6: {
                 std::string nome1, nome2;
-
                 std::cout << "Digite o nome do primeiro dispositivo: ";
                 std::getline(std::cin, nome1);
 
@@ -583,13 +583,8 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
 
                 for (ObjetoInteligente* obj : comodo->getObjetos()) {
                     if (obj != nullptr) {
-                        if (obj->getNome() == nome1) {
-                            obj1 = obj;
-                        }
-
-                        if (obj->getNome() == nome2) {
-                            obj2 = obj;
-                        }
+                        if (obj->getNome() == nome1) obj1 = obj;
+                        if (obj->getNome() == nome2) obj2 = obj;
                     }
                 }
 
@@ -599,33 +594,103 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
                 }
 
                 if (obj1->comunicaCom(*obj2)) {
-                    std::cout << obj1->getNome()
-                              << " pode se comunicar com "
+                    std::cout << obj1->getNome() << " pode se comunicar com "
                               << obj2->getNome() << ".\n";
-
                     std::cout << "Protocolo compartilhado: "
-                              << obj1->getProtocoloComoString()
-                              << "\n";
+                              << obj1->getProtocoloComoString() << "\n";
                 } else {
-                    std::cout << obj1->getNome()
-                              << " NAO pode se comunicar com "
+                    std::cout << obj1->getNome() << " NAO pode se comunicar com "
                               << obj2->getNome() << ".\n";
-
-                    std::cout << "Protocolos: "
-                              << obj1->getProtocoloComoString()
-                              << " e "
-                              << obj2->getProtocoloComoString()
-                              << "\n";
+                    std::cout << "Protocolos: " << obj1->getProtocoloComoString()
+                              << " e " << obj2->getProtocoloComoString() << "\n";
                 }
 
                 break;
             }
 
-            case 7:
+            case 7: {
+                if (!usuarioLogado->isPerfilAdulto()) {
+                    std::cout << "\n[ACESSO NEGADO] Controle Parental: Apenas adultos podem simular falhas.\n";
+                    break;
+                }
+
+                std::string nomeObjeto;
+                std::cout << "Digite o nome do dispositivo que entrara em falha: ";
+                std::getline(std::cin, nomeObjeto);
+
+                bool encontrado = false;
+
+                for (ObjetoInteligente* obj : comodo->getObjetos()) {
+                    if (obj != nullptr && obj->getNome() == nomeObjeto) {
+                        obj->simularFalha();
+                        std::cout << "Falha simulada no dispositivo '" << obj->getNome() << "'.\n";
+                        encontrado = true;
+                        break;
+                    }
+                }
+
+                if (!encontrado) {
+                    std::cout << "Dispositivo nao encontrado.\n";
+                }
+
+                break;
+            }
+
+            case 8: {
+                if (!usuarioLogado->isPerfilAdulto()) {
+                    std::cout << "\n[ACESSO NEGADO] Controle Parental: Apenas adultos podem reparar dispositivos.\n";
+                    break;
+                }
+
+                std::string nomeObjeto;
+                std::cout << "Digite o nome do dispositivo que deseja reparar: ";
+                std::getline(std::cin, nomeObjeto);
+
+                bool encontrado = false;
+
+                for (ObjetoInteligente* obj : comodo->getObjetos()) {
+                    if (obj != nullptr && obj->getNome() == nomeObjeto) {
+                        obj->repararFalha();
+                        std::cout << "Dispositivo '" << obj->getNome() << "' reparado com sucesso.\n";
+                        encontrado = true;
+                        break;
+                    }
+                }
+
+                if (!encontrado) {
+                    std::cout << "Dispositivo nao encontrado.\n";
+                }
+
+                break;
+            }
+
+            case 9: {
+                bool encontrouFalha = false;
+
+                std::cout << "\n[Dispositivos em falha no comodo " << comodo->getNome() << "]\n";
+
+                for (ObjetoInteligente* obj : comodo->getObjetos()) {
+                    if (obj != nullptr && obj->estaEmFalha()) {
+                        std::cout << "- " << obj->getNome()
+                                  << " | Protocolo: "
+                                  << obj->getProtocoloComoString()
+                                  << "\n";
+                        encontrouFalha = true;
+                    }
+                }
+
+                if (!encontrouFalha) {
+                    std::cout << "Nenhum dispositivo em falha neste comodo.\n";
+                }
+
+                break;
+            }
+
+            case 10:
                 return;
 
             default:
-                std::cout << "Opcao invalida! Escolha de 1 a 7.\n";
+                std::cout << "Opcao invalida! Escolha de 1 a 10.\n";
                 break;
         }
     }
