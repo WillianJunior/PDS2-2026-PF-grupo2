@@ -68,4 +68,27 @@ class ModoNoturno : public Modo {
         void executarInstrucao();
 };
 
+class ModoCinema : public Modo {
+public:
+    ModoCinema(std::string nome);
+    void executarInstrucao();
+};
+
+class ModoTrabalho : public Modo {
+public:
+    ModoTrabalho(std::string nome);
+    void executarInstrucao();
+};
+
+class ModoAusente : public Modo {
+public:
+    ModoAusente(std::string nome);
+    void executarInstrucao();
+};
+
+class ModoFesta : public Modo {
+public:
+    ModoFesta(std::string nome);
+    void executarInstrucao();
+};
 #endif

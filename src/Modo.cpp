@@ -192,3 +192,85 @@ void Modo::executarNosComodosRelacionados() {
         }
     }
 }
+
+ModoCinema::ModoCinema(std::string nome)
+    : Modo(nome, {}, {}, false, false) {}
+
+void ModoCinema::executarInstrucao() {
+    for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
+        if (item == nullptr) continue;
+
+        if (dynamic_cast<TV*>(item)) {
+            item->setStatusAtual("ligada");
+        }
+        else if (dynamic_cast<CaixaDeSom*>(item)) {
+            item->setStatusAtual("tocando música");
+        }
+        else if (dynamic_cast<Luz*>(item)) {
+            item->setStatusAtual("apagada");
+        }
+    }
+}
+
+ModoTrabalho::ModoTrabalho(std::string nome)
+    : Modo(nome, {}, {}, false, false) {}
+
+void ModoTrabalho::executarInstrucao() {
+    for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
+        if (item == nullptr) continue;
+
+        if (dynamic_cast<Luz*>(item)) {
+            item->setStatusAtual("acesa");
+        }
+        else if (dynamic_cast<ArCondicionado*>(item)) {
+            item->setStatusAtual("resfriando");
+        }
+        else if (dynamic_cast<TV*>(item)) {
+            item->setStatusAtual("desligada");
+        }
+    }
+}
+
+ModoAusente::ModoAusente(std::string nome)
+    : Modo(nome, {}, {}, false, false) {}
+
+void ModoAusente::executarInstrucao() {
+    for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
+        if (item == nullptr) continue;
+
+        if (dynamic_cast<Portao*>(item)) {
+            item->setStatusAtual("fechado");
+        }
+        else if (dynamic_cast<Luz*>(item)) {
+            item->setStatusAtual("apagada");
+        }
+        else if (dynamic_cast<TV*>(item)) {
+            item->setStatusAtual("desligada");
+        }
+        else if (dynamic_cast<CaixaDeSom*>(item)) {
+            item->setStatusAtual("desligada");
+        }
+        else if (dynamic_cast<ArCondicionado*>(item)) {
+            item->setStatusAtual("desligado");
+        }
+    }
+}
+
+ModoFesta::ModoFesta(std::string nome)
+    : Modo(nome, {}, {}, false, false) {}
+
+void ModoFesta::executarInstrucao() {
+    for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
+        if (item == nullptr) continue;
+
+        if (dynamic_cast<CaixaDeSom*>(item)) {
+            item->setStatusAtual("tocando música");
+        }
+        else if (dynamic_cast<TV*>(item)) {
+            item->setStatusAtual("ligada");
+        }
+        else if (dynamic_cast<Luz*>(item)) {
+            item->setStatusAtual("acesa");
+        }
+    }
+}
