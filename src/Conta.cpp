@@ -9,7 +9,11 @@
 #include <stdexcept>
 #include <cctype>
 
-Conta::Conta(std::string id, std::string nome, std::string email, std::string senha, bool adulto)
+Conta::Conta::Conta(const std::string& id,
+             const std::string& nome,
+             const std::string& email,
+             const std::string& senha,
+             bool adulto)
     : senha(senha), perfilAdulto(adulto), bloqueada(false) {
     if(nome.empty() || email.empty() || id.empty() ){
         throw std::invalid_argument("Nome, Email, id da Conta nao podem ser vazios - Tente novamente...");
@@ -27,15 +31,15 @@ Conta::Conta(std::string id, std::string nome, std::string email, std::string se
     }
 }
 
-std::string Conta::getId() const {
+const std::string& Conta::getId() const {
     return id;
 }
 
-std::string Conta::getNome() const {
+const std::string& Conta::getNome() const {
     return nome;
 }
 
-std::string Conta::getEmail() const {
+const std::string& Conta::getEmail() const {
     return email;
 }
 
@@ -55,7 +59,7 @@ void Conta::desbloquear() {
     bloqueada = false;
 }
 
-void Conta::criarSmarthome(std::string id, std::string nome) {
+void Conta::criarSmarthome(const std::string& id, const std::string& nome) {
     (void)id;
 
     smarthomes.push_back(std::make_unique<Smarthome>(this, nome));
@@ -70,21 +74,21 @@ void Conta::apagarSmarthome(const Smarthome& smarthome) {
     }
 }
 
-void Conta::criarComodo(Smarthome* smarthome, std::string nome) {
+void Conta::criarComodo(Smarthome* smarthome, const std::string& nome) {
     if (smarthome != nullptr) {
         Comodo novoComodo(nome, smarthome);
         smarthome->adicionarComodo(novoComodo);
     }
 }
 
-void Conta::apagarComodo(Smarthome* smarthome, std::string nome) {
+void Conta::apagarComodo(Smarthome* smarthome, const std::string& nome) {
     if (smarthome != nullptr) {
         Comodo comodoRemover(nome, smarthome);
         smarthome->removerComodo(comodoRemover);
     }
 }
 
-void Conta::criarModo(Smarthome* smarthome, std::string nome) {
+void Conta::criarModo(Smarthome* smarthome, const std::string& nome) {
     if (smarthome != nullptr) {
         std::vector<ObjetoInteligente*> objetosVazios;
         std::vector<Comodo*> comodosVazios;
@@ -93,7 +97,7 @@ void Conta::criarModo(Smarthome* smarthome, std::string nome) {
     }
 }
 
-void Conta::criarModoPorTipo(Smarthome* smarthome, std::string nome, int tipoModo) {
+void Conta::criarModoPorTipo(Smarthome* smarthome, const std::string& nome, int tipoModo) {
     if (smarthome == nullptr) {
         throw std::invalid_argument("Smarthome invalida ao criar modo");
     }
@@ -148,13 +152,13 @@ void Conta::criarModoPorTipo(Smarthome* smarthome, std::string nome, int tipoMod
     }
 }
 
-void Conta::apagarModo(Smarthome* smarthome, std::string nome) {
+void Conta::apagarModo(Smarthome* smarthome, const std::string& nome) {
     if (smarthome != nullptr) {
         smarthome->removerModo(nome); 
     }
 }
 
-void Conta::criarObjeto(Smarthome* smarthome, Comodo* comodo, std::string nome) {
+void Conta::criarObjeto(Smarthome* smarthome, Comodo* comodo, const std::string& nome) {
     if (smarthome != nullptr && comodo != nullptr) {
         std::vector<Sensor*> sensoresVazios;
         std::vector<std::string> statusPossiveis = {"Desligado", "Ligado"};
@@ -210,21 +214,21 @@ void Conta::criarObjetoPorTipo(Smarthome* smarthome, Comodo* comodo, std::string
     comodo->adicionarObjeto(novoObjeto);
 }
 
-void Conta::apagarObjeto(Smarthome* smarthome, Comodo* comodo, std::string nome) {
+void Conta::apagarObjeto(Smarthome* smarthome, Comodo* comodo, const std::string& nome) {
     if (smarthome != nullptr && comodo != nullptr) {
         smarthome->removerObjeto(nome); 
         comodo->removerObjetoPorNome(nome); 
     }
 }
 
-void Conta::moverObjeto(Smarthome* smarthome, Comodo* atual, std::string nome, Comodo* destino) {
+void Conta::moverObjeto(Smarthome* smarthome, Comodo* atual, const std::string& nome, Comodo* destino) {
     if (smarthome != nullptr && atual != nullptr && destino != nullptr) {
         atual->removerObjetoPorNome(nome);
         std::cout << "Objeto " << nome << " removido do comodo atual." << std::endl;
     }
 }
 
-void Conta::criarSensor(Smarthome* smarthome, Comodo* comodo, std::string nome) {
+void Conta::criarSensor(Smarthome* smarthome, Comodo* comodo, const std::string& nome) {
     if (smarthome != nullptr && comodo != nullptr) {
 
         auto novoSensor = std::make_unique<Sensor>(
@@ -240,13 +244,13 @@ void Conta::criarSensor(Smarthome* smarthome, Comodo* comodo, std::string nome) 
     }
 }
 
-void Conta::apagarSensor(Smarthome* smarthome, Comodo* comodo, std::string nome) {
+void Conta::apagarSensor(Smarthome* smarthome, Comodo* comodo, const std::string& nome) {
     if (smarthome != nullptr && comodo != nullptr) {
         comodo->removerSensorPorNome(nome); 
     }
 }
 
-void Conta::moverSensor(Smarthome* smarthome, Comodo* atual, std::string nome, Comodo* destino) {
+void Conta::moverSensor(Smarthome* smarthome, Comodo* atual, const std::string& nome, Comodo* destino) {
     if (smarthome != nullptr && atual != nullptr && destino != nullptr) {
         atual->removerSensorPorNome(nome);
         std::cout << "Sensor " << nome << " removido do comodo atual." << std::endl;
@@ -290,7 +294,7 @@ const std::vector<std::unique_ptr<Smarthome>>& Conta::getSmarthomes() const {
     return smarthomes;
 }
 
-bool Conta :: CaracteresValidos (const std::string& str) {
+bool Conta :: CaracteresValidos (const std::string& str) const {
     for (unsigned char ch : str) {
         if (!(std::isalnum(ch) || std::isspace(ch))) {
             return false;
@@ -299,7 +303,7 @@ bool Conta :: CaracteresValidos (const std::string& str) {
     return true;
 }
 
-std::string Conta::getSenha() const {
+const std::string& Conta::getSenha() const {
     return senha;
 }
 
