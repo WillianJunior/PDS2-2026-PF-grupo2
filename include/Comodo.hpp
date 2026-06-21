@@ -14,14 +14,14 @@ class Modo;
 
 class Comodo {
 public:
-    Comodo(std::string nome, Smarthome* casa);
+    Comodo(const std::string& nome, Smarthome* casa);
 
     bool operator==(const Comodo& other) const;
 
     std::vector<std::string> getCondicoesDoComodo() const;
 
-    void mudarCondicao(std::string condicao);
-    void adicionarCondicao(std::string condicao);
+    void mudarCondicao(const std::string& condicao);
+    void adicionarCondicao(const std::string& condicao);
 
     void adicionarObjeto(ObjetoInteligente* objeto);
     void adicionarSensor(std::unique_ptr<Sensor> sensor);
@@ -31,9 +31,9 @@ public:
     const std::vector<std::unique_ptr<Sensor>>& getSensores() const;
     const std::vector<Modo*>& getModos() const;
 
-    void removerModoPorNome(std::string nomeModo);
-    void removerObjetoPorNome(std::string nomeObjeto);
-    void removerSensorPorNome(std::string nomeSensor);
+    void removerModoPorNome(const std::string& nomeModo);
+    void removerObjetoPorNome(const std::string& nomeObjeto);
+    void removerSensorPorNome(const std::string& nomeSensor);
 
     void entrarConta(Conta* conta);
     void sairConta();
@@ -50,7 +50,7 @@ public:
     void printContasInfo() const;
     void printModosInfo() const;
 
-    bool CaracteresValidos (const std::string& str);
+    bool CaracteresValidos(const std::string& str) const;
 
     ~Comodo();
 

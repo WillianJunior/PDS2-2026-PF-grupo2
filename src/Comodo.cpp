@@ -9,7 +9,7 @@
 #include <stdexcept>
 #include <cctype>
 using namespace std;
-Comodo::Comodo(std::string nome, Smarthome* casa) {
+Comodo::Comodo(const std::string& nome, Smarthome* casa) {
 
     if(nome.empty()){
             throw std::invalid_argument("Nome do Comodo nao pode ser vazio - Tente novamente...");
@@ -38,7 +38,7 @@ std::vector<std::string> Comodo::getCondicoesDoComodo() const{
     return condicoesDoComodo;
 }
 
-void Comodo::mudarCondicao(std::string condicao) {
+void Comodo::mudarCondicao(const std::string& condicao) {
     // remove qualquer condição do mesmo grupo (exemplo : se estiver Iluminado, Escuro é removido)
     if(condicao != "Iluminado" && condicao != "Escuro" && condicao != "Quente" && condicao != "Frio" &&
      condicao != "Barulhento" && condicao != "Silencioso" && condicao != "Umido" && condicao != "Seco" ){
@@ -79,7 +79,7 @@ void Comodo::mudarCondicao(std::string condicao) {
 }
 
 
-void Comodo::adicionarCondicao(std::string condicao) {
+void Comodo::adicionarCondicao(const std::string& condicao) {
     mudarCondicao(condicao); // inconsitente com mudar condicao que baseia-se na ideia que tem numero limitado de condicoes
 }
 
@@ -236,7 +236,7 @@ void Comodo :: printContasInfo() const{
     }
 }
 
-void Comodo::removerObjetoPorNome(std::string nomeObjeto) {
+void Comodo::removerObjetoPorNome(const std::string& nomeObjeto) {
     for (auto it = objetos.begin(); it != objetos.end(); ++it) {
         if ((*it)->getNome() == nomeObjeto) {
             objetos.erase(it);
@@ -247,7 +247,7 @@ void Comodo::removerObjetoPorNome(std::string nomeObjeto) {
     throw std::runtime_error("Objeto " + nomeObjeto + " nao encontrado no Comodo " + nome);
 }
 
-void Comodo::removerSensorPorNome(std::string nomeSensor) {
+void Comodo::removerSensorPorNome(const std::string& nomeSensor) {
     for (auto it = sensores.begin(); it != sensores.end(); ++it) {
         if ((*it)->getNome() == nomeSensor) {
             sensores.erase(it);
@@ -258,7 +258,7 @@ void Comodo::removerSensorPorNome(std::string nomeSensor) {
     throw std::runtime_error("Sensor " + nomeSensor + " nao encontrado no Comodo " + nome);
 }
 
-void Comodo::removerModoPorNome(std::string nomeModo){
+void Comodo::removerModoPorNome(const std::string& nomeModo){
     for (auto it = modos.begin(); it != modos.end(); ++it) {
         if ((*it)->getNome() == nomeModo) {
             modos.erase(it);
@@ -270,7 +270,7 @@ void Comodo::removerModoPorNome(std::string nomeModo){
 
 }
 
-bool Comodo :: CaracteresValidos (const std::string& str) {
+bool Comodo::CaracteresValidos(const std::string& str) const {
     for (unsigned char ch : str) {
         // só aceita letras, números e espaços
         if (!(std::isalnum(ch) || std::isspace(ch))) {
