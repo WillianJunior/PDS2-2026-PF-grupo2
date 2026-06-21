@@ -274,3 +274,32 @@ void ModoFesta::executarInstrucao() {
         }
     }
 }
+ModoEconomia::ModoEconomia(std::string nome)
+    : Modo(
+        nome,
+        {},
+        {},
+        false,
+        false
+    ) {}
+
+void ModoEconomia::executarInstrucao() {
+    for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
+        if (item == nullptr) {
+            continue;
+        }
+
+        if (dynamic_cast<TV*>(item)) {
+            item->setStatusAtual("desligada");
+        }
+        else if (dynamic_cast<CaixaDeSom*>(item)) {
+            item->setStatusAtual("desligada");
+        }
+        else if (dynamic_cast<ArCondicionado*>(item)) {
+            item->setStatusAtual("desligado");
+        }
+        else if (dynamic_cast<Luz*>(item)) {
+            item->setStatusAtual("apagada");
+        }
+    }
+}

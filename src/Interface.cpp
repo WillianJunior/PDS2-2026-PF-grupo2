@@ -748,6 +748,7 @@ void Interface::exibirMenuModos(Smarthome* casa) {
                     std::cout << "4. Modo Trabalho\n";
                     std::cout << "5. Modo Ausente\n";
                     std::cout << "6. Modo Festa\n";
+                    std::cout << "7. Modo Economia\n";
                     std::cout << "Opcao: ";
 
                     if (!(std::cin >> tipoModo)) {

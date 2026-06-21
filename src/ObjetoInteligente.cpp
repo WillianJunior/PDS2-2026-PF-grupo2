@@ -346,7 +346,5 @@ bool ObjetoInteligente :: CaracteresValidos (const std::string& str) {
 }
 
 
-bool ObjetoInteligente::getRestricaoAdulto() const {
-    return restricaoAdulto;
-}
+
 

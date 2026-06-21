@@ -137,6 +137,12 @@ void Conta::criarModoPorTipo(Smarthome* smarthome, std::string nome, int tipoMod
             break;
         }
 
+        case 7: {
+            ModoEconomia modo(nome);
+            smarthome->adicionarModo(modo);
+            break;
+        }
+
         default:
             throw std::invalid_argument("Tipo de modo invalido");
     }

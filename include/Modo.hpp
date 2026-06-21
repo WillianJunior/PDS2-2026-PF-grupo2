@@ -91,4 +91,11 @@ public:
     ModoFesta(std::string nome);
     void executarInstrucao();
 };
+
+class ModoEconomia : public Modo {
+public:
+    ModoEconomia(std::string nome);
+    void executarInstrucao();
+};
+
 #endif
