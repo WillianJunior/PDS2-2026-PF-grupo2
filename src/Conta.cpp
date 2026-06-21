@@ -93,6 +93,55 @@ void Conta::criarModo(Smarthome* smarthome, std::string nome) {
     }
 }
 
+void Conta::criarModoPorTipo(Smarthome* smarthome, std::string nome, int tipoModo) {
+    if (smarthome == nullptr) {
+        throw std::invalid_argument("Smarthome invalida ao criar modo");
+    }
+
+    switch (tipoModo) {
+        case 1: {
+            std::vector<ObjetoInteligente*> objetosVazios;
+            std::vector<Comodo*> comodosVazios;
+            Modo modo(nome, objetosVazios, comodosVazios, false, false);
+            smarthome->adicionarModo(modo);
+            break;
+        }
+
+        case 2: {
+            ModoCinema modo(nome);
+            smarthome->adicionarModo(modo);
+            break;
+        }
+
+        case 3: {
+            ModoNoturno modo(nome);
+            smarthome->adicionarModo(modo);
+            break;
+        }
+
+        case 4: {
+            ModoTrabalho modo(nome);
+            smarthome->adicionarModo(modo);
+            break;
+        }
+
+        case 5: {
+            ModoAusente modo(nome);
+            smarthome->adicionarModo(modo);
+            break;
+        }
+
+        case 6: {
+            ModoFesta modo(nome);
+            smarthome->adicionarModo(modo);
+            break;
+        }
+
+        default:
+            throw std::invalid_argument("Tipo de modo invalido");
+    }
+}
+
 void Conta::apagarModo(Smarthome* smarthome, std::string nome) {
     if (smarthome != nullptr) {
         smarthome->removerModo(nome); 

@@ -112,6 +112,20 @@ public:
      */
     void criarModo(Smarthome* smarthome, std::string nome);
 
+        /**
+     * @brief Comando para criar um modo de um tipo específico.
+     * @param smarthome Smarthome em que o modo será adicionado.
+     * @param nome Nome do modo que será criado.
+     * @param tipoModo Tipo do modo a ser criado.
+     * 1 = Modo comum
+     * 2 = Modo Cinema
+     * 3 = Modo Noturno
+     * 4 = Modo Trabalho
+     * 5 = Modo Ausente
+     * 6 = Modo Festa
+     */
+    void criarModoPorTipo(Smarthome* smarthome, std::string nome, int tipoModo);
+    
     /**
      * @brief Comando para remover um modo.
      * @param smarthome Smarthome em que o modo será removido.

@@ -596,12 +596,15 @@ void Interface::exibirMenuModos(Smarthome* casa) {
                     casa->printModosInfo();
                 }
                 break;
+
             case 2: {
                 if (!usuarioLogado->isPerfilAdulto()) {
                     std::cout << "\n[ACESSO NEGADO] Controle Parental: Apenas adultos criam Modos.\n";
                     break;
                 }
+
                 std::string nomeModo;
+                int tipoModo;
                 bool sucesso = false;
                 int tentativas = 0;
 
@@ -609,31 +612,57 @@ void Interface::exibirMenuModos(Smarthome* casa) {
                     std::cout << "Digite o nome do novo modo (ex: Modo Cinema): ";
                     std::getline(std::cin, nomeModo);
 
+                    std::cout << "\nEscolha o tipo do modo:\n";
+                    std::cout << "1. Modo comum\n";
+                    std::cout << "2. Modo Cinema\n";
+                    std::cout << "3. Modo Noturno\n";
+                    std::cout << "4. Modo Trabalho\n";
+                    std::cout << "5. Modo Ausente\n";
+                    std::cout << "6. Modo Festa\n";
+                    std::cout << "Opcao: ";
+
+                    if (!(std::cin >> tipoModo)) {
+                        std::cin.clear();
+                        std::string lixo;
+                        std::getline(std::cin, lixo);
+                        std::cout << "Tipo invalido. Digite apenas numeros.\n";
+                        tentativas++;
+                        continue;
+                    }
+
+                    std::cin.ignore();
+
                     try {
-                        usuarioLogado->criarModo(casa, nomeModo);
+                        usuarioLogado->criarModoPorTipo(casa, nomeModo, tipoModo);
                         std::cout << "Modo '" << nomeModo << "' criado com sucesso!\n";
                         sucesso = true;
                     } catch (const std::invalid_argument& e) {
                         std::cerr << "Erro: " << e.what() << "\n";
-                        std::cerr << "Tentativa " << (tentativas+1) << " falhou. Tente novamente...\n";
+                        std::cerr << "Tentativa " << (tentativas + 1) << " falhou. Tente novamente...\n";
+                        tentativas++;
+                    } catch (...) {
+                        std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
                         tentativas++;
                     }
                 }
 
                 if (!sucesso) {
-                    std::cerr << "Falha após 3 tentativas.\n";
+                    std::cerr << "Falha apos 3 tentativas.\n";
                 }
 
                 break;
             }
+
             case 3: {
                 if (!usuarioLogado->isPerfilAdulto()) {
                     std::cout << "\n[ACESSO NEGADO] Controle Parental: Apenas adultos removem Modos.\n";
                     break;
                 }
+
                 std::string nomeModo;
                 std::cout << "Digite o nome do modo a ser removido: ";
                 std::getline(std::cin, nomeModo);
+
                 try {
                     usuarioLogado->apagarModo(casa, nomeModo);
                     std::cout << "Comando de remocao executado.\n";
@@ -643,8 +672,10 @@ void Interface::exibirMenuModos(Smarthome* casa) {
                 } catch (...) {
                     std::cerr << "Erro inesperado capturado. Verifique os dados e tente novamente.\n";
                 }
+
                 break;
             }
+
             case 4: {
                 std::string nomeModo;
                 std::cout << "Digite o nome exato do modo que deseja acessar: ";
@@ -653,8 +684,10 @@ void Interface::exibirMenuModos(Smarthome* casa) {
                 gerenciarModoEspecifico(casa, nomeModo);
                 break;
             }
+
             case 5:
                 return;
+
             default:
                 std::cout << "Opcao invalida! Escolha de 1 a 5.\n";
                 break;
