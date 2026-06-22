@@ -13,7 +13,7 @@ TEST_CASE("Teste 01: Inicializacao do Sensor") {
 
     Comodo comodo("sala", nullptr);
 
-    Sensor sensor("sensorTeste", true, false, comodo, objetos, modos);
+    Sensor sensor("sensorTeste", true, false, &comodo, objetos, modos);
 
     CHECK(sensor.getEstaLigado() == true);
     CHECK(sensor.getEstaAtivado() == false);
@@ -22,7 +22,7 @@ TEST_CASE("Teste 01: Inicializacao do Sensor") {
         std::vector<ObjetoInteligente*> objetos;
         std::vector<Modo*> modos;
         Comodo comodo("Sala", nullptr);
-        CHECK_THROWS_WITH(Sensor("", true, false, comodo, objetos, modos),
+        CHECK_THROWS_WITH(Sensor("", true, false, &comodo, objetos, modos),
             "Nome do Sensor nao pode ser vazio - Tente novamente...");
     }
 
@@ -31,7 +31,7 @@ TEST_CASE("Teste 01: Inicializacao do Sensor") {
         std::vector<ObjetoInteligente*> objetos;
         std::vector<Modo*> modos;
         Comodo comodo("Sala", nullptr);
-        CHECK_THROWS_WITH(Sensor(longName, true, false, comodo, objetos, modos),
+        CHECK_THROWS_WITH(Sensor(longName, true, false, &comodo, objetos, modos),
             "Nome do Sensor nao pode ter tamanho maior que 20 - Tente novamente...");
     }
 
@@ -39,7 +39,7 @@ TEST_CASE("Teste 01: Inicializacao do Sensor") {
         std::vector<ObjetoInteligente*> objetos;
         std::vector<Modo*> modos;
         Comodo comodo("Sala", nullptr);
-        CHECK_THROWS_WITH(Sensor("Sensor@", true, false, comodo, objetos, modos),
+        CHECK_THROWS_WITH(Sensor("Sensor@", true, false, &comodo, objetos, modos),
             "Nome do Sensor com usos de caracteres invalidos - Tente novamente...");
     }
 }
@@ -51,7 +51,7 @@ TEST_CASE("Teste 02: Metodo setEstaLigado") {
 
     Comodo comodo("sala", nullptr);
 
-    Sensor sensor("sensorTeste", false, false, comodo, objetos, modos);
+    Sensor sensor("sensorTeste", false, false, &comodo, objetos, modos);
 
     sensor.setEstaLigado(1);
 
@@ -65,7 +65,7 @@ TEST_CASE("Teste 03: Metodo setEstaAtivado") {
 
     Comodo comodo("sala", nullptr);
 
-    Sensor sensor("sensorTeste", true, false, comodo, objetos, modos);
+    Sensor sensor("sensorTeste", true, false, &comodo, objetos, modos);
 
     sensor.setEstaAtivado(1);
 
@@ -83,7 +83,7 @@ TEST_CASE("operador == retorna true para sensores iguais") {
         "SensorTeste",
         true,
         false,
-        comodo,
+        &comodo,
         objetos,
         modos
     );
@@ -92,7 +92,7 @@ TEST_CASE("operador == retorna true para sensores iguais") {
         "SensorTeste",
         true,
         false,
-        comodo,
+        &comodo,
         objetos,
         modos
     );
@@ -114,7 +114,7 @@ TEST_CASE("checarAmbiente encontra condicoes existentes") { //consertar inconsis
         "SensorTeste",
         true,
         true,
-        comodo,
+        &comodo,
         objetos,
         modos
     );
@@ -127,7 +127,7 @@ TEST_CASE("checarAmbiente encontra condicoes existentes") { //consertar inconsis
         std::vector<ObjetoInteligente*> objetos;
         std::vector<Modo*> modos;
         Comodo comodo("Sala", nullptr);
-        Sensor sensor("SensorTeste", true, true, comodo, objetos, modos);
+        Sensor sensor("SensorTeste", true, true, &comodo, objetos, modos);
         CHECK_THROWS_WITH(sensor.checarAmbiente(""),
             "Condicao vazia passada para checarAmbiente no Sensor SensorTeste");
     }
@@ -142,7 +142,7 @@ TEST_CASE("ativarModo ativa um modo") {
         "SensorTeste",
         true,
         true,
-        comodo,
+        &comodo,
         {},
         {}
     );
@@ -163,7 +163,7 @@ TEST_CASE("ativarModo ativa um modo") {
 
     SUBCASE("Modo nulo lança exceção") {
         Comodo comodo("Sala", nullptr);
-        Sensor sensor("SensorTeste", true, true, comodo, {}, {});
+        Sensor sensor("SensorTeste", true, true, &comodo, {}, {});
         CHECK_THROWS_WITH(sensor.ativarModo(nullptr),
             "Tentativa de ativar modo nulo pelo Sensor SensorTeste");
     }
@@ -197,7 +197,7 @@ TEST_CASE("ativarObjeto executa a funcao selecionada") {
         "SensorTeste",
         true,
         true,
-        comodo,
+        &comodo,
         {},
         {}
     );
@@ -210,7 +210,7 @@ TEST_CASE("ativarObjeto executa a funcao selecionada") {
 
     SUBCASE("Objeto nulo lança exceção") {
         Comodo comodo("Sala", nullptr);
-        Sensor sensor("SensorTeste", true, true, comodo, {}, {});
+        Sensor sensor("SensorTeste", true, true, &comodo, {}, {});
         CHECK_THROWS_WITH(sensor.ativarObjeto(nullptr, 0),
             "Tentativa de ativar objeto nulo pelo Sensor SensorTeste");
     }
@@ -220,7 +220,7 @@ TEST_CASE("ativarObjeto executa a funcao selecionada") {
         std::vector<std::function<void()>> funcoes = { [&executou]() { executou = true; } };
         ObjetoInteligente objeto("objetoTeste", false, {}, {}, "", 0.0f, funcoes, {});
         Comodo comodo("Sala", nullptr);
-        Sensor sensor("SensorTeste", true, true, comodo, {}, {});
+        Sensor sensor("SensorTeste", true, true, &comodo, {}, {});
         CHECK_THROWS_WITH(sensor.ativarObjeto(&objeto, 5),
             "Index de funcao invalido para objeto objetoTeste");
     }

@@ -24,27 +24,27 @@ TEST_CASE("TESTE 1 construtor - Smarthome") {
         true
     );
 
-    Smarthome smarthome(contaTeste, "Minha Casa");
+    Smarthome smarthome(&contaTeste, "Minha Casa");
 
     CHECK(smarthome.getNome() == "Minha Casa");
 
-    CHECK(smarthome.getUsuario().getNome() == contaTeste.getNome());
+    CHECK(smarthome.getUsuario()->getNome() == contaTeste.getNome());
 
     SUBCASE("TESTE 1.1 nome da smarthome nao pode ser vazio") {
     
-        CHECK_THROWS_WITH( Smarthome(contaTeste, ""), "Nome da SmartHome nao pode ser vazio");
+        CHECK_THROWS_WITH( Smarthome(&contaTeste, ""), "Nome da SmartHome nao pode ser vazio");
     }
 
     SUBCASE("TESTE 1.2  nome da smarthome eh longo"){
         std::string longName(21, 'A');
 
-        CHECK_THROWS_WITH(Smarthome smarthome2(contaTeste, longName), "Nome da SmartHome nao pode ter tamanho maior que 20");
+        CHECK_THROWS_WITH(Smarthome smarthome2(&contaTeste, longName), "Nome da SmartHome nao pode ter tamanho maior que 20");
     }
 
     SUBCASE("TESTE 1.3 nome da smarthome contem caracteres invalidos") {
          std::string InvalidName = "§c4s4§";
 
-        CHECK_THROWS_WITH(Smarthome (contaTeste, InvalidName), "Nome da SmartHome com usos de caracteres invalidos");
+        CHECK_THROWS_WITH(Smarthome (&contaTeste, InvalidName), "Nome da SmartHome com usos de caracteres invalidos");
     }
 }
 
@@ -60,7 +60,7 @@ TEST_CASE("TESTE 2 adicionarModo - Smarthome") {
         true
     );
 
-    Smarthome casaTeste(contaTeste, "Minha Casa");
+    Smarthome casaTeste(&contaTeste, "Minha Casa");
 
     std::vector<ObjetoInteligente*> objetos;
     std::vector<Comodo*> comodos;
@@ -90,7 +90,7 @@ TEST_CASE("TESTE 3 adicionarComodo - Smarthome") {
         true
     );
 
-    Smarthome casaTeste(contaTeste, "Minha Casa");
+    Smarthome casaTeste(&contaTeste, "Minha Casa");
 
     Comodo comodoTeste("comodoTeste", &casaTeste);
 
@@ -117,7 +117,7 @@ TEST_CASE("TESTE 4 adicionarObjeto - Smarthome") {
         true
     );
 
-    Smarthome casaTeste(contaTeste, "Minha Casa");
+    Smarthome casaTeste(&contaTeste, "Minha Casa");
 
     std::vector<Sensor*> sensores;
 
@@ -166,7 +166,7 @@ TEST_CASE("TESTE 5 removerComodo - Smarthome"){
         true
     );
 
-    Smarthome casaTeste(contaTeste, "Minha Casa");
+    Smarthome casaTeste(&contaTeste, "Minha Casa");
 
     Comodo comodoTeste("comodoTeste", &casaTeste);
 
@@ -198,7 +198,7 @@ TEST_CASE("TESTE 6 printComodosInfo - Smarthome"){
         true
     );
 
-    Smarthome casaTeste(contaTeste, "Minha Casa");
+    Smarthome casaTeste(&contaTeste, "Minha Casa");
 
     Comodo comodoTeste("comodoTeste", &casaTeste);
 
@@ -225,7 +225,7 @@ TEST_CASE("TESTE 7 printObjetosInfo - Smarthome"){
         true
     );
 
-    Smarthome casaTeste(contaTeste, "Minha Casa");
+    Smarthome casaTeste(&contaTeste, "Minha Casa");
 
     std::vector<Sensor*> sensores;
 
@@ -276,7 +276,7 @@ TEST_CASE("TESTE 8 printModosInfo - Smarthome"){
         true
     );
 
-    Smarthome casaTeste(contaTeste, "Minha Casa");
+    Smarthome casaTeste(&contaTeste, "Minha Casa");
 
     std::vector<ObjetoInteligente*> objetos;
     std::vector<Comodo*> comodos;
@@ -304,7 +304,7 @@ TEST_CASE("TESTE 8 printModosInfo - Smarthome"){
         "Comodos relacionados: 0"
     );
     SUBCASE("TESTE 8.1 smarthome sem modos nao imprime nada "){
-        Smarthome casaTeste2(contaTeste, "Minha Casa2");
+        Smarthome casaTeste2(&contaTeste, "Minha Casa2");
          // Captura a saída do cout
         std::ostringstream oss;
         std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
@@ -329,7 +329,7 @@ TEST_CASE("TESTE 9 removerObjeto - Smarthome"){
         true
     );
 
-    Smarthome casaTeste(contaTeste, "Minha Casa");
+    Smarthome casaTeste(&contaTeste, "Minha Casa");
 
 
     std::vector<Sensor*> sensores;
@@ -394,7 +394,7 @@ TEST_CASE("TESTE 10 removerModo - Smarthome"){
         true
     );
 
-    Smarthome casaTeste(contaTeste, "Minha Casa");
+    Smarthome casaTeste(&contaTeste, "Minha Casa");
 
 
     std::vector<ObjetoInteligente*> objetos;
@@ -429,7 +429,7 @@ TEST_CASE("TESTE 11 CaracteresValidos - Smarthome") {
         true
     );
 
-    Smarthome casaTeste(contaTeste, "Minha Casa");
+    Smarthome casaTeste(&contaTeste, "Minha Casa");
 
     SUBCASE("TESTE 11.5 nome valido - apenas letras e numeros") {
         CHECK(casaTeste.CaracteresValidos("Casa123") == true);

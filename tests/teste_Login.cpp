@@ -3,33 +3,33 @@
 
 TEST_CASE("Login inicia sem contas") {
 
-    std::vector<Conta> contas;
+    std::vector<std::unique_ptr<Conta>> contas;
 
-    Login login(contas);
+    Login login(std::move(contas));
 
     CHECK(login.getContasCadastradas().size() == 0);
 }
 
 TEST_CASE("Criacao de contas") {
 
-    std::vector<Conta> contas;
+    std::vector<std::unique_ptr<Conta>> contas;
 
-    Login login(contas);
+    Login login(std::move(contas));
 
     SUBCASE("Criar uma conta") {
-        Conta conta("1", "Maria", "mariapaula@email.com", "123456", true);
+        auto conta = std::make_unique<Conta>("1", "Maria", "mariapaula@email.com", "123456", true);
 
-        login.criarConta(conta);
+        login.criarConta(std::move(conta));
 
         CHECK(login.getContasCadastradas().size() == 1);
     }
 
     SUBCASE("Nao permitir email duplicado") {
-        Conta conta1("1", "Maria", "mariapaula@email.com", "123456", true);
-        Conta conta2("2", "Maria 2", "mariapaula@email.com", "abcdef", true);
+        auto conta1 = std::make_unique<Conta>("1", "Maria", "mariapaula@email.com", "123456", true);
+        auto conta2 = std:: make_unique<Conta>("2", "Maria 2", "mariapaula@email.com", "abcdef", true);
 
-        login.criarConta(conta1);
-        login.criarConta(conta2);
+        login.criarConta(std::move(conta1));
+        login.criarConta(std::move(conta2));
 
         CHECK(login.getContasCadastradas().size() == 1);
     }
@@ -37,11 +37,10 @@ TEST_CASE("Criacao de contas") {
 
 TEST_CASE("Autenticacao de contas") {
 
-    Conta conta("1", "Maria", "mariapaula@email.com", "123456", true);
+    std::vector<std::unique_ptr<Conta>> contas;
+    contas.push_back(std::make_unique<Conta>("1", "Maria", "mariapaula@email.com", "123456", true));
 
-    std::vector<Conta> contas = {conta};
-
-    Login login(contas);
+    Login login(std::move(contas));
 
     SUBCASE("Email e senha corretos") {
         CHECK(login.autenticarConta("mariapaula@email.com", "123456") == true);
@@ -64,11 +63,10 @@ TEST_CASE("Autenticacao de contas") {
 
 TEST_CASE("Bloqueio de contas") {
 
-    Conta conta("1", "Maria", "mariapaula@email.com", "123456", true);
+    std::vector<std::unique_ptr<Conta>> contas;
+    contas.push_back(std::make_unique<Conta>("1", "Maria", "mariapaula@email.com", "123456", true));
 
-    std::vector<Conta> contas = {conta};
-
-    Login login(contas);
+    Login login(std::move(contas));
 
     SUBCASE("Bloquear conta existente") {
         CHECK(login.bloquearConta("mariapaula@email.com") == true);

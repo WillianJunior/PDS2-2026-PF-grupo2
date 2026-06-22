@@ -74,13 +74,13 @@ TEST_CASE("Testando a classe Conta - Chamadas de Metodos") {
     Conta conta("1", "Admin", "admin@smart.com", "admin1234", true);
 
     Conta dono("0", "Dono", "dono@email.com", "senha123", true);
-    Smarthome sh(dono, "Casa1");
+    Smarthome sh(&dono, "Casa1");
 
     Comodo com("Sala1", &sh);
 
     SUBCASE("Metodos de manipulacao da Smarthome e Comodos") {
         conta.criarSmarthome("sh1", "Casa");
-        conta.apagarSmarthome(&sh);
+        conta.apagarSmarthome(sh);
 
         conta.criarComodo(&sh, "Sala");
         conta.apagarComodo(&sh, "Sala");

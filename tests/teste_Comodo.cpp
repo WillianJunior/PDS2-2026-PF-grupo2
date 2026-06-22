@@ -22,13 +22,13 @@ static ObjetoInteligente DummyObjetoComodo() {
     return ObjetoInteligente("ObjetoTeste", false, sensores, status, "on", consumo, funcoes, funcoesRestritas);
 }
 
-static Sensor DummySensorComodo() {
+static std:: unique_ptr <Sensor> DummySensorComodo() {
     std::vector<ObjetoInteligente*> objetosConectados;
     std::vector<Modo*> modosConectados;
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-    Smarthome smarthomeDummy(contaTeste, "MinhaCasa");
+    Smarthome smarthomeDummy(&contaTeste, "MinhaCasa");
     Comodo comodoDummy("SalaTeste", &smarthomeDummy);
-    return Sensor("SensorTeste", true, true, comodoDummy, objetosConectados, modosConectados);
+    return std:: make_unique <Sensor>("SensorTeste", true, true, &comodoDummy, objetosConectados, modosConectados);
 }
 
 static Modo DummyModoComodo() {
@@ -41,7 +41,7 @@ static Modo DummyModoComodo() {
 
 TEST_CASE("TESTE 1 construtor - Comodo") {
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-    Smarthome smarthome(contaTeste, "Minha Casa");
+    Smarthome smarthome(&contaTeste, "Minha Casa");
     Comodo comodoTeste("comodoTeste", &smarthome);
 
     CHECK(comodoTeste.getNome() == "comodoTeste");
@@ -68,7 +68,7 @@ TEST_CASE("TESTE 1 construtor - Comodo") {
 
 TEST_CASE("TESTE 2 adicionarObjeto - Comodo") {
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-    Smarthome smarthome(contaTeste, "Minha Casa");
+    Smarthome smarthome(&contaTeste, "Minha Casa");
     Comodo comodoTeste("comodoTeste", &smarthome);
 
     auto obj = DummyObjetoComodo();
@@ -94,12 +94,10 @@ TEST_CASE("TESTE 2 adicionarObjeto - Comodo") {
 
 TEST_CASE("TESTE 3 adicionarSensor - Comodo") {
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-    Smarthome smarthome(contaTeste, "Minha Casa");
+    Smarthome smarthome(&contaTeste, "Minha Casa");
     Comodo comodoTeste("comodoTeste", &smarthome);
 
-    auto sensor = DummySensorComodo();
-
-    comodoTeste.adicionarSensor(&sensor);
+    comodoTeste.adicionarSensor(DummySensorComodo()); 
 
     CHECK(comodoTeste.getSensores().size() == 1);
 
@@ -111,16 +109,16 @@ TEST_CASE("TESTE 3 adicionarSensor - Comodo") {
     }
 
     SUBCASE("TESTE 3.2 sensor repetido nao duplica") {
-        comodoTeste.adicionarSensor(&sensor);
+        comodoTeste.adicionarSensor(DummySensorComodo());
         CHECK(comodoTeste.getSensores().size() == 1);
-        CHECK_THROWS_WITH(comodoTeste.adicionarSensor(&sensor),
+        CHECK_THROWS_WITH(comodoTeste.adicionarSensor(DummySensorComodo()),
         "Sensor SensorTeste ja existe no Comodo comodoTeste");
     }
 }
 
 TEST_CASE("TESTE 4 adicionarModo - Comodo") {
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-    Smarthome smarthome(contaTeste, "Minha Casa");
+    Smarthome smarthome(&contaTeste, "Minha Casa");
     Comodo comodoTeste("comodoTeste", &smarthome);
 
     auto modo = DummyModoComodo();
@@ -146,7 +144,7 @@ TEST_CASE("TESTE 4 adicionarModo - Comodo") {
 
 TEST_CASE("TESTE 5 entrarConta - Comodo") {
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-    Smarthome smarthome(contaTeste, "Minha Casa");
+    Smarthome smarthome(&contaTeste, "Minha Casa");
     Comodo comodoTeste("comodoTeste", &smarthome);
 
     comodoTeste.entrarConta(&contaTeste);
@@ -177,7 +175,7 @@ TEST_CASE("TESTE 5 entrarConta - Comodo") {
 TEST_CASE("TESTE 6 sairConta - Comodo") {
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
     Conta contaTeste2("2", "Usuario B", "usuariob@email.com", "senha1234", true);
-    Smarthome smarthome(contaTeste, "Minha Casa");
+    Smarthome smarthome(&contaTeste, "Minha Casa");
     Comodo comodoTeste("comodoTeste", &smarthome);
     comodoTeste.entrarConta(&contaTeste);
     comodoTeste.entrarConta(&contaTeste2);
@@ -201,7 +199,7 @@ TEST_CASE("TESTE 6 sairConta - Comodo") {
 
 TEST_CASE("TESTE 7 removerObjetoPorNome - Comodo") {
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-    Smarthome smarthome(contaTeste, "Minha Casa");
+    Smarthome smarthome(&contaTeste, "Minha Casa");
     Comodo comodoTeste("comodoTeste", &smarthome);
 
     auto obj = DummyObjetoComodo();
@@ -228,7 +226,7 @@ TEST_CASE("TESTE 7 removerObjetoPorNome - Comodo") {
 
 TEST_CASE("TESTE 8 printObjetosInfo - Comodo"){
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-    Smarthome smarthome(contaTeste, "Minha Casa");
+    Smarthome smarthome(&contaTeste, "Minha Casa");
     Comodo comodoTeste("comodoTeste", &smarthome);
 
     auto obj = DummyObjetoComodo();
@@ -266,7 +264,7 @@ TEST_CASE("TESTE 8 printObjetosInfo - Comodo"){
 }
 TEST_CASE("TESTE 9 printModosInfo - Comodo" ){
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-    Smarthome smarthome(contaTeste, "Minha Casa");
+    Smarthome smarthome(&contaTeste, "Minha Casa");
     Comodo comodoTeste("comodoTeste", &smarthome);
 
     auto modo = DummyModoComodo();
@@ -309,7 +307,7 @@ TEST_CASE("TESTE 9 printModosInfo - Comodo" ){
 
 TEST_CASE("TESTE 10 printContasInfo - Comodo"){
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-    Smarthome smarthome(contaTeste, "Minha Casa");
+    Smarthome smarthome(&contaTeste, "Minha Casa");
     Comodo comodoTeste("comodoTeste", &smarthome);
 
     comodoTeste.entrarConta(&contaTeste);
@@ -344,12 +342,11 @@ TEST_CASE("TESTE 10 printContasInfo - Comodo"){
 
 TEST_CASE("TESTE 11 printSensoresInfo - Comodo"){
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-    Smarthome smarthome(contaTeste, "Minha Casa");
+    Smarthome smarthome(&contaTeste, "Minha Casa");
     Comodo comodoTeste("comodoTeste", &smarthome);
     
-    auto sensor = DummySensorComodo();
 
-    comodoTeste.adicionarSensor(&sensor);
+    comodoTeste.adicionarSensor(DummySensorComodo());
 
      // Captura a saída do cout
     std::ostringstream oss;
@@ -381,7 +378,7 @@ TEST_CASE("TESTE 11 printSensoresInfo - Comodo"){
 }
 TEST_CASE("TESTE 12 repassarInstrucao - Comodo") {
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-    Smarthome smarthome(contaTeste, "Minha Casa");
+    Smarthome smarthome(&contaTeste, "Minha Casa");
     Comodo quarto("Quarto", &smarthome);
 
     ObjetoInteligente* luz = new ObjetoInteligente
@@ -411,7 +408,7 @@ TEST_CASE("TESTE 12 repassarInstrucao - Comodo") {
 
     SUBCASE("TESTE 12.1 comodo com modo inativo nao passa instrucao"){
         Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-        Smarthome smarthome(contaTeste, "Minha Casa");
+        Smarthome smarthome(&contaTeste, "Minha Casa");
         Comodo quarto("Quarto", &smarthome);
 
         ObjetoInteligente* luz = new ObjetoInteligente
@@ -433,7 +430,7 @@ TEST_CASE("TESTE 12 repassarInstrucao - Comodo") {
     
     SUBCASE("TESTE 12.2 comodo sem conta presente nao passa instrucao"){
         Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-        Smarthome smarthome(contaTeste, "Minha Casa");
+        Smarthome smarthome(&contaTeste, "Minha Casa");
         Comodo quarto("Quarto", &smarthome);
 
         ObjetoInteligente* luz = new ObjetoInteligente
@@ -455,7 +452,7 @@ TEST_CASE("TESTE 12 repassarInstrucao - Comodo") {
 
 TEST_CASE("TESTE 13 removerModoPorNome - Comodo") {
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-    Smarthome smarthome(contaTeste, "Minha Casa");
+    Smarthome smarthome(&contaTeste, "Minha Casa");
     Comodo comodoTeste("comodoTeste", &smarthome);
 
     auto modo = DummyModoComodo();
@@ -482,12 +479,11 @@ TEST_CASE("TESTE 13 removerModoPorNome - Comodo") {
 }
 TEST_CASE("TESTE 14 removerSensorPorNome - Comodo") {
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-    Smarthome smarthome(contaTeste, "Minha Casa");
+    Smarthome smarthome(&contaTeste, "Minha Casa");
     Comodo comodoTeste("comodoTeste", &smarthome);
 
-    auto sensor = DummySensorComodo();
 
-    comodoTeste.adicionarSensor(&sensor);
+    comodoTeste.adicionarSensor(DummySensorComodo());
     CHECK(comodoTeste.getSensores().size() == 1);
 
     std::ostringstream oss;
