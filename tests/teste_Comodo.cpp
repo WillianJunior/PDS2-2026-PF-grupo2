@@ -81,7 +81,7 @@ TEST_CASE("TESTE 2 adicionarObjeto - Comodo") {
         comodoTeste.adicionarObjeto(nullptr);
         CHECK(comodoTeste.getObjetos().size() == 1);
         CHECK_THROWS_WITH(comodoTeste.adicionarObjeto(nullptr),
-        "Tentativa de adicionar objeto nulo ao Comodo "+ comodoTeste.getNome());
+        "Tentativa de adicionar objeto nulo ao Comodo comodoTeste");
     }
 
     SUBCASE("TESTE 2.2 objeto repetido nao duplica") {
@@ -222,7 +222,6 @@ TEST_CASE("TESTE 7 removerObjetoPorNome - Comodo") {
     }
 }
 
-// ---- implementação incompleta dos metodos seguintes -----
 
 TEST_CASE("TESTE 8 printObjetosInfo - Comodo"){
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
@@ -244,16 +243,23 @@ TEST_CASE("TESTE 8 printObjetosInfo - Comodo"){
     std::cout.rdbuf(oldCout);
 
     CHECK(oss.str() == 
-        "Comodo comodoTeste da smarthome: Minha Casa\n"
-        "Objetos presentes em comodoTeste :\n"
-        "");
+        "Comodo comodoTeste :\n"
+        "Objetos inteligentes presentes em comodoTeste :\n"
+        "Objeto ObjetoTeste\n"
+        "Objeto tem restrição parental? false\n"
+        "Consumo médio de energia: 5.0\n"
+        "Protocolo: ZigBee\n"
+        "Em falha? Nao\n"
+        "Sensores conectados: \n"
+        "Status possíveis: on off \n"
+        "Status atual: on");
     SUBCASE("TESTE 8.1 comodo sem objetos nao imprime nada "){
         Comodo comodoTeste2("comodoTeste2", &smarthome);
          // Captura a saída do cout
         std::ostringstream oss;
         std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
 
-        comodoTeste2.printModosInfo();
+        comodoTeste2.printObjetosInfo();
 
         // Restaura cout
         std::cout.rdbuf(oldCout);
@@ -360,7 +366,12 @@ TEST_CASE("TESTE 11 printSensoresInfo - Comodo"){
     CHECK(oss.str() == 
         "Comodo comodoTeste :\n"
         "Sensores presentes em comodoTeste :\n"
-        "");
+        "Sensor SensorTeste do cômodo SalaTeste\n"
+        "Sensor está ligado? true\n"
+        "Sensor está ativado? true\n"
+        "Objetos conectados: \n"
+        "Modos conectados: \n"
+        ); 
     SUBCASE("TESTE 11.1 comodo sem sensores nao imprime nada "){
         Comodo comodoTeste2("comodoTeste2", &smarthome);
          // Captura a saída do cout
@@ -376,11 +387,14 @@ TEST_CASE("TESTE 11 printSensoresInfo - Comodo"){
     }
 
 }
+
+// ---- implementação deve ser checada -----
+
 TEST_CASE("TESTE 12 repassarInstrucao - Comodo") {
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
     Smarthome smarthome(&contaTeste, "Minha Casa");
     Comodo quarto("Quarto", &smarthome);
-
+//troca para smart pointers
     ObjetoInteligente* luz = new ObjetoInteligente
         ("Luz", false, {}, {"Ligado","Desligado"}, "Ligado", 10.0, {}, {});
     ObjetoInteligente* abajur = new ObjetoInteligente
@@ -410,7 +424,7 @@ TEST_CASE("TESTE 12 repassarInstrucao - Comodo") {
         Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
         Smarthome smarthome(&contaTeste, "Minha Casa");
         Comodo quarto("Quarto", &smarthome);
-
+    //troca para smart pointers
         ObjetoInteligente* luz = new ObjetoInteligente
             ("Luz", false, {}, {"Ligado","Desligado"}, "Ligado", 10.0, {}, {});
 
@@ -432,7 +446,7 @@ TEST_CASE("TESTE 12 repassarInstrucao - Comodo") {
         Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
         Smarthome smarthome(&contaTeste, "Minha Casa");
         Comodo quarto("Quarto", &smarthome);
-
+        //troca para smart pointers
         ObjetoInteligente* luz = new ObjetoInteligente
             ("Luz", false, {}, {"Ligado","Desligado"}, "Ligado", 10.0, {}, {});
 
@@ -503,6 +517,9 @@ TEST_CASE("TESTE 14 removerSensorPorNome - Comodo") {
        
     }
 }
+
+// ---- implementação deve ser checada-----
+
 TEST_CASE("TESTE 15 mudarCondicao - Comodo") {
     Comodo quarto("Quarto", nullptr);
 

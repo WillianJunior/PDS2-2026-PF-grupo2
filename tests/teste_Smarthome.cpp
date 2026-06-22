@@ -92,14 +92,14 @@ TEST_CASE("TESTE 3 adicionarComodo - Smarthome") {
 
     Smarthome casaTeste(&contaTeste, "Minha Casa");
 
-    Comodo comodoTeste("comodoTeste", &casaTeste);
+    auto comodoTeste = std::make_unique<Comodo> ("comodoTeste", &casaTeste);
 
-    casaTeste.adicionarComodo(comodoTeste);
+    casaTeste.adicionarComodo(std::move(comodoTeste));
 
     CHECK(casaTeste.getQuantidadeComodos() == 1);
 
     SUBCASE("TESTE 3.1 comodo duplicado nao adiciona") {
-        casaTeste.adicionarComodo(comodoTeste);
+        casaTeste.adicionarComodo(std::move(comodoTeste));
        CHECK(casaTeste.getQuantidadeComodos() == 1);
     }
 
@@ -168,13 +168,13 @@ TEST_CASE("TESTE 5 removerComodo - Smarthome"){
 
     Smarthome casaTeste(&contaTeste, "Minha Casa");
 
-    Comodo comodoTeste("comodoTeste", &casaTeste);
+    auto comodoTeste = std::make_unique<Comodo> ("comodoTeste", &casaTeste);
 
-    casaTeste.adicionarComodo(comodoTeste);
+    casaTeste.adicionarComodo(std::move(comodoTeste));
 
     CHECK(casaTeste.getQuantidadeComodos() == 1);
 
-    casaTeste.removerComodo(comodoTeste);
+    casaTeste.removerComodo(std::move(comodoTeste)); // nao eh smart pointer no hpp ainda
 
     CHECK(casaTeste.getQuantidadeComodos() == 0);
 
@@ -200,9 +200,9 @@ TEST_CASE("TESTE 6 printComodosInfo - Smarthome"){
 
     Smarthome casaTeste(&contaTeste, "Minha Casa");
 
-    Comodo comodoTeste("comodoTeste", &casaTeste);
+    auto comodoTeste = std::make_unique<Comodo>("comodoTeste", &casaTeste);
 
-    casaTeste.adicionarComodo(comodoTeste);
+    casaTeste.adicionarComodo(std::move(comodoTeste));
 
     std::ostringstream oss;
     std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
@@ -211,7 +211,18 @@ TEST_CASE("TESTE 6 printComodosInfo - Smarthome"){
     
     std::cout.rdbuf(oldCout);
     
-    //CHECK(oss.str() == );
+    CHECK(oss.str() == "Smarthome Minha Casa de: Usuario A\n"
+    "Comodos presentes em Minha Casa :\n"
+    "comodoTeste\n"
+    "Iluminado Escuro Quente Frio Umido Seco Barulhento Silencioso\n"
+    "Comodo comodoTeste :\n"
+    "Objetos inteligentes presentes em comodoTeste :\n"
+    "Comodo comodoTeste :\n"
+    "Modos presentes em comodoTeste :\n"
+    "Comodo comodoTeste :\n"
+    "Sensores presentes em comodoTeste :\n"
+    "Comodo comodoTeste :\n"
+    "Contas presentes em comodoTeste :\n");
 }
 
 TEST_CASE("TESTE 7 printObjetosInfo - Smarthome"){
@@ -263,7 +274,16 @@ TEST_CASE("TESTE 7 printObjetosInfo - Smarthome"){
     casaTeste.printObjetosInfo();
 
     std::cout.rdbuf(oldCout);
-    //CHECK();
+    CHECK(oss.str() == "Smarthome Minha Casa de: Usuario A\n"
+    "Objetos inteligentes presentes em Minha Casa :\n"
+    "Objeto ObjetoTeste\n"
+    "Objeto tem restrição parental? false\n"
+    "Consumo médio de energia: 11.5\n"
+    "Protocolo: ZigBee\n"
+    "Em falha? Nao\n"
+    "Sensores conectados: \n"
+    "Status possíveis: Ligado Desligado \n"
+    "Status atual: Ligado\n");
 }
 TEST_CASE("TESTE 8 printModosInfo - Smarthome"){
      std::string id = "1";
@@ -407,14 +427,14 @@ TEST_CASE("TESTE 10 removerModo - Smarthome"){
 
     CHECK(casaTeste.getQuantidadeModos() == 1);
 
-    casaTeste.removerObjeto("ModoTeste");
+    casaTeste.removerModo("ModoTeste");
 
-    CHECK(casaTeste.getQuantidadeObjetos() == 0);
+    CHECK(casaTeste.getQuantidadeModos() == 0);
 
     SUBCASE("TESTE 10.1 remocao de modo nao existente na smarthome nao funciona"){
        Modo modoTeste2("ModoTeste2", objetos, comodos, true, false);
 
-        CHECK_THROWS_WITH(casaTeste.removerObjeto("ModoTeste2"), "Modo ModoTeste2 nao encontrado na smarthome Minha Casa para remocao");
+        CHECK_THROWS_WITH(casaTeste.removerModo("ModoTeste2"), "Modo ModoTeste2 nao encontrado na smarthome Minha Casa para remocao");
     }
 }
 
