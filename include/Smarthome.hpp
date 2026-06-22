@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <memory>
 #include "Comodo.hpp"
 #include "Modo.hpp"
 #include "ObjetoInteligente.hpp"
@@ -13,7 +14,7 @@ class Smarthome{
 private:
 
     Conta* usuario;
-    std::vector<Comodo> comodos;
+    std::vector<std::unique_ptr<Comodo>> comodos;
     std::vector<Modo> modos;
     std::vector<ObjetoInteligente> objetos;
     std::string nome;
@@ -38,7 +39,7 @@ public:
      * @brief Adiciona um cômodo a uma smarthome.
      * @param comodo Comodo a ser adicionado à smarthome.
      */
-    void adicionarComodo(const Comodo& comodo);
+    void adicionarComodo(std::unique_ptr<Comodo> comodo);
     /**
      * @brief Adiciona um objeto a uma smarthome.
      * @param objeto Objeto a ser adicionado à smarthome.
@@ -68,7 +69,7 @@ public:
     /**
      * @brief Retorna os comodos da smarthome.
      */
-    const std::vector<Comodo>& getComodos() const;
+    const std::vector<std::unique_ptr<Comodo>>& getComodos() const;
 
     /**
      * @brief Retorna os modos da smarthome.

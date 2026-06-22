@@ -74,13 +74,6 @@ void Conta::apagarSmarthome(const Smarthome& smarthome) {
     }
 }
 
-void Conta::criarComodo(Smarthome* smarthome, const std::string& nome) {
-    if (smarthome != nullptr) {
-        Comodo novoComodo(nome, smarthome);
-        smarthome->adicionarComodo(novoComodo);
-    }
-}
-
 void Conta::apagarComodo(Smarthome* smarthome, const std::string& nome) {
     if (smarthome != nullptr) {
         Comodo comodoRemover(nome, smarthome);

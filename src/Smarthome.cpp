@@ -37,14 +37,14 @@ void Smarthome::adicionarModo(const Modo& modo) {
     modos.push_back(modo);
 }
 
-void Smarthome::adicionarComodo(const Comodo& comodo) {
+void Smarthome::adicionarComodo(std::unique_ptr<Comodo> comodo) {
     for (const auto& c: comodos) {
         if (c == comodo) {
             std :: cout << "Comodo ja existente na SmartHome" << endl;
             return;
         }
     }
-    comodos.push_back(comodo);
+    comodos.push_back(move(comodo));
 }
 
 void Smarthome::adicionarObjeto(const ObjetoInteligente& objeto) {
@@ -115,12 +115,12 @@ void Smarthome:: printComodosInfo()const{
     std::cout << "Smarthome " << nome << " de: " << (*usuario).getNome() << endl;
     std::cout<< "Comodos presentes em "<< nome << " :" << endl;
     for(size_t i=0; i<comodos.size(); i++){
-        comodos[i].getNome();
-        comodos[i].getCondicoesDoComodo();
-        comodos[i].printObjetosInfo(); 
-        comodos[i].printModosInfo();
-        comodos[i].printSensoresInfo();
-        comodos[i].printContasInfo();
+        comodos[i]->getNome();
+        comodos[i]->getCondicoesDoComodo();
+        comodos[i]->printObjetosInfo(); 
+        comodos[i]->printModosInfo();
+        comodos[i]->printSensoresInfo();
+        comodos[i]->printContasInfo();
         std::cout << endl;
     }
 }
@@ -153,8 +153,8 @@ bool Smarthome :: CaracteresValidos (const std::string& str) {
 }
 Comodo* Smarthome::getComodo(std::string nomeComodo) {
     for (auto& c : comodos) {
-        if (c.getNome() == nomeComodo) {
-            return &c;
+        if (c->getNome() == nomeComodo) {
+            return c.get();
         }
     }
     return nullptr;
@@ -168,7 +168,7 @@ Modo* Smarthome::getModo(std::string nomeModo) {
     return nullptr;
 }
 
-const std::vector<Comodo>& Smarthome::getComodos() const {
+const std::vector<std::unique_ptr<Comodo>>& Smarthome::getComodos() const {
     return comodos;
 }
 

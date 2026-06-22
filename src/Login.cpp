@@ -13,7 +13,7 @@ void Login::criarConta(std::unique_ptr<Conta> contaNova) {
         }
     }
 
-    contas.push_back(contaNova);
+    contas.push_back(move(contaNova));
 }
 
 bool Login::autenticarConta(std::string email, std::string senha) {
