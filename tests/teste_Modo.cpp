@@ -3,6 +3,8 @@
 #include "Modo.hpp"
 #include "ObjetoInteligente.hpp"
 #include "Comodo.hpp"
+#include "Smarthome.hpp"
+#include "Conta.hpp"
 
 TEST_CASE("Construtor do Modo") {
 
@@ -119,7 +121,7 @@ TEST_CASE("Modo executa e e desfaz instrucao"){
 
 TEST_CASE("Associacao de comodos aos modos") {
 
-    Conta usuario("1", "Maria", "maria@gmail.com", "12345678");
+    Conta usuario("1", "Maria", "maria@gmail.com", "12345678", true);
     Smarthome casa(&usuario, "Casa");
 
     Comodo sala("Sala", &casa);
@@ -158,7 +160,7 @@ TEST_CASE("Associacao de comodos aos modos") {
 
 TEST_CASE("Remocao de comodos dos modos") {
 
-    Conta usuario("1", "Maria", "maria@gmail.com", "12345678");
+    Conta usuario("1", "Maria", "maria@gmail.com", "12345678", true);
     Smarthome casa(&usuario, "Casa");
 
     Comodo sala("Sala", &casa);
