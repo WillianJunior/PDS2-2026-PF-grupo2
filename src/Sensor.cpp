@@ -115,10 +115,12 @@ void Sensor :: printSensorInfo() const{
     for (auto* obj : objetosConectados) {
         std::cout << obj->getNome();
     }
+    std::cout<<std::endl;
     std::cout << "Modos conectados: "; 
     for (auto* modo : modosConectados) {
         std::cout << modo->getNome();
     }
+    std::cout<<std::endl;
 }
 
 bool Sensor :: CaracteresValidos (const std::string& str) {
