@@ -174,7 +174,7 @@ TEST_CASE("TESTE 5 removerComodo - Smarthome"){
 
     CHECK(casaTeste.getQuantidadeComodos() == 1);
 
-    casaTeste.removerComodo(std::move(comodoTeste)); // nao eh smart pointer no hpp ainda
+    casaTeste.removerComodo(*comodoTeste); // nao eh smart pointer no hpp ainda
 
     CHECK(casaTeste.getQuantidadeComodos() == 0);
 
