@@ -32,6 +32,57 @@ O desenvolvimento deste sistema é impulsionado pelo desafio de resolver problem
 6.  **Automação Inteligente**: Uso de sensores e modos pré-definidos (Modo Cinema, Noturno, Ausente, Trabalho, Festa e Economia) para otimizar o funcionamento da residência.
 7.  **Monitoramento Energético**: Visualização em forma de relatórios do consumo elétrico da casa.
 8.  **Gerenciamento Seguro de Memória**: Utilização de smart pointers na arquitetura para garantir o gerenciamento e o ciclo de vida correto dos objetos de forma dinâmica, prevenindo vazamentos de memória (memory leaks).
+9.  **Programação Defensiva**: Tratamento de exceções e sanitização rigorosa dos parâmetros de entrada para garantir a estabilidade do sistema.
+
+---
+
+## Como Compilar e Executar
+
+O projeto foi estruturado para ser compilado utilizando `Makefile`, garantindo a modularização correta do código e a geração de relatórios de cobertura de testes.
+
+### Pré-requisitos
+Certifique-se de ter instalado em seu ambiente:
+* Compilador GCC (`g++`) com suporte ao padrão C++17.
+* A ferramenta `make`.
+* A biblioteca `gcovr` (necessária para gerar o relatório de cobertura dos testes).
+
+### Executando o Sistema Principal
+
+Para compilar e rodar o programa Smart Home:
+
+```bash
+# Compila o código-fonte e gera o executável
+make
+
+# Executa o programa principal
+./build/sistema
+```
+
+### Executando os Testes e Gerando Coverage
+
+O sistema possui uma suíte de testes automatizados com verificação de cobertura (coverage). 
+
+```bash
+# Compila os testes, executa-os e gera o relatório de coverage
+make test
+```
+*Nota: Após a execução, além do resultado no terminal, um relatório detalhado em HTML será gerado. Você pode visualizá-lo abrindo o arquivo `build/coverage.html` no seu navegador.*
+
+### Limpeza dos Arquivos Compilados
+
+Para remover a pasta `build/`, os executáveis e os arquivos temporários de coverage (`.gcda`, `.gcno`, `.gcov`):
+
+```bash
+make clean
+```
+
+### Documentação Doxygen
+A documentação completa dos métodos e classes pode ser gerada automaticamente:
+
+```bash
+# Gerar a documentação na pasta design/
+doxygen Doxyfile
+```
 
 ---
 
@@ -65,6 +116,7 @@ Localizados na pasta `src/`:
 ├── build/             # Arquivos gerados e temporários
 ├── include/           # Arquivos de cabeçalho (.hpp)
 ├── src/               # Implementações (.cpp)
-├── design/            # PDF documentação de design e Doxygen
-├── tests/             # Testes
+├── design/            # PDF documentação de design (User Stories, Cartões CRC) e Doxygen
+├── tests/             # Suíte de testes automatizados
 └── README.md          # Documentação principal
+```
