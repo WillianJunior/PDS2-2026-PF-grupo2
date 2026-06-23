@@ -39,7 +39,7 @@ void Smarthome::adicionarModo(const Modo& modo) {
 
 void Smarthome::adicionarComodo(std::unique_ptr<Comodo> comodo) {
     for (const auto& c: comodos) {
-        if (c == comodo) {
+        if (*c == *comodo) {
             std :: cout << "Comodo ja existente na SmartHome" << endl;
             return;
         }
@@ -57,7 +57,10 @@ void Smarthome::adicionarObjeto(const ObjetoInteligente& objeto) {
     objetos.push_back(objeto);
 }
 void Smarthome :: removerComodo(const Comodo& comodo){
-    auto it = std::find(comodos.begin(), comodos.end(), comodo);
+     auto it = std::find_if(comodos.begin(), comodos.end(),
+        [&](const std::unique_ptr<Comodo>& c) {
+            return *c == comodo; // compara objeto apontado com referência
+        });
     if (it != comodos.end()) {
         comodos.erase(it);
     }
