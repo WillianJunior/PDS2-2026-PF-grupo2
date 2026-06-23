@@ -75,18 +75,21 @@ public:
 
 class Luz : public ObjetoInteligente {
 public:
+    using ObjetoInteligente::setStatusAtual;
     Luz(std::string nome);
     void setStatusAtual(int indexStatus);
 };
 
 class CaixaDeSom : public ObjetoInteligente {
 public:
+    using ObjetoInteligente::setStatusAtual;
     CaixaDeSom(std::string nome);
     void setStatusAtual(int indexStatus);
 };
 
 class TV : public ObjetoInteligente {
 public:
+    using ObjetoInteligente::setStatusAtual;
     TV(std::string nome);
     void ligar();
     void desligar();
@@ -97,6 +100,7 @@ private:
     float temperatura;
 
 public:
+    using ObjetoInteligente::setStatusAtual;
     ArCondicionado(std::string nome);
     void resfriar();
     void aquecer();
@@ -107,6 +111,7 @@ public:
 
 class Portao : public ObjetoInteligente {
 public:
+    using ObjetoInteligente::setStatusAtual;
     Portao(std::string nome);
     void abrir();
     void fechar();
@@ -117,6 +122,7 @@ private:
     float temperaturaAtual;
 
 public:
+    using ObjetoInteligente::setStatusAtual;
     Termostato(std::string nome);
     void setTemperaturaAtual(float temperatura);
     float getTemperaturaAtual() const;
