@@ -27,8 +27,11 @@ O desenvolvimento deste sistema é impulsionado pelo desafio de resolver problem
 1.  **Gestão de Perfis e Segurança**: Criação de contas com validação e sistema de login.
 2.  **Controle Parental**: Restrição de funcionalidades de dispositivos baseada na classificação do perfil (Adulto vs. Infantil).
 3.  **Organização Espacial**: Gerenciamento de dispositivos por cômodos para facilitar a interação do usuário.
-4.  **Automação Inteligente**: Uso de sensores e modos pré-definidos para otimizar o funcionamento da residência.
-5.  **Monitoramento Energético**: Visualização em forma de relatórios do consumo elétrico da casa.
+4.  **Controle de Dispositivos Específicos**: Suporte e gerenciamento para múltiplos tipos de objetos inteligentes, incluindo Luz, TV, Caixa de Som, Ar-condicionado, Portão e Termostato.
+5.  **Protocolos de Conexão**: Implementação de diferentes tecnologias de pareamento e comunicação nos dispositivos através dos protocolos Wi-Fi, Bluetooth e ZigBee.
+6.  **Automação Inteligente**: Uso de sensores e modos pré-definidos (Modo Cinema, Noturno, Ausente, Trabalho, Festa e Economia) para otimizar o funcionamento da residência.
+7.  **Monitoramento Energético**: Visualização em forma de relatórios do consumo elétrico da casa.
+8.  **Gerenciamento Seguro de Memória**: Utilização de smart pointers na arquitetura para garantir o gerenciamento e o ciclo de vida correto dos objetos de forma dinâmica, prevenindo vazamentos de memória (memory leaks).
 
 ---
 
