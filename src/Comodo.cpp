@@ -169,7 +169,11 @@ void Comodo::sairConta() {
 
 void Comodo::repassarInstrucao( Modo* modo) {
      
-    if (contasPresentes.empty()) return;
+    if (contasPresentes.empty()) {
+        std::cout << "Aviso: Nenhuma conta presente no Comodo " << nome 
+                  << " - instrução do modo não foi repassada." << std::endl;
+        return;
+    }
 
     if(modo == nullptr){
         throw std::invalid_argument("Modo invalido (nullptr) ao repassar instrucao no Comodo " + nome);
