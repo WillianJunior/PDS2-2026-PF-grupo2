@@ -133,36 +133,68 @@ class Modo {
         virtual ~Modo() = default;
 };
 
+/**
+ * @class ModoNoturno
+ * @brief Representa o modo noturno da smarthohome.
+ * Desliga todos objetos relacionados.
+ */
+
 class ModoNoturno : public Modo {
     public:
         ModoNoturno(std::string nome);
         void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
 
+/**
+ * @class Modo Cinema
+ * @brief Representa o modo cinema da smarthome.
+ * Desliga a luz, liga a TV e a caixa de som.
+ */
 class ModoCinema : public Modo {
 public:
     ModoCinema(std::string nome);
     void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
 
+
+/**
+ * @class ModoTrabalho
+ * @brief Representa o modo de trabalho da smarthome.
+ * Liga a luz, o ar condicionado e desliga a TV.
+ */
 class ModoTrabalho : public Modo {
 public:
     ModoTrabalho(std::string nome);
     void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
 
+/**
+ * @class ModoAusente
+ * @brief Representa o modo ausente da smarthome.
+ * Fecha o portão, apaga a luz, desliga a tv, caixa de som e ar condicionado.
+ */
 class ModoAusente : public Modo {
 public:
     ModoAusente(std::string nome);
     void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
 
+/**
+ * @class ModoFesta
+ * @brief Representa o modo festa da smarthome.
+ * Liga a caixa de som, a luz e a tv.
+ */
 class ModoFesta : public Modo {
 public:
     ModoFesta(std::string nome);
     void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
 
+/**
+ * @class ModoEconomia
+ * @brief Representa o modo de economia de energia da smarthome.
+ * Desliga a luz, ar condicionado, caixa de som e tv.
+ */
 class ModoEconomia : public Modo {
 public:
     ModoEconomia(std::string nome);
