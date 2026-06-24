@@ -109,8 +109,21 @@ bool Sensor :: operator== (const Sensor& other) const{
 
 void Sensor :: printSensorInfo() const{
     std::cout << "Sensor " << this->nome << " do cômodo " << (*comodoPertencente).getNome() << std::endl;
-    std::cout << "Sensor está ligado? " << this->getEstaLigado() << std::endl;
-    std::cout << "Sensor está ativado? " << this->getEstaAtivado() << std::endl;
+    std::string ligado, ativado;
+    if(this-> getEstaLigado()){
+        ligado = "Sim";
+    }
+    else{
+        ligado = "Nao";
+    }
+    std::cout << "Sensor está ligado? " << ligado << std::endl;
+    if(this-> getEstaAtivado()){
+        ativado = "Sim";
+    }
+    else{
+        ativado = "Nao";
+    }
+    std::cout << "Sensor está ativado? " << ativado << std::endl;
     std::cout << "Objetos conectados: "; 
     for (auto* obj : objetosConectados) {
         std::cout << obj->getNome();
