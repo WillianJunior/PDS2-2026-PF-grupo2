@@ -125,10 +125,10 @@ void Interface::exibirMenuConta() {
         case 2:
             exibirMenuSmarthome();
             break;
-        // case 3: não há método reset() na classe conta
-        //     usuarioLogado->reset();
-        //     std::cout << "\nLogout efetuado com sucesso.\n";
-        //     break;
+        case 3: 
+            usuarioLogado = nullptr;
+            std::cout << "\nLogout efetuado com sucesso.\n";
+            break;
         default:
             std::cout << "\nOpcao invalida! Escolha 1, 2 ou 3.\n";
             break;
