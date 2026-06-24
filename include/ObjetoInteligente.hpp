@@ -8,6 +8,7 @@
 class Sensor;
 
 /**
+ * @class ObjetoInteligente
  * @brief Classe para definir como o objeto está operando.
  */
 enum class Protocolo {
@@ -16,6 +17,11 @@ enum class Protocolo {
     ZIGBEE
 };
 
+
+/**
+ * @class ObjetoInteligente
+ * @brief Representa um objeto inteligente com suas propriedades, funções, sensores, entre outros elementos relacionados.
+ */
 
 class ObjetoInteligente {
 protected:
@@ -114,6 +120,10 @@ public:
     bool getRestricaoAdulto() const;
 };
 
+/**
+ * @class Luz.
+ * @brief Subclasse de objeto, que representa uma luz. 
+ */
 class Luz : public ObjetoInteligente {
 public:
     using ObjetoInteligente::setStatusAtual;
@@ -121,6 +131,10 @@ public:
     void setStatusAtual(int indexStatus);
 };
 
+/**
+ * @class Caixa.
+ * @brief Subclasse de objeto, que representa uma caixa de som. 
+ */
 class CaixaDeSom : public ObjetoInteligente {
 public:
     using ObjetoInteligente::setStatusAtual;
@@ -128,6 +142,10 @@ public:
     void setStatusAtual(int indexStatus);
 };
 
+/**
+ * @class TV.
+ * @brief Subclasse de objeto, que representa uma televisão. 
+ */
 class TV : public ObjetoInteligente {
 public:
     using ObjetoInteligente::setStatusAtual;
@@ -136,6 +154,10 @@ public:
     void desligar();
 };
 
+/**
+ * @class ArCondicionado.
+ * @brief Subclasse de objeto, que representa um ar condicionado. 
+ */
 class ArCondicionado : public ObjetoInteligente {
 private:
     float temperatura;
@@ -150,6 +172,11 @@ public:
     float getTemperatura() const;
 };
 
+
+/**
+ * @class Portao.
+ * @brief Subclasse de objeto, que representa um portão. 
+ */
 class Portao : public ObjetoInteligente {
 public:
     using ObjetoInteligente::setStatusAtual;
@@ -158,6 +185,11 @@ public:
     void fechar();
 };
 
+
+/**
+ * @class Termostato.
+ * @brief Subclasse de objeto, que representa um termostato. 
+ */
 class Termostato : public ObjetoInteligente {
 private:
     float temperaturaAtual;
