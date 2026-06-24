@@ -257,8 +257,20 @@ public:
 class Portao : public ObjetoInteligente {
 public:
     using ObjetoInteligente::setStatusAtual;
+
+    /**
+     * @brief Construtor da subclasse.
+     */
     Portao(std::string nome);
+
+    /**
+     * @brief Abre o portão.
+     */
     void abrir();
+
+    /**
+     * @brief Fecha o paortão.
+     */
     void fechar();
 };
 
@@ -269,15 +281,44 @@ public:
  */
 class Termostato : public ObjetoInteligente {
 private:
+
+    /**
+     * @brief Armazena a temperatura atual.
+     */
     float temperaturaAtual;
 
 public:
+
     using ObjetoInteligente::setStatusAtual;
+
+    /**
+     * @brief Construtor da subclasse.
+     */
     Termostato(std::string nome);
+
+    /**
+     * @brief Define a temperatura atual.
+     */
     void setTemperaturaAtual(float temperatura);
+
+    /**
+     * @brief Retorna a temperatura atual.
+     */
     float getTemperaturaAtual() const;
+
+    /**
+     * @brief Define o status como normal.
+     */
     void normalizar();
+
+    /**
+     * @brief Define o status como aquecendo.
+     */
     void aquecer();
+
+    /**
+     * @brief Define o status como resfriandp.
+     */
     void resfriar();
 };
 #endif
