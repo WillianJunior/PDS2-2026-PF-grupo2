@@ -3,6 +3,8 @@
 #include "Sensor.hpp"
 #include "ObjetoInteligente.hpp"
 #include "Modo.hpp"
+#include "Smarthome.hpp"
+#include "Conta.hpp"
 
 #include <vector>
 
@@ -10,8 +12,9 @@ TEST_CASE("Teste 01: Inicializacao do Sensor") {
 
     std::vector<ObjetoInteligente*> objetos;
     std::vector<Modo*> modos;
-
-    Comodo comodo("sala", nullptr);
+    Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+    Smarthome smarthome(&contaTeste, "Minha Casa");
+    Comodo comodo("Sala", &smarthome);
 
     Sensor sensor("sensorTeste", true, false, &comodo, objetos, modos);
 
@@ -21,7 +24,7 @@ TEST_CASE("Teste 01: Inicializacao do Sensor") {
     SUBCASE("Nome vazio lança exceção") {
         std::vector<ObjetoInteligente*> objetos;
         std::vector<Modo*> modos;
-        Comodo comodo("Sala", nullptr);
+        Comodo comodo("Sala", &smarthome);
         CHECK_THROWS_WITH(Sensor("", true, false, &comodo, objetos, modos),
             "Nome do Sensor nao pode ser vazio - Tente novamente...");
     }
@@ -30,7 +33,7 @@ TEST_CASE("Teste 01: Inicializacao do Sensor") {
         std::string longName(25, 'A');
         std::vector<ObjetoInteligente*> objetos;
         std::vector<Modo*> modos;
-        Comodo comodo("Sala", nullptr);
+        Comodo comodo("Sala", &smarthome);
         CHECK_THROWS_WITH(Sensor(longName, true, false, &comodo, objetos, modos),
             "Nome do Sensor nao pode ter tamanho maior que 20 - Tente novamente...");
     }
@@ -38,7 +41,7 @@ TEST_CASE("Teste 01: Inicializacao do Sensor") {
     SUBCASE("Nome com caracteres inválidos lança exceção") {
         std::vector<ObjetoInteligente*> objetos;
         std::vector<Modo*> modos;
-        Comodo comodo("Sala", nullptr);
+        Comodo comodo("Sala", &smarthome);
         CHECK_THROWS_WITH(Sensor("Sensor@", true, false, &comodo, objetos, modos),
             "Nome do Sensor com usos de caracteres invalidos - Tente novamente...");
     }
@@ -48,8 +51,9 @@ TEST_CASE("Teste 02: Metodo setEstaLigado") {
 
     std::vector<ObjetoInteligente*> objetos;
     std::vector<Modo*> modos;
-
-    Comodo comodo("sala", nullptr);
+    Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+    Smarthome smarthome(&contaTeste, "Minha Casa");
+    Comodo comodo("Sala", &smarthome);
 
     Sensor sensor("sensorTeste", false, false, &comodo, objetos, modos);
 
@@ -63,7 +67,9 @@ TEST_CASE("Teste 03: Metodo setEstaAtivado") {
     std::vector<ObjetoInteligente*> objetos;
     std::vector<Modo*> modos;
 
-    Comodo comodo("sala", nullptr);
+    Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+    Smarthome smarthome(&contaTeste, "Minha Casa");
+    Comodo comodo("Sala", &smarthome);
 
     Sensor sensor("sensorTeste", true, false, &comodo, objetos, modos);
 
@@ -77,7 +83,9 @@ TEST_CASE("operador == retorna true para sensores iguais") {
     std::vector<ObjetoInteligente*> objetos;
     std::vector<Modo*> modos;
 
-    Comodo comodo("Sala", nullptr);
+    Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+    Smarthome smarthome(&contaTeste, "Minha Casa");
+    Comodo comodo("Sala", &smarthome);
 
     Sensor sensor1(
         "SensorTeste",
@@ -104,11 +112,12 @@ TEST_CASE("checarAmbiente encontra condicoes existentes") { //consertar inconsis
 
     std::vector<ObjetoInteligente*> objetos;
     std::vector<Modo*> modos;
+    Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+    Smarthome smarthome(&contaTeste, "Minha Casa");
+    Comodo comodo("Sala", &smarthome);
 
-    Comodo comodo("Sala", nullptr);
-
-    comodo.adicionarCondicao("quente");
-    comodo.adicionarCondicao("iluminado");
+    comodo.adicionarCondicao("Quente");
+    comodo.adicionarCondicao("Iluminado");
 
     Sensor sensor(
         "SensorTeste",
@@ -119,9 +128,9 @@ TEST_CASE("checarAmbiente encontra condicoes existentes") { //consertar inconsis
         modos
     );
 
-    CHECK(sensor.checarAmbiente("quente"));
-    CHECK(sensor.checarAmbiente("iluminado"));
-    CHECK_FALSE(sensor.checarAmbiente("frio"));
+    CHECK(sensor.checarAmbiente("Quente"));
+    CHECK(sensor.checarAmbiente("Iluminado"));
+    CHECK_FALSE(sensor.checarAmbiente("Frio"));
 
     SUBCASE("Condicao vazia lança exceção") {
         std::vector<ObjetoInteligente*> objetos;
@@ -135,8 +144,9 @@ TEST_CASE("checarAmbiente encontra condicoes existentes") { //consertar inconsis
 }
 
 TEST_CASE("ativarModo ativa um modo") {
-
-    Comodo comodo("Sala", nullptr);
+    Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+    Smarthome smarthome(&contaTeste, "Minha Casa");
+    Comodo comodo("Sala", &smarthome);
 
     Sensor sensor(
         "SensorTeste",
@@ -162,7 +172,9 @@ TEST_CASE("ativarModo ativa um modo") {
     CHECK(modo.getAtivoModo());
 
     SUBCASE("Modo nulo lança exceção") {
-        Comodo comodo("Sala", nullptr);
+        Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+        Smarthome smarthome(&contaTeste, "Minha Casa");
+        Comodo comodo("Sala", &smarthome);
         Sensor sensor("SensorTeste", true, true, &comodo, {}, {});
         CHECK_THROWS_WITH(sensor.ativarModo(nullptr),
             "Tentativa de ativar modo nulo pelo Sensor SensorTeste");
@@ -191,7 +203,9 @@ TEST_CASE("ativarObjeto executa a funcao selecionada") {
         {}
     );
 
-    Comodo comodo("Sala", nullptr);
+    Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+    Smarthome smarthome(&contaTeste, "Minha Casa");
+    Comodo comodo("Sala", &smarthome);
 
     Sensor sensor(
         "SensorTeste",
@@ -209,7 +223,9 @@ TEST_CASE("ativarObjeto executa a funcao selecionada") {
     CHECK(executou);
 
     SUBCASE("Objeto nulo lança exceção") {
-        Comodo comodo("Sala", nullptr);
+        Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+        Smarthome smarthome(&contaTeste, "Minha Casa");
+        Comodo comodo("Sala", &smarthome);;
         Sensor sensor("SensorTeste", true, true, &comodo, {}, {});
         CHECK_THROWS_WITH(sensor.ativarObjeto(nullptr, 0),
             "Tentativa de ativar objeto nulo pelo Sensor SensorTeste");
@@ -219,7 +235,9 @@ TEST_CASE("ativarObjeto executa a funcao selecionada") {
         bool executou = false;
         std::vector<std::function<void()>> funcoes = { [&executou]() { executou = true; } };
         ObjetoInteligente objeto("objetoTeste", false, {}, {}, "", 0.0f, funcoes, {});
-        Comodo comodo("Sala", nullptr);
+        Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+        Smarthome smarthome(&contaTeste, "Minha Casa");
+        Comodo comodo("Sala", &smarthome);
         Sensor sensor("SensorTeste", true, true, &comodo, {}, {});
         CHECK_THROWS_WITH(sensor.ativarObjeto(&objeto, 5),
             "Index de funcao invalido para objeto objetoTeste");

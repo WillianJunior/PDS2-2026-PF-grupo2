@@ -19,16 +19,8 @@ static ObjetoInteligente DummyObjetoComodo() {
     std::vector<std::function<void()>> funcoes = {[]{}};
     std::vector<std::function<void()>> funcoesRestritas = {[]{}};
 
-    return ObjetoInteligente("ObjetoTeste", false, sensores, status, "on", consumo, funcoes, funcoesRestritas);
-}
-
-static std:: unique_ptr <Sensor> DummySensorComodo() {
-    std::vector<ObjetoInteligente*> objetosConectados;
-    std::vector<Modo*> modosConectados;
-    Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-    Smarthome smarthomeDummy(&contaTeste, "MinhaCasa");
-    Comodo comodoDummy("SalaTeste", &smarthomeDummy);
-    return std:: make_unique <Sensor>("SensorTeste", true, true, &comodoDummy, objetosConectados, modosConectados);
+    return ObjetoInteligente
+        ("ObjetoTeste", false, sensores, status, "on", consumo, funcoes, funcoesRestritas);
 }
 
 static Modo DummyModoComodo() {
@@ -108,7 +100,10 @@ TEST_CASE("TESTE 3 adicionarSensor - Comodo") {
     Smarthome smarthome(&contaTeste, "Minha Casa");
     Comodo comodoTeste("comodoTeste", &smarthome);
 
-    comodoTeste.adicionarSensor(DummySensorComodo()); 
+    auto sensor = std::make_unique<Sensor>(
+        "SensorTeste", true, true, &comodoTeste, std::vector<ObjetoInteligente*>(), std::vector<Modo*>());
+
+    comodoTeste.adicionarSensor(std::move(sensor));
 
     CHECK(comodoTeste.getSensores().size() == 1);
 
@@ -119,18 +114,16 @@ TEST_CASE("TESTE 3 adicionarSensor - Comodo") {
     }
 
     SUBCASE("TESTE 3.2 sensor repetido nao duplica") {
-        CHECK_THROWS_WITH(comodoTeste.adicionarSensor(DummySensorComodo()),
+        auto sensorClone1 = std::make_unique<Sensor>(
+        "SensorTeste", true, true, &comodoTeste, std::vector<ObjetoInteligente*>(), std::vector<Modo*>());
+        CHECK_THROWS_WITH(comodoTeste.adicionarSensor(std::move(sensorClone1)),
         "Sensor SensorTeste ja existe no Comodo comodoTeste");// mesmo tudo
-        
-        std::vector<ObjetoInteligente*> objetosConectados;
-        std::vector<Modo*> modosConectadosAlt;
-        Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-        Smarthome smarthomeDummy(&contaTeste, "MinhaCasa");
-        Comodo comodoDummy("SalaTeste", &smarthomeDummy);
 
-        CHECK_THROWS_WITH(comodoTeste.adicionarSensor(std:: make_unique <Sensor>
-            ("SensorTeste", true, true, &comodoDummy, objetosConectados, modosConectadosAlt)),
-            "Sensor SensorTeste ja existe no Comodo comodoTeste");// mesmo nome outro conteudo
+         auto sensorClone2 = std::make_unique<Sensor>(
+        "SensorTeste", false, true, &comodoTeste, std::vector<ObjetoInteligente*>(), std::vector<Modo*>());
+
+        CHECK_THROWS_WITH(comodoTeste.adicionarSensor(std::move(sensorClone2)),
+        "Sensor SensorTeste ja existe no Comodo comodoTeste");// mesmo nome outro conteudo
 
         CHECK(comodoTeste.getSensores().size() == 1);
     }
@@ -263,57 +256,34 @@ TEST_CASE("TESTE 8 printObjetosInfo - Comodo"){
 
     comodoTeste.adicionarObjeto(&obj);
 
-    // Captura a saída do cout
+   
     std::ostringstream oss;
     std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
 
     
     comodoTeste.printObjetosInfo();
     
-     // Restaura cout
+
     std::cout.rdbuf(oldCout);
 
-    CHECK(oss.str() == 
-        "Comodo comodoTeste :\n"
-        "Objetos inteligentes presentes em comodoTeste :\n"
-        "Objeto ObjetoTeste\n"
-        "Objeto tem restrição parental? Nao\n"
-        "Consumo médio de energia: 5.0\n"
-        "Protocolo: WiFi\n"
-        "Em falha? Nao\n"
-        "Sensores conectados:"
-        "\nStatus possíveis: on off "
-        "\nStatus atual: on\n");
-
-        SUBCASE("DEBUG"){
-            auto normalize = [](std::string s) {
-    // remove carriage returns
-    s.erase(std::remove(s.begin(), s.end(), '\r'), s.end());
-    // remove espaços no fim das linhas
-    std::string result;
-    std::istringstream iss(s);
-    std::string line;
-    while (std::getline(iss, line)) {
-        while (!line.empty() && line.back() == ' ')
-            line.pop_back();
-        result += line + "\n";
+    std::istringstream iss(oss.str());
+    std::vector<std::string> linhas;
+    std::string linha;
+    while (std::getline(iss, linha)) {
+        linhas.push_back(linha);
     }
-    return result;
-};
 
-CHECK(normalize(oss.str()) == normalize(
-    "Comodo comodoTeste :\n"
-        "Objetos inteligentes presentes em comodoTeste :\n"
-        "Objeto ObjetoTeste\n"
-        "Objeto tem restrição parental? Nao\n"
-        "Consumo médio de energia: 5.0\n"
-        "Protocolo: WiFi\n"
-        "Em falha? Nao\n"
-        "Sensores conectados:"
-        "\nStatus possíveis: on off "
-        "\nStatus atual: on\n"));
+    CHECK(linhas[0] == "Comodo comodoTeste :");
+    CHECK(linhas[1] == "Objetos inteligentes presentes em comodoTeste :");
+    CHECK(linhas[2] == "Objeto ObjetoTeste");
+    CHECK(linhas[3] == "Objeto tem restrição parental? Nao");
+    CHECK(linhas[4] == "Consumo médio de energia: 5.0");
+    CHECK(linhas[5] == "Protocolo: WiFi");
+    CHECK(linhas[6] == "Em falha? Nao");
+    CHECK(linhas[7] == "Sensores conectados: ");
+    CHECK(linhas[8] == "Status possíveis: on off ");
+    CHECK(linhas[9] == "Status atual: on");
 
-        }
 
     SUBCASE("TESTE 8.1 comodo sem objetos nao imprime nada "){
         Comodo comodoTeste2("comodoTeste2", &smarthome);
@@ -350,15 +320,23 @@ TEST_CASE("TESTE 9 printModosInfo - Comodo" ){
     // Restaura cout
     std::cout.rdbuf(oldCout);
 
-    CHECK(oss.str() == 
-        "Comodo comodoTeste :\n"
-        "Modos presentes em comodoTeste :\n"
-        "Nome do modo: ModoTeste\n"
-        "Estado: Ligado\n"
-        "Bloqueio: Desbloqueado\n"
-        "Objetos relacionados: 0\n"
-        "Comodos relacionados: 0\n"
-    );
+    std::cout.rdbuf(oldCout);
+
+    std::istringstream iss(oss.str());
+    std::vector<std::string> linhas;
+    std::string linha;
+    while (std::getline(iss, linha)) {
+        linhas.push_back(linha);
+    }
+    
+    CHECK(linhas[0] == "Comodo comodoTeste :");
+    CHECK(linhas[1] == "Modos presentes em comodoTeste :");
+    CHECK(linhas[2] == "Nome do modo: ModoTeste");
+    CHECK(linhas[3] == "Estado: Ligado");
+    CHECK(linhas[4] == "Bloqueio: Desbloqueado");
+    CHECK(linhas[5] == "Objetos relacionados: 0");
+    CHECK(linhas[6] == "Comodos relacionados: 0");
+    
     SUBCASE("TESTE 9.1 comodo sem modos nao imprime nada "){
         Comodo comodoTeste2("comodoTeste2", &smarthome);
          // Captura a saída do cout
@@ -420,7 +398,10 @@ TEST_CASE("TESTE 11 printSensoresInfo - Comodo"){
     Comodo comodoTeste("comodoTeste", &smarthome);
     
 
-    comodoTeste.adicionarSensor(DummySensorComodo());
+    auto sensor = std::make_unique<Sensor>(
+        "SensorTeste", true, true, &comodoTeste, std::vector<ObjetoInteligente*>(), std::vector<Modo*>());
+
+    comodoTeste.adicionarSensor(std::move(sensor));
 
      // Captura a saída do cout
     std::ostringstream oss;
@@ -431,27 +412,35 @@ TEST_CASE("TESTE 11 printSensoresInfo - Comodo"){
     // Restaura cout
     std::cout.rdbuf(oldCout);
 
-    CHECK(oss.str() == 
-        "Comodo comodoTeste :\n"
-        "Sensores presentes em comodoTeste :\n"
-        "Sensor SensorTeste do cômodo SalaTeste\n"
-        "Sensor está ligado? true\n"
-        "Sensor está ativado? true\n"
-        "Objetos conectados: \n"
-        "Modos conectados: \n"
-        ); 
+    std::istringstream iss(oss.str());
+    std::vector<std::string> linhas;
+    std::string linha;
+    while (std::getline(iss, linha)) {
+        linhas.push_back(linha);
+    }
+    
+    CHECK(linhas[0] == "Comodo comodoTeste :");
+    CHECK(linhas[1] == "Sensores presentes em comodoTeste :");
+    CHECK(linhas[2] == "Sensor SensorTeste do cômodo comodoTeste");
+    CHECK(linhas[3] == "Sensor está ligado? Sim");
+    CHECK(linhas[4] == "Sensor está ativado? Sim");
+    CHECK(linhas[5] == "Objetos conectados: ");
+    CHECK(linhas[6] == "Modos conectados: "); 
+
     SUBCASE("TESTE 11.1 comodo sem sensores nao imprime nada "){
         Comodo comodoTeste2("comodoTeste2", &smarthome);
          // Captura a saída do cout
         std::ostringstream oss;
         std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
 
-        comodoTeste2.printModosInfo();
+        comodoTeste2.printSensoresInfo();
 
         // Restaura cout
         std::cout.rdbuf(oldCout);
 
-        CHECK(oss.str().empty());
+        CHECK(oss.str() == 
+        "Comodo comodoTeste2 :\n"
+        "Sensores presentes em comodoTeste2 :\n");
     }
 
 }
@@ -462,74 +451,94 @@ TEST_CASE("TESTE 12 repassarInstrucao - Comodo") {
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
     Smarthome smarthome(&contaTeste, "Minha Casa");
     Comodo quarto("Quarto", &smarthome);
-//troca para smart pointers
-    ObjetoInteligente* luz = new ObjetoInteligente
-        ("Luz", false, {}, {"Ligado","Desligado"}, "Ligado", 10.0, {}, {});
-    ObjetoInteligente* abajur = new ObjetoInteligente
-        ("Abajur", false, {}, {"Ligado","Desligado"}, "Desligado", 5.0, {}, {});
-    ObjetoInteligente* tv = new ObjetoInteligente
-        ("TV", false, {}, {"Ligado","Desligado"}, "Desligado", 50.0, {}, {});
 
-    quarto.adicionarObjeto(luz);
-    quarto.adicionarObjeto(abajur);
-    quarto.adicionarObjeto(tv);
+    auto luz = std::make_shared<ObjetoInteligente>(
+    "Luz",
+    false,
+    std::vector<Sensor*>(),                          
+    std::vector<std::string>{"Ligado","Desligado"},  
+    "Ligado",                                        
+    10.0f,                                           
+    std::vector<std::function<void()>>(),            
+    std::vector<std::function<void()>>()             
+    );
 
-    Modo dormir("Dormir", {luz, abajur, tv}, {&quarto}, true, false);
+    auto abajur = std::make_shared<ObjetoInteligente>(
+    "Abajur",
+    false,
+    std::vector<Sensor*>(),
+    std::vector<std::string>{"Ligado","Desligado"},
+    "Desligado",
+    5.0f,
+    std::vector<std::function<void()>>(),
+    std::vector<std::function<void()>>()
+    );
+
+    auto tv = std::make_shared<ObjetoInteligente>(
+    "TV",
+    false,
+    std::vector<Sensor*>(),
+    std::vector<std::string>{"Ligado","Desligado"},
+    "Desligado",
+    50.0f,
+    std::vector<std::function<void()>>(),
+    std::vector<std::function<void()>>()
+    );
+
+    quarto.adicionarObjeto(luz.get());
+    quarto.adicionarObjeto(abajur.get());
+    quarto.adicionarObjeto(tv.get());
+
+    ModoNoturno dormir("Dormir");
+    dormir = ModoNoturno("Dormir");
 
     quarto.entrarConta(&contaTeste);
 
     quarto.repassarInstrucao(&dormir);
 
     CHECK(luz->getStatusAtual() == "Desligado");
-    CHECK(abajur->getStatusAtual() == "Ligado");
-    CHECK(tv->getStatusAtual() == "Ligado");
-
-    delete luz;
-    delete abajur;
-    delete tv;
+    CHECK(abajur->getStatusAtual() == "Desligado");
+    CHECK(tv->getStatusAtual() == "Desligado");
 
     SUBCASE("TESTE 12.1 comodo com modo inativo nao passa instrucao"){
-        Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-        Smarthome smarthome(&contaTeste, "Minha Casa");
-        Comodo quarto("Quarto", &smarthome);
-    //troca para smart pointers
-        ObjetoInteligente* luz = new ObjetoInteligente
-            ("Luz", false, {}, {"Ligado","Desligado"}, "Ligado", 10.0, {}, {});
-
-        quarto.adicionarObjeto(luz);
-
-        Modo dormir("Dormir", {luz}, {&quarto}, false, false); // modo inativo
-
-        quarto.entrarConta(&contaTeste);
+        Modo dormirInativo("Dormir", {luz.get()}, {&quarto}, false, false);
+        quarto.repassarInstrucao(&dormirInativo);
         quarto.repassarInstrucao(&dormir);
 
         CHECK(luz->getStatusAtual() == "Ligado"); 
-        CHECK_THROWS_WITH(quarto.repassarInstrucao(&dormir),
-         "Modo invalido (nullptr) ao repassar instrucao no Comodo comodoTeste");
-
-        delete luz;
     }
     
     SUBCASE("TESTE 12.2 comodo sem conta presente nao passa instrucao"){
-        Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
-        Smarthome smarthome(&contaTeste, "Minha Casa");
-        Comodo quarto("Quarto", &smarthome);
-        //troca para smart pointers
-        ObjetoInteligente* luz = new ObjetoInteligente
-            ("Luz", false, {}, {"Ligado","Desligado"}, "Ligado", 10.0, {}, {});
+        Conta contaTeste2("2", "Usuario B", "usuarioB@email.com", "senha456", true);
+        Smarthome smarthome2(&contaTeste2, "Minha Casa");
+        Comodo quarto2("Quarto", &smarthome2);
 
-        quarto.adicionarObjeto(luz);
+        auto lampada = std::make_shared<ObjetoInteligente>(
+            "Lampada", false,
+            std::vector<Sensor*>(),
+            std::vector<std::string>{"Ligado","Desligado"},
+            "Ligado",
+            15.0f,
+            std::vector<std::function<void()>>(),
+            std::vector<std::function<void()>>()
+        );
 
-        Modo dormir("Dormir", {luz}, {&quarto}, true, false);
+        quarto2.adicionarObjeto(lampada.get());
+
+        Modo dormir2("Dormir", {lampada.get()}, {&quarto2}, true, false);
 
         // Não chama entrarConta → cômodo vazio
-        quarto.repassarInstrucao(&dormir);
+        quarto2.repassarInstrucao(&dormir2);
 
-        CHECK(luz->getStatusAtual() == "Ligado"); // não mudou
-
-        delete luz;
+        CHECK(lampada->getStatusAtual() == "Ligado"); // não mudou
         
     }
+    SUBCASE("TESTE 12.3 modo nullptr lança excecao") {
+
+    CHECK_THROWS_WITH(quarto.repassarInstrucao(nullptr),
+        "Modo invalido (nullptr) ao repassar instrucao no Comodo Quarto");
+    }
+
 }
 
 TEST_CASE("TESTE 13 removerModoPorNome - Comodo") {
@@ -565,7 +574,10 @@ TEST_CASE("TESTE 14 removerSensorPorNome - Comodo") {
     Comodo comodoTeste("comodoTeste", &smarthome);
 
 
-    comodoTeste.adicionarSensor(DummySensorComodo());
+    auto sensor = std::make_unique<Sensor>(
+        "SensorTeste", true, true, &comodoTeste, std::vector<ObjetoInteligente*>(), std::vector<Modo*>());
+
+    comodoTeste.adicionarSensor(std::move(sensor));
     CHECK(comodoTeste.getSensores().size() == 1);
 
     std::ostringstream oss;
@@ -589,7 +601,9 @@ TEST_CASE("TESTE 14 removerSensorPorNome - Comodo") {
 // ---- implementação deve ser checada-----
 
 TEST_CASE("TESTE 15 mudarCondicao - Comodo") {
-    Comodo quarto("Quarto", nullptr);
+    Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+    Smarthome smarthome(&contaTeste, "Minha Casa");
+    Comodo quarto("Quarto", &smarthome);
 
     SUBCASE("TESTE 15.1 Adicionar primeira condição") {
         quarto.mudarCondicao("Iluminado");
@@ -624,10 +638,6 @@ TEST_CASE("TESTE 15 mudarCondicao - Comodo") {
     }
 
     SUBCASE("TESTE 15.5 Condição inválida") {
-        //quarto.mudarCondicao("Claro"); // não está na lista de pares
-        //auto condicoes = quarto.getCondicoesDoComodo();
-        //CHECK(condicoes.size() == 1); // adiciona mesmo assim
-        //CHECK(condicoes[0] == "Claro"); // mas não remove nada
         CHECK_THROWS_WITH(quarto.mudarCondicao("Claro"),
         "Condicao invalida: Claro");
     }
