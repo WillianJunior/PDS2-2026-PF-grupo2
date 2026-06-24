@@ -25,7 +25,7 @@ Modo::Modo(
     else if (nome.size() > 20) {
         throw std::invalid_argument("Nome do Modo nao pode ter tamanho maior que 20  - Tente novamente..." );
     }
-    else if(!CaracteresValidos(nome)) {
+    else if(!caracteresValidos(nome)) {
         throw std::invalid_argument("Nome do Modo com usos de caracteres invalidos  - Tente novamente..." );
     }
     else{
@@ -153,7 +153,7 @@ void Modo :: desfazerInstrucao (ObjetoInteligente* objeto, Comodo* comodo){
 
     objeto->setStatusAtual("Desligado");
 }
-    bool Modo :: CaracteresValidos (const std::string& str) {
+    bool Modo :: caracteresValidos (const std::string& str) {
     for (unsigned char ch : str) {
         // só aceita letras, números e espaços
         if (!(std::isalnum(ch) || std::isspace(ch))) {

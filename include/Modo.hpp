@@ -45,7 +45,9 @@ class Modo {
 
     public:
 
-        
+        /**
+         * @brief Construtor da classe modo.
+         */
         Modo(
             std::string nome,
             std::vector<ObjetoInteligente*> objetos,
@@ -54,29 +56,80 @@ class Modo {
             bool bloqueado
         );
 
+        /**
+         * @brief Retorna o nome do modo.
+         */
         std::string getNome() const;
 
+        /**
+         * @brief Define se o modo está ativo ou não.
+         */
         void setAtivoModo(bool ativo);
+
+        /**
+         * @brief Retorna se o modo está ativo ou não.
+         */
         bool getAtivoModo()const;
 
+        /**
+         * @brief Define se o modo está bloqueado ou não.
+         */
         void setBloqueadoModo(bool bloqueado);
+
+        /**
+         * @brief Retorna se o modo está bloqueado ou não.
+         */
         bool getBloqueadoModo()const;
 
+        /**
+         * @brief Retorna o vetor com os objetos afetados pelo modo.
+         */
         std::vector<ObjetoInteligente*> getObjetosRelacionados()const;
+        
+        /**
+         * @brief Retorna o vetor com os cômodos relacionados ao modo.
+         */
         std::vector<Comodo*> getComodosRelacionados()const;
 
+        /**
+         * @brief Retorna o nome do modo.
+         */
         void adicionarComodoRelacionado(Comodo* comodo);
+
+        /**
+         * @brief Tira a conexão com um cômodo relacionado.
+         */
         void removerComodoRelacionado(std::string nomeComodo);
 
+        /**
+         * @brief Operador de igualdade da classe.
+         */
         bool operator==(const Modo& other) const;
 
+        /**
+         * @brief Retorna o nome do modo.
+         */
         void printMembrosInfo() const;
 
+        /**
+         * @brief Executa a instrução nos cômodos atrelados.
+         */
         void executarNosComodosRelacionados();
+
+        /**
+         * @brief Executa uma instrução em um objeto específico de um certo comodo.
+         */
         void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo);
+        
+        /**
+         * @brief Desfaz uma instrução em um objeto específico de um certo comodo.
+         */
         void desfazerInstrucao(ObjetoInteligente* objeto, Comodo* comodo);
 
-        bool CaracteresValidos (const std::string& str);
+        /**
+         * @brief Confere se os caractéres seguem os requisitos do sistema.
+         */
+        bool caracteresValidos (const std::string& str);
 
 };
 
