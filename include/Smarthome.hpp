@@ -71,7 +71,11 @@ public:
      * @param comodo Comodo a ser removido da smarthome.
      */
     void removerComodo(const Comodo& comodo);
-
+    /**
+     * @brief Remove comodo da smarthome por nome do comodo.
+     * @param nomeComodo nome do Comodo a ser removido da smarthome.
+     */
+    void removerComodoPorNome(const std::string& nomeComodo);
     /**
      * @brief Remove um modo da smarthome pelo nome.
      * @param nomeModo Nome do modo a ser removido.
