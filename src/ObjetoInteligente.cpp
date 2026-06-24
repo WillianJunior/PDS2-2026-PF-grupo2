@@ -5,6 +5,7 @@
 #include <cctype>
 #include <stdexcept>
 #include <Comodo.hpp>
+#include <iomanip>
 
 ObjetoInteligente::ObjetoInteligente(
     std::string nome,
@@ -138,8 +139,17 @@ bool ObjetoInteligente::estaEmFalha() const {
 
 void ObjetoInteligente :: printObjetosInfo() const{
     std::cout << "Objeto " << this->nome << std::endl;
-    std::cout << "Objeto tem restrição parental? " << this->restricaoAdulto << std::endl;
-    std::cout << "Consumo médio de energia: " << this->consumoMedioDeEnergia << std::endl;
+    std::string restricao;
+    if(this-> restricaoAdulto){
+        restricao = "Sim";
+    }
+    else{
+        restricao = "Nao";
+    }
+    std::cout << "Objeto tem restrição parental? " << restricao << std::endl;
+    std::cout << "Consumo médio de energia: " <<
+             std::fixed << std::setprecision(1) <<
+            this->consumoMedioDeEnergia << std::endl;
     std::cout << "Protocolo: " << getProtocoloComoString() << std::endl;
     std::cout << "Em falha? " << (emFalha ? "Sim" : "Nao") << std::endl;
 
