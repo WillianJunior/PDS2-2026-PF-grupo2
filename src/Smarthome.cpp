@@ -68,6 +68,18 @@ void Smarthome :: removerComodo(const Comodo& comodo){
         throw std::invalid_argument("Comodo " + comodo.getNome() + " nao encontrado na smarthome " + nome + " para remocao");
     }
 }
+void Smarthome :: removerComodoPorNome(const std::string& nomeComodo){
+     for (auto it = comodos.begin(); it != comodos.end(); ++it) {
+        if ((*it)->getNome() == nomeComodo) {
+            comodos.erase(it);
+            return;
+        }
+    }
+    throw std::runtime_error(
+        "Comodo " + nomeComodo +
+        " nao encontrado na smarthome " + nome + " para remocao"
+    );
+}
 
 void Smarthome::removerModo(std::string nomeModo) {
     for (auto it = modos.begin(); it != modos.end(); ++it) {
@@ -118,7 +130,7 @@ void Smarthome:: printComodosInfo()const{
     std::cout << "Smarthome " << nome << " de: " << (*usuario).getNome() << endl;
     std::cout<< "Comodos presentes em "<< nome << " :" << endl;
     for(size_t i=0; i<comodos.size(); i++){
-        comodos[i]->getNome();
+        std::cout << comodos[i]->getNome();
         std::cout << endl;
         auto condicoes = comodos[i]->getCondicoesDoComodo();
         for (const auto& c : condicoes) {
