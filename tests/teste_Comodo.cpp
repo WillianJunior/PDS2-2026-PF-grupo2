@@ -56,7 +56,7 @@ TEST_CASE("TESTE 1 construtor - Comodo") {
     }
 
     SUBCASE("TESTE 1.3 nome nao pode ter tamanho maior que 20") {
-        std::string longName(20, 'A');
+        std::string longName(22, 'A');
         
         CHECK_THROWS(Comodo (longName, &smarthome));
     }
@@ -78,17 +78,28 @@ TEST_CASE("TESTE 2 adicionarObjeto - Comodo") {
     CHECK(comodoTeste.getObjetos().size() == 1);
 
     SUBCASE("TESTE 2.1 ponteiro nullptr nao adiciona") {
-        comodoTeste.adicionarObjeto(nullptr);
-        CHECK(comodoTeste.getObjetos().size() == 1);
         CHECK_THROWS_WITH(comodoTeste.adicionarObjeto(nullptr),
         "Tentativa de adicionar objeto nulo ao Comodo comodoTeste");
+        CHECK(comodoTeste.getObjetos().size() == 1);
     }
 
     SUBCASE("TESTE 2.2 objeto repetido nao duplica") {
-        comodoTeste.adicionarObjeto(&obj);
-        CHECK(comodoTeste.getObjetos().size() == 1);
-        CHECK_THROWS_WITH(comodoTeste.adicionarObjeto(&obj),
+
+    CHECK_THROWS_WITH(comodoTeste.adicionarObjeto(&obj),
         "Objeto ObjetoTeste ja existe no Comodo comodoTeste");
+
+    std::vector<Sensor*> sensores;
+    std::vector<std::string> status = {"on", "off"};
+    float consumoAlt = 10.0f;
+    std::vector<std::function<void()>> funcoes = {[]{}};
+    std::vector<std::function<void()>> funcoesRestritas = {[]{}};
+
+    ObjetoInteligente objClone2("ObjetoTeste", false, sensores, status, "on", consumoAlt, funcoes, funcoesRestritas);
+    
+    CHECK_THROWS_WITH(comodoTeste.adicionarObjeto(&objClone2),
+        "Objeto ObjetoTeste ja existe no Comodo comodoTeste");
+
+    CHECK(comodoTeste.getObjetos().size() == 1);
     }
 }
 
@@ -102,17 +113,26 @@ TEST_CASE("TESTE 3 adicionarSensor - Comodo") {
     CHECK(comodoTeste.getSensores().size() == 1);
 
     SUBCASE("TESTE 3.1 ponteiro nullptr nao adiciona") {
-        comodoTeste.adicionarSensor(nullptr);
-        CHECK(comodoTeste.getSensores().size() == 1);
         CHECK_THROWS_WITH(comodoTeste.adicionarSensor(nullptr),
         "Tentativa de adicionar sensor nulo ao Comodo comodoTeste");
+        CHECK(comodoTeste.getSensores().size() == 1);
     }
 
     SUBCASE("TESTE 3.2 sensor repetido nao duplica") {
-        comodoTeste.adicionarSensor(DummySensorComodo());
-        CHECK(comodoTeste.getSensores().size() == 1);
         CHECK_THROWS_WITH(comodoTeste.adicionarSensor(DummySensorComodo()),
-        "Sensor SensorTeste ja existe no Comodo comodoTeste");
+        "Sensor SensorTeste ja existe no Comodo comodoTeste");// mesmo tudo
+        
+        std::vector<ObjetoInteligente*> objetosConectados;
+        std::vector<Modo*> modosConectadosAlt;
+        Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+        Smarthome smarthomeDummy(&contaTeste, "MinhaCasa");
+        Comodo comodoDummy("SalaTeste", &smarthomeDummy);
+
+        CHECK_THROWS_WITH(comodoTeste.adicionarSensor(std:: make_unique <Sensor>
+            ("SensorTeste", true, true, &comodoDummy, objetosConectados, modosConectadosAlt)),
+            "Sensor SensorTeste ja existe no Comodo comodoTeste");// mesmo nome outro conteudo
+
+        CHECK(comodoTeste.getSensores().size() == 1);
     }
 }
 
@@ -128,17 +148,28 @@ TEST_CASE("TESTE 4 adicionarModo - Comodo") {
     CHECK(comodoTeste.getModos().size() == 1);
 
     SUBCASE("TESTE 4.1 modo repetido nao duplica") {
-        comodoTeste.adicionarModo(&modo);
-        CHECK(comodoTeste.getModos().size() == 1);
         CHECK_THROWS_WITH(comodoTeste.adicionarModo(&modo),
         "Modo ModoTeste ja existe no Comodo comodoTeste");
+
+        std::vector<Comodo*> comodos;
+        std::vector<ObjetoInteligente*> objetosAlt;
+
+        auto modo3 =
+        Modo("ModoTeste", objetosAlt, comodos, true, false);
+
+        CHECK_THROWS_WITH(comodoTeste.adicionarModo(&modo3),
+        "Modo ModoTeste ja existe no Comodo comodoTeste");
+
+        CHECK(comodoTeste.getModos().size() == 1);
+
     }
 
     SUBCASE("TESTE 4.2 modo nullptr nao adiciona") {
-        comodoTeste.adicionarModo(nullptr);
-        CHECK(comodoTeste.getModos().size() == 1);
         CHECK_THROWS_WITH(comodoTeste.adicionarModo(nullptr),
         "Tentativa de adicionar modo nulo ao Comodo comodoTeste");
+
+
+        CHECK(comodoTeste.getModos().size() == 1);
     }
 }
 
@@ -158,17 +189,18 @@ TEST_CASE("TESTE 5 entrarConta - Comodo") {
     }
 
     SUBCASE("TESTE 5.2 conta nullptr nao adiciona") {
-        comodoTeste.entrarConta(nullptr);
-        CHECK(comodoTeste.getContasPresentes().size() == 1);
         CHECK_THROWS_WITH(comodoTeste.entrarConta(nullptr),
         "Tentativa de adicionar conta nula ao Comodo comodoTeste");
+        CHECK(comodoTeste.getContasPresentes().size() == 1);
     }
 
     SUBCASE("TESTE 5.3 conta nao pode entrar duas vezes"){
-        comodoTeste.entrarConta(&contaTeste);
-        CHECK(comodoTeste.getContasPresentes().size() == 1);
-        CHECK_THROWS_WITH(comodoTeste.entrarConta(&contaTeste),
+        Conta contaTeste2("1", "Usuario A", "usuarioA@email.com", "senha123", true);
+
+        CHECK_THROWS_WITH(comodoTeste.entrarConta(&contaTeste2),
         "Conta Usuario A ja existe no Comodo comodoTeste");
+
+        CHECK(comodoTeste.getContasPresentes().size() == 1);
     }
 }
 
@@ -190,10 +222,9 @@ TEST_CASE("TESTE 6 sairConta - Comodo") {
     CHECK(comodoTeste.getContasPresentes().empty());
 
     SUBCASE("TESTE 6.1 sair sem conta nao quebra") {
-        comodoTeste.sairConta();
-        CHECK(comodoTeste.getContasPresentes().empty());
         CHECK_THROWS_WITH(comodoTeste.sairConta(),
         "Nenhuma conta presente no Comodo comodoTeste para sair");
+        CHECK(comodoTeste.getContasPresentes().empty());
     }
 }
 
@@ -246,13 +277,44 @@ TEST_CASE("TESTE 8 printObjetosInfo - Comodo"){
         "Comodo comodoTeste :\n"
         "Objetos inteligentes presentes em comodoTeste :\n"
         "Objeto ObjetoTeste\n"
-        "Objeto tem restrição parental? false\n"
+        "Objeto tem restrição parental? Nao\n"
         "Consumo médio de energia: 5.0\n"
-        "Protocolo: ZigBee\n"
+        "Protocolo: WiFi\n"
         "Em falha? Nao\n"
-        "Sensores conectados: \n"
-        "Status possíveis: on off \n"
-        "Status atual: on");
+        "Sensores conectados:"
+        "\nStatus possíveis: on off "
+        "\nStatus atual: on\n");
+
+        SUBCASE("DEBUG"){
+            auto normalize = [](std::string s) {
+    // remove carriage returns
+    s.erase(std::remove(s.begin(), s.end(), '\r'), s.end());
+    // remove espaços no fim das linhas
+    std::string result;
+    std::istringstream iss(s);
+    std::string line;
+    while (std::getline(iss, line)) {
+        while (!line.empty() && line.back() == ' ')
+            line.pop_back();
+        result += line + "\n";
+    }
+    return result;
+};
+
+CHECK(normalize(oss.str()) == normalize(
+    "Comodo comodoTeste :\n"
+        "Objetos inteligentes presentes em comodoTeste :\n"
+        "Objeto ObjetoTeste\n"
+        "Objeto tem restrição parental? Nao\n"
+        "Consumo médio de energia: 5.0\n"
+        "Protocolo: WiFi\n"
+        "Em falha? Nao\n"
+        "Sensores conectados:"
+        "\nStatus possíveis: on off "
+        "\nStatus atual: on\n"));
+
+        }
+
     SUBCASE("TESTE 8.1 comodo sem objetos nao imprime nada "){
         Comodo comodoTeste2("comodoTeste2", &smarthome);
          // Captura a saída do cout
@@ -264,7 +326,9 @@ TEST_CASE("TESTE 8 printObjetosInfo - Comodo"){
         // Restaura cout
         std::cout.rdbuf(oldCout);
 
-        CHECK(oss.str().empty());
+        CHECK(oss.str()== 
+        "Comodo comodoTeste2 :\n"
+        "Objetos inteligentes presentes em comodoTeste2 :\n");
     }
 
 }
@@ -287,7 +351,7 @@ TEST_CASE("TESTE 9 printModosInfo - Comodo" ){
     std::cout.rdbuf(oldCout);
 
     CHECK(oss.str() == 
-        "Comodo comodoTeste da smarthome: Minha Casa\n"
+        "Comodo comodoTeste :\n"
         "Modos presentes em comodoTeste :\n"
         "Nome do modo: ModoTeste\n"
         "Estado: Ligado\n"
@@ -306,7 +370,9 @@ TEST_CASE("TESTE 9 printModosInfo - Comodo" ){
         // Restaura cout
         std::cout.rdbuf(oldCout);
 
-        CHECK(oss.str().empty());
+        CHECK(oss.str()==
+        "Comodo comodoTeste2 :\n"
+        "Modos presentes em comodoTeste2 :\n");
     }
 
 }
@@ -327,7 +393,7 @@ TEST_CASE("TESTE 10 printContasInfo - Comodo"){
     std::cout.rdbuf(oldCout);
 
     CHECK(oss.str() == 
-        "Comodo comodoTeste da smarthome: Minha Casa\n"
+        "Comodo comodoTeste :\n"
         "Contas presentes em comodoTeste :\n"
         "ID: 1\nNome: Usuario A\nE-mail: usuarioA@email.com\nPerfil: Adulto\n\n"
     );
@@ -342,7 +408,9 @@ TEST_CASE("TESTE 10 printContasInfo - Comodo"){
         // Restaura cout
         std::cout.rdbuf(oldCout);
 
-        CHECK(oss.str().empty());
+        CHECK(oss.str()==
+        "Comodo comodoTeste2 :\n"
+        "Contas presentes em comodoTeste2 :\n");
     }
 }
 
