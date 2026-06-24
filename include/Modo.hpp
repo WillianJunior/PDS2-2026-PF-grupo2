@@ -140,8 +140,16 @@ class Modo {
  */
 
 class ModoNoturno : public Modo {
+    
     public:
+        /**
+         * @brief Construtor da subclasse.
+         */
         ModoNoturno(std::string nome);
+
+        /**
+         * @brief Executa o modo.
+         */
         void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
 
@@ -152,7 +160,14 @@ class ModoNoturno : public Modo {
  */
 class ModoCinema : public Modo {
 public:
+    /**
+     * @brief Construtor da classe.
+     */
     ModoCinema(std::string nome);
+
+    /**
+     * @brief Executa o modo.
+     */
     void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
 
@@ -164,6 +179,10 @@ public:
  */
 class ModoTrabalho : public Modo {
 public:
+
+    /**
+     * @brief Construtor da subclasse.
+     */
     ModoTrabalho(std::string nome);
     void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
@@ -175,7 +194,15 @@ public:
  */
 class ModoAusente : public Modo {
 public:
+
+    /**
+     * @brief Construtor da subclasse.
+     */
     ModoAusente(std::string nome);
+
+    /**
+     * @brief Executa o modo.
+     */
     void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
 
@@ -186,7 +213,15 @@ public:
  */
 class ModoFesta : public Modo {
 public:
+
+    /**
+     * @brief Construtor da subclasse.
+     */
     ModoFesta(std::string nome);
+
+    /**
+     * @brief Executa o modo.
+     */
     void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
 
@@ -197,7 +232,15 @@ public:
  */
 class ModoEconomia : public Modo {
 public:
+
+    /**
+     * @brief Construtor da subclasse.
+     */
     ModoEconomia(std::string nome);
+
+    /**
+     * @brief Executa o modo.
+     */
     void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
 
