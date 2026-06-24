@@ -7,6 +7,9 @@
 
 class Sensor;
 
+/**
+ * @brief Classe para definir como o objeto está operando.
+ */
 enum class Protocolo {
     WIFI,
     BLUETOOTH,
@@ -16,16 +19,54 @@ enum class Protocolo {
 
 class ObjetoInteligente {
 protected:
+    /**
+     * @brief Armazena o nome do objeto.
+     */
     std::string nome;
+
+    /**
+     * @brief Indica se o objeto é restrito apenas para adultos.
+     */
     bool restricaoAdulto; 
+
+    /**
+     * @brief Vetor que armazena os sensores do objeto.
+     */
     std::vector<Sensor*> sensores;
+
+    /**
+     * @brief Vetor que armazena os status possíveis do objeto.
+     */
     std::vector<std::string> statusPossiveis;
+
+    /**
+     * @brief Indica o status atual do objeto.
+     */
     std::string statusAtual;
+
+    /**
+     * @brief Armazena o consumo médio de energia do objeto.
+     */
     float consumoMedioDeEnergia;
+
+    /**
+     * @brief Vetor que armazena as funções que podem ser realizadas pelo objeto.
+     */
     std::vector<std::function<void()>> funcoes;
+
+    /**
+     * @brief Armazena o nome do objeto.
+     */
     std::vector<std::function<void()>> funcoesRestritas;
 
+    /**
+     * @brief Protocolo definido como WIFI.
+     */
     Protocolo protocolo = Protocolo::WIFI;
+
+    /**
+     * @brief Inidica se o objeto está apresentando alguma falha.
+     */
     bool emFalha = false;
 
 public:
