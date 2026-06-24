@@ -99,7 +99,8 @@ TEST_CASE("TESTE 3 adicionarComodo - Smarthome") {
     CHECK(casaTeste.getQuantidadeComodos() == 1);
 
     SUBCASE("TESTE 3.1 comodo duplicado nao adiciona") {
-        casaTeste.adicionarComodo(std::move(comodoTeste));
+       auto comodoTeste2 = std::make_unique<Comodo> ("comodoTeste", &casaTeste);
+       casaTeste.adicionarComodo(std::move(comodoTeste2));
        CHECK(casaTeste.getQuantidadeComodos() == 1);
     }
 
@@ -174,14 +175,15 @@ TEST_CASE("TESTE 5 removerComodo - Smarthome"){
 
     CHECK(casaTeste.getQuantidadeComodos() == 1);
 
-    casaTeste.removerComodo(*comodoTeste); // nao eh smart pointer no hpp ainda
+    casaTeste.removerComodo(*comodoTeste); 
 
     CHECK(casaTeste.getQuantidadeComodos() == 0);
 
     SUBCASE("TESTE 5.1 remocao de comodo nao existente na smarthome nao funciona"){
-        Comodo comodoTeste2("comodoTeste2", &casaTeste);
+        auto comodoTeste2 = std::make_unique<Comodo> ("comodoTeste2", &casaTeste);
 
-        CHECK_THROWS_WITH(casaTeste.removerComodo(comodoTeste2), "Comodo comodoTeste2 nao encontrado na smarthome Minha Casa para remocao");
+        CHECK_THROWS_WITH(casaTeste.removerComodo(*comodoTeste2), 
+        "Comodo comodoTeste2 nao encontrado na smarthome Minha Casa para remocao");
     }
 }
 
