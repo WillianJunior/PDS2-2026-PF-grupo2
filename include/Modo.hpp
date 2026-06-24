@@ -119,7 +119,7 @@ class Modo {
         /**
          * @brief Executa uma instrução em um objeto específico de um certo comodo.
          */
-        void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo);
+        virtual void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo);
         
         /**
          * @brief Desfaz uma instrução em um objeto específico de um certo comodo.
@@ -130,43 +130,43 @@ class Modo {
          * @brief Confere se os caractéres seguem os requisitos do sistema.
          */
         bool caracteresValidos (const std::string& str);
-
+        virtual ~Modo() = default;
 };
 
 class ModoNoturno : public Modo {
     public:
         ModoNoturno(std::string nome);
-        void executarInstrucao();
+        void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
 
 class ModoCinema : public Modo {
 public:
     ModoCinema(std::string nome);
-    void executarInstrucao();
+    void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
 
 class ModoTrabalho : public Modo {
 public:
     ModoTrabalho(std::string nome);
-    void executarInstrucao();
+    void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
 
 class ModoAusente : public Modo {
 public:
     ModoAusente(std::string nome);
-    void executarInstrucao();
+    void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
 
 class ModoFesta : public Modo {
 public:
     ModoFesta(std::string nome);
-    void executarInstrucao();
+    void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
 
 class ModoEconomia : public Modo {
 public:
     ModoEconomia(std::string nome);
-    void executarInstrucao();
+    void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
 
 #endif
