@@ -18,16 +18,34 @@ class Modo {
 
     protected:
 
+        /**
+         * @brief Armazena o nome do modo.
+         */
         std::string nome;
 
+        /**
+         * @brief Vetor que armazena os objetos relacionados ao modo.
+         */
         std::vector<ObjetoInteligente*> objetosRelacionados;
+
+        /**
+         * @brief Vetor que armazena os cômodos relacionados ao modo.
+         */
         std::vector<Comodo*> comodosRelacionados;
 
+        /**
+         * @brief Indica se o modo está ligado (está sendo executado).
+         */
         bool ligado;
+
+        /**
+         * @brief Indica se o modo está bloqueado (impedido de ser ativado).
+         */
         bool bloqueado;
 
     public:
 
+        
         Modo(
             std::string nome,
             std::vector<ObjetoInteligente*> objetos,
