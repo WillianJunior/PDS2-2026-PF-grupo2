@@ -12,14 +12,34 @@ class Modo;
 class Sensor {
 private:
 
+    /**
+     * @brief Armazena o nome do sensor.
+     */
     std::string nome;
 
+    /**
+     * @brief Indica se o objeto está ligado, ou seja, se está preparado para identificar um impulso.
+     */
     bool estaLigado;
+
+    /**
+     * @brief Indica se algo está ativando o sensor.
+     */
     bool estaAtivado;
 
+    /**
+     * @brief Armazena o cômodo que o sensor está localizado.
+     */
     Comodo* comodoPertencente;
 
+    /**
+     * @brief Vetor que armazena os objetos que o sensor está conectado.
+     */
     std::vector<ObjetoInteligente*> objetosConectados;
+
+    /**
+     * @brief Vetor que armazena os modos que o sensor está conectado.
+     */
     std::vector<Modo*> modosConectados;
 
 public:
