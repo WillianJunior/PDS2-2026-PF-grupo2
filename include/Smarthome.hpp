@@ -46,6 +46,9 @@ public:
      */
     Smarthome(Conta* usuario, std :: string nome);
 
+    /**
+     * @brief Operador de igualdade da classe.
+     */
     bool operator==(const Smarthome& other) const;
 
     /**
@@ -139,6 +142,9 @@ public:
      */
     Modo* getModo(std::string nomeModo);
 
+    /**
+     * @brief Destrutor da classe.
+     */
     ~Smarthome();
 };
 #endif
