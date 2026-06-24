@@ -31,7 +31,7 @@ ObjetoInteligente::ObjetoInteligente(
     else if (nome.size() > 20) {
         throw std::invalid_argument("Nome do Objeto nao pode ter tamanho maior que 20 - Tente novamente...");
     }
-    else if(!CaracteresValidos(nome)) {
+    else if(!caracteresValidos(nome)) {
         throw std::invalid_argument("Nome do Objeto com usos de caracteres invalidos - Tente novamente...");
     }
     else{
@@ -346,7 +346,7 @@ void Termostato::resfriar() {
     setStatusAtual("resfriando");
 }
 
-bool ObjetoInteligente :: CaracteresValidos (const std::string& str) {
+bool ObjetoInteligente :: caracteresValidos (const std::string& str) {
     for (unsigned char ch : str) {
         if (!(std::isalnum(ch) || std::isspace(ch))) {
             return false;

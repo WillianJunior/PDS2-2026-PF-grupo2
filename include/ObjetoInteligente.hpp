@@ -71,11 +71,15 @@ protected:
     Protocolo protocolo = Protocolo::WIFI;
 
     /**
-     * @brief Inidica se o objeto está apresentando alguma falha.
+     * @brief Indica se o objeto está apresentando alguma falha.
      */
     bool emFalha = false;
 
 public:
+
+    /**
+     * @brief Construtor da classe ObjetoInteligente.
+     */
     ObjetoInteligente(
         std::string nome,
         bool restricaoAdulto,
@@ -87,36 +91,109 @@ public:
         std::vector<std::function<void()>> funcoesRestritas
     );
 
-   virtual  ~ObjetoInteligente() = default;
+    /**
+     * @brief Destrutor da classe ObjetoInteligente.
+     */
+    virtual  ~ObjetoInteligente() = default;
 
+    /**
+     * @brief Retornan o nome do objeto.
+     */
     std::string getNome() const;
 
+    /**
+     * @brief Retorna o vetor com os sensores do objeto.
+     */
     std::vector<Sensor*> getSensores() const;
+
+    /**
+     * @brief Retorna o vetor com os status possíveis do objeto.
+     */
     std::vector<std::string> getStatusPossiveis() const;
 
+    /**
+     * @brief Retorna o status atual do objeto.
+     */
     std::string getStatusAtual() const;
+    
+    /**
+     * @brief Defini o status atual do objeto.
+     */
     virtual void setStatusAtual(std::string status);
 
+    /**
+     * @brief Retorna o consumo médio de energia.
+     */
     float getConsumoMedioDeEnergia() const;
 
+    /**
+     * @brief Retorna o vetor com as funções do objeto.
+     */
     std::vector<std::function<void()>> getFuncoes() const;
+
+    /**
+     * @brief Retorna o vetor com as funções restritas do objeto.
+     */
     std::vector<std::function<void()>> getFuncoesRestritas() const;
 
+    /**
+     * @brief Retorna o protocolo do objeto.
+     */
     Protocolo getProtocolo() const;
+
+    /**
+     * @brief Define o protocolo do objeto.
+     */
     void setProtocolo(Protocolo protocolo);
+
+    /**
+     * @brief Retorna se o objeto comunica com outro específico.
+     */
     bool comunicaCom(const ObjetoInteligente& outro) const;
+
+    /**
+     * @brief Retorna o nome do protocolo.
+     */
     std::string getProtocoloComoString() const;
 
+    /**
+     * @brief Simula uma falha no objeto.
+     */
     void simularFalha();
+
+    /**
+     * @brief Conserta a falha no objeto.
+     */
     void repararFalha();
+
+    /**
+     * @brief Retorna se o objeto está com falha.
+     */
     bool estaEmFalha() const;
 
+    /**
+     * @brief Operador de igualdade da classe.
+     */
     bool operator==(const ObjetoInteligente& other) const;
+
+    /**
+     * @brief Imprime as informações do objeto.
+     */
     void printObjetosInfo() const;
 
-    bool CaracteresValidos(const std::string& str);
+    /**
+     * @brief Retorna se os caracteres de uma string estão de acordo com as especificações do sistema.
+     */
+    bool caracteresValidos(const std::string& str);
 
+    /**
+     * @brief Define se o objeto tem restrição de adulto.
+     */
     void setRestricaoAdulto(bool restricao);
+
+    /**
+     * @brief Retorna se o objeto tem restrição de adulto.
+     */
     bool getRestricaoAdulto() const;
 };
 
