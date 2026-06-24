@@ -12,11 +12,29 @@
 
 class Smarthome{
 private:
-
+    /**
+     * @brief Armazena o usuário que a smarthome pertence.
+     */
     Conta* usuario;
+
+    /**
+     * @brief Vetor que armazena os cômodos da smarthome.
+     */
     std::vector<std::unique_ptr<Comodo>> comodos;
+
+    /**
+     * @brief Indica se o objeto é restrito apenas para adultos.
+     */
     std::vector<Modo> modos;
+
+    /**
+     * @brief Vetor que armazena os objetos da smarthome.
+     */
     std::vector<ObjetoInteligente> objetos;
+
+    /**
+     * @brief Armazena o nome da smarthome.
+     */
     std::string nome;
 
 public:
