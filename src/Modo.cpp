@@ -174,7 +174,8 @@ ModoNoturno::ModoNoturno(std::string nome)
         false
     ) {}
 
-void ModoNoturno::executarInstrucao() {
+void ModoNoturno::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) {
+    (void)comodo;
     for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
         item->setStatusAtual("Desligado");
     }
@@ -196,7 +197,8 @@ void Modo::executarNosComodosRelacionados() {
 ModoCinema::ModoCinema(std::string nome)
     : Modo(nome, {}, {}, false, false) {}
 
-void ModoCinema::executarInstrucao() {
+void ModoCinema::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) {
+    (void)comodo;
     for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
         if (item == nullptr) continue;
 
@@ -215,7 +217,8 @@ void ModoCinema::executarInstrucao() {
 ModoTrabalho::ModoTrabalho(std::string nome)
     : Modo(nome, {}, {}, false, false) {}
 
-void ModoTrabalho::executarInstrucao() {
+void ModoTrabalho::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo)  {
+    (void)comodo;
     for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
         if (item == nullptr) continue;
 
@@ -234,7 +237,8 @@ void ModoTrabalho::executarInstrucao() {
 ModoAusente::ModoAusente(std::string nome)
     : Modo(nome, {}, {}, false, false) {}
 
-void ModoAusente::executarInstrucao() {
+void ModoAusente::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) {
+    (void)comodo;
     for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
         if (item == nullptr) continue;
 
@@ -259,7 +263,8 @@ void ModoAusente::executarInstrucao() {
 ModoFesta::ModoFesta(std::string nome)
     : Modo(nome, {}, {}, false, false) {}
 
-void ModoFesta::executarInstrucao() {
+void ModoFesta::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) {
+    (void)comodo;
     for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
         if (item == nullptr) continue;
 
@@ -283,7 +288,8 @@ ModoEconomia::ModoEconomia(std::string nome)
         false
     ) {}
 
-void ModoEconomia::executarInstrucao() {
+void ModoEconomia::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) {
+    (void)comodo;
     for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
         if (item == nullptr) {
             continue;
