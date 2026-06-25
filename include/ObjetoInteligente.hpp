@@ -215,6 +215,7 @@ public:
 
     /**
      * @brief Define o status atual a partir de um index.
+     * @param 0 -> apagada, 1 -> acesa
      */
     void setStatusAtual(int indexStatus);
 };
@@ -234,6 +235,7 @@ public:
 
     /**
      * @brief Define o status atual a partir de um index.
+     * @param indexStatus 0 -> desligada, 1 -> standby, 2 -> tocando música
      */
     void setStatusAtual(int indexStatus);
 };
@@ -294,7 +296,8 @@ public:
     void desligar();
 
     /**
-     * @brief Define a temperatura. 
+     * @brief Define a temperatura.
+     * @param temperatura Valor da temperatura a ser definido.
      */
     void setTemperatura(float temperatura);
 
@@ -353,6 +356,7 @@ public:
 
     /**
      * @brief Define a temperatura atual.
+     * @param temperatura Valor da temperatura a ser definido.
      */
     void setTemperaturaAtual(float temperatura);
 
