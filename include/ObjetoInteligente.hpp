@@ -118,6 +118,7 @@ public:
     
     /**
      * @brief Define o status atual do objeto.
+     * @param status Nome do status a ser definido.
      */
     virtual void setStatusAtual(std::string status);
 
@@ -143,6 +144,7 @@ public:
 
     /**
      * @brief Define o protocolo do objeto.
+     * @param protocolo Tipo do protocolo a ser definido.
      */
     void setProtocolo(Protocolo protocolo);
 
@@ -183,6 +185,7 @@ public:
 
     /**
      * @brief Retorna se os caracteres de uma string estão de acordo com as especificações do sistema.
+     * @param str String a ser verificada.
      */
     bool caracteresValidos(const std::string& str);
 
