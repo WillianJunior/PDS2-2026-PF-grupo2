@@ -169,11 +169,14 @@ class ModoCinema : public Modo {
 public:
     /**
      * @brief Construtor da classe.
+     * @param nome Nome do modo.
      */
     ModoCinema(std::string nome);
 
     /**
      * @brief Executa o modo.
+     * @param objeto Qual objeto a ser afetado.
+     * @param comodo Em qual cômodo deve-se aplicar a instrução.
      */
     void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
@@ -191,6 +194,12 @@ public:
      * @brief Construtor da subclasse.
      */
     ModoTrabalho(std::string nome);
+
+    /**
+     * @brief Construtor da subclasse.
+     * @param objeto Qual objeto a ser afetado.
+     * @param comodo Em qual cômodo deve-se aplicar a instrução.
+     */
     void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
 
@@ -209,6 +218,8 @@ public:
 
     /**
      * @brief Executa o modo.
+     * @param objeto Qual objeto a ser afetado.
+     * @param comodo Em qual cômodo deve-se aplicar a instrução.
      */
     void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
@@ -228,6 +239,8 @@ public:
 
     /**
      * @brief Executa o modo.
+     * @param objeto Qual objeto a ser afetado.
+     * @param comodo Em qual cômodo deve-se aplicar a instrução.
      */
     void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
@@ -248,8 +261,8 @@ public:
 
     /**
      * @brief Executa o modo.
-     * @param objeto Lista de objetos que se deve aplicar o modo.
-     * @param comodo Lito
+     * @param objeto Qual objeto a ser afetado.
+     * @param comodo Em qual cômodo deve-se aplicar a instrução.
      */
     void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
