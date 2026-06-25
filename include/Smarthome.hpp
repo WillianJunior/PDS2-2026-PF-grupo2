@@ -135,14 +135,17 @@ public:
     void printModosInfo()const;
     /**
      * @brief Checa se o str contem caracteres que nao sao espaços, letras ou numeros, se houver retorna false.
+     * @param str String a ser verificada.
      */
     bool CaracteresValidos(const std::string& str);
     /**
      * @brief Busca um comodo especifico pelo nome e retorna o ponteiro para ele.
+     * @param nomeComodo Nome a ser procurado.
      */
     Comodo* getComodo(std::string nomeComodo);
     /**
      * @brief Busca um modo especifico pelo nome e retorna o ponteiro para ele.
+     * @param nomeModo Nome do modo a ser procurado.
      */
     Modo* getModo(std::string nomeModo);
 
