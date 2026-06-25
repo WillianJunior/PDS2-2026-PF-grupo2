@@ -48,7 +48,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_comodo_8hpp.html",
-"index.html"
+"pages.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_comodo.h
 </div><!--header-->
 <div class="contents">
 
-<p>Representa um cômodo físico dentro de uma <a class="el" href="class_smarthome.html">Smarthome</a>.  
+<p>Representa um cômodo físico dentro de uma <a class="el" href="class_smarthome.html" title="Classe que representa uma smarthome. Contém cômodos e objetos, além de pertencer à alguma conta.">Smarthome</a>.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_comodo_8hpp_source.html">Comodo.hpp</a>&gt;</code></p>
@@ -139,7 +139,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5d7c1038dfa6548aec7edc2238ffde2d" id="r_a5d7c1038dfa6548aec7edc2238ffde2d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5d7c1038dfa6548aec7edc2238ffde2d">adicionarObjeto</a> (<a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> *objeto)</td></tr>
 <tr class="memdesc:a5d7c1038dfa6548aec7edc2238ffde2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona um Objeto Inteligente ao cômodo.  <br /></td></tr>
 <tr class="memitem:acfc7a330ac270b0b36e81571f98c8b8c" id="r_acfc7a330ac270b0b36e81571f98c8b8c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acfc7a330ac270b0b36e81571f98c8b8c">adicionarSensor</a> (std::unique_ptr&lt; <a class="el" href="class_sensor.html">Sensor</a> &gt; sensor)</td></tr>
-<tr class="memdesc:acfc7a330ac270b0b36e81571f98c8b8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona um <a class="el" href="class_sensor.html">Sensor</a> ao cômodo.  <br /></td></tr>
+<tr class="memdesc:acfc7a330ac270b0b36e81571f98c8b8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona um <a class="el" href="class_sensor.html" title="Classe que representa sensores, que são acionados conforme a alteração do estados de cômodos ou quand...">Sensor</a> ao cômodo.  <br /></td></tr>
 <tr class="memitem:acd16def8134cfc28d204881f5437727d" id="r_acd16def8134cfc28d204881f5437727d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acd16def8134cfc28d204881f5437727d">adicionarModo</a> (<a class="el" href="class_modo.html">Modo</a> *modo)</td></tr>
 <tr class="memdesc:acd16def8134cfc28d204881f5437727d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vincula um <a class="el" href="class_modo.html" title="Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentes ...">Modo</a> ao cômodo.  <br /></td></tr>
 <tr class="memitem:a2fe6f4249752335938488d60d2843d1c" id="r_a2fe6f4249752335938488d60d2843d1c"><td class="memItemLeft">const std::vector&lt; <a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> * &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2fe6f4249752335938488d60d2843d1c">getObjetos</a> () const</td></tr>
@@ -165,7 +165,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5cfdc977dfd4d8d71814d89ad0340777" id="r_a5cfdc977dfd4d8d71814d89ad0340777"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a5cfdc977dfd4d8d71814d89ad0340777">getNome</a> () const</td></tr>
 <tr class="memdesc:a5cfdc977dfd4d8d71814d89ad0340777"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o nome atribuído ao cômodo.  <br /></td></tr>
 <tr class="memitem:a628cdff3ee13e9404546ba5109042348" id="r_a628cdff3ee13e9404546ba5109042348"><td class="memItemLeft"><a class="el" href="class_smarthome.html">Smarthome</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a628cdff3ee13e9404546ba5109042348">getSmarthome</a> () const</td></tr>
-<tr class="memdesc:a628cdff3ee13e9404546ba5109042348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a instância da <a class="el" href="class_smarthome.html">Smarthome</a> matriz do cômodo.  <br /></td></tr>
+<tr class="memdesc:a628cdff3ee13e9404546ba5109042348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a instância da <a class="el" href="class_smarthome.html" title="Classe que representa uma smarthome. Contém cômodos e objetos, além de pertencer à alguma conta.">Smarthome</a> matriz do cômodo.  <br /></td></tr>
 <tr class="memitem:a7eea58ea3dd4757a9601ca5e5964e245" id="r_a7eea58ea3dd4757a9601ca5e5964e245"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7eea58ea3dd4757a9601ca5e5964e245">printObjetosInfo</a> () const</td></tr>
 <tr class="memdesc:a7eea58ea3dd4757a9601ca5e5964e245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime no terminal as informações e status de todos os objetos deste cômodo.  <br /></td></tr>
 <tr class="memitem:a848ae6a630ce3dd34ec067244e9085b1" id="r_a848ae6a630ce3dd34ec067244e9085b1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a848ae6a630ce3dd34ec067244e9085b1">printSensoresInfo</a> () const</td></tr>
@@ -180,7 +180,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a66675fa403d0d8cdd94a8b08c93776c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor padrão da classe <a class="el" href="class_comodo.html" title="Representa um cômodo físico dentro de uma Smarthome.">Comodo</a>.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Representa um cômodo físico dentro de uma <a class="el" href="class_smarthome.html">Smarthome</a>. </p>
+<div class="textblock"><p>Representa um cômodo físico dentro de uma <a class="el" href="class_smarthome.html" title="Classe que representa uma smarthome. Contém cômodos e objetos, além de pertencer à alguma conta.">Smarthome</a>. </p>
 <p>Esta classe é responsável por gerenciar as condições do ambiente e agrupar logicamente objetos inteligentes, sensores, contas presentes e modos de automação. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a29576917022adb0eed6920e79900347a" name="a29576917022adb0eed6920e79900347a"></a>
@@ -206,7 +206,7 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nome</td><td>Nome do cômodo (ex: "Sala", "Quarto"). </td></tr>
-    <tr><td class="paramname">casa</td><td>Ponteiro para a <a class="el" href="class_smarthome.html">Smarthome</a> à qual este cômodo pertence. </td></tr>
+    <tr><td class="paramname">casa</td><td>Ponteiro para a <a class="el" href="class_smarthome.html" title="Classe que representa uma smarthome. Contém cômodos e objetos, além de pertencer à alguma conta.">Smarthome</a> à qual este cômodo pertence. </td></tr>
   </table>
   </dd>
 </dl>
@@ -323,10 +323,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adiciona um <a class="el" href="class_sensor.html">Sensor</a> ao cômodo. </p>
+<p>Adiciona um <a class="el" href="class_sensor.html" title="Classe que representa sensores, que são acionados conforme a alteração do estados de cômodos ou quand...">Sensor</a> ao cômodo. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sensor</td><td>Smart pointer (unique_ptr) do <a class="el" href="class_sensor.html">Sensor</a> a ser inserido. </td></tr>
+    <tr><td class="paramname">sensor</td><td>Smart pointer (unique_ptr) do <a class="el" href="class_sensor.html" title="Classe que representa sensores, que são acionados conforme a alteração do estados de cômodos ou quand...">Sensor</a> a ser inserido. </td></tr>
   </table>
   </dd>
 </dl>
@@ -519,8 +519,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Retorna a instância da <a class="el" href="class_smarthome.html">Smarthome</a> matriz do cômodo. </p>
-<dl class="section return"><dt>Returns</dt><dd>Ponteiro para a <a class="el" href="class_smarthome.html">Smarthome</a> à qual este cômodo pertence. </dd></dl>
+<p>Retorna a instância da <a class="el" href="class_smarthome.html" title="Classe que representa uma smarthome. Contém cômodos e objetos, além de pertencer à alguma conta.">Smarthome</a> matriz do cômodo. </p>
+<dl class="section return"><dt>Returns</dt><dd>Ponteiro para a <a class="el" href="class_smarthome.html" title="Classe que representa uma smarthome. Contém cômodos e objetos, além de pertencer à alguma conta.">Smarthome</a> à qual este cômodo pertence. </dd></dl>
 
 </div>
 </div>
@@ -571,7 +571,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true se possuírem o mesmo nome e pertencerem à mesma <a class="el" href="class_smarthome.html">Smarthome</a>, false caso contrário. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true se possuírem o mesmo nome e pertencerem à mesma <a class="el" href="class_smarthome.html" title="Classe que representa uma smarthome. Contém cômodos e objetos, além de pertencer à alguma conta.">Smarthome</a>, false caso contrário. </dd></dl>
 
 </div>
 </div>

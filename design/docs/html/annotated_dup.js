@@ -1,7 +1,6 @@
 var annotated_dup =
 [
     [ "ArCondicionado", "class_ar_condicionado.html", "class_ar_condicionado" ],
-    [ "Caixa", "class_caixa.html", null ],
     [ "CaixaDeSom", "class_caixa_de_som.html", "class_caixa_de_som" ],
     [ "Comodo", "class_comodo.html", "class_comodo" ],
     [ "Conta", "class_conta.html", "class_conta" ],

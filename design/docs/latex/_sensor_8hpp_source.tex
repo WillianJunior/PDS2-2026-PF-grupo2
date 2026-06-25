@@ -8,62 +8,64 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_comodo_8hpp}{Comodo.hpp}}"{}}}
 \DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_objeto_inteligente}{ObjetoInteligente}};}
-\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_modo}{Modo}};}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_sensor_a09d3310baf2aa161d24183c5579ac7f0}{Sensor}}\ \{}
-\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00016\ \ \ \ \ std::string\ nome;}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ estaLigado;}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ estaAtivado;}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00031\ \ \ \ \ \doxymbox{\hyperlink{class_comodo}{Comodo}}*\ comodoPertencente;}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00036\ \ \ \ \ std::vector<ObjetoInteligente*>\ objetosConectados;}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00041\ \ \ \ \ std::vector<Modo*>\ modosConectados;}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00054\ \ \ \ \ \doxymbox{\hyperlink{class_sensor_a09d3310baf2aa161d24183c5579ac7f0}{Sensor}}(}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ std::string\ nome,}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ligado,}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ativado,}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_comodo}{Comodo}}*\ comodoPertencente,}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ std::vector<ObjetoInteligente*>\ objetosConectados,}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ std::vector<Modo*>\ modosConectados}
-\DoxyCodeLine{00061\ \ \ \ \ );}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00066\ \ \ \ \ std::string\ \doxymbox{\hyperlink{class_sensor_a51de4a3391d779ab9acb164c0dfe29b1}{getNome}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sensor_a0f30ad690224bea48f621fa7d8275775}{setEstaLigado}}(\textcolor{keywordtype}{bool}\ ligado);}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_objeto_inteligente}{ObjetoInteligente}};}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_modo}{Modo}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_sensor_a09d3310baf2aa161d24183c5579ac7f0}{Sensor}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00022\ \ \ \ \ std::string\ nome;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ estaLigado;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ estaAtivado;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ \doxymbox{\hyperlink{class_comodo}{Comodo}}*\ comodoPertencente;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \ \ std::vector<ObjetoInteligente*>\ objetosConectados;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \ \ \ \ std::vector<Modo*>\ modosConectados;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00060\ \ \ \ \ \doxymbox{\hyperlink{class_sensor_a09d3310baf2aa161d24183c5579ac7f0}{Sensor}}(}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ std::string\ nome,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ligado,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ativado,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_comodo}{Comodo}}*\ comodoPertencente,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ std::vector<ObjetoInteligente*>\ objetosConectados,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ std::vector<Modo*>\ modosConectados}
+\DoxyCodeLine{00067\ \ \ \ \ );}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00072\ \ \ \ \ std::string\ \doxymbox{\hyperlink{class_sensor_a51de4a3391d779ab9acb164c0dfe29b1}{getNome}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00073\ }
-\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_sensor_a2c9470b5de01e32bf939983750bf0272}{getEstaLigado}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sensor_a9a12d20222275fad4bc7ea2ff823acff}{setEstaAtivado}}(\textcolor{keywordtype}{bool}\ ativado);}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sensor_a0f30ad690224bea48f621fa7d8275775}{setEstaLigado}}(\textcolor{keywordtype}{bool}\ ligado);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_sensor_a2c9470b5de01e32bf939983750bf0272}{getEstaLigado}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00084\ }
-\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_sensor_a4c2ddad234e6611c42b3d889b11bfe8c}{getEstaAtivado}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00093\ \ \ \ \ std::vector<ObjetoInteligente*>\ \doxymbox{\hyperlink{class_sensor_abec1957abf5984ea092218524054827e}{getObjetosConectados}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00098\ \ \ \ \ std::vector<Modo*>\ \doxymbox{\hyperlink{class_sensor_ae68455b018c489aca7a2abeed58ff3b6}{getModosConectados}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_sensor_aa7f24b3b27dccd9fb3aa0b2c955e99ad}{checarAmbiente}}(std::string\ condicao);}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sensor_a9a12d20222275fad4bc7ea2ff823acff}{setEstaAtivado}}(\textcolor{keywordtype}{bool}\ ativado);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_sensor_a4c2ddad234e6611c42b3d889b11bfe8c}{getEstaAtivado}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00099\ \ \ \ \ std::vector<ObjetoInteligente*>\ \doxymbox{\hyperlink{class_sensor_abec1957abf5984ea092218524054827e}{getObjetosConectados}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00104\ \ \ \ \ std::vector<Modo*>\ \doxymbox{\hyperlink{class_sensor_ae68455b018c489aca7a2abeed58ff3b6}{getModosConectados}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00105\ }
-\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sensor_a7e607f056450d7062e3e4ea66401ea9a}{ativarModo}}(\doxymbox{\hyperlink{class_modo}{Modo}}*\ modo);}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sensor_a178cc9147cada07071d010a6f93f51ad}{ativarObjeto}}(\doxymbox{\hyperlink{class_objeto_inteligente}{ObjetoInteligente}}*\ objeto,\ \textcolor{keywordtype}{size\_t}\ indexFuncao);}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_sensor_aa7f24b3b27dccd9fb3aa0b2c955e99ad}{checarAmbiente}}(std::string\ condicao);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sensor_a7e607f056450d7062e3e4ea66401ea9a}{ativarModo}}(\doxymbox{\hyperlink{class_modo}{Modo}}*\ modo);}
 \DoxyCodeLine{00116\ }
-\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_sensor_ab178e293d4d0c21cd302777b2f0c4688}{operator==\ }}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_sensor_a09d3310baf2aa161d24183c5579ac7f0}{Sensor}}\&\ other)\textcolor{keyword}{const};}
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sensor_a69c8fa2ccce82b8d6dfa307dac11d032}{printSensorInfo}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_sensor_a6659d94074a0df567be3bdc7312d154f}{CaracteresValidos}}\ (\textcolor{keyword}{const}\ std::string\&\ str);}
-\DoxyCodeLine{00133\ \};}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sensor_a178cc9147cada07071d010a6f93f51ad}{ativarObjeto}}(\doxymbox{\hyperlink{class_objeto_inteligente}{ObjetoInteligente}}*\ objeto,\ \textcolor{keywordtype}{size\_t}\ indexFuncao);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_sensor_ab178e293d4d0c21cd302777b2f0c4688}{operator==\ }}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_sensor_a09d3310baf2aa161d24183c5579ac7f0}{Sensor}}\&\ other)\textcolor{keyword}{const};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sensor_a69c8fa2ccce82b8d6dfa307dac11d032}{printSensorInfo}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00134\ }
-\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_sensor_a6659d94074a0df567be3bdc7312d154f}{CaracteresValidos}}\ (\textcolor{keyword}{const}\ std::string\&\ str);}
+\DoxyCodeLine{00139\ \};}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

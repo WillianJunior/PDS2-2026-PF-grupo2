@@ -1,6 +1,5 @@
 var hierarchy =
 [
-    [ "Caixa", "class_caixa.html", null ],
     [ "Comodo", "class_comodo.html", null ],
     [ "Conta", "class_conta.html", null ],
     [ "Interface", "class_interface.html", null ],
