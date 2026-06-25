@@ -92,12 +92,14 @@ class Modo {
         std::vector<Comodo*> getComodosRelacionados()const;
 
         /**
-         * @brief Retorna o nome do modo.
+         * @brief Adiciona um cômodo ao vetor de cômodos relacionados.
+         * @param comodo Qual cômodo adicionar.
          */
         void adicionarComodoRelacionado(Comodo* comodo);
 
         /**
          * @brief Tira a conexão com um cômodo relacionado.
+         * @param nomeComodo O nome do cômodo a ser removido.
          */
         void removerComodoRelacionado(std::string nomeComodo);
 
@@ -118,16 +120,21 @@ class Modo {
 
         /**
          * @brief Executa uma instrução em um objeto específico de um certo comodo.
+         * @param objeto Qual objeto a ser afetado.
+         * @param comodo Em qual cômodo deve-se aplicar a instrução.
          */
         virtual void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo);
         
         /**
          * @brief Desfaz uma instrução em um objeto específico de um certo comodo.
+         * @param objeto Qual objeto a ser afetado.
+         * @param comodo Em qual cômodo deve-se desfazer a instrução.
          */
         void desfazerInstrucao(ObjetoInteligente* objeto, Comodo* comodo);
 
         /**
          * @brief Confere se os caractéres seguem os requisitos do sistema.
+         * @param str String a ser conferida.
          */
         bool caracteresValidos (const std::string& str);
         virtual ~Modo() = default;
@@ -235,11 +242,14 @@ public:
 
     /**
      * @brief Construtor da subclasse.
+     * @param nome Nome do Modo
      */
     ModoEconomia(std::string nome);
 
     /**
      * @brief Executa o modo.
+     * @param objeto Lista de objetos que se deve aplicar o modo.
+     * @param comodo Lito
      */
     void executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) override;
 };
