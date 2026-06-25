@@ -83,9 +83,9 @@ A documentação completa dos métodos e classes pode ser gerada automaticamente
 ```bash
 # Gera a documentação usando o arquivo de configuração
 doxygen design/Doxyfile
+```
 
 Nota: Após a execução, a documentação em HTML será gerada dentro do diretório design/docs/. Para visualizá-la, basta abrir a pasta no seu gerenciador de arquivos e dar um clique duplo no arquivo index.html para abri-lo no seu navegador padrão.
----
 
 ## Estrutura Técnica e Contratos (C++)
 
