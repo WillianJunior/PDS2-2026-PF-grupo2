@@ -207,7 +207,15 @@ public:
 class Luz : public ObjetoInteligente {
 public:
     using ObjetoInteligente::setStatusAtual;
+
+    /**
+     * @brief Construtor da subclasse.
+     */
     Luz(std::string nome);
+
+    /**
+     * @brief Define o status atual a partir de um index.
+     */
     void setStatusAtual(int indexStatus);
 };
 
@@ -218,7 +226,15 @@ public:
 class CaixaDeSom : public ObjetoInteligente {
 public:
     using ObjetoInteligente::setStatusAtual;
+
+    /**
+     * @brief Construtor da subclasse.
+     */
     CaixaDeSom(std::string nome);
+
+    /**
+     * @brief Define o status atual a partir de um index.
+     */
     void setStatusAtual(int indexStatus);
 };
 
@@ -229,8 +245,20 @@ public:
 class TV : public ObjetoInteligente {
 public:
     using ObjetoInteligente::setStatusAtual;
+
+    /**
+     * @brief Construtor da subclasse.
+     */
     TV(std::string nome);
+
+    /**
+     * @brief Define a tv como ligada. 
+     */
     void ligar();
+
+    /**
+     * @brief Define a tv como desligada. 
+     */
     void desligar();
 };
 
@@ -244,11 +272,35 @@ private:
 
 public:
     using ObjetoInteligente::setStatusAtual;
+    
+    /**
+     * @brief Construtor da subclasse.
+     */
     ArCondicionado(std::string nome);
+
+    /**
+     * @brief Define a status como resfriando. 
+     */
     void resfriar();
+
+    /**
+     * @brief Define o status como aquecendo. 
+     */
     void aquecer();
+
+    /**
+     * @brief Define o status como desligado. 
+     */
     void desligar();
+
+    /**
+     * @brief Define a temperatura. 
+     */
     void setTemperatura(float temperatura);
+
+    /**
+     * @brief Retorna a temperatura. 
+     */
     float getTemperatura() const;
 };
 
