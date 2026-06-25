@@ -136,7 +136,7 @@ TEST_CASE("TESTE 4 adicionarObjeto - Smarthome") {
         [](){}
     };
 
-    ObjetoInteligente objetoTeste(
+    auto objetoTeste = std::make_unique<ObjetoInteligente> (
         "ObjetoTeste",
         false,
         sensores,
@@ -147,12 +147,22 @@ TEST_CASE("TESTE 4 adicionarObjeto - Smarthome") {
         funcoesRestritas
     );
 
-    casaTeste.adicionarObjeto(objetoTeste);
+    casaTeste.adicionarObjeto(std::move(objetoTeste));
 
     CHECK(casaTeste.getQuantidadeObjetos() == 1);
 
     SUBCASE("TESTE 4.1 objeto duplicado nao adiciona"){
-        casaTeste.adicionarObjeto(objetoTeste);
+        auto objetoTeste2 = std::make_unique<ObjetoInteligente> (
+        "ObjetoTeste",
+        false,
+        sensores,
+        statusPossiveis,
+        "Ligado",
+        consumoMedio,
+        funcoes,
+        funcoesRestritas
+        );
+        casaTeste.adicionarObjeto(std::move(objetoTeste2));
         CHECK(casaTeste.getQuantidadeObjetos() == 1);
     }
 }
@@ -264,7 +274,7 @@ TEST_CASE("TESTE 7 printObjetosInfo - Smarthome"){
         [](){}
     };
 
-    ObjetoInteligente objetoTeste(
+    auto objetoTeste = std::make_unique<ObjetoInteligente> (
         "ObjetoTeste",
         false,
         sensores,
@@ -275,7 +285,7 @@ TEST_CASE("TESTE 7 printObjetosInfo - Smarthome"){
         funcoesRestritas
     );
 
-    casaTeste.adicionarObjeto(objetoTeste);
+    casaTeste.adicionarObjeto(std::move(objetoTeste));
 
     std::ostringstream oss;
     std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
@@ -391,7 +401,7 @@ TEST_CASE("TESTE 9 removerObjeto - Smarthome"){
         [](){}
     };
 
-    ObjetoInteligente objetoTeste(
+    auto objetoTeste = std::make_unique<ObjetoInteligente> (
         "ObjetoTeste",
         false,
         sensores,
@@ -402,7 +412,7 @@ TEST_CASE("TESTE 9 removerObjeto - Smarthome"){
         funcoesRestritas
     );
 
-    casaTeste.adicionarObjeto(objetoTeste);
+    casaTeste.adicionarObjeto(std::move(objetoTeste));
 
     CHECK(casaTeste.getQuantidadeObjetos() == 1);
 
@@ -411,8 +421,8 @@ TEST_CASE("TESTE 9 removerObjeto - Smarthome"){
     CHECK(casaTeste.getQuantidadeObjetos() == 0);
 
     SUBCASE("TESTE 9.1 remocao de objeto nao existente na smarthome nao funciona"){
-       ObjetoInteligente objetoTeste2(
-        "ObjetoTeste2",
+       auto objetoTeste = std::make_unique<ObjetoInteligente> (
+        "ObjetoTeste",
         false,
         sensores,
         statusPossiveis,

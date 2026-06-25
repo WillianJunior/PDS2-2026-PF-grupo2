@@ -20,11 +20,21 @@ Smarthome::Smarthome(Conta* usuario, std::string nome)
     } // adicionar validação de entrada para instanciamentos invalidos ex: nome vazio
 
 bool Smarthome::operator==(const Smarthome& other) const {
-    return usuario == other.usuario
-        && comodos == other.comodos
-        && modos == other.modos
-        && objetos == other.objetos
-        && nome == other.nome;
+    if (usuario != other.usuario || nome != other.nome) return false;
+    if (comodos.size() != other.comodos.size()) return false;
+    if (objetos.size() != other.objetos.size()) return false;
+    if (modos.size() != other.modos.size()) return false;
+
+    for (size_t i = 0; i < comodos.size(); ++i) {
+        if (comodos[i]->getNome() != other.comodos[i]->getNome()) return false;
+    }
+    for (size_t i = 0; i < objetos.size(); ++i) {
+        if (objetos[i]->getNome() != other.objetos[i]->getNome()) return false;
+    }
+    for (size_t i = 0; i < modos.size(); ++i) {
+        if (!(modos[i] == other.modos[i])) return false;
+    }
+    return true;
 }
     
 void Smarthome::adicionarModo(const Modo& modo) {
@@ -47,14 +57,14 @@ void Smarthome::adicionarComodo(std::unique_ptr<Comodo> comodo) {
     comodos.push_back(move(comodo));
 }
 
-void Smarthome::adicionarObjeto(const ObjetoInteligente& objeto) {
+void Smarthome::adicionarObjeto(std::unique_ptr<ObjetoInteligente> objeto) {
     for (const auto& obj: objetos) {
-        if (obj == objeto) {
+        if (*obj == *objeto) {
             std :: cout << "Objeto ja existente na SmartHome" << endl;
             return;
         }
     }
-    objetos.push_back(objeto);
+    objetos.push_back(move(objeto));
 }
 void Smarthome :: removerComodo(const Comodo& comodo){
      auto it = std::find_if(comodos.begin(), comodos.end(),
@@ -94,7 +104,7 @@ void Smarthome::removerModo(std::string nomeModo) {
 
 void Smarthome::removerObjeto(std::string nomeObjeto) {
     for (auto it = objetos.begin(); it != objetos.end(); ++it) {
-        if (it->getNome() == nomeObjeto) {
+        if ((*it)->getNome() == nomeObjeto) {
             objetos.erase(it);
             return;
         }
@@ -102,7 +112,7 @@ void Smarthome::removerObjeto(std::string nomeObjeto) {
     throw std::invalid_argument("Objeto " + nomeObjeto + " nao encontrado na smarthome " + nome + " para remocao");
 }
 
-const std::vector<ObjetoInteligente>& Smarthome::getObjetos() const {
+const std::vector<std::unique_ptr<ObjetoInteligente>>& Smarthome::getObjetos() const {
     return objetos;
 }
 
@@ -149,7 +159,7 @@ void Smarthome:: printObjetosInfo() const{
     std::cout << "Smarthome " << nome << " de: " << (*usuario).getNome() << endl;
     std::cout << "Objetos Inteligentes presentes em " << nome << " :" << endl;
     for(size_t i=0; i<objetos.size(); i++){
-        objetos[i].printObjetosInfo(); 
+        objetos[i]->printObjetosInfo(); 
                std::cout<< endl;
     } 
 }

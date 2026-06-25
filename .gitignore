@@ -5,6 +5,8 @@ bin/
 *.gcda
 *.gcno
 *.gcov
+coverage.*.html
 coverage.html
+coverage.css
 .vscode/
 Thumbs.db
