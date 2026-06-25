@@ -78,7 +78,7 @@ TEST_CASE("Teste 03: Metodo setEstaAtivado") {
     CHECK(sensor.getEstaAtivado() == true);
 }
 
-TEST_CASE("operador == retorna true para sensores iguais") {
+TEST_CASE("Teste 04: operador == retorna true para sensores iguais") {
 
     std::vector<ObjetoInteligente*> objetos;
     std::vector<Modo*> modos;
@@ -108,7 +108,7 @@ TEST_CASE("operador == retorna true para sensores iguais") {
     CHECK(sensor1 == sensor2);
 }
 
-TEST_CASE("checarAmbiente encontra condicoes existentes") { //consertar inconsistencias no funcionamento
+TEST_CASE("Teste 05: checarAmbiente encontra condicoes existentes") { 
 
     std::vector<ObjetoInteligente*> objetos;
     std::vector<Modo*> modos;
@@ -135,7 +135,7 @@ TEST_CASE("checarAmbiente encontra condicoes existentes") { //consertar inconsis
     SUBCASE("Condicao vazia lança exceção") {
         std::vector<ObjetoInteligente*> objetos;
         std::vector<Modo*> modos;
-        Comodo comodo("Sala", nullptr);
+        Comodo comodo("Sala", &smarthome);
         Sensor sensor("SensorTeste", true, true, &comodo, objetos, modos);
         CHECK_THROWS_WITH(sensor.checarAmbiente(""),
             "Condicao vazia passada para checarAmbiente no Sensor SensorTeste");
@@ -143,7 +143,7 @@ TEST_CASE("checarAmbiente encontra condicoes existentes") { //consertar inconsis
 
 }
 
-TEST_CASE("ativarModo ativa um modo") {
+TEST_CASE("Teste 06: ativarModo ativa um modo") {
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
     Smarthome smarthome(&contaTeste, "Minha Casa");
     Comodo comodo("Sala", &smarthome);
@@ -182,7 +182,7 @@ TEST_CASE("ativarModo ativa um modo") {
 
 }
 
-TEST_CASE("ativarObjeto executa a funcao selecionada") {
+TEST_CASE("Teste 07: ativarObjeto executa a funcao selecionada") {
 
     bool executou = false;
 
