@@ -23,6 +23,7 @@ void Interface::iniciar() {
     std::cout << "======================================\n";
 
     while (true) {
+        if (modoTeste && std::cin.eof()) return;
         if (usuarioLogado == nullptr) {
             exibirMenuInicial();
         } else {
@@ -61,7 +62,11 @@ void Interface::exibirMenuInicial() {
             break;
         case 3:
             std::cout << "\nEncerrando o sistema. Ate breve!\n";
-            exit(0);
+            if(modoTeste){
+                return;
+            }else{
+                exit(0);   
+            }
         default:
             std::cout << "\nOpcao invalida! Escolha 1, 2 ou 3.\n";
             break;
@@ -278,6 +283,7 @@ void Interface::cadastrarConta() {
 
 void Interface::gerenciarSmarthome(Smarthome* casa) {
     while (true) {
+        if (modoTeste && std::cin.eof()) return;
         std::cout << "\n======================================\n";
         std::cout << "   GERENCIANDO: " << casa->getNome() << "\n";
         std::cout << "======================================\n";
@@ -339,6 +345,7 @@ void Interface::gerenciarSmarthome(Smarthome* casa) {
 
 void Interface::exibirMenuComodos(Smarthome* casa) {
     while (true) {
+        if (modoTeste && std::cin.eof()) return;
         std::cout << "\n--- GERENCIAR COMODOS [" << casa->getNome() << "] ---\n";
         std::cout << "1. Listar Comodos\n";
         std::cout << "2. Adicionar novo Comodo\n";
@@ -442,6 +449,7 @@ void Interface::exibirMenuComodos(Smarthome* casa) {
 
 void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
     while (true) {
+        if (modoTeste && std::cin.eof()) return;
         std::cout << "\n--- DENTRO DE: " << comodo->getNome() << " ---\n";
         std::cout << "1. Adicionar Objeto Inteligente (Lâmpada, TV, etc)\n";
         std::cout << "2. Remover Objeto Inteligente\n";
@@ -732,6 +740,7 @@ void Interface::gerenciarComodoEspecifico(Smarthome* casa, Comodo* comodo) {
 
 void Interface::exibirMenuModos(Smarthome* casa) {
     while (true) {
+        if (modoTeste && std::cin.eof()) return;
         std::cout << "\n--- GERENCIAR MODOS [" << casa->getNome() << "] ---\n";
         std::cout << "1. Listar Modos da Casa\n";
         std::cout << "2. Criar novo Modo\n";
@@ -868,6 +877,7 @@ void Interface::gerenciarModoEspecifico(Smarthome* casa, std::string nomeModo) {
     }
 
     while (true) {
+        if (modoTeste && std::cin.eof()) return;
         std::cout << "\n--- MODO: " << modo->getNome() << " ---\n";
         std::cout << "1. Listar comodos associados\n";
         std::cout << "2. Adicionar comodo ao modo\n";
@@ -1189,3 +1199,7 @@ void Interface::mostrarPlantaCasa(Smarthome* casa) {
         std::cout << "+----------------------+\n\n";
     }
 }
+    void Interface::iniciarTeste() {
+        modoTeste = true;
+        iniciar();
+    }
