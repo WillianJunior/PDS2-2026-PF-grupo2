@@ -183,10 +183,7 @@ private:
     Smarthome* casa;
 
     /** @brief Vetor que armazena as condições atuais do ambiente físico. */
-    std::vector<std::string> condicoesDoComodo = {
-        "Iluminado", "Escuro", "Quente", "Frio",
-        "Umido", "Seco", "Barulhento", "Silencioso"
-    };
+    std::vector<std::string> condicoesDoComodo;
 
     /** @brief Lista de contas que estão fisicamente presentes no cômodo no momento. */
     std::vector<Conta*> contasPresentes;
