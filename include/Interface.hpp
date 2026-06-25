@@ -25,6 +25,9 @@ private:
     /** @brief Ponteiro para a conta do usuário que está atualmente autenticado e utilizando o sistema. */
     Conta* usuarioLogado = nullptr;
 
+    /** @brief Indica se estou fazendo um teste ou nao (usado para evitar exit(0)) */
+    bool modoTeste = false;
+
     /**
      * @brief Exibe o menu inicial do sistema (Login, Cadastro ou Sair).
      */
@@ -106,6 +109,11 @@ public:
      * @brief Inicia o loop principal do programa, prendendo a execução na navegação dos menus.
      */
     void iniciar();
+
+    /**
+     * @brief Inicia o loop principal do programa, prendendo a execução na navegação dos menus para testes.
+     */
+    void iniciarTeste();
 };
 
 #endif
