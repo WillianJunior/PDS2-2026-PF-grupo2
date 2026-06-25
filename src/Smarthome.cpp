@@ -150,7 +150,6 @@ void Smarthome:: printComodosInfo()const{
         comodos[i]->printObjetosInfo();
         comodos[i]->printModosInfo();
         comodos[i]->printSensoresInfo();
-        comodos[i]->printContasInfo();
         std::cout << endl;
     }
 }

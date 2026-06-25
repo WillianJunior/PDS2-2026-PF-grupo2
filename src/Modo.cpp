@@ -178,9 +178,35 @@ ModoNoturno::ModoNoturno(std::string nome)
     ) {}
 
 void ModoNoturno::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) {
-    (void)comodo;
-    for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
-        item->setStatusAtual("Desligado");
+    (void)objeto;
+
+    if (comodo == nullptr) {
+        return;
+    }
+
+    if (getBloqueadoModo()) {
+        std::cout << "Modo " << getNome() << " bloqueado" << std::endl;
+        return;
+    }
+
+    for (ObjetoInteligente* item : comodo->getObjetos()) {
+        if (item == nullptr) continue;
+
+        if (dynamic_cast<Luz*>(item)) {
+            item->setStatusAtual("apagada");
+        }
+        else if (dynamic_cast<TV*>(item)) {
+            item->setStatusAtual("desligada");
+        }
+        else if (dynamic_cast<CaixaDeSom*>(item)) {
+            item->setStatusAtual("desligada");
+        }
+        else if (dynamic_cast<ArCondicionado*>(item)) {
+            item->setStatusAtual("desligado");
+        }
+        else if (dynamic_cast<Portao*>(item)) {
+            item->setStatusAtual("fechado");
+        }
     }
 }
 
@@ -201,8 +227,18 @@ ModoCinema::ModoCinema(std::string nome)
     : Modo(nome, {}, {}, false, false) {}
 
 void ModoCinema::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) {
-    (void)comodo;
-    for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
+    (void)objeto;
+
+    if (comodo == nullptr) {
+        return;
+    }
+
+    if (getBloqueadoModo()) {
+        std::cout << "Modo " << getNome() << " bloqueado" << std::endl;
+        return;
+    }
+
+    for (ObjetoInteligente* item : comodo->getObjetos()) {
         if (item == nullptr) continue;
 
         if (dynamic_cast<TV*>(item)) {
@@ -220,9 +256,19 @@ void ModoCinema::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) {
 ModoTrabalho::ModoTrabalho(std::string nome)
     : Modo(nome, {}, {}, false, false) {}
 
-void ModoTrabalho::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo)  {
-    (void)comodo;
-    for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
+void ModoTrabalho::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) {
+    (void)objeto;
+
+    if (comodo == nullptr) {
+        return;
+    }
+
+    if (getBloqueadoModo()) {
+        std::cout << "Modo " << getNome() << " bloqueado" << std::endl;
+        return;
+    }
+
+    for (ObjetoInteligente* item : comodo->getObjetos()) {
         if (item == nullptr) continue;
 
         if (dynamic_cast<Luz*>(item)) {
@@ -234,6 +280,9 @@ void ModoTrabalho::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) 
         else if (dynamic_cast<TV*>(item)) {
             item->setStatusAtual("desligada");
         }
+        else if (dynamic_cast<CaixaDeSom*>(item)) {
+            item->setStatusAtual("desligada");
+        }
     }
 }
 
@@ -241,8 +290,18 @@ ModoAusente::ModoAusente(std::string nome)
     : Modo(nome, {}, {}, false, false) {}
 
 void ModoAusente::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) {
-    (void)comodo;
-    for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
+    (void)objeto;
+
+    if (comodo == nullptr) {
+        return;
+    }
+
+    if (getBloqueadoModo()) {
+        std::cout << "Modo " << getNome() << " bloqueado" << std::endl;
+        return;
+    }
+
+    for (ObjetoInteligente* item : comodo->getObjetos()) {
         if (item == nullptr) continue;
 
         if (dynamic_cast<Portao*>(item)) {
@@ -267,8 +326,18 @@ ModoFesta::ModoFesta(std::string nome)
     : Modo(nome, {}, {}, false, false) {}
 
 void ModoFesta::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) {
-    (void)comodo;
-    for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
+    (void)objeto;
+
+    if (comodo == nullptr) {
+        return;
+    }
+
+    if (getBloqueadoModo()) {
+        std::cout << "Modo " << getNome() << " bloqueado" << std::endl;
+        return;
+    }
+
+    for (ObjetoInteligente* item : comodo->getObjetos()) {
         if (item == nullptr) continue;
 
         if (dynamic_cast<CaixaDeSom*>(item)) {
@@ -280,8 +349,12 @@ void ModoFesta::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) {
         else if (dynamic_cast<Luz*>(item)) {
             item->setStatusAtual("acesa");
         }
+        else if (dynamic_cast<ArCondicionado*>(item)) {
+            item->setStatusAtual("resfriando");
+        }
     }
 }
+
 ModoEconomia::ModoEconomia(std::string nome)
     : Modo(
         nome,
@@ -292,11 +365,19 @@ ModoEconomia::ModoEconomia(std::string nome)
     ) {}
 
 void ModoEconomia::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) {
-    (void)comodo;
-    for (ObjetoInteligente* item : this->getObjetosRelacionados()) {
-        if (item == nullptr) {
-            continue;
-        }
+    (void)objeto;
+
+    if (comodo == nullptr) {
+        return;
+    }
+
+    if (getBloqueadoModo()) {
+        std::cout << "Modo " << getNome() << " bloqueado" << std::endl;
+        return;
+    }
+
+    for (ObjetoInteligente* item : comodo->getObjetos()) {
+        if (item == nullptr) continue;
 
         if (dynamic_cast<TV*>(item)) {
             item->setStatusAtual("desligada");
@@ -304,11 +385,14 @@ void ModoEconomia::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) 
         else if (dynamic_cast<CaixaDeSom*>(item)) {
             item->setStatusAtual("desligada");
         }
+        else if (dynamic_cast<Luz*>(item)) {
+            item->setStatusAtual("apagada");
+        }
         else if (dynamic_cast<ArCondicionado*>(item)) {
             item->setStatusAtual("desligado");
         }
-        else if (dynamic_cast<Luz*>(item)) {
-            item->setStatusAtual("apagada");
+        else if (dynamic_cast<Portao*>(item)) {
+            item->setStatusAtual("fechado");
         }
     }
 }

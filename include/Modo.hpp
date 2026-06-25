@@ -130,7 +130,7 @@ class Modo {
          * @param objeto Qual objeto a ser afetado.
          * @param comodo Em qual cômodo deve-se desfazer a instrução.
          */
-        void desfazerInstrucao(ObjetoInteligente* objeto, Comodo* comodo);
+        virtual void desfazerInstrucao(ObjetoInteligente* objeto, Comodo* comodo);
 
         /**
          * @brief Confere se os caractéres seguem os requisitos do sistema.

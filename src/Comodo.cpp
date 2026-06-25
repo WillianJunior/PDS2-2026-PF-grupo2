@@ -167,31 +167,20 @@ void Comodo::sairConta() {
     }
 }
 
-void Comodo::repassarInstrucao( Modo* modo) {
-     
-    if (contasPresentes.empty()) {
-        std::cout << "Aviso: Nenhuma conta presente no Comodo " << nome 
-                  << " - instrução do modo não foi repassada." << std::endl;
-        return;
+void Comodo::repassarInstrucao(Modo* modo) {
+    if (modo == nullptr) {
+        throw std::invalid_argument(
+            "Modo invalido (nullptr) ao repassar instrucao no Comodo " + nome
+        );
     }
 
-    if(modo == nullptr){
-        throw std::invalid_argument("Modo invalido (nullptr) ao repassar instrucao no Comodo " + nome);
-    } 
-    else {
-        auto relacionados = modo->getObjetosRelacionados();
-
-        for (auto* objeto : objetos) {
-            if (std::find(relacionados.begin(), relacionados.end(), objeto) != relacionados.end()) {
-                if (modo->getAtivoModo()) {
-                    modo->executarInstrucao(objeto, this); // passa o comodo junto
-                } else {
-                    modo->desfazerInstrucao(objeto, this); // lógica de desativação
-                }
-            }
-        }
+    if (modo->getAtivoModo()) {
+        modo->executarInstrucao(nullptr, this);
+    } else {
+        modo->desfazerInstrucao(nullptr, this);
     }
 }
+
 
 const std::vector<Conta*>& Comodo::getContasPresentes() const {
     return contasPresentes;
