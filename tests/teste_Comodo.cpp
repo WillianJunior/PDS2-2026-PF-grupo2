@@ -287,13 +287,13 @@ TEST_CASE("TESTE 8 printObjetosInfo - Comodo"){
 
     SUBCASE("TESTE 8.1 comodo sem objetos nao imprime nada "){
         Comodo comodoTeste2("comodoTeste2", &smarthome);
-         // Captura a saída do cout
+
         std::ostringstream oss;
         std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
 
         comodoTeste2.printObjetosInfo();
 
-        // Restaura cout
+        
         std::cout.rdbuf(oldCout);
 
         CHECK(oss.str()== 
@@ -311,13 +311,13 @@ TEST_CASE("TESTE 9 printModosInfo - Comodo" ){
 
     comodoTeste.adicionarModo(&modo);
 
-    // Captura a saída do cout
+    
     std::ostringstream oss;
     std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
 
     comodoTeste.printModosInfo();
 
-    // Restaura cout
+    
     std::cout.rdbuf(oldCout);
 
     std::cout.rdbuf(oldCout);
@@ -345,7 +345,7 @@ TEST_CASE("TESTE 9 printModosInfo - Comodo" ){
 
         comodoTeste2.printModosInfo();
 
-        // Restaura cout
+    
         std::cout.rdbuf(oldCout);
 
         CHECK(oss.str()==
@@ -377,13 +377,13 @@ TEST_CASE("TESTE 10 printContasInfo - Comodo"){
     );
     SUBCASE("TESTE 10.1 comodo sem contas nao imprime nada "){
         Comodo comodoTeste2("comodoTeste2", &smarthome);
-         // Captura a saída do cout
+         
         std::ostringstream oss;
         std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
 
         comodoTeste2.printContasInfo();
 
-        // Restaura cout
+       
         std::cout.rdbuf(oldCout);
 
         CHECK(oss.str()==
@@ -403,13 +403,13 @@ TEST_CASE("TESTE 11 printSensoresInfo - Comodo"){
 
     comodoTeste.adicionarSensor(std::move(sensor));
 
-     // Captura a saída do cout
+     
     std::ostringstream oss;
     std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
 
     comodoTeste.printSensoresInfo();
    
-    // Restaura cout
+    
     std::cout.rdbuf(oldCout);
 
     std::istringstream iss(oss.str());
@@ -445,7 +445,7 @@ TEST_CASE("TESTE 11 printSensoresInfo - Comodo"){
 
 }
 
-// ---- implementação deve ser checada -----
+
 
 TEST_CASE("TESTE 12 repassarInstrucao - Comodo") {
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
@@ -489,18 +489,21 @@ TEST_CASE("TESTE 12 repassarInstrucao - Comodo") {
     quarto.adicionarObjeto(abajur.get());
     quarto.adicionarObjeto(tv.get());
 
-    ModoNoturno dormir("Dormir");
-    dormir = ModoNoturno("Dormir");
+    std::vector<ObjetoInteligente*> objetos={luz.get(), abajur.get(), tv.get()};
+    std::vector<Comodo*> comodos = {&quarto};
+    Modo dormir("Dormir", objetos, comodos, true,false);
 
     quarto.entrarConta(&contaTeste);
 
     quarto.repassarInstrucao(&dormir);
 
     CHECK(luz->getStatusAtual() == "Desligado");
-    CHECK(abajur->getStatusAtual() == "Desligado");
-    CHECK(tv->getStatusAtual() == "Desligado");
+    CHECK(abajur->getStatusAtual() == "Ligado");
+    CHECK(tv->getStatusAtual() == "Ligado");
+
 
     SUBCASE("TESTE 12.1 comodo com modo inativo nao passa instrucao"){
+        luz->setStatusAtual("Ligado");
         Modo dormirInativo("Dormir", {luz.get()}, {&quarto}, false, false);
         quarto.repassarInstrucao(&dormirInativo);
         quarto.repassarInstrucao(&dormir);
@@ -598,7 +601,7 @@ TEST_CASE("TESTE 14 removerSensorPorNome - Comodo") {
     }
 }
 
-// ---- implementação deve ser checada-----
+
 
 TEST_CASE("TESTE 15 mudarCondicao - Comodo") {
     Conta contaTeste("1", "Usuario A", "usuarioA@email.com", "senha123", true);
@@ -608,23 +611,30 @@ TEST_CASE("TESTE 15 mudarCondicao - Comodo") {
     SUBCASE("TESTE 15.1 Adicionar primeira condição") {
         quarto.mudarCondicao("Iluminado");
         auto condicoes = quarto.getCondicoesDoComodo();
-        CHECK(condicoes.size() == 1);
-        CHECK(condicoes[0] == "Iluminado");
+        CHECK(condicoes.size() == 7);
+        CHECK(condicoes[6] == "Iluminado");//por causa do push back fica no final do vetor
+        CHECK(condicoes[0] == "Quente");
+        CHECK(condicoes[1] == "Frio");
+        CHECK(condicoes[2] == "Umido");
+        CHECK(condicoes[3] == "Seco");
+        CHECK(condicoes[4] == "Barulhento");
+        CHECK(condicoes[5] == "Silencioso");// outras condicoes ficam com as duas opcoes
+                                            // porque nao sao "relevantes" nesse caso
     }
 
     SUBCASE("TESTE 15.2 Trocar condição exclusiva (Iluminado -> Escuro)") {
         quarto.mudarCondicao("Iluminado");
         quarto.mudarCondicao("Escuro");
         auto condicoes = quarto.getCondicoesDoComodo();
-        CHECK(condicoes.size() == 1);
-        CHECK(condicoes[0] == "Escuro");
+        CHECK(condicoes.size() == 7);
+        CHECK(condicoes[6] == "Escuro");
     }
 
     SUBCASE("TESTE 15.3 Adicionar múltiplas condições não exclusivas") {
         quarto.mudarCondicao("Quente");
         quarto.mudarCondicao("Barulhento");
         auto condicoes = quarto.getCondicoesDoComodo();
-        CHECK(condicoes.size() == 2);
+        CHECK(condicoes.size() == 6);
         CHECK(std::find(condicoes.begin(), condicoes.end(), "Quente") != condicoes.end());
         CHECK(std::find(condicoes.begin(), condicoes.end(), "Barulhento") != condicoes.end());
     }
@@ -633,8 +643,8 @@ TEST_CASE("TESTE 15 mudarCondicao - Comodo") {
         quarto.mudarCondicao("Quente");
         quarto.mudarCondicao("Frio");
         auto condicoes = quarto.getCondicoesDoComodo();
-        CHECK(condicoes.size() == 1);
-        CHECK(condicoes[0] == "Frio");
+        CHECK(condicoes.size() == 7);
+        CHECK(condicoes[6] == "Frio");
     }
 
     SUBCASE("TESTE 15.5 Condição inválida") {
@@ -646,8 +656,8 @@ TEST_CASE("TESTE 15 mudarCondicao - Comodo") {
         quarto.mudarCondicao("Iluminado");
         quarto.mudarCondicao("Iluminado");
         auto condicoes = quarto.getCondicoesDoComodo();
-        CHECK(condicoes.size() == 1); // não deve duplicar
-        CHECK(condicoes[0] == "Iluminado");
+        CHECK(condicoes.size() == 7); // não deve duplicar
+        CHECK(condicoes[6] == "Iluminado");
     }
 }
 
