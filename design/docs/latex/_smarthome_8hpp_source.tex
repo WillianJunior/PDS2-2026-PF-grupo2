@@ -1,0 +1,64 @@
+\doxysection{Smarthome.\+hpp}
+\hypertarget{_smarthome_8hpp_source}{}\label{_smarthome_8hpp_source}\index{include/Smarthome.hpp@{include/Smarthome.hpp}}
+\doxymbox{\hyperlink{_smarthome_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SMARTHOME\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SMARTHOME\_HPP}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_comodo_8hpp}{Comodo.hpp}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_modo_8hpp}{Modo.hpp}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_objeto_inteligente_8hpp}{ObjetoInteligente.hpp}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_conta_8hpp}{Conta.hpp}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_smarthome_a52cd1f6e0865f0e166119869878c18de}{Smarthome}}\{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \doxymbox{\hyperlink{class_conta}{Conta}}*\ usuario;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00023\ \ \ \ \ std::vector<std::unique\_ptr<Comodo>>\ comodos;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \ \ \ \ std::vector<Modo>\ modos;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \ \ \ \ std::vector<std::unique\_ptr<ObjetoInteligente>>\ objetos;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ std::string\ nome;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00047\ \ \ \ \ \doxymbox{\hyperlink{class_smarthome_a52cd1f6e0865f0e166119869878c18de}{Smarthome}}(\doxymbox{\hyperlink{class_conta}{Conta}}*\ usuario,\ std\ ::\ string\ nome);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_smarthome_ada7a77ce834bd7368e166847d30eb2fd}{operator==}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_smarthome_a52cd1f6e0865f0e166119869878c18de}{Smarthome}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_smarthome_a6654946f688dd53824ca9c363764f0fe}{adicionarModo}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_modo}{Modo}}\&\ modo);}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_smarthome_a5f24925c03119aeb4317258d3cd6dac5}{adicionarComodo}}(std::unique\_ptr<Comodo>\ comodo);}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_smarthome_ac0409b7bc8c079cfd5cf49987ed03a1c}{adicionarObjeto}}(std::unique\_ptr<ObjetoInteligente>\ objeto);}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_smarthome_afb34239998333951c6a3d7611a2b05fa}{removerComodo}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_comodo}{Comodo}}\&\ comodo);}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_smarthome_ad8087d8abbd6ccbc99bb15544d6360ea}{removerComodoPorNome}}(\textcolor{keyword}{const}\ std::string\&\ nomeComodo);}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_smarthome_a2c2efc118bf6d6ebe63f1ed63a0eb88b}{removerModo}}(std::string\ nomeModo);}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_smarthome_a02716f5916abeb54dce68175b8def8fa}{removerObjeto}}(std::string\ nomeObjeto);}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::unique\_ptr<ObjetoInteligente>>\&\ \doxymbox{\hyperlink{class_smarthome_a5968c2f073741746abab526e0469147b}{getObjetos}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::unique\_ptr<Comodo>>\&\ \doxymbox{\hyperlink{class_smarthome_addb8b8b7114f035385dd7d9db4c4c380}{getComodos}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Modo>\&\ \doxymbox{\hyperlink{class_smarthome_abc76e4b6f03ff3dc8aa610ef92fa3a8e}{getListaModos}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00107\ \ \ \ \ \doxymbox{\hyperlink{class_conta}{Conta}}*\ \doxymbox{\hyperlink{class_smarthome_a06f8001c8859ab3d6f1a0a53bb055f55}{getUsuario}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00111\ \ \ \ \ std\ ::\ string\ \doxymbox{\hyperlink{class_smarthome_a97bc162c260a81c6d0d015d066fd43b8}{getNome}}()\textcolor{keyword}{const};}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \doxymbox{\hyperlink{class_smarthome_ad7ffb07c592aaca3dad6129f396f2363}{getQuantidadeModos}}()\textcolor{keyword}{const};}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \doxymbox{\hyperlink{class_smarthome_aae86e1e558cc2dea2ed100bf5297bae0}{getQuantidadeComodos}}()\textcolor{keyword}{const};}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \doxymbox{\hyperlink{class_smarthome_a6cf1db9d4834b85a0887df4fce96399d}{getQuantidadeObjetos}}()\textcolor{keyword}{const};}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_smarthome_a2ccf23b6138b21f676e0e927c74715e7}{printComodosInfo}}()\textcolor{keyword}{const};}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_smarthome_abca372fd64f6b87a43545c4f355c076d}{printObjetosInfo}}()\textcolor{keyword}{const};}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_smarthome_a02b1b93786d7f4914d6f1ef0672d76ce}{printModosInfo}}()\textcolor{keyword}{const};}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_smarthome_a4896c854de5634a34f633cf84353f01c}{CaracteresValidos}}(\textcolor{keyword}{const}\ std::string\&\ str);}
+\DoxyCodeLine{00145\ \ \ \ \ \doxymbox{\hyperlink{class_comodo}{Comodo}}*\ \doxymbox{\hyperlink{class_smarthome_ae7e4ec2892cbc3c40d9b7d26027b4128}{getComodo}}(std::string\ nomeComodo);}
+\DoxyCodeLine{00150\ \ \ \ \ \doxymbox{\hyperlink{class_modo}{Modo}}*\ \doxymbox{\hyperlink{class_smarthome_a6e647cae3446bf72c5e379900b9f7429}{getModo}}(std::string\ nomeModo);}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00155\ \ \ \ \ \doxymbox{\hyperlink{class_smarthome_a98be057cf64004981f5a581be731a502}{\string~Smarthome}}();}
+\DoxyCodeLine{00156\ \};}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

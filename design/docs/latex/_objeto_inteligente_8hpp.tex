@@ -1,11 +1,61 @@
-\doxysection{C:\+/\+\+Users/\+tiago/\+\+One\+Drive/\+Área de Trabalho/\+\+Atalhos etc/\+ufmg/\+pds2/\+\+PDS2-\/2026-\/\+PF-\/grupo2/\+include/\+\+Objeto\+Inteligente.hpp File Reference}
-\hypertarget{_objeto_inteligente_8hpp}{}\label{_objeto_inteligente_8hpp}\index{C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-\/2026-\/PF-\/grupo2/include/ObjetoInteligente.hpp@{C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-\/2026-\/PF-\/grupo2/include/ObjetoInteligente.hpp}}
+\doxysection{include/\+\+Objeto\+Inteligente.hpp File Reference}
+\hypertarget{_objeto_inteligente_8hpp}{}\label{_objeto_inteligente_8hpp}\index{include/ObjetoInteligente.hpp@{include/ObjetoInteligente.hpp}}
 {\ttfamily \+\#include $<$vector$>$}\newline
 {\ttfamily \+\#include $<$string$>$}\newline
 {\ttfamily \+\#include $<$functional$>$}\newline
-{\ttfamily \+\#include "{}Sensor.\+hpp"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}}
-\begin{DoxyCompactList}\small\item\em Representa um objeto inteligente da smarthome. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Classe para definir como o objeto está operando. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_luz}{Luz}}
+\begin{DoxyCompactList}\small\item\em Subclasse de objeto, que representa uma luz. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_caixa_de_som}{Caixa\+De\+Som}}
+\item 
+class \doxymbox{\hyperlink{class_t_v}{TV}}
+\begin{DoxyCompactList}\small\item\em Subclasse de objeto, que representa uma televisão. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_ar_condicionado}{Ar\+Condicionado}}
+\begin{DoxyCompactList}\small\item\em Subclasse de objeto, que representa um ar condicionado. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_portao}{Portao}}
+\begin{DoxyCompactList}\small\item\em Subclasse de objeto, que representa um portão. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_termostato}{Termostato}}
+\begin{DoxyCompactList}\small\item\em Subclasse de objeto, que representa um termostato. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7}{Protocolo}} \{ \doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7a2f0b4d2c0c3d64bbb2cd525dbba8b0d0}{WIFI}}
+, \doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7a8de8a62c3191fb6cf61e0ac4b2b59045}{BLUETOOTH}}
+, \doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7a12398de04ad596c898670f82303ff1fe}{ZIGBEE}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\label{_objeto_inteligente_8hpp_doc-enum-members}
+\Hypertarget{_objeto_inteligente_8hpp_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7}\index{ObjetoInteligente.hpp@{ObjetoInteligente.hpp}!Protocolo@{Protocolo}}
+\index{Protocolo@{Protocolo}!ObjetoInteligente.hpp@{ObjetoInteligente.hpp}}
+\doxysubsubsection{\texorpdfstring{Protocolo}{Protocolo}}
+{\footnotesize\ttfamily \label{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7} 
+enum class \doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7}{Protocolo}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WIFI@{WIFI}!ObjetoInteligente.hpp@{ObjetoInteligente.hpp}}
+\index{ObjetoInteligente.hpp@{ObjetoInteligente.hpp}!WIFI@{WIFI}}
+}\Hypertarget{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7a2f0b4d2c0c3d64bbb2cd525dbba8b0d0}\label{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7a2f0b4d2c0c3d64bbb2cd525dbba8b0d0} 
+WIFI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLUETOOTH@{BLUETOOTH}!ObjetoInteligente.hpp@{ObjetoInteligente.hpp}}
+\index{ObjetoInteligente.hpp@{ObjetoInteligente.hpp}!BLUETOOTH@{BLUETOOTH}}
+}\Hypertarget{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7a8de8a62c3191fb6cf61e0ac4b2b59045}\label{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7a8de8a62c3191fb6cf61e0ac4b2b59045} 
+BLUETOOTH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ZIGBEE@{ZIGBEE}!ObjetoInteligente.hpp@{ObjetoInteligente.hpp}}
+\index{ObjetoInteligente.hpp@{ObjetoInteligente.hpp}!ZIGBEE@{ZIGBEE}}
+}\Hypertarget{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7a12398de04ad596c898670f82303ff1fe}\label{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7a12398de04ad596c898670f82303ff1fe} 
+ZIGBEE&\\
+\hline
+
+\end{DoxyEnumFields}

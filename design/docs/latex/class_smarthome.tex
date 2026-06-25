@@ -1,0 +1,369 @@
+\doxysection{Smarthome Class Reference}
+\hypertarget{class_smarthome}{}\label{class_smarthome}\index{Smarthome@{Smarthome}}
+
+
+{\ttfamily \+\#include $<$Smarthome.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_smarthome_a52cd1f6e0865f0e166119869878c18de}{Smarthome}} (\doxymbox{\hyperlink{class_conta}{Conta}} \texorpdfstring{$\ast$}{*}usuario, std ::\+string nome)
+\begin{DoxyCompactList}\small\item\em Função construtora da smarthome. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_smarthome_ada7a77ce834bd7368e166847d30eb2fd}{operator==}} (const \doxymbox{\hyperlink{class_smarthome}{Smarthome}} \&other) const
+\begin{DoxyCompactList}\small\item\em Operador de igualdade da classe. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_smarthome_a6654946f688dd53824ca9c363764f0fe}{adicionar\+Modo}} (const \doxymbox{\hyperlink{class_modo}{Modo}} \&modo)
+\begin{DoxyCompactList}\small\item\em Adiciona um modo a uma smarthome. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_smarthome_a5f24925c03119aeb4317258d3cd6dac5}{adicionar\+Comodo}} (std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} $>$ comodo)
+\begin{DoxyCompactList}\small\item\em Adiciona um cômodo a uma smarthome. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_smarthome_ac0409b7bc8c079cfd5cf49987ed03a1c}{adicionar\+Objeto}} (std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} $>$ objeto)
+\begin{DoxyCompactList}\small\item\em Adiciona um objeto a uma smarthome. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_smarthome_afb34239998333951c6a3d7611a2b05fa}{remover\+Comodo}} (const \doxymbox{\hyperlink{class_comodo}{Comodo}} \&comodo)
+\begin{DoxyCompactList}\small\item\em Remove um cômodo de uma smarthome. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_smarthome_ad8087d8abbd6ccbc99bb15544d6360ea}{remover\+Comodo\+Por\+Nome}} (const std::\+string \&nome\+Comodo)
+\begin{DoxyCompactList}\small\item\em Remove comodo da smarthome por nome do comodo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_smarthome_a2c2efc118bf6d6ebe63f1ed63a0eb88b}{remover\+Modo}} (std::\+string nome\+Modo)
+\begin{DoxyCompactList}\small\item\em Remove um modo da smarthome pelo nome. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_smarthome_a02716f5916abeb54dce68175b8def8fa}{remover\+Objeto}} (std::\+string nome\+Objeto)
+\begin{DoxyCompactList}\small\item\em Remove um objeto da smarthome pelo nome. \end{DoxyCompactList}\item 
+const std::\+vector$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} $>$ $>$ \& \doxymbox{\hyperlink{class_smarthome_a5968c2f073741746abab526e0469147b}{get\+Objetos}} () const
+\begin{DoxyCompactList}\small\item\em Retorna os objetos da smarthome. \end{DoxyCompactList}\item 
+const std::\+vector$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} $>$ $>$ \& \doxymbox{\hyperlink{class_smarthome_addb8b8b7114f035385dd7d9db4c4c380}{get\+Comodos}} () const
+\begin{DoxyCompactList}\small\item\em Retorna os comodos da smarthome. \end{DoxyCompactList}\item 
+const std::\+vector$<$ \doxymbox{\hyperlink{class_modo}{Modo}} $>$ \& \doxymbox{\hyperlink{class_smarthome_abc76e4b6f03ff3dc8aa610ef92fa3a8e}{get\+Lista\+Modos}} () const
+\begin{DoxyCompactList}\small\item\em Retorna os modos da smarthome. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_conta}{Conta}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_smarthome_a06f8001c8859ab3d6f1a0a53bb055f55}{get\+Usuario}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o usuário dono da smarthome. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_smarthome_a97bc162c260a81c6d0d015d066fd43b8}{get\+Nome}} () const
+\begin{DoxyCompactList}\small\item\em Retorna nome da smarthome. \end{DoxyCompactList}\item 
+size\+\_\+t \doxymbox{\hyperlink{class_smarthome_ad7ffb07c592aaca3dad6129f396f2363}{get\+Quantidade\+Modos}} () const
+\begin{DoxyCompactList}\small\item\em Retorna a quantidade de Modos da smarthome. \end{DoxyCompactList}\item 
+size\+\_\+t \doxymbox{\hyperlink{class_smarthome_aae86e1e558cc2dea2ed100bf5297bae0}{get\+Quantidade\+Comodos}} () const
+\begin{DoxyCompactList}\small\item\em Retorna a quantidade de Comodos da smarthome. \end{DoxyCompactList}\item 
+size\+\_\+t \doxymbox{\hyperlink{class_smarthome_a6cf1db9d4834b85a0887df4fce96399d}{get\+Quantidade\+Objetos}} () const
+\begin{DoxyCompactList}\small\item\em Retorna a quantidade de Objetos da smarthome. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_smarthome_a2ccf23b6138b21f676e0e927c74715e7}{print\+Comodos\+Info}} () const
+\begin{DoxyCompactList}\small\item\em Imprime informações dos comodos de \doxylink{class_smarthome}{Smarthome}. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_smarthome_abca372fd64f6b87a43545c4f355c076d}{print\+Objetos\+Info}} () const
+\begin{DoxyCompactList}\small\item\em Imprime informações dos objetos de \doxylink{class_smarthome}{Smarthome}. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_smarthome_a02b1b93786d7f4914d6f1ef0672d76ce}{print\+Modos\+Info}} () const
+\begin{DoxyCompactList}\small\item\em Imprime informações dos modos de \doxylink{class_smarthome}{Smarthome}. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_smarthome_a4896c854de5634a34f633cf84353f01c}{Caracteres\+Validos}} (const std::\+string \&str)
+\begin{DoxyCompactList}\small\item\em Checa se o str contem caracteres que nao sao espaços, letras ou numeros, se houver retorna false. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_smarthome_ae7e4ec2892cbc3c40d9b7d26027b4128}{get\+Comodo}} (std::\+string nome\+Comodo)
+\begin{DoxyCompactList}\small\item\em Busca um comodo especifico pelo nome e retorna o ponteiro para ele. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_modo}{Modo}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_smarthome_a6e647cae3446bf72c5e379900b9f7429}{get\+Modo}} (std::\+string nome\+Modo)
+\begin{DoxyCompactList}\small\item\em Busca um modo especifico pelo nome e retorna o ponteiro para ele. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_smarthome_a98be057cf64004981f5a581be731a502}{\texorpdfstring{$\sim$}{\string~}\+Smarthome}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{class_smarthome_doc-constructors}
+\Hypertarget{class_smarthome_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_smarthome_a52cd1f6e0865f0e166119869878c18de}\index{Smarthome@{Smarthome}!Smarthome@{Smarthome}}
+\index{Smarthome@{Smarthome}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{Smarthome()}{Smarthome()}}
+{\footnotesize\ttfamily \label{class_smarthome_a52cd1f6e0865f0e166119869878c18de} 
+Smarthome::\+\+Smarthome (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_conta}{Conta}} \texorpdfstring{$\ast$}{*}}]{usuario}{, }\item[{std ::\+string}]{nome}{}\end{DoxyParamCaption})}
+
+
+
+Função construtora da smarthome. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em usuario} & \doxylink{class_conta}{Conta} dona da smarthome. \\
+\hline
+{\em nome} & Nome da smarthome. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_smarthome_a98be057cf64004981f5a581be731a502}\index{Smarthome@{Smarthome}!````~Smarthome@{\texorpdfstring{$\sim$}{\string~}Smarthome}}
+\index{````~Smarthome@{\texorpdfstring{$\sim$}{\string~}Smarthome}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Smarthome()}{\string~Smarthome()}}
+{\footnotesize\ttfamily \label{class_smarthome_a98be057cf64004981f5a581be731a502} 
+Smarthome::\+\texorpdfstring{$\sim$}{\string~}\+Smarthome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destrutor da classe. 
+
+
+
+\label{class_smarthome_doc-func-members}
+\Hypertarget{class_smarthome_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_smarthome_a5f24925c03119aeb4317258d3cd6dac5}\index{Smarthome@{Smarthome}!adicionarComodo@{adicionarComodo}}
+\index{adicionarComodo@{adicionarComodo}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{adicionarComodo()}{adicionarComodo()}}
+{\footnotesize\ttfamily \label{class_smarthome_a5f24925c03119aeb4317258d3cd6dac5} 
+void Smarthome::\+adicionar\+Comodo (\begin{DoxyParamCaption}\item[{std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} $>$}]{comodo}{}\end{DoxyParamCaption})}
+
+
+
+Adiciona um cômodo a uma smarthome. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em comodo} & \doxylink{class_comodo}{Comodo} a ser adicionado à smarthome. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_smarthome_a6654946f688dd53824ca9c363764f0fe}\index{Smarthome@{Smarthome}!adicionarModo@{adicionarModo}}
+\index{adicionarModo@{adicionarModo}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{adicionarModo()}{adicionarModo()}}
+{\footnotesize\ttfamily \label{class_smarthome_a6654946f688dd53824ca9c363764f0fe} 
+void Smarthome::\+adicionar\+Modo (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_modo}{Modo}} \&}]{modo}{}\end{DoxyParamCaption})}
+
+
+
+Adiciona um modo a uma smarthome. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em modo} & \doxylink{class_modo}{Modo} a ser adicionado à smarthome. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_smarthome_ac0409b7bc8c079cfd5cf49987ed03a1c}\index{Smarthome@{Smarthome}!adicionarObjeto@{adicionarObjeto}}
+\index{adicionarObjeto@{adicionarObjeto}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{adicionarObjeto()}{adicionarObjeto()}}
+{\footnotesize\ttfamily \label{class_smarthome_ac0409b7bc8c079cfd5cf49987ed03a1c} 
+void Smarthome::\+adicionar\+Objeto (\begin{DoxyParamCaption}\item[{std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} $>$}]{objeto}{}\end{DoxyParamCaption})}
+
+
+
+Adiciona um objeto a uma smarthome. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em objeto} & Objeto a ser adicionado à smarthome. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_smarthome_a4896c854de5634a34f633cf84353f01c}\index{Smarthome@{Smarthome}!CaracteresValidos@{CaracteresValidos}}
+\index{CaracteresValidos@{CaracteresValidos}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{CaracteresValidos()}{CaracteresValidos()}}
+{\footnotesize\ttfamily \label{class_smarthome_a4896c854de5634a34f633cf84353f01c} 
+bool Smarthome::\+\+Caracteres\+Validos (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{str}{}\end{DoxyParamCaption})}
+
+
+
+Checa se o str contem caracteres que nao sao espaços, letras ou numeros, se houver retorna false. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & String a ser verificada. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_smarthome_ae7e4ec2892cbc3c40d9b7d26027b4128}\index{Smarthome@{Smarthome}!getComodo@{getComodo}}
+\index{getComodo@{getComodo}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{getComodo()}{getComodo()}}
+{\footnotesize\ttfamily \label{class_smarthome_ae7e4ec2892cbc3c40d9b7d26027b4128} 
+\doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*} Smarthome::\+get\+Comodo (\begin{DoxyParamCaption}\item[{std::\+string}]{nome\+Comodo}{}\end{DoxyParamCaption})}
+
+
+
+Busca um comodo especifico pelo nome e retorna o ponteiro para ele. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+Comodo} & Nome a ser procurado. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_smarthome_addb8b8b7114f035385dd7d9db4c4c380}\index{Smarthome@{Smarthome}!getComodos@{getComodos}}
+\index{getComodos@{getComodos}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{getComodos()}{getComodos()}}
+{\footnotesize\ttfamily \label{class_smarthome_addb8b8b7114f035385dd7d9db4c4c380} 
+const std::\+vector$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} $>$ $>$ \& Smarthome::\+get\+Comodos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna os comodos da smarthome. 
+
+\Hypertarget{class_smarthome_abc76e4b6f03ff3dc8aa610ef92fa3a8e}\index{Smarthome@{Smarthome}!getListaModos@{getListaModos}}
+\index{getListaModos@{getListaModos}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{getListaModos()}{getListaModos()}}
+{\footnotesize\ttfamily \label{class_smarthome_abc76e4b6f03ff3dc8aa610ef92fa3a8e} 
+const std::\+vector$<$ \doxymbox{\hyperlink{class_modo}{Modo}} $>$ \& Smarthome::\+get\+Lista\+Modos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna os modos da smarthome. 
+
+\Hypertarget{class_smarthome_a6e647cae3446bf72c5e379900b9f7429}\index{Smarthome@{Smarthome}!getModo@{getModo}}
+\index{getModo@{getModo}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{getModo()}{getModo()}}
+{\footnotesize\ttfamily \label{class_smarthome_a6e647cae3446bf72c5e379900b9f7429} 
+\doxymbox{\hyperlink{class_modo}{Modo}} \texorpdfstring{$\ast$}{*} Smarthome::\+get\+Modo (\begin{DoxyParamCaption}\item[{std::\+string}]{nome\+Modo}{}\end{DoxyParamCaption})}
+
+
+
+Busca um modo especifico pelo nome e retorna o ponteiro para ele. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+Modo} & Nome do modo a ser procurado. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_smarthome_a97bc162c260a81c6d0d015d066fd43b8}\index{Smarthome@{Smarthome}!getNome@{getNome}}
+\index{getNome@{getNome}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{getNome()}{getNome()}}
+{\footnotesize\ttfamily \label{class_smarthome_a97bc162c260a81c6d0d015d066fd43b8} 
+std::\+string Smarthome::\+get\+Nome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna nome da smarthome. 
+
+\Hypertarget{class_smarthome_a5968c2f073741746abab526e0469147b}\index{Smarthome@{Smarthome}!getObjetos@{getObjetos}}
+\index{getObjetos@{getObjetos}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{getObjetos()}{getObjetos()}}
+{\footnotesize\ttfamily \label{class_smarthome_a5968c2f073741746abab526e0469147b} 
+const std::\+vector$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} $>$ $>$ \& Smarthome::\+get\+Objetos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna os objetos da smarthome. 
+
+\Hypertarget{class_smarthome_aae86e1e558cc2dea2ed100bf5297bae0}\index{Smarthome@{Smarthome}!getQuantidadeComodos@{getQuantidadeComodos}}
+\index{getQuantidadeComodos@{getQuantidadeComodos}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{getQuantidadeComodos()}{getQuantidadeComodos()}}
+{\footnotesize\ttfamily \label{class_smarthome_aae86e1e558cc2dea2ed100bf5297bae0} 
+size\+\_\+t Smarthome::\+get\+Quantidade\+Comodos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna a quantidade de Comodos da smarthome. 
+
+\Hypertarget{class_smarthome_ad7ffb07c592aaca3dad6129f396f2363}\index{Smarthome@{Smarthome}!getQuantidadeModos@{getQuantidadeModos}}
+\index{getQuantidadeModos@{getQuantidadeModos}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{getQuantidadeModos()}{getQuantidadeModos()}}
+{\footnotesize\ttfamily \label{class_smarthome_ad7ffb07c592aaca3dad6129f396f2363} 
+size\+\_\+t Smarthome::\+get\+Quantidade\+Modos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna a quantidade de Modos da smarthome. 
+
+\Hypertarget{class_smarthome_a6cf1db9d4834b85a0887df4fce96399d}\index{Smarthome@{Smarthome}!getQuantidadeObjetos@{getQuantidadeObjetos}}
+\index{getQuantidadeObjetos@{getQuantidadeObjetos}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{getQuantidadeObjetos()}{getQuantidadeObjetos()}}
+{\footnotesize\ttfamily \label{class_smarthome_a6cf1db9d4834b85a0887df4fce96399d} 
+size\+\_\+t Smarthome::\+get\+Quantidade\+Objetos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna a quantidade de Objetos da smarthome. 
+
+\Hypertarget{class_smarthome_a06f8001c8859ab3d6f1a0a53bb055f55}\index{Smarthome@{Smarthome}!getUsuario@{getUsuario}}
+\index{getUsuario@{getUsuario}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{getUsuario()}{getUsuario()}}
+{\footnotesize\ttfamily \label{class_smarthome_a06f8001c8859ab3d6f1a0a53bb055f55} 
+\doxymbox{\hyperlink{class_conta}{Conta}} \texorpdfstring{$\ast$}{*} Smarthome::\+get\+Usuario (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna o usuário dono da smarthome. 
+
+\Hypertarget{class_smarthome_ada7a77ce834bd7368e166847d30eb2fd}\index{Smarthome@{Smarthome}!operator==@{operator==}}
+\index{operator==@{operator==}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{class_smarthome_ada7a77ce834bd7368e166847d30eb2fd} 
+bool Smarthome::\+operator== (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_smarthome}{Smarthome}} \&}]{other}{}\end{DoxyParamCaption}) const}
+
+
+
+Operador de igualdade da classe. 
+
+\Hypertarget{class_smarthome_a2ccf23b6138b21f676e0e927c74715e7}\index{Smarthome@{Smarthome}!printComodosInfo@{printComodosInfo}}
+\index{printComodosInfo@{printComodosInfo}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{printComodosInfo()}{printComodosInfo()}}
+{\footnotesize\ttfamily \label{class_smarthome_a2ccf23b6138b21f676e0e927c74715e7} 
+void Smarthome::\+print\+Comodos\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Imprime informações dos comodos de \doxylink{class_smarthome}{Smarthome}. 
+
+\Hypertarget{class_smarthome_a02b1b93786d7f4914d6f1ef0672d76ce}\index{Smarthome@{Smarthome}!printModosInfo@{printModosInfo}}
+\index{printModosInfo@{printModosInfo}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{printModosInfo()}{printModosInfo()}}
+{\footnotesize\ttfamily \label{class_smarthome_a02b1b93786d7f4914d6f1ef0672d76ce} 
+void Smarthome::\+print\+Modos\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Imprime informações dos modos de \doxylink{class_smarthome}{Smarthome}. 
+
+\Hypertarget{class_smarthome_abca372fd64f6b87a43545c4f355c076d}\index{Smarthome@{Smarthome}!printObjetosInfo@{printObjetosInfo}}
+\index{printObjetosInfo@{printObjetosInfo}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{printObjetosInfo()}{printObjetosInfo()}}
+{\footnotesize\ttfamily \label{class_smarthome_abca372fd64f6b87a43545c4f355c076d} 
+void Smarthome::\+print\+Objetos\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Imprime informações dos objetos de \doxylink{class_smarthome}{Smarthome}. 
+
+\Hypertarget{class_smarthome_afb34239998333951c6a3d7611a2b05fa}\index{Smarthome@{Smarthome}!removerComodo@{removerComodo}}
+\index{removerComodo@{removerComodo}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{removerComodo()}{removerComodo()}}
+{\footnotesize\ttfamily \label{class_smarthome_afb34239998333951c6a3d7611a2b05fa} 
+void Smarthome::\+remover\+Comodo (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_comodo}{Comodo}} \&}]{comodo}{}\end{DoxyParamCaption})}
+
+
+
+Remove um cômodo de uma smarthome. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em comodo} & \doxylink{class_comodo}{Comodo} a ser removido da smarthome. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_smarthome_ad8087d8abbd6ccbc99bb15544d6360ea}\index{Smarthome@{Smarthome}!removerComodoPorNome@{removerComodoPorNome}}
+\index{removerComodoPorNome@{removerComodoPorNome}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{removerComodoPorNome()}{removerComodoPorNome()}}
+{\footnotesize\ttfamily \label{class_smarthome_ad8087d8abbd6ccbc99bb15544d6360ea} 
+void Smarthome::\+remover\+Comodo\+Por\+Nome (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{nome\+Comodo}{}\end{DoxyParamCaption})}
+
+
+
+Remove comodo da smarthome por nome do comodo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+Comodo} & nome do \doxylink{class_comodo}{Comodo} a ser removido da smarthome. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_smarthome_a2c2efc118bf6d6ebe63f1ed63a0eb88b}\index{Smarthome@{Smarthome}!removerModo@{removerModo}}
+\index{removerModo@{removerModo}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{removerModo()}{removerModo()}}
+{\footnotesize\ttfamily \label{class_smarthome_a2c2efc118bf6d6ebe63f1ed63a0eb88b} 
+void Smarthome::\+remover\+Modo (\begin{DoxyParamCaption}\item[{std::\+string}]{nome\+Modo}{}\end{DoxyParamCaption})}
+
+
+
+Remove um modo da smarthome pelo nome. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+Modo} & Nome do modo a ser removido. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_smarthome_a02716f5916abeb54dce68175b8def8fa}\index{Smarthome@{Smarthome}!removerObjeto@{removerObjeto}}
+\index{removerObjeto@{removerObjeto}!Smarthome@{Smarthome}}
+\doxysubsubsection{\texorpdfstring{removerObjeto()}{removerObjeto()}}
+{\footnotesize\ttfamily \label{class_smarthome_a02716f5916abeb54dce68175b8def8fa} 
+void Smarthome::\+remover\+Objeto (\begin{DoxyParamCaption}\item[{std::\+string}]{nome\+Objeto}{}\end{DoxyParamCaption})}
+
+
+
+Remove um objeto da smarthome pelo nome. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+Objeto} & Nome do objeto a ser removido. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+\doxymbox{\hyperlink{_smarthome_8hpp}{Smarthome.\+hpp}}\end{DoxyCompactItemize}

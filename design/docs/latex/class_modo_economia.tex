@@ -1,0 +1,127 @@
+\doxysection{Modo\+Economia Class Reference}
+\hypertarget{class_modo_economia}{}\label{class_modo_economia}\index{ModoEconomia@{ModoEconomia}}
+
+
+Representa o modo de economia de energia da smarthome. Desliga a luz, ar condicionado, caixa de som e tv.  
+
+
+
+
+{\ttfamily \+\#include $<$Modo.\+hpp$>$}
+
+Inheritance diagram for Modo\+Economia:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_modo_economia}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_modo_economia_a8a13cfc5de4e698661ebab384784fa11}{Modo\+Economia}} (std::\+string nome)
+\begin{DoxyCompactList}\small\item\em Construtor da subclasse. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_modo_economia_a9dcc33cd59ecf6c57ffb122e6063131c}{executar\+Instrucao}} (\doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*}objeto, \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}comodo) override
+\begin{DoxyCompactList}\small\item\em Executa o modo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_modo}{Modo}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_modo_a1f0befebffa0afa6bf902060596fb9b1}{Modo}} (std::\+string nome, std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*} $>$ objetos, std::\+vector$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*} $>$ comodos, bool ligado, bool bloqueado)
+\begin{DoxyCompactList}\small\item\em Construtor da classe modo. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_modo_a5fb83f241feebca5428de33cb83a6545}{get\+Nome}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o nome do modo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_modo_a1e293dfc5f7652b26506955dc534fc5a}{set\+Ativo\+Modo}} (bool ativo)
+\begin{DoxyCompactList}\small\item\em Define se o modo está ativo ou não. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_modo_aeac9ef784636c853a7fa5037c4bad235}{get\+Ativo\+Modo}} () const
+\begin{DoxyCompactList}\small\item\em Retorna se o modo está ativo ou não. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_modo_a8d46b7efcfedc8097f9968b0bf6524a1}{set\+Bloqueado\+Modo}} (bool bloqueado)
+\begin{DoxyCompactList}\small\item\em Define se o modo está bloqueado ou não. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_modo_aa734d22464c49096adeb23962e9c5aa7}{get\+Bloqueado\+Modo}} () const
+\begin{DoxyCompactList}\small\item\em Retorna se o modo está bloqueado ou não. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*} $>$ \doxymbox{\hyperlink{class_modo_a60f47ebe9b5730df48b5021298a619c6}{get\+Objetos\+Relacionados}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o vetor com os objetos afetados pelo modo. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*} $>$ \doxymbox{\hyperlink{class_modo_aa449c237d6012f5905959d92660d2f0d}{get\+Comodos\+Relacionados}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o vetor com os cômodos relacionados ao modo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_modo_a5bdfd965d2d04e0140535b464b8213de}{adicionar\+Comodo\+Relacionado}} (\doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}comodo)
+\begin{DoxyCompactList}\small\item\em Adiciona um cômodo ao vetor de cômodos relacionados. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_modo_ad5c6c0ef26892292c6c330ef1c24c2a2}{remover\+Comodo\+Relacionado}} (std::\+string nome\+Comodo)
+\begin{DoxyCompactList}\small\item\em Tira a conexão com um cômodo relacionado. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_modo_ae0173c0589668e58f405467243a267d7}{operator==}} (const \doxymbox{\hyperlink{class_modo}{Modo}} \&other) const
+\begin{DoxyCompactList}\small\item\em Operador de igualdade da classe. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_modo_a1dcbdab0a68a999621050409451896e8}{print\+Membros\+Info}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o nome do modo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_modo_a6eae0f970b102ff66b6c08d27293e452}{executar\+Nos\+Comodos\+Relacionados}} ()
+\begin{DoxyCompactList}\small\item\em Executa a instrução nos cômodos atrelados. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_modo_a0b36a65c4d4796daf162803106d9af8f}{desfazer\+Instrucao}} (\doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*}objeto, \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}comodo)
+\begin{DoxyCompactList}\small\item\em Desfaz uma instrução em um objeto específico de um certo comodo. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_modo_ad0313a8bed13b8e4d4978c27763a0816}{caracteres\+Validos}} (const std::\+string \&str)
+\begin{DoxyCompactList}\small\item\em Confere se os caractéres seguem os requisitos do sistema. \end{DoxyCompactList}\item 
+virtual \doxymbox{\hyperlink{class_modo_aafe69890195faa1acb0aba8d3f8251d3}{\texorpdfstring{$\sim$}{\string~}\+Modo}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{class_modo}{Modo}}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+string \doxymbox{\hyperlink{class_modo_a93c64a61cf53d542b508889b24871243}{nome}}
+\begin{DoxyCompactList}\small\item\em Armazena o nome do modo. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*} $>$ \doxymbox{\hyperlink{class_modo_a3bc0fd6050c172f474955ac5187022d6}{objetos\+Relacionados}}
+\begin{DoxyCompactList}\small\item\em Vetor que armazena os objetos relacionados ao modo. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*} $>$ \doxymbox{\hyperlink{class_modo_a69bbd8032df73759c470cf890a5ab24f}{comodos\+Relacionados}}
+\begin{DoxyCompactList}\small\item\em Vetor que armazena os cômodos relacionados ao modo. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_modo_ac1fd890beeb8fd41fba88c7ef620d03a}{ligado}}
+\begin{DoxyCompactList}\small\item\em Indica se o modo está ligado (está sendo executado). \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_modo_a47e5002f839a7b54f0af305439afcbc6}{bloqueado}}
+\begin{DoxyCompactList}\small\item\em Indica se o modo está bloqueado (impedido de ser ativado). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa o modo de economia de energia da smarthome. Desliga a luz, ar condicionado, caixa de som e tv. 
+
+\label{class_modo_economia_doc-constructors}
+\Hypertarget{class_modo_economia_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_modo_economia_a8a13cfc5de4e698661ebab384784fa11}\index{ModoEconomia@{ModoEconomia}!ModoEconomia@{ModoEconomia}}
+\index{ModoEconomia@{ModoEconomia}!ModoEconomia@{ModoEconomia}}
+\doxysubsubsection{\texorpdfstring{ModoEconomia()}{ModoEconomia()}}
+{\footnotesize\ttfamily \label{class_modo_economia_a8a13cfc5de4e698661ebab384784fa11} 
+Modo\+Economia::\+\+Modo\+Economia (\begin{DoxyParamCaption}\item[{std::\+string}]{nome}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da subclasse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & Nome do \doxylink{class_modo}{Modo} \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_modo_economia_doc-func-members}
+\Hypertarget{class_modo_economia_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_modo_economia_a9dcc33cd59ecf6c57ffb122e6063131c}\index{ModoEconomia@{ModoEconomia}!executarInstrucao@{executarInstrucao}}
+\index{executarInstrucao@{executarInstrucao}!ModoEconomia@{ModoEconomia}}
+\doxysubsubsection{\texorpdfstring{executarInstrucao()}{executarInstrucao()}}
+{\footnotesize\ttfamily \label{class_modo_economia_a9dcc33cd59ecf6c57ffb122e6063131c} 
+void Modo\+Economia::\+executar\+Instrucao (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*}}]{objeto}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}}]{comodo}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Executa o modo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em objeto} & Qual objeto a ser afetado. \\
+\hline
+{\em comodo} & Em qual cômodo deve-\/se aplicar a instrução. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \doxymbox{\hyperlink{class_modo_ad473614e4a0dceccd897e20938a3c4e8}{Modo}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+\doxymbox{\hyperlink{_modo_8hpp}{Modo.\+hpp}}\end{DoxyCompactItemize}

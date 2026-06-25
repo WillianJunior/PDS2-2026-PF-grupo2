@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Smarthome: C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-2026-PF-grupo2/include/ObjetoInteligente.hpp File Reference</title>
+<title>Smarthome: include/ObjetoInteligente.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -121,15 +121,60 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('_objeto_inteli
 <div class="textblock"><code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;functional&gt;</code><br />
-<code>#include &quot;<a class="el" href="_sensor_8hpp_source.html">Sensor.hpp</a>&quot;</code><br />
 </div>
 <p><a href="_objeto_inteligente_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:ObjetoInteligente" id="r_ObjetoInteligente"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representa um objeto inteligente da smarthome.  <a href="class_objeto_inteligente.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classe para definir como o objeto está operando.  <a href="class_objeto_inteligente.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Luz" id="r_Luz"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_luz.html">Luz</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subclasse de objeto, que representa uma luz.  <a href="class_luz.html#details">More...</a><br /></td></tr>
+<tr class="memitem:CaixaDeSom" id="r_CaixaDeSom"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_caixa_de_som.html">CaixaDeSom</a></td></tr>
+<tr class="memitem:TV" id="r_TV"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_t_v.html">TV</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subclasse de objeto, que representa uma televisão.  <a href="class_t_v.html#details">More...</a><br /></td></tr>
+<tr class="memitem:ArCondicionado" id="r_ArCondicionado"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_ar_condicionado.html">ArCondicionado</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subclasse de objeto, que representa um ar condicionado.  <a href="class_ar_condicionado.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Portao" id="r_Portao"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_portao.html">Portao</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subclasse de objeto, que representa um portão.  <a href="class_portao.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Termostato" id="r_Termostato"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_termostato.html">Termostato</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subclasse de objeto, que representa um termostato.  <a href="class_termostato.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a79f0bdf31a82d403f2eccd31e02139a7" id="r_a79f0bdf31a82d403f2eccd31e02139a7"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a79f0bdf31a82d403f2eccd31e02139a7">Protocolo</a> { <a class="el" href="#a79f0bdf31a82d403f2eccd31e02139a7a2f0b4d2c0c3d64bbb2cd525dbba8b0d0">WIFI</a>
+, <a class="el" href="#a79f0bdf31a82d403f2eccd31e02139a7a8de8a62c3191fb6cf61e0ac4b2b59045">BLUETOOTH</a>
+, <a class="el" href="#a79f0bdf31a82d403f2eccd31e02139a7a12398de04ad596c898670f82303ff1fe">ZIGBEE</a>
+ }</td></tr>
 </table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
+<a id="a79f0bdf31a82d403f2eccd31e02139a7" name="a79f0bdf31a82d403f2eccd31e02139a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79f0bdf31a82d403f2eccd31e02139a7">&#9670;&#160;</a></span>Protocolo</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a79f0bdf31a82d403f2eccd31e02139a7">Protocolo</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a79f0bdf31a82d403f2eccd31e02139a7a2f0b4d2c0c3d64bbb2cd525dbba8b0d0" name="a79f0bdf31a82d403f2eccd31e02139a7a2f0b4d2c0c3d64bbb2cd525dbba8b0d0"></a>WIFI&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a79f0bdf31a82d403f2eccd31e02139a7a8de8a62c3191fb6cf61e0ac4b2b59045" name="a79f0bdf31a82d403f2eccd31e02139a7a8de8a62c3191fb6cf61e0ac4b2b59045"></a>BLUETOOTH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a79f0bdf31a82d403f2eccd31e02139a7a12398de04ad596c898670f82303ff1fe" name="a79f0bdf31a82d403f2eccd31e02139a7a12398de04ad596c898670f82303ff1fe"></a>ZIGBEE&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

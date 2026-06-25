@@ -1,46 +1,95 @@
 \doxysection{Comodo.\+hpp}
-\hypertarget{_comodo_8hpp_source}{}\label{_comodo_8hpp_source}\index{C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-\/2026-\/PF-\/grupo2/include/Comodo.hpp@{C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-\/2026-\/PF-\/grupo2/include/Comodo.hpp}}
+\hypertarget{_comodo_8hpp_source}{}\label{_comodo_8hpp_source}\index{include/Comodo.hpp@{include/Comodo.hpp}}
 \doxymbox{\hyperlink{_comodo_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_conta_8hpp}{Conta.hpp}}"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_smart_home_8hpp}{SmartHome.hpp}}"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_sensor_8hpp}{Sensor.hpp}}"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}ObjetoInteligente.hpp”}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}}\doxymbox{\hyperlink{class_modo}{Modo}}.hpp\textcolor{stringliteral}{"{}}}
-\DoxyCodeLine{00008\ \textcolor{stringliteral}{\#ifndef\ COMODO\_HPP}}
-\DoxyCodeLine{00009\ \textcolor{stringliteral}{\#define\ COMODO\_HPP}}
-\DoxyCodeLine{00010\ \textcolor{stringliteral}{}}
-\DoxyCodeLine{00011\ \textcolor{stringliteral}{class\ Comodo\ \{}}
-\DoxyCodeLine{00012\ \textcolor{stringliteral}{public:}}
-\DoxyCodeLine{00013\ \textcolor{stringliteral}{}}
-\DoxyCodeLine{00014\ \textcolor{stringliteral}{\ \ \ \ Comodo(std::string\ nome,\ SmartHome*\ casa);}}
-\DoxyCodeLine{00015\ \textcolor{stringliteral}{}}
-\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ void\ adicionarObjeto(ObjetoInteligente*\ objeto);}}
-\DoxyCodeLine{00017\ \textcolor{stringliteral}{\ \ \ \ void\ adicionarSensor(Sensor*\ sensor);\ }}
-\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ void\ adicionarModo(Modo*\ modo);}}
-\DoxyCodeLine{00019\ \textcolor{stringliteral}{}}
-\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ void\ entrarConta(Conta*\ conta);}}
-\DoxyCodeLine{00021\ \textcolor{stringliteral}{\ \ \ \ void\ sairConta();}}
-\DoxyCodeLine{00022\ \textcolor{stringliteral}{}}
-\DoxyCodeLine{00023\ \textcolor{stringliteral}{\ \ \ \ void\ repassarInstrucao(Modo*\ modo);}}
-\DoxyCodeLine{00024\ \textcolor{stringliteral}{}}
-\DoxyCodeLine{00025\ \textcolor{stringliteral}{\ \ \ \ Conta\ *\ getContaPresente();}}
-\DoxyCodeLine{00026\ \textcolor{stringliteral}{}}
-\DoxyCodeLine{00027\ \textcolor{stringliteral}{\ \ \ \ std\ ::\ string\ getNome();}}
-\DoxyCodeLine{00028\ \textcolor{stringliteral}{}}
-\DoxyCodeLine{00029\ \textcolor{stringliteral}{\ \ \ \ \string~Comodo();}}
-\DoxyCodeLine{00030\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00031\ \textcolor{stringliteral}{private:}}
-\DoxyCodeLine{00032\ \textcolor{stringliteral}{\ \ \ \ std::string\ nome;}}
-\DoxyCodeLine{00033\ \textcolor{stringliteral}{\ \ \ \ SmartHome*\ casa;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ pertence\ a\ uma\ SmartHome}}
-\DoxyCodeLine{00034\ \textcolor{stringliteral}{\ \ \ \ Conta*\ contaPresente;\ \ \ \ \ \ \ \ \ \ \ //\ conta\ presente\ em\ certos\ momentos}}
-\DoxyCodeLine{00035\ \textcolor{stringliteral}{\ \ \ \ std::vector<ObjetoInteligente*>\ objetos;}}
-\DoxyCodeLine{00036\ \textcolor{stringliteral}{\ \ \ \ std::vector<Sensor*>\ sensores;}}
-\DoxyCodeLine{00037\ \textcolor{stringliteral}{\ \ \ \ std::vector<Modo*>\ modos;}}
-\DoxyCodeLine{00038\ \textcolor{stringliteral}{\};}}
-\DoxyCodeLine{00039\ \textcolor{stringliteral}{\#endif}}
-\DoxyCodeLine{00040\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ COMODO\_HPP}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ COMODO\_HPP}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_smarthome}{Smarthome}};}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_conta}{Conta}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_sensor}{Sensor}};}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_objeto_inteligente}{ObjetoInteligente}};}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_modo}{Modo}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_comodo_a29576917022adb0eed6920e79900347a}{Comodo}}\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \doxymbox{\hyperlink{class_comodo_a29576917022adb0eed6920e79900347a}{Comodo}}(\textcolor{keyword}{const}\ std::string\&\ nome,\ \doxymbox{\hyperlink{class_smarthome}{Smarthome}}*\ casa);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_comodo_a9d94625ea46f23dbdda226411ddbf13d}{operator==}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_comodo_a29576917022adb0eed6920e79900347a}{Comodo}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \ \ \ \ std::vector<std::string>\ \doxymbox{\hyperlink{class_comodo_ad8daedcdc5307a3c707186f53c71c721}{getCondicoesDoComodo}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_comodo_a64cd81049d55845c53d9c2359719c1e3}{mudarCondicao}}(\textcolor{keyword}{const}\ std::string\&\ condicao);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_comodo_a150a23e24a559f7b8fc4ce185ea8c185}{adicionarCondicao}}(\textcolor{keyword}{const}\ std::string\&\ condicao);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_comodo_a5d7c1038dfa6548aec7edc2238ffde2d}{adicionarObjeto}}(\doxymbox{\hyperlink{class_objeto_inteligente}{ObjetoInteligente}}*\ objeto);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_comodo_acfc7a330ac270b0b36e81571f98c8b8c}{adicionarSensor}}(std::unique\_ptr<Sensor>\ sensor);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_comodo_acd16def8134cfc28d204881f5437727d}{adicionarModo}}(\doxymbox{\hyperlink{class_modo}{Modo}}*\ modo);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<ObjetoInteligente*>\&\ \doxymbox{\hyperlink{class_comodo_a2fe6f4249752335938488d60d2843d1c}{getObjetos}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::unique\_ptr<Sensor>>\&\ \doxymbox{\hyperlink{class_comodo_a71cb109501d97be0f05584d271ca7c08}{getSensores}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Modo*>\&\ \doxymbox{\hyperlink{class_comodo_aefcc87a92873727dfb02973760e4c26b}{getModos}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_comodo_a5817196adf85aad7607727c311751b44}{removerModoPorNome}}(\textcolor{keyword}{const}\ std::string\&\ nomeModo);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_comodo_a83a819dff0a4b1f4e41e18f8249ee3a9}{removerObjetoPorNome}}(\textcolor{keyword}{const}\ std::string\&\ nomeObjeto);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_comodo_aff08e54f7e7d7b74101f764d0e41f8a4}{removerSensorPorNome}}(\textcolor{keyword}{const}\ std::string\&\ nomeSensor);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_comodo_a5402954bcff511264ee665b4ab72c39e}{entrarConta}}(\doxymbox{\hyperlink{class_conta}{Conta}}*\ conta);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_comodo_a7bfc79b46e4ab097d46fa8f8914741ae}{sairConta}}();}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_comodo_a1d9c016383d5dfc02038dbd35a5e2db1}{repassarInstrucao}}(\doxymbox{\hyperlink{class_modo}{Modo}}*\ modo);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Conta*>\&\ \doxymbox{\hyperlink{class_comodo_a40d506617bb78673836aae3917f00640}{getContasPresentes}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00138\ \ \ \ \ std::string\ \doxymbox{\hyperlink{class_comodo_a5cfdc977dfd4d8d71814d89ad0340777}{getNome}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00144\ \ \ \ \ \doxymbox{\hyperlink{class_smarthome}{Smarthome}}*\ \doxymbox{\hyperlink{class_comodo_a628cdff3ee13e9404546ba5109042348}{getSmarthome}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_comodo_a7eea58ea3dd4757a9601ca5e5964e245}{printObjetosInfo}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_comodo_a848ae6a630ce3dd34ec067244e9085b1}{printSensoresInfo}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_comodo_af223d90f6feecea82dc263b8fc2ee9a5}{printContasInfo}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_comodo_a564e404edf112539cfe152c5c97093b2}{printModosInfo}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_comodo_ae6c183c8724b0edad4d97c4817d134ac}{CaracteresValidos}}(\textcolor{keyword}{const}\ std::string\&\ str)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00176\ \ \ \ \ \doxymbox{\hyperlink{class_comodo_a66675fa403d0d8cdd94a8b08c93776c6}{\string~Comodo}}();}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00180\ \ \ \ \ std::string\ nome;}
+\DoxyCodeLine{00181\ \ \ \ \ }
+\DoxyCodeLine{00183\ \ \ \ \ \doxymbox{\hyperlink{class_smarthome}{Smarthome}}*\ casa;}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00186\ \ \ \ \ std::vector<std::string>\ condicoesDoComodo\ =\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Iluminado"{}},\ \textcolor{stringliteral}{"{}Escuro"{}},\ \textcolor{stringliteral}{"{}Quente"{}},\ \textcolor{stringliteral}{"{}Frio"{}},}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Umido"{}},\ \textcolor{stringliteral}{"{}Seco"{}},\ \textcolor{stringliteral}{"{}Barulhento"{}},\ \textcolor{stringliteral}{"{}Silencioso"{}}}
+\DoxyCodeLine{00189\ \ \ \ \ \};}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00192\ \ \ \ \ std::vector<Conta*>\ contasPresentes;}
+\DoxyCodeLine{00193\ \ \ \ \ }
+\DoxyCodeLine{00195\ \ \ \ \ std::vector<ObjetoInteligente*>\ objetos;}
+\DoxyCodeLine{00196\ \ \ \ \ }
+\DoxyCodeLine{00198\ \ \ \ \ std::vector<std::unique\_ptr<Sensor>>\ sensores;}
+\DoxyCodeLine{00199\ \ \ \ \ }
+\DoxyCodeLine{00201\ \ \ \ \ std::vector<Modo*>\ modos;}
+\DoxyCodeLine{00202\ \};}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

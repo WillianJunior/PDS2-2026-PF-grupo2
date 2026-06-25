@@ -1,10 +1,21 @@
-\doxysection{C:\+/\+\+Users/\+tiago/\+\+One\+Drive/\+Área de Trabalho/\+\+Atalhos etc/\+ufmg/\+pds2/\+\+PDS2-\/2026-\/\+PF-\/grupo2/\+include/\+\+Modo.hpp File Reference}
-\hypertarget{_modo_8hpp}{}\label{_modo_8hpp}\index{C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-\/2026-\/PF-\/grupo2/include/Modo.hpp@{C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-\/2026-\/PF-\/grupo2/include/Modo.hpp}}
-{\ttfamily \+\#include "{}Objeto\+Inteligente.\+hpp"{}}\newline
-{\ttfamily \+\#include "{}Comodo.\+hpp"{}}\newline
+\doxysection{include/\+\+Modo.hpp File Reference}
+\hypertarget{_modo_8hpp}{}\label{_modo_8hpp}\index{include/Modo.hpp@{include/Modo.hpp}}
 {\ttfamily \+\#include $<$vector$>$}\newline
+{\ttfamily \+\#include $<$string$>$}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \doxymbox{\hyperlink{class_modo}{Modo}}
-\begin{DoxyCompactList}\small\item\em Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentese cômodos relacionados, além de controlar se o modo está ativo/\+desativado ou bloqueado/\+permitido. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentes e cômodos relacionados, além de controlar se o modo está ativo/\+desativado ou bloqueado/\+permitido. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_modo_noturno}{Modo\+Noturno}}
+\begin{DoxyCompactList}\small\item\em Representa o modo noturno da smarthohome. Desliga todos objetos relacionados. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_modo_cinema}{Modo\+Cinema}}
+\item 
+class \doxymbox{\hyperlink{class_modo_trabalho}{Modo\+Trabalho}}
+\begin{DoxyCompactList}\small\item\em Representa o modo de trabalho da smarthome. Liga a luz, o ar condicionado e desliga a \doxylink{class_t_v}{TV}. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_modo_ausente}{Modo\+Ausente}}
+\begin{DoxyCompactList}\small\item\em Representa o modo ausente da smarthome. Fecha o portão, apaga a luz, desliga a tv, caixa de som e ar condicionado. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_modo_festa}{Modo\+Festa}}
+\begin{DoxyCompactList}\small\item\em Representa o modo festa da smarthome. Liga a caixa de som, a luz e a tv. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_modo_economia}{Modo\+Economia}}
+\begin{DoxyCompactList}\small\item\em Representa o modo de economia de energia da smarthome. Desliga a luz, ar condicionado, caixa de som e tv. \end{DoxyCompactList}\end{DoxyCompactItemize}

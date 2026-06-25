@@ -119,24 +119,72 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_comodo.h
 </div><!--header-->
 <div class="contents">
 
+<p>Representa um cômodo físico dentro de uma <a class="el" href="class_smarthome.html">Smarthome</a>.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_comodo_8hpp_source.html">Comodo.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3a18f81860ec53b3f183a18229e04c4e" id="r_a3a18f81860ec53b3f183a18229e04c4e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3a18f81860ec53b3f183a18229e04c4e">Comodo</a> (std::string nome, SmartHome *casa)</td></tr>
+<tr class="memitem:a29576917022adb0eed6920e79900347a" id="r_a29576917022adb0eed6920e79900347a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a29576917022adb0eed6920e79900347a">Comodo</a> (const std::string &amp;nome, <a class="el" href="class_smarthome.html">Smarthome</a> *casa)</td></tr>
+<tr class="memdesc:a29576917022adb0eed6920e79900347a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="class_comodo.html" title="Representa um cômodo físico dentro de uma Smarthome.">Comodo</a>.  <br /></td></tr>
+<tr class="memitem:a9d94625ea46f23dbdda226411ddbf13d" id="r_a9d94625ea46f23dbdda226411ddbf13d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9d94625ea46f23dbdda226411ddbf13d">operator==</a> (const <a class="el" href="class_comodo.html">Comodo</a> &amp;other) const</td></tr>
+<tr class="memdesc:a9d94625ea46f23dbdda226411ddbf13d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador de igualdade para comparar se dois cômodos são o mesmo.  <br /></td></tr>
+<tr class="memitem:ad8daedcdc5307a3c707186f53c71c721" id="r_ad8daedcdc5307a3c707186f53c71c721"><td class="memItemLeft">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ad8daedcdc5307a3c707186f53c71c721">getCondicoesDoComodo</a> () const</td></tr>
+<tr class="memdesc:ad8daedcdc5307a3c707186f53c71c721"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna as condições climáticas e físicas do ambiente do cômodo.  <br /></td></tr>
+<tr class="memitem:a64cd81049d55845c53d9c2359719c1e3" id="r_a64cd81049d55845c53d9c2359719c1e3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a64cd81049d55845c53d9c2359719c1e3">mudarCondicao</a> (const std::string &amp;condicao)</td></tr>
+<tr class="memdesc:a64cd81049d55845c53d9c2359719c1e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Muda uma condição do cômodo, desativando automaticamente a sua condição oposta.  <br /></td></tr>
+<tr class="memitem:a150a23e24a559f7b8fc4ce185ea8c185" id="r_a150a23e24a559f7b8fc4ce185ea8c185"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a150a23e24a559f7b8fc4ce185ea8c185">adicionarCondicao</a> (const std::string &amp;condicao)</td></tr>
+<tr class="memdesc:a150a23e24a559f7b8fc4ce185ea8c185"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona uma nova condição ao cômodo.  <br /></td></tr>
 <tr class="memitem:a5d7c1038dfa6548aec7edc2238ffde2d" id="r_a5d7c1038dfa6548aec7edc2238ffde2d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5d7c1038dfa6548aec7edc2238ffde2d">adicionarObjeto</a> (<a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> *objeto)</td></tr>
-<tr class="memitem:a978d20ddd09bc924cbcad4b8ee316fc8" id="r_a978d20ddd09bc924cbcad4b8ee316fc8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a978d20ddd09bc924cbcad4b8ee316fc8">adicionarSensor</a> (<a class="el" href="class_sensor.html">Sensor</a> *sensor)</td></tr>
+<tr class="memdesc:a5d7c1038dfa6548aec7edc2238ffde2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona um Objeto Inteligente ao cômodo.  <br /></td></tr>
+<tr class="memitem:acfc7a330ac270b0b36e81571f98c8b8c" id="r_acfc7a330ac270b0b36e81571f98c8b8c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acfc7a330ac270b0b36e81571f98c8b8c">adicionarSensor</a> (std::unique_ptr&lt; <a class="el" href="class_sensor.html">Sensor</a> &gt; sensor)</td></tr>
+<tr class="memdesc:acfc7a330ac270b0b36e81571f98c8b8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona um <a class="el" href="class_sensor.html">Sensor</a> ao cômodo.  <br /></td></tr>
 <tr class="memitem:acd16def8134cfc28d204881f5437727d" id="r_acd16def8134cfc28d204881f5437727d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acd16def8134cfc28d204881f5437727d">adicionarModo</a> (<a class="el" href="class_modo.html">Modo</a> *modo)</td></tr>
+<tr class="memdesc:acd16def8134cfc28d204881f5437727d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vincula um <a class="el" href="class_modo.html" title="Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentes ...">Modo</a> ao cômodo.  <br /></td></tr>
+<tr class="memitem:a2fe6f4249752335938488d60d2843d1c" id="r_a2fe6f4249752335938488d60d2843d1c"><td class="memItemLeft">const std::vector&lt; <a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> * &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2fe6f4249752335938488d60d2843d1c">getObjetos</a> () const</td></tr>
+<tr class="memdesc:a2fe6f4249752335938488d60d2843d1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a lista de objetos inteligentes do cômodo.  <br /></td></tr>
+<tr class="memitem:a71cb109501d97be0f05584d271ca7c08" id="r_a71cb109501d97be0f05584d271ca7c08"><td class="memItemLeft">const std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_sensor.html">Sensor</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a71cb109501d97be0f05584d271ca7c08">getSensores</a> () const</td></tr>
+<tr class="memdesc:a71cb109501d97be0f05584d271ca7c08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a lista de sensores instalados no cômodo.  <br /></td></tr>
+<tr class="memitem:aefcc87a92873727dfb02973760e4c26b" id="r_aefcc87a92873727dfb02973760e4c26b"><td class="memItemLeft">const std::vector&lt; <a class="el" href="class_modo.html">Modo</a> * &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aefcc87a92873727dfb02973760e4c26b">getModos</a> () const</td></tr>
+<tr class="memdesc:aefcc87a92873727dfb02973760e4c26b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a lista de modos vinculados ao cômodo.  <br /></td></tr>
+<tr class="memitem:a5817196adf85aad7607727c311751b44" id="r_a5817196adf85aad7607727c311751b44"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5817196adf85aad7607727c311751b44">removerModoPorNome</a> (const std::string &amp;nomeModo)</td></tr>
+<tr class="memdesc:a5817196adf85aad7607727c311751b44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um modo vinculado ao cômodo buscando pelo seu nome.  <br /></td></tr>
+<tr class="memitem:a83a819dff0a4b1f4e41e18f8249ee3a9" id="r_a83a819dff0a4b1f4e41e18f8249ee3a9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a83a819dff0a4b1f4e41e18f8249ee3a9">removerObjetoPorNome</a> (const std::string &amp;nomeObjeto)</td></tr>
+<tr class="memdesc:a83a819dff0a4b1f4e41e18f8249ee3a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um objeto inteligente do cômodo buscando pelo seu nome.  <br /></td></tr>
+<tr class="memitem:aff08e54f7e7d7b74101f764d0e41f8a4" id="r_aff08e54f7e7d7b74101f764d0e41f8a4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aff08e54f7e7d7b74101f764d0e41f8a4">removerSensorPorNome</a> (const std::string &amp;nomeSensor)</td></tr>
+<tr class="memdesc:aff08e54f7e7d7b74101f764d0e41f8a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um sensor do cômodo buscando pelo seu nome.  <br /></td></tr>
 <tr class="memitem:a5402954bcff511264ee665b4ab72c39e" id="r_a5402954bcff511264ee665b4ab72c39e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5402954bcff511264ee665b4ab72c39e">entrarConta</a> (<a class="el" href="class_conta.html">Conta</a> *conta)</td></tr>
+<tr class="memdesc:a5402954bcff511264ee665b4ab72c39e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere uma conta na lista de contas presentes (fisicamente) no cômodo.  <br /></td></tr>
 <tr class="memitem:a7bfc79b46e4ab097d46fa8f8914741ae" id="r_a7bfc79b46e4ab097d46fa8f8914741ae"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7bfc79b46e4ab097d46fa8f8914741ae">sairConta</a> ()</td></tr>
+<tr class="memdesc:a7bfc79b46e4ab097d46fa8f8914741ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a conta mais antiga da lista de contas presentes no cômodo (Lógica FIFO).  <br /></td></tr>
 <tr class="memitem:a1d9c016383d5dfc02038dbd35a5e2db1" id="r_a1d9c016383d5dfc02038dbd35a5e2db1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1d9c016383d5dfc02038dbd35a5e2db1">repassarInstrucao</a> (<a class="el" href="class_modo.html">Modo</a> *modo)</td></tr>
-<tr class="memitem:a3fdb5b9e535ac449f21fb9f5fb58fda2" id="r_a3fdb5b9e535ac449f21fb9f5fb58fda2"><td class="memItemLeft"><a class="el" href="class_conta.html">Conta</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a3fdb5b9e535ac449f21fb9f5fb58fda2">getContaPresente</a> ()</td></tr>
-<tr class="memitem:a89c2e67b6daa8fe9cddecb3cf60a1619" id="r_a89c2e67b6daa8fe9cddecb3cf60a1619"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a89c2e67b6daa8fe9cddecb3cf60a1619">getNome</a> ()</td></tr>
+<tr class="memdesc:a1d9c016383d5dfc02038dbd35a5e2db1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repassa a instrução de ativar ou desativar de um modo para os objetos contidos neste cômodo.  <br /></td></tr>
+<tr class="memitem:a40d506617bb78673836aae3917f00640" id="r_a40d506617bb78673836aae3917f00640"><td class="memItemLeft">const std::vector&lt; <a class="el" href="class_conta.html">Conta</a> * &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a40d506617bb78673836aae3917f00640">getContasPresentes</a> () const</td></tr>
+<tr class="memdesc:a40d506617bb78673836aae3917f00640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a lista de contas atualmente presentes no cômodo.  <br /></td></tr>
+<tr class="memitem:a5cfdc977dfd4d8d71814d89ad0340777" id="r_a5cfdc977dfd4d8d71814d89ad0340777"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a5cfdc977dfd4d8d71814d89ad0340777">getNome</a> () const</td></tr>
+<tr class="memdesc:a5cfdc977dfd4d8d71814d89ad0340777"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o nome atribuído ao cômodo.  <br /></td></tr>
+<tr class="memitem:a628cdff3ee13e9404546ba5109042348" id="r_a628cdff3ee13e9404546ba5109042348"><td class="memItemLeft"><a class="el" href="class_smarthome.html">Smarthome</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a628cdff3ee13e9404546ba5109042348">getSmarthome</a> () const</td></tr>
+<tr class="memdesc:a628cdff3ee13e9404546ba5109042348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a instância da <a class="el" href="class_smarthome.html">Smarthome</a> matriz do cômodo.  <br /></td></tr>
+<tr class="memitem:a7eea58ea3dd4757a9601ca5e5964e245" id="r_a7eea58ea3dd4757a9601ca5e5964e245"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7eea58ea3dd4757a9601ca5e5964e245">printObjetosInfo</a> () const</td></tr>
+<tr class="memdesc:a7eea58ea3dd4757a9601ca5e5964e245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime no terminal as informações e status de todos os objetos deste cômodo.  <br /></td></tr>
+<tr class="memitem:a848ae6a630ce3dd34ec067244e9085b1" id="r_a848ae6a630ce3dd34ec067244e9085b1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a848ae6a630ce3dd34ec067244e9085b1">printSensoresInfo</a> () const</td></tr>
+<tr class="memdesc:a848ae6a630ce3dd34ec067244e9085b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime no terminal as informações e status de todos os sensores deste cômodo.  <br /></td></tr>
+<tr class="memitem:af223d90f6feecea82dc263b8fc2ee9a5" id="r_af223d90f6feecea82dc263b8fc2ee9a5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af223d90f6feecea82dc263b8fc2ee9a5">printContasInfo</a> () const</td></tr>
+<tr class="memdesc:af223d90f6feecea82dc263b8fc2ee9a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime no terminal os dados das contas presentes neste cômodo.  <br /></td></tr>
+<tr class="memitem:a564e404edf112539cfe152c5c97093b2" id="r_a564e404edf112539cfe152c5c97093b2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a564e404edf112539cfe152c5c97093b2">printModosInfo</a> () const</td></tr>
+<tr class="memdesc:a564e404edf112539cfe152c5c97093b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime no terminal os dados dos modos vinculados a este cômodo.  <br /></td></tr>
+<tr class="memitem:ae6c183c8724b0edad4d97c4817d134ac" id="r_ae6c183c8724b0edad4d97c4817d134ac"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae6c183c8724b0edad4d97c4817d134ac">CaracteresValidos</a> (const std::string &amp;str) const</td></tr>
+<tr class="memdesc:ae6c183c8724b0edad4d97c4817d134ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valida se a string fornecida contém apenas letras, números ou espaços.  <br /></td></tr>
 <tr class="memitem:a66675fa403d0d8cdd94a8b08c93776c6" id="r_a66675fa403d0d8cdd94a8b08c93776c6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a66675fa403d0d8cdd94a8b08c93776c6">~Comodo</a> ()</td></tr>
+<tr class="memdesc:a66675fa403d0d8cdd94a8b08c93776c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor padrão da classe <a class="el" href="class_comodo.html" title="Representa um cômodo físico dentro de uma Smarthome.">Comodo</a>.  <br /></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a3a18f81860ec53b3f183a18229e04c4e" name="a3a18f81860ec53b3f183a18229e04c4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a18f81860ec53b3f183a18229e04c4e">&#9670;&#160;</a></span>Comodo()</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Representa um cômodo físico dentro de uma <a class="el" href="class_smarthome.html">Smarthome</a>. </p>
+<p>Esta classe é responsável por gerenciar as condições do ambiente e agrupar logicamente objetos inteligentes, sensores, contas presentes e modos de automação. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a29576917022adb0eed6920e79900347a" name="a29576917022adb0eed6920e79900347a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29576917022adb0eed6920e79900347a">&#9670;&#160;</a></span>Comodo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,15 +192,24 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">Comodo::Comodo </td>
           <td>(</td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>, </td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">SmartHome *</td>          <td class="paramname"><span class="paramname"><em>casa</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="class_smarthome.html">Smarthome</a> *</td>          <td class="paramname"><span class="paramname"><em>casa</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Construtor da classe <a class="el" href="class_comodo.html" title="Representa um cômodo físico dentro de uma Smarthome.">Comodo</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nome</td><td>Nome do cômodo (ex: "Sala", "Quarto"). </td></tr>
+    <tr><td class="paramname">casa</td><td>Ponteiro para a <a class="el" href="class_smarthome.html">Smarthome</a> à qual este cômodo pertence. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -171,9 +228,36 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Destrutor padrão da classe <a class="el" href="class_comodo.html" title="Representa um cômodo físico dentro de uma Smarthome.">Comodo</a>. </p>
+
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a150a23e24a559f7b8fc4ce185ea8c185" name="a150a23e24a559f7b8fc4ce185ea8c185"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a150a23e24a559f7b8fc4ce185ea8c185">&#9670;&#160;</a></span>adicionarCondicao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Comodo::adicionarCondicao </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>condicao</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adiciona uma nova condição ao cômodo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">condicao</td><td>Nova condição a ser adicionada. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="acd16def8134cfc28d204881f5437727d" name="acd16def8134cfc28d204881f5437727d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acd16def8134cfc28d204881f5437727d">&#9670;&#160;</a></span>adicionarModo()</h2>
 
@@ -188,6 +272,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Vincula um <a class="el" href="class_modo.html" title="Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentes ...">Modo</a> ao cômodo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">modo</td><td>Ponteiro para o <a class="el" href="class_modo.html" title="Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentes ...">Modo</a> a ser adicionado. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -206,10 +298,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adiciona um Objeto Inteligente ao cômodo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">objeto</td><td>Ponteiro para o Objeto Inteligente a ser inserido. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a978d20ddd09bc924cbcad4b8ee316fc8" name="a978d20ddd09bc924cbcad4b8ee316fc8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a978d20ddd09bc924cbcad4b8ee316fc8">&#9670;&#160;</a></span>adicionarSensor()</h2>
+<a id="acfc7a330ac270b0b36e81571f98c8b8c" name="acfc7a330ac270b0b36e81571f98c8b8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfc7a330ac270b0b36e81571f98c8b8c">&#9670;&#160;</a></span>adicionarSensor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -217,11 +317,45 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Comodo::adicionarSensor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_sensor.html">Sensor</a> *</td>          <td class="paramname"><span class="paramname"><em>sensor</em></span></td><td>)</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="class_sensor.html">Sensor</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>sensor</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Adiciona um <a class="el" href="class_sensor.html">Sensor</a> ao cômodo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensor</td><td>Smart pointer (unique_ptr) do <a class="el" href="class_sensor.html">Sensor</a> a ser inserido. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae6c183c8724b0edad4d97c4817d134ac" name="ae6c183c8724b0edad4d97c4817d134ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6c183c8724b0edad4d97c4817d134ac">&#9670;&#160;</a></span>CaracteresValidos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Comodo::CaracteresValidos </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valida se a string fornecida contém apenas letras, números ou espaços. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Texto a ser avaliado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se o texto não possuir caracteres especiais, false caso possua. </dd></dl>
 
 </div>
 </div>
@@ -240,27 +374,78 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Insere uma conta na lista de contas presentes (fisicamente) no cômodo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conta</td><td>Ponteiro para a conta que entrou no ambiente. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a3fdb5b9e535ac449f21fb9f5fb58fda2" name="a3fdb5b9e535ac449f21fb9f5fb58fda2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3fdb5b9e535ac449f21fb9f5fb58fda2">&#9670;&#160;</a></span>getContaPresente()</h2>
+<a id="ad8daedcdc5307a3c707186f53c71c721" name="ad8daedcdc5307a3c707186f53c71c721"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8daedcdc5307a3c707186f53c71c721">&#9670;&#160;</a></span>getCondicoesDoComodo()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_conta.html">Conta</a> * Comodo::getContaPresente </td>
+          <td class="memname">std::vector&lt; std::string &gt; Comodo::getCondicoesDoComodo </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retorna as condições climáticas e físicas do ambiente do cômodo. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vetor de strings contendo as condições atuais. </dd></dl>
+
 </div>
 </div>
-<a id="a89c2e67b6daa8fe9cddecb3cf60a1619" name="a89c2e67b6daa8fe9cddecb3cf60a1619"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89c2e67b6daa8fe9cddecb3cf60a1619">&#9670;&#160;</a></span>getNome()</h2>
+<a id="a40d506617bb78673836aae3917f00640" name="a40d506617bb78673836aae3917f00640"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40d506617bb78673836aae3917f00640">&#9670;&#160;</a></span>getContasPresentes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="class_conta.html">Conta</a> * &gt; &amp; Comodo::getContasPresentes </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna a lista de contas atualmente presentes no cômodo. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vetor contendo ponteiros para as contas presentes. </dd></dl>
+
+</div>
+</div>
+<a id="aefcc87a92873727dfb02973760e4c26b" name="aefcc87a92873727dfb02973760e4c26b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefcc87a92873727dfb02973760e4c26b">&#9670;&#160;</a></span>getModos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="class_modo.html">Modo</a> * &gt; &amp; Comodo::getModos </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna a lista de modos vinculados ao cômodo. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vetor contendo ponteiros para os modos. </dd></dl>
+
+</div>
+</div>
+<a id="a5cfdc977dfd4d8d71814d89ad0340777" name="a5cfdc977dfd4d8d71814d89ad0340777"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cfdc977dfd4d8d71814d89ad0340777">&#9670;&#160;</a></span>getNome()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -269,10 +454,275 @@ Public Member Functions</h2></td></tr>
           <td class="memname">std::string Comodo::getNome </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o nome atribuído ao cômodo. </p>
+<dl class="section return"><dt>Returns</dt><dd>String contendo o nome do cômodo. </dd></dl>
+
+</div>
+</div>
+<a id="a2fe6f4249752335938488d60d2843d1c" name="a2fe6f4249752335938488d60d2843d1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fe6f4249752335938488d60d2843d1c">&#9670;&#160;</a></span>getObjetos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> * &gt; &amp; Comodo::getObjetos </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna a lista de objetos inteligentes do cômodo. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vetor contendo ponteiros para os objetos inteligentes. </dd></dl>
+
+</div>
+</div>
+<a id="a71cb109501d97be0f05584d271ca7c08" name="a71cb109501d97be0f05584d271ca7c08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71cb109501d97be0f05584d271ca7c08">&#9670;&#160;</a></span>getSensores()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_sensor.html">Sensor</a> &gt; &gt; &amp; Comodo::getSensores </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna a lista de sensores instalados no cômodo. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vetor contendo smart pointers para os sensores. </dd></dl>
+
+</div>
+</div>
+<a id="a628cdff3ee13e9404546ba5109042348" name="a628cdff3ee13e9404546ba5109042348"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a628cdff3ee13e9404546ba5109042348">&#9670;&#160;</a></span>getSmarthome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_smarthome.html">Smarthome</a> * Comodo::getSmarthome </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna a instância da <a class="el" href="class_smarthome.html">Smarthome</a> matriz do cômodo. </p>
+<dl class="section return"><dt>Returns</dt><dd>Ponteiro para a <a class="el" href="class_smarthome.html">Smarthome</a> à qual este cômodo pertence. </dd></dl>
+
+</div>
+</div>
+<a id="a64cd81049d55845c53d9c2359719c1e3" name="a64cd81049d55845c53d9c2359719c1e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64cd81049d55845c53d9c2359719c1e3">&#9670;&#160;</a></span>mudarCondicao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Comodo::mudarCondicao </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>condicao</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Muda uma condição do cômodo, desativando automaticamente a sua condição oposta. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">condicao</td><td>Nova condição a ser estabelecida. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9d94625ea46f23dbdda226411ddbf13d" name="a9d94625ea46f23dbdda226411ddbf13d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d94625ea46f23dbdda226411ddbf13d">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Comodo::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_comodo.html">Comodo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sobrecarga do operador de igualdade para comparar se dois cômodos são o mesmo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Cômodo a ser comparado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se possuírem o mesmo nome e pertencerem à mesma <a class="el" href="class_smarthome.html">Smarthome</a>, false caso contrário. </dd></dl>
+
+</div>
+</div>
+<a id="af223d90f6feecea82dc263b8fc2ee9a5" name="af223d90f6feecea82dc263b8fc2ee9a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af223d90f6feecea82dc263b8fc2ee9a5">&#9670;&#160;</a></span>printContasInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Comodo::printContasInfo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime no terminal os dados das contas presentes neste cômodo. </p>
+
+</div>
+</div>
+<a id="a564e404edf112539cfe152c5c97093b2" name="a564e404edf112539cfe152c5c97093b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a564e404edf112539cfe152c5c97093b2">&#9670;&#160;</a></span>printModosInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Comodo::printModosInfo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime no terminal os dados dos modos vinculados a este cômodo. </p>
+
+</div>
+</div>
+<a id="a7eea58ea3dd4757a9601ca5e5964e245" name="a7eea58ea3dd4757a9601ca5e5964e245"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7eea58ea3dd4757a9601ca5e5964e245">&#9670;&#160;</a></span>printObjetosInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Comodo::printObjetosInfo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime no terminal as informações e status de todos os objetos deste cômodo. </p>
+
+</div>
+</div>
+<a id="a848ae6a630ce3dd34ec067244e9085b1" name="a848ae6a630ce3dd34ec067244e9085b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a848ae6a630ce3dd34ec067244e9085b1">&#9670;&#160;</a></span>printSensoresInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Comodo::printSensoresInfo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime no terminal as informações e status de todos os sensores deste cômodo. </p>
+
+</div>
+</div>
+<a id="a5817196adf85aad7607727c311751b44" name="a5817196adf85aad7607727c311751b44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5817196adf85aad7607727c311751b44">&#9670;&#160;</a></span>removerModoPorNome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Comodo::removerModoPorNome </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>nomeModo</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove um modo vinculado ao cômodo buscando pelo seu nome. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nomeModo</td><td>Nome exato do modo a ser removido. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a83a819dff0a4b1f4e41e18f8249ee3a9" name="a83a819dff0a4b1f4e41e18f8249ee3a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83a819dff0a4b1f4e41e18f8249ee3a9">&#9670;&#160;</a></span>removerObjetoPorNome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Comodo::removerObjetoPorNome </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>nomeObjeto</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove um objeto inteligente do cômodo buscando pelo seu nome. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nomeObjeto</td><td>Nome exato do objeto a ser removido. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aff08e54f7e7d7b74101f764d0e41f8a4" name="aff08e54f7e7d7b74101f764d0e41f8a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff08e54f7e7d7b74101f764d0e41f8a4">&#9670;&#160;</a></span>removerSensorPorNome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Comodo::removerSensorPorNome </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>nomeSensor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove um sensor do cômodo buscando pelo seu nome. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nomeSensor</td><td>Nome exato do sensor a ser removido. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -291,6 +741,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Repassa a instrução de ativar ou desativar de um modo para os objetos contidos neste cômodo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">modo</td><td>Ponteiro para o modo cujas instruções serão aplicadas. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a7bfc79b46e4ab097d46fa8f8914741ae" name="a7bfc79b46e4ab097d46fa8f8914741ae"></a>
@@ -308,10 +766,12 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Remove a conta mais antiga da lista de contas presentes no cômodo (Lógica FIFO). </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-2026-PF-grupo2/include/<a class="el" href="_comodo_8hpp_source.html">Comodo.hpp</a></li>
+<li>include/<a class="el" href="_comodo_8hpp_source.html">Comodo.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

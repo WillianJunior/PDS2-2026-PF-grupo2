@@ -2,88 +2,263 @@
 \hypertarget{class_modo}{}\label{class_modo}\index{Modo@{Modo}}
 
 
-Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentese cômodos relacionados, além de controlar se o modo está ativo/\+desativado ou bloqueado/\+permitido.  
+Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentes e cômodos relacionados, além de controlar se o modo está ativo/\+desativado ou bloqueado/\+permitido.  
 
 
 
 
 {\ttfamily \+\#include $<$Modo.\+hpp$>$}
 
+Inheritance diagram for Modo:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.744548cm]{class_modo}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\doxymbox{\hyperlink{class_modo_a44b47c8dfbf703e8017922b55f167d5f}{Modo}} (std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} $>$ objetos, std::\+vector$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} $>$ comodos, bool ligado, bool bloqueado)
-\begin{DoxyCompactList}\small\item\em Construtor da classe. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_modo_a1f0befebffa0afa6bf902060596fb9b1}{Modo}} (std::\+string nome, std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*} $>$ objetos, std::\+vector$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*} $>$ comodos, bool ligado, bool bloqueado)
+\begin{DoxyCompactList}\small\item\em Construtor da classe modo. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_modo_a5fb83f241feebca5428de33cb83a6545}{get\+Nome}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o nome do modo. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_modo_a1e293dfc5f7652b26506955dc534fc5a}{set\+Ativo\+Modo}} (bool ativo)
-\begin{DoxyCompactList}\small\item\em Ativa ou desativa o modo. \end{DoxyCompactList}\item 
-bool \doxymbox{\hyperlink{class_modo_a05baa809c2ff44d55861f1ef66efc5c1}{get\+Ativo\+Modo}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Define se o modo está ativo ou não. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_modo_aeac9ef784636c853a7fa5037c4bad235}{get\+Ativo\+Modo}} () const
+\begin{DoxyCompactList}\small\item\em Retorna se o modo está ativo ou não. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_modo_a8d46b7efcfedc8097f9968b0bf6524a1}{set\+Bloqueado\+Modo}} (bool bloqueado)
-\begin{DoxyCompactList}\small\item\em Retorna se o modo está ativo. \end{DoxyCompactList}\item 
-bool \doxymbox{\hyperlink{class_modo_a6bfb007cc70a82864a4a64fa9766d0bd}{get\+Bloqueado\+Modo}} ()
-\item 
-std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} $>$ \doxymbox{\hyperlink{class_modo_a0cc310b999b1f87fec4f025441f0fc44}{get\+Objetos\+Relacionados}} ()
-\item 
-std::\+vector$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} $>$ \doxymbox{\hyperlink{class_modo_aa74946a717c0b58cb604809d4e3c9f04}{get\+Comodos\+Relacionados}} ()
+\begin{DoxyCompactList}\small\item\em Define se o modo está bloqueado ou não. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_modo_aa734d22464c49096adeb23962e9c5aa7}{get\+Bloqueado\+Modo}} () const
+\begin{DoxyCompactList}\small\item\em Retorna se o modo está bloqueado ou não. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*} $>$ \doxymbox{\hyperlink{class_modo_a60f47ebe9b5730df48b5021298a619c6}{get\+Objetos\+Relacionados}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o vetor com os objetos afetados pelo modo. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*} $>$ \doxymbox{\hyperlink{class_modo_aa449c237d6012f5905959d92660d2f0d}{get\+Comodos\+Relacionados}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o vetor com os cômodos relacionados ao modo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_modo_a5bdfd965d2d04e0140535b464b8213de}{adicionar\+Comodo\+Relacionado}} (\doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}comodo)
+\begin{DoxyCompactList}\small\item\em Adiciona um cômodo ao vetor de cômodos relacionados. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_modo_ad5c6c0ef26892292c6c330ef1c24c2a2}{remover\+Comodo\+Relacionado}} (std::\+string nome\+Comodo)
+\begin{DoxyCompactList}\small\item\em Tira a conexão com um cômodo relacionado. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_modo_ae0173c0589668e58f405467243a267d7}{operator==}} (const \doxymbox{\hyperlink{class_modo}{Modo}} \&other) const
+\begin{DoxyCompactList}\small\item\em Operador de igualdade da classe. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_modo_a1dcbdab0a68a999621050409451896e8}{print\+Membros\+Info}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o nome do modo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_modo_a6eae0f970b102ff66b6c08d27293e452}{executar\+Nos\+Comodos\+Relacionados}} ()
+\begin{DoxyCompactList}\small\item\em Executa a instrução nos cômodos atrelados. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_modo_ad473614e4a0dceccd897e20938a3c4e8}{executar\+Instrucao}} (\doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*}objeto, \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}comodo)
+\begin{DoxyCompactList}\small\item\em Executa uma instrução em um objeto específico de um certo comodo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_modo_a0b36a65c4d4796daf162803106d9af8f}{desfazer\+Instrucao}} (\doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*}objeto, \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}comodo)
+\begin{DoxyCompactList}\small\item\em Desfaz uma instrução em um objeto específico de um certo comodo. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_modo_ad0313a8bed13b8e4d4978c27763a0816}{caracteres\+Validos}} (const std::\+string \&str)
+\begin{DoxyCompactList}\small\item\em Confere se os caractéres seguem os requisitos do sistema. \end{DoxyCompactList}\item 
+virtual \doxymbox{\hyperlink{class_modo_aafe69890195faa1acb0aba8d3f8251d3}{\texorpdfstring{$\sim$}{\string~}\+Modo}} ()=default
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::\+string \doxymbox{\hyperlink{class_modo_a93c64a61cf53d542b508889b24871243}{nome}}
+\begin{DoxyCompactList}\small\item\em Armazena o nome do modo. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*} $>$ \doxymbox{\hyperlink{class_modo_a3bc0fd6050c172f474955ac5187022d6}{objetos\+Relacionados}}
+\begin{DoxyCompactList}\small\item\em Vetor que armazena os objetos relacionados ao modo. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*} $>$ \doxymbox{\hyperlink{class_modo_a69bbd8032df73759c470cf890a5ab24f}{comodos\+Relacionados}}
+\begin{DoxyCompactList}\small\item\em Vetor que armazena os cômodos relacionados ao modo. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_modo_ac1fd890beeb8fd41fba88c7ef620d03a}{ligado}}
+\begin{DoxyCompactList}\small\item\em Indica se o modo está ligado (está sendo executado). \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_modo_a47e5002f839a7b54f0af305439afcbc6}{bloqueado}}
+\begin{DoxyCompactList}\small\item\em Indica se o modo está bloqueado (impedido de ser ativado). \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentese cômodos relacionados, além de controlar se o modo está ativo/\+desativado ou bloqueado/\+permitido. 
+Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentes e cômodos relacionados, além de controlar se o modo está ativo/\+desativado ou bloqueado/\+permitido. 
+
+Representa o modo cinema da smarthome. Desliga a luz, liga a \doxylink{class_t_v}{TV} e a caixa de som. 
 
 \label{class_modo_doc-constructors}
 \Hypertarget{class_modo_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_modo_a44b47c8dfbf703e8017922b55f167d5f}\index{Modo@{Modo}!Modo@{Modo}}
+\Hypertarget{class_modo_a1f0befebffa0afa6bf902060596fb9b1}\index{Modo@{Modo}!Modo@{Modo}}
 \index{Modo@{Modo}!Modo@{Modo}}
 \doxysubsubsection{\texorpdfstring{Modo()}{Modo()}}
-{\footnotesize\ttfamily \label{class_modo_a44b47c8dfbf703e8017922b55f167d5f} 
-Modo::\+\+Modo (\begin{DoxyParamCaption}\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} $>$}]{objetos}{, }\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} $>$}]{comodos}{, }\item[{bool}]{ligado}{, }\item[{bool}]{bloqueado}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_modo_a1f0befebffa0afa6bf902060596fb9b1} 
+Modo::\+\+Modo (\begin{DoxyParamCaption}\item[{std::\+string}]{nome}{, }\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*} $>$}]{objetos}{, }\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*} $>$}]{comodos}{, }\item[{bool}]{ligado}{, }\item[{bool}]{bloqueado}{}\end{DoxyParamCaption})}
 
 
 
-Construtor da classe. 
+Construtor da classe modo. 
 
+\Hypertarget{class_modo_aafe69890195faa1acb0aba8d3f8251d3}\index{Modo@{Modo}!````~Modo@{\texorpdfstring{$\sim$}{\string~}Modo}}
+\index{````~Modo@{\texorpdfstring{$\sim$}{\string~}Modo}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Modo()}{\string~Modo()}}
+{\footnotesize\ttfamily \label{class_modo_aafe69890195faa1acb0aba8d3f8251d3} 
+virtual Modo::\+\texorpdfstring{$\sim$}{\string~}\+Modo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
 
-\begin{DoxyParams}{Parameters}
-{\em objetos} & Objetos relacionados ao modo. \\
-\hline
-{\em comodos} & Cômodos relacionados ao modo. \\
-\hline
-{\em ligado} & Estado inicial do modo. \\
-\hline
-{\em bloqueado} & Estado de bloqueio do modo. \\
-\hline
-\end{DoxyParams}
 
 
 \label{class_modo_doc-func-members}
 \Hypertarget{class_modo_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_modo_a05baa809c2ff44d55861f1ef66efc5c1}\index{Modo@{Modo}!getAtivoModo@{getAtivoModo}}
+\Hypertarget{class_modo_a5bdfd965d2d04e0140535b464b8213de}\index{Modo@{Modo}!adicionarComodoRelacionado@{adicionarComodoRelacionado}}
+\index{adicionarComodoRelacionado@{adicionarComodoRelacionado}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{adicionarComodoRelacionado()}{adicionarComodoRelacionado()}}
+{\footnotesize\ttfamily \label{class_modo_a5bdfd965d2d04e0140535b464b8213de} 
+void Modo::\+adicionar\+Comodo\+Relacionado (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}}]{comodo}{}\end{DoxyParamCaption})}
+
+
+
+Adiciona um cômodo ao vetor de cômodos relacionados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em comodo} & Qual cômodo adicionar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_modo_ad0313a8bed13b8e4d4978c27763a0816}\index{Modo@{Modo}!caracteresValidos@{caracteresValidos}}
+\index{caracteresValidos@{caracteresValidos}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{caracteresValidos()}{caracteresValidos()}}
+{\footnotesize\ttfamily \label{class_modo_ad0313a8bed13b8e4d4978c27763a0816} 
+bool Modo::\+caracteres\+Validos (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{str}{}\end{DoxyParamCaption})}
+
+
+
+Confere se os caractéres seguem os requisitos do sistema. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & String a ser conferida. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_modo_a0b36a65c4d4796daf162803106d9af8f}\index{Modo@{Modo}!desfazerInstrucao@{desfazerInstrucao}}
+\index{desfazerInstrucao@{desfazerInstrucao}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{desfazerInstrucao()}{desfazerInstrucao()}}
+{\footnotesize\ttfamily \label{class_modo_a0b36a65c4d4796daf162803106d9af8f} 
+void Modo::\+desfazer\+Instrucao (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*}}]{objeto}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}}]{comodo}{}\end{DoxyParamCaption})}
+
+
+
+Desfaz uma instrução em um objeto específico de um certo comodo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em objeto} & Qual objeto a ser afetado. \\
+\hline
+{\em comodo} & Em qual cômodo deve-\/se desfazer a instrução. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_modo_ad473614e4a0dceccd897e20938a3c4e8}\index{Modo@{Modo}!executarInstrucao@{executarInstrucao}}
+\index{executarInstrucao@{executarInstrucao}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{executarInstrucao()}{executarInstrucao()}}
+{\footnotesize\ttfamily \label{class_modo_ad473614e4a0dceccd897e20938a3c4e8} 
+virtual void Modo::\+executar\+Instrucao (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*}}]{objeto}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}}]{comodo}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Executa uma instrução em um objeto específico de um certo comodo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em objeto} & Qual objeto a ser afetado. \\
+\hline
+{\em comodo} & Em qual cômodo deve-\/se aplicar a instrução. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \doxymbox{\hyperlink{class_modo_ausente_a4c35ccc9eea08241e39dfabc307d082b}{Modo\+Ausente}}, \doxymbox{\hyperlink{class_modo_cinema_a9f1462b81a16eeeb9febc2bf935b5b86}{Modo\+Cinema}}, \doxymbox{\hyperlink{class_modo_economia_a9dcc33cd59ecf6c57ffb122e6063131c}{Modo\+Economia}}, \doxymbox{\hyperlink{class_modo_festa_aebd10a7444ea184a70d14bc38923b613}{Modo\+Festa}}, \doxymbox{\hyperlink{class_modo_noturno_a0c7d51672307d68d420cf3408e72bb4d}{Modo\+Noturno}}, and \doxymbox{\hyperlink{class_modo_trabalho_a68cdaff19145a6999e993fdb97b24a89}{Modo\+Trabalho}}.
+
+\Hypertarget{class_modo_a6eae0f970b102ff66b6c08d27293e452}\index{Modo@{Modo}!executarNosComodosRelacionados@{executarNosComodosRelacionados}}
+\index{executarNosComodosRelacionados@{executarNosComodosRelacionados}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{executarNosComodosRelacionados()}{executarNosComodosRelacionados()}}
+{\footnotesize\ttfamily \label{class_modo_a6eae0f970b102ff66b6c08d27293e452} 
+void Modo::\+executar\+Nos\+Comodos\+Relacionados (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Executa a instrução nos cômodos atrelados. 
+
+\Hypertarget{class_modo_aeac9ef784636c853a7fa5037c4bad235}\index{Modo@{Modo}!getAtivoModo@{getAtivoModo}}
 \index{getAtivoModo@{getAtivoModo}!Modo@{Modo}}
 \doxysubsubsection{\texorpdfstring{getAtivoModo()}{getAtivoModo()}}
-{\footnotesize\ttfamily \label{class_modo_a05baa809c2ff44d55861f1ef66efc5c1} 
-bool Modo::\+get\+Ativo\+Modo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_modo_aeac9ef784636c853a7fa5037c4bad235} 
+bool Modo::\+get\+Ativo\+Modo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
-\Hypertarget{class_modo_a6bfb007cc70a82864a4a64fa9766d0bd}\index{Modo@{Modo}!getBloqueadoModo@{getBloqueadoModo}}
+
+
+Retorna se o modo está ativo ou não. 
+
+\Hypertarget{class_modo_aa734d22464c49096adeb23962e9c5aa7}\index{Modo@{Modo}!getBloqueadoModo@{getBloqueadoModo}}
 \index{getBloqueadoModo@{getBloqueadoModo}!Modo@{Modo}}
 \doxysubsubsection{\texorpdfstring{getBloqueadoModo()}{getBloqueadoModo()}}
-{\footnotesize\ttfamily \label{class_modo_a6bfb007cc70a82864a4a64fa9766d0bd} 
-bool Modo::\+get\+Bloqueado\+Modo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_modo_aa734d22464c49096adeb23962e9c5aa7} 
+bool Modo::\+get\+Bloqueado\+Modo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
-\Hypertarget{class_modo_aa74946a717c0b58cb604809d4e3c9f04}\index{Modo@{Modo}!getComodosRelacionados@{getComodosRelacionados}}
+
+
+Retorna se o modo está bloqueado ou não. 
+
+\Hypertarget{class_modo_aa449c237d6012f5905959d92660d2f0d}\index{Modo@{Modo}!getComodosRelacionados@{getComodosRelacionados}}
 \index{getComodosRelacionados@{getComodosRelacionados}!Modo@{Modo}}
 \doxysubsubsection{\texorpdfstring{getComodosRelacionados()}{getComodosRelacionados()}}
-{\footnotesize\ttfamily \label{class_modo_aa74946a717c0b58cb604809d4e3c9f04} 
-std::\+vector$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} $>$ Modo::\+get\+Comodos\+Relacionados (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_modo_aa449c237d6012f5905959d92660d2f0d} 
+std::\+vector$<$ \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*} $>$ Modo::\+get\+Comodos\+Relacionados (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
-\Hypertarget{class_modo_a0cc310b999b1f87fec4f025441f0fc44}\index{Modo@{Modo}!getObjetosRelacionados@{getObjetosRelacionados}}
+
+
+Retorna o vetor com os cômodos relacionados ao modo. 
+
+\Hypertarget{class_modo_a5fb83f241feebca5428de33cb83a6545}\index{Modo@{Modo}!getNome@{getNome}}
+\index{getNome@{getNome}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{getNome()}{getNome()}}
+{\footnotesize\ttfamily \label{class_modo_a5fb83f241feebca5428de33cb83a6545} 
+std::\+string Modo::\+get\+Nome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna o nome do modo. 
+
+\Hypertarget{class_modo_a60f47ebe9b5730df48b5021298a619c6}\index{Modo@{Modo}!getObjetosRelacionados@{getObjetosRelacionados}}
 \index{getObjetosRelacionados@{getObjetosRelacionados}!Modo@{Modo}}
 \doxysubsubsection{\texorpdfstring{getObjetosRelacionados()}{getObjetosRelacionados()}}
-{\footnotesize\ttfamily \label{class_modo_a0cc310b999b1f87fec4f025441f0fc44} 
-std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} $>$ Modo::\+get\+Objetos\+Relacionados (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_modo_a60f47ebe9b5730df48b5021298a619c6} 
+std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*} $>$ Modo::\+get\+Objetos\+Relacionados (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
+
+
+Retorna o vetor com os objetos afetados pelo modo. 
+
+\Hypertarget{class_modo_ae0173c0589668e58f405467243a267d7}\index{Modo@{Modo}!operator==@{operator==}}
+\index{operator==@{operator==}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{class_modo_ae0173c0589668e58f405467243a267d7} 
+bool Modo::\+operator== (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_modo}{Modo}} \&}]{other}{}\end{DoxyParamCaption}) const}
+
+
+
+Operador de igualdade da classe. 
+
+\Hypertarget{class_modo_a1dcbdab0a68a999621050409451896e8}\index{Modo@{Modo}!printMembrosInfo@{printMembrosInfo}}
+\index{printMembrosInfo@{printMembrosInfo}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{printMembrosInfo()}{printMembrosInfo()}}
+{\footnotesize\ttfamily \label{class_modo_a1dcbdab0a68a999621050409451896e8} 
+void Modo::\+print\+Membros\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna o nome do modo. 
+
+\Hypertarget{class_modo_ad5c6c0ef26892292c6c330ef1c24c2a2}\index{Modo@{Modo}!removerComodoRelacionado@{removerComodoRelacionado}}
+\index{removerComodoRelacionado@{removerComodoRelacionado}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{removerComodoRelacionado()}{removerComodoRelacionado()}}
+{\footnotesize\ttfamily \label{class_modo_ad5c6c0ef26892292c6c330ef1c24c2a2} 
+void Modo::\+remover\+Comodo\+Relacionado (\begin{DoxyParamCaption}\item[{std::\+string}]{nome\+Comodo}{}\end{DoxyParamCaption})}
+
+
+
+Tira a conexão com um cômodo relacionado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+Comodo} & O nome do cômodo a ser removido. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_modo_a1e293dfc5f7652b26506955dc534fc5a}\index{Modo@{Modo}!setAtivoModo@{setAtivoModo}}
 \index{setAtivoModo@{setAtivoModo}!Modo@{Modo}}
 \doxysubsubsection{\texorpdfstring{setAtivoModo()}{setAtivoModo()}}
@@ -92,13 +267,8 @@ void Modo::\+set\+Ativo\+Modo (\begin{DoxyParamCaption}\item[{bool}]{ativo}{}\en
 
 
 
-Ativa ou desativa o modo. 
+Define se o modo está ativo ou não. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em ativo} & Estado do modo. \\
-\hline
-\end{DoxyParams}
 \Hypertarget{class_modo_a8d46b7efcfedc8097f9968b0bf6524a1}\index{Modo@{Modo}!setBloqueadoModo@{setBloqueadoModo}}
 \index{setBloqueadoModo@{setBloqueadoModo}!Modo@{Modo}}
 \doxysubsubsection{\texorpdfstring{setBloqueadoModo()}{setBloqueadoModo()}}
@@ -107,13 +277,65 @@ void Modo::\+set\+Bloqueado\+Modo (\begin{DoxyParamCaption}\item[{bool}]{bloquea
 
 
 
-Retorna se o modo está ativo. 
+Define se o modo está bloqueado ou não. 
 
-\begin{DoxyReturn}{Returns}
-Estado do modo. 
-\end{DoxyReturn}
+
+
+\label{class_modo_doc-variable-members}
+\Hypertarget{class_modo_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_modo_a47e5002f839a7b54f0af305439afcbc6}\index{Modo@{Modo}!bloqueado@{bloqueado}}
+\index{bloqueado@{bloqueado}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{bloqueado}{bloqueado}}
+{\footnotesize\ttfamily \label{class_modo_a47e5002f839a7b54f0af305439afcbc6} 
+bool Modo::\+bloqueado\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Indica se o modo está bloqueado (impedido de ser ativado). 
+
+\Hypertarget{class_modo_a69bbd8032df73759c470cf890a5ab24f}\index{Modo@{Modo}!comodosRelacionados@{comodosRelacionados}}
+\index{comodosRelacionados@{comodosRelacionados}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{comodosRelacionados}{comodosRelacionados}}
+{\footnotesize\ttfamily \label{class_modo_a69bbd8032df73759c470cf890a5ab24f} 
+std::\+vector$<$\doxymbox{\hyperlink{class_comodo}{Comodo}}\texorpdfstring{$\ast$}{*}$>$ Modo::\+comodos\+Relacionados\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Vetor que armazena os cômodos relacionados ao modo. 
+
+\Hypertarget{class_modo_ac1fd890beeb8fd41fba88c7ef620d03a}\index{Modo@{Modo}!ligado@{ligado}}
+\index{ligado@{ligado}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{ligado}{ligado}}
+{\footnotesize\ttfamily \label{class_modo_ac1fd890beeb8fd41fba88c7ef620d03a} 
+bool Modo::\+ligado\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Indica se o modo está ligado (está sendo executado). 
+
+\Hypertarget{class_modo_a93c64a61cf53d542b508889b24871243}\index{Modo@{Modo}!nome@{nome}}
+\index{nome@{nome}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{nome}{nome}}
+{\footnotesize\ttfamily \label{class_modo_a93c64a61cf53d542b508889b24871243} 
+std::\+string Modo::\+nome\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Armazena o nome do modo. 
+
+\Hypertarget{class_modo_a3bc0fd6050c172f474955ac5187022d6}\index{Modo@{Modo}!objetosRelacionados@{objetosRelacionados}}
+\index{objetosRelacionados@{objetosRelacionados}!Modo@{Modo}}
+\doxysubsubsection{\texorpdfstring{objetosRelacionados}{objetosRelacionados}}
+{\footnotesize\ttfamily \label{class_modo_a3bc0fd6050c172f474955ac5187022d6} 
+std::\+vector$<$\doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}}\texorpdfstring{$\ast$}{*}$>$ Modo::\+objetos\+Relacionados\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Vetor que armazena os objetos relacionados ao modo. 
+
 
 
 The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
 \item 
-C:\+/\+\+Users/\+tiago/\+\+One\+Drive/\+Área de Trabalho/\+\+Atalhos etc/\+ufmg/\+pds2/\+\+PDS2-\/2026-\/\+PF-\/grupo2/\+include/\+\doxymbox{\hyperlink{_modo_8hpp}{Modo.\+hpp}}\end{DoxyCompactItemize}
+include/\+\doxymbox{\hyperlink{_modo_8hpp}{Modo.\+hpp}}\end{DoxyCompactItemize}

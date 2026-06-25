@@ -1,48 +1,185 @@
 \doxysection{Objeto\+Inteligente.\+hpp}
-\hypertarget{_objeto_inteligente_8hpp_source}{}\label{_objeto_inteligente_8hpp_source}\index{C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-\/2026-\/PF-\/grupo2/include/ObjetoInteligente.hpp@{C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-\/2026-\/PF-\/grupo2/include/ObjetoInteligente.hpp}}
+\hypertarget{_objeto_inteligente_8hpp_source}{}\label{_objeto_inteligente_8hpp_source}\index{include/ObjetoInteligente.hpp@{include/ObjetoInteligente.hpp}}
 \doxymbox{\hyperlink{_objeto_inteligente_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ OBJETOINTELIGENTE\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ OBJETOINTELIGENTE\_H}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <functional>}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_sensor_8hpp}{Sensor.hpp}}"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <functional>}}
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_objeto_inteligente_a01fe87343d9aaea4ae6a792de440a8ba}{ObjetoInteligente}}\ \{}
-\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{bool}\ restricaoAdulto;\ }
-\DoxyCodeLine{00018\ \ \ \ \ std::vector<Sensor>\ sensores;}
-\DoxyCodeLine{00019\ \ \ \ \ std::vector<std::string>\ statusPossiveis;}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{float}\ consumoMedioDeEnergia;}
-\DoxyCodeLine{00021\ \ \ \ \ std::vector<std::function<void()>>\ funcoes;}
-\DoxyCodeLine{00022\ \ \ \ \ std::vector<std::function<void()>>\ funcoesRestritas;}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_sensor}{Sensor}};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{enum\ class}\ \doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7}{Protocolo}}\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7a2f0b4d2c0c3d64bbb2cd525dbba8b0d0}{WIFI}},}
+\DoxyCodeLine{00016\ \ \ \ \ \doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7a8de8a62c3191fb6cf61e0ac4b2b59045}{BLUETOOTH}},}
+\DoxyCodeLine{00017\ \ \ \ \ \doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7a12398de04ad596c898670f82303ff1fe}{ZIGBEE}}}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
 \DoxyCodeLine{00025\ }
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \doxymbox{\hyperlink{class_objeto_inteligente_a01fe87343d9aaea4ae6a792de440a8ba}{ObjetoInteligente}}(}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ restricaoAdulto,}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ std::vector<Sensor>\ sensores,}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ std::vector<std::string>\ statusPossiveis,}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ consumoMedioDeEnergia,}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ std::vector<std::function<\textcolor{keywordtype}{void}()>>\ funcoes,}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ std::vector<std::function<\textcolor{keywordtype}{void}()>>\ funcoesRestritas}
-\DoxyCodeLine{00044\ \ \ \ \ );}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ \ \ \doxymbox{\hyperlink{class_objeto_inteligente_ac345d02235b9b5b4ede0b1ef3d81e026}{\string~ObjetoInteligente}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_objeto_inteligente_a9aad1dacd4e9321b035e0f54087882bd}{ObjetoInteligente}}\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00031\ \ \ \ \ std::string\ \doxymbox{\hyperlink{class_objeto_inteligente_add71c363822ea0384e61d45b0c864dc7}{nome}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_objeto_inteligente_a654416dea78d48b23abae3189ffb24ce}{restricaoAdulto}};\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ std::vector<Sensor*>\ \doxymbox{\hyperlink{class_objeto_inteligente_a78c6008fd04733a3f45e5a18bec3b12c}{sensores}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ \ \ std::vector<std::string>\ \doxymbox{\hyperlink{class_objeto_inteligente_ab55222c616c16a88dcb7847da561f4dd}{statusPossiveis}};}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_objeto_inteligente_a52ee190dba25ac536cd32362b41255fc}{setRestricaoAdulto}}();}
-\DoxyCodeLine{00053\ \ \ \ \ std::vector<Sensor>\ \doxymbox{\hyperlink{class_objeto_inteligente_a6e6d6f5e8052fdac9489ed80d68d676a}{getSensores}}();}
-\DoxyCodeLine{00057\ \ \ \ \ std::string\ \doxymbox{\hyperlink{class_objeto_inteligente_a69bb0354607a98257ed00bf02c1dcae1}{getStatus}}();}
-\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_objeto_inteligente_ab465a9fa0c310756c412bfaa38b3e539}{setStatusAtual}}(std::string\ status);}
-\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_objeto_inteligente_a10fa219562be617aa6597702aa474854}{getConsumoMedioDeEnergia}}();}
-\DoxyCodeLine{00070\ \ \ \ \ std::vector<std::function<void()>>\ \doxymbox{\hyperlink{class_objeto_inteligente_ac7f91d4e9612c8805cd0a7a6a8b7bb1a}{getFuncoes}}();}
-\DoxyCodeLine{00074\ \ \ \ \ std::vector<std::function<void()>>\ \doxymbox{\hyperlink{class_objeto_inteligente_a1537896fa8723d1b24eae1f19cb9761f}{getFuncoesRestritas}}();}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00076\ \};}
+\DoxyCodeLine{00051\ \ \ \ \ std::string\ \doxymbox{\hyperlink{class_objeto_inteligente_a7d653e274eb032233a0ea796a70390cb}{statusAtual}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_objeto_inteligente_a1c27db4e20148378d3d237e9a91b8736}{consumoMedioDeEnergia}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \ \ std::vector<std::function<void()>>\ \doxymbox{\hyperlink{class_objeto_inteligente_a3e5e57eae4adc7f797d54cd78574c69e}{funcoes}};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \ \ \ \ std::vector<std::function<void()>>\ \doxymbox{\hyperlink{class_objeto_inteligente_a90e78061c62e31d0c8340768f74b966c}{funcoesRestritas}};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00071\ \ \ \ \ \doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7}{Protocolo}}\ \doxymbox{\hyperlink{class_objeto_inteligente_ad3450f2098c8897167d79d2677478616}{protocolo}}\ =\ \doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7a2f0b4d2c0c3d64bbb2cd525dbba8b0d0}{Protocolo::WIFI}};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_objeto_inteligente_aa8beb1a85c923bb5d78eaec90219f29e}{emFalha}}\ =\ \textcolor{keyword}{false};}
 \DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00078\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00083\ \ \ \ \ \doxymbox{\hyperlink{class_objeto_inteligente_a9aad1dacd4e9321b035e0f54087882bd}{ObjetoInteligente}}(}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ std::string\ \doxymbox{\hyperlink{class_objeto_inteligente_add71c363822ea0384e61d45b0c864dc7}{nome}},}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_objeto_inteligente_a654416dea78d48b23abae3189ffb24ce}{restricaoAdulto}},}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ std::vector<Sensor*>\ \doxymbox{\hyperlink{class_objeto_inteligente_a78c6008fd04733a3f45e5a18bec3b12c}{sensores}},}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ std::vector<std::string>\ \doxymbox{\hyperlink{class_objeto_inteligente_ab55222c616c16a88dcb7847da561f4dd}{statusPossiveis}},}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ std::string\ \doxymbox{\hyperlink{class_objeto_inteligente_a7d653e274eb032233a0ea796a70390cb}{statusAtual}},}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_objeto_inteligente_a1c27db4e20148378d3d237e9a91b8736}{consumoMedioDeEnergia}},}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ std::vector<std::function<\textcolor{keywordtype}{void}()>>\ \doxymbox{\hyperlink{class_objeto_inteligente_a3e5e57eae4adc7f797d54cd78574c69e}{funcoes}},}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ std::vector<std::function<\textcolor{keywordtype}{void}()>>\ \doxymbox{\hyperlink{class_objeto_inteligente_a90e78061c62e31d0c8340768f74b966c}{funcoesRestritas}}}
+\DoxyCodeLine{00092\ \ \ \ \ );}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{virtual}\ \ \doxymbox{\hyperlink{class_objeto_inteligente_a2e89b49594063d4cad3d8eb9c9622aa7}{\string~ObjetoInteligente}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00102\ \ \ \ \ std::string\ \doxymbox{\hyperlink{class_objeto_inteligente_ad7d9fe2075fde8b3acfd9f2cddfb49d7}{getNome}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00107\ \ \ \ \ std::vector<Sensor*>\ \doxymbox{\hyperlink{class_objeto_inteligente_add0e9904428324f4b49939b82b6b8069}{getSensores}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00112\ \ \ \ \ std::vector<std::string>\ \doxymbox{\hyperlink{class_objeto_inteligente_acf6536ad961218c53d2c2738f0fcd6d2}{getStatusPossiveis}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00117\ \ \ \ \ std::string\ \doxymbox{\hyperlink{class_objeto_inteligente_a800724620eabfacbbbf7846353b0fa72}{getStatusAtual}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00118\ \ \ \ \ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_objeto_inteligente_af0f88008d28ca51c1401afa92f5a0db8}{setStatusAtual}}(std::string\ status);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_objeto_inteligente_a66f992db9c3af0a50bd2321d173b8491}{getConsumoMedioDeEnergia}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00133\ \ \ \ \ std::vector<std::function<void()>>\ \doxymbox{\hyperlink{class_objeto_inteligente_a0bd31daf4c3709fd474d727eac820a1d}{getFuncoes}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00138\ \ \ \ \ std::vector<std::function<void()>>\ \doxymbox{\hyperlink{class_objeto_inteligente_af9cd0c7245e0f323f882614f71bf3ca7}{getFuncoesRestritas}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00143\ \ \ \ \ \doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7}{Protocolo}}\ \doxymbox{\hyperlink{class_objeto_inteligente_aa5e33750dd014549ee071848a82bd15d}{getProtocolo}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_objeto_inteligente_a99bb4c8481393828bc70718a21bef0de}{setProtocolo}}(\doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7}{Protocolo}}\ \doxymbox{\hyperlink{class_objeto_inteligente_ad3450f2098c8897167d79d2677478616}{protocolo}});}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_objeto_inteligente_a54f82f4a39e85e7f544eefef58f17b16}{comunicaCom}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_objeto_inteligente_a9aad1dacd4e9321b035e0f54087882bd}{ObjetoInteligente}}\&\ outro)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00159\ \ \ \ \ std::string\ \doxymbox{\hyperlink{class_objeto_inteligente_a24ff49d739d279a133121b6cba9d5780}{getProtocoloComoString}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_objeto_inteligente_ae746a2ec4cd89bb666c17a2425c71ff3}{simularFalha}}();}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_objeto_inteligente_ab0ff4abce985da6c4318c3eeb380330b}{repararFalha}}();}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_objeto_inteligente_ab949473022d220e52caa93d23aecbcb0}{estaEmFalha}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_objeto_inteligente_a36f5f733f887b745982d66f9cbd47154}{operator==}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_objeto_inteligente_a9aad1dacd4e9321b035e0f54087882bd}{ObjetoInteligente}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_objeto_inteligente_a4a49682ef1302a74c9fbd727db45cf1c}{printObjetosInfo}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_objeto_inteligente_ad7bf74506ca3a76c16d1a839d52e5c1b}{caracteresValidos}}(\textcolor{keyword}{const}\ std::string\&\ str);}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_objeto_inteligente_a77c895d12db10f4a5f124e80d6768c0e}{setRestricaoAdulto}}(\textcolor{keywordtype}{bool}\ restricao);}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_objeto_inteligente_ab0b8c9bdf39372b79ca886efba397bc4}{getRestricaoAdulto}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00201\ \};}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00207\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_luz_aa1fcf67db881d4c4db0707ef5955cf9f}{Luz}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_objeto_inteligente_a9aad1dacd4e9321b035e0f54087882bd}{ObjetoInteligente}}\ \{}
+\DoxyCodeLine{00208\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{class_objeto_inteligente_af0f88008d28ca51c1401afa92f5a0db8}{ObjetoInteligente::setStatusAtual}};}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00214\ \ \ \ \ \doxymbox{\hyperlink{class_luz_aa1fcf67db881d4c4db0707ef5955cf9f}{Luz}}(std::string\ \doxymbox{\hyperlink{class_objeto_inteligente_add71c363822ea0384e61d45b0c864dc7}{nome}});}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_luz_aff5943bb4d2b62b23b438bc5eff235dc}{setStatusAtual}}(\textcolor{keywordtype}{int}\ indexStatus);}
+\DoxyCodeLine{00221\ \};}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00227\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_caixa_de_som_a60bd80e23fcff8730692513757562d94}{CaixaDeSom}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_objeto_inteligente_a9aad1dacd4e9321b035e0f54087882bd}{ObjetoInteligente}}\ \{}
+\DoxyCodeLine{00228\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{class_objeto_inteligente_af0f88008d28ca51c1401afa92f5a0db8}{ObjetoInteligente::setStatusAtual}};}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00234\ \ \ \ \ \doxymbox{\hyperlink{class_caixa_de_som_a60bd80e23fcff8730692513757562d94}{CaixaDeSom}}(std::string\ \doxymbox{\hyperlink{class_objeto_inteligente_add71c363822ea0384e61d45b0c864dc7}{nome}});}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_caixa_de_som_a7e36cd0de4755b2bbcd3b392ecf991c2}{setStatusAtual}}(\textcolor{keywordtype}{int}\ indexStatus);}
+\DoxyCodeLine{00241\ \};}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00247\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_t_v_ae84250aec53c485dbcad0fc46092b6c1}{TV}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_objeto_inteligente_a9aad1dacd4e9321b035e0f54087882bd}{ObjetoInteligente}}\ \{}
+\DoxyCodeLine{00248\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{class_objeto_inteligente_af0f88008d28ca51c1401afa92f5a0db8}{ObjetoInteligente::setStatusAtual}};}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00254\ \ \ \ \ \doxymbox{\hyperlink{class_t_v_ae84250aec53c485dbcad0fc46092b6c1}{TV}}(std::string\ \doxymbox{\hyperlink{class_objeto_inteligente_add71c363822ea0384e61d45b0c864dc7}{nome}});}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_t_v_a5ac43a13b66e0df505f87699447d11d4}{ligar}}();}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_t_v_a35ca8e2fb6844c4902917e0f14eb7a18}{desligar}}();}
+\DoxyCodeLine{00265\ \};}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00271\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_ar_condicionado_a83599cb78578bc25c92112c80160ce03}{ArCondicionado}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_objeto_inteligente_a9aad1dacd4e9321b035e0f54087882bd}{ObjetoInteligente}}\ \{}
+\DoxyCodeLine{00272\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordtype}{float}\ temperatura;}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{class_objeto_inteligente_af0f88008d28ca51c1401afa92f5a0db8}{ObjetoInteligente::setStatusAtual}};}
+\DoxyCodeLine{00277\ \ \ \ \ }
+\DoxyCodeLine{00281\ \ \ \ \ \doxymbox{\hyperlink{class_ar_condicionado_a83599cb78578bc25c92112c80160ce03}{ArCondicionado}}(std::string\ \doxymbox{\hyperlink{class_objeto_inteligente_add71c363822ea0384e61d45b0c864dc7}{nome}});}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_ar_condicionado_a2ff7f82f44a18a0a7270c9eaa2b408e4}{resfriar}}();}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00291\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_ar_condicionado_a7d3c7f957d24607952413cd03adede18}{aquecer}}();}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_ar_condicionado_a19f82a5748cc54b6b73cc43255e8167e}{desligar}}();}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_ar_condicionado_ab5754f11ee214ff6bc862511e141ffa5}{setTemperatura}}(\textcolor{keywordtype}{float}\ temperatura);}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_ar_condicionado_ae784996ea0d0007b23b8394f419a5077}{getTemperatura}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00308\ \};}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00315\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_portao_a1dd617dd780bb3f475f88e15305076b7}{Portao}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_objeto_inteligente_a9aad1dacd4e9321b035e0f54087882bd}{ObjetoInteligente}}\ \{}
+\DoxyCodeLine{00316\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{class_objeto_inteligente_af0f88008d28ca51c1401afa92f5a0db8}{ObjetoInteligente::setStatusAtual}};}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00322\ \ \ \ \ \doxymbox{\hyperlink{class_portao_a1dd617dd780bb3f475f88e15305076b7}{Portao}}(std::string\ \doxymbox{\hyperlink{class_objeto_inteligente_add71c363822ea0384e61d45b0c864dc7}{nome}});}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_portao_a27eb6fabd1a0109879501ee036706d9d}{abrir}}();}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00332\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_portao_a78e6c00263757a41c3218fa438058060}{fechar}}();}
+\DoxyCodeLine{00333\ \};}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00340\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_termostato_adcfb8716f0b6903a4d181f31017f9880}{Termostato}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_objeto_inteligente_a9aad1dacd4e9321b035e0f54087882bd}{ObjetoInteligente}}\ \{}
+\DoxyCodeLine{00341\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keywordtype}{float}\ temperaturaAtual;}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00350\ \ \ \ \ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{class_objeto_inteligente_af0f88008d28ca51c1401afa92f5a0db8}{ObjetoInteligente::setStatusAtual}};}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00355\ \ \ \ \ \doxymbox{\hyperlink{class_termostato_adcfb8716f0b6903a4d181f31017f9880}{Termostato}}(std::string\ \doxymbox{\hyperlink{class_objeto_inteligente_add71c363822ea0384e61d45b0c864dc7}{nome}});}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_termostato_abcf9465bd34015ac5a4bd67a6c2599be}{setTemperaturaAtual}}(\textcolor{keywordtype}{float}\ temperatura);}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_termostato_a74a88d0616a4314c721dd3c338c88caa}{getTemperaturaAtual}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00371\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_termostato_adb46369326b1c2646eeb1be11085f11c}{normalizar}}();}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_termostato_a0513c08d7d9826232eadc183d7f1b81a}{aquecer}}();}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00381\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_termostato_a277a33c650f5c07fb3192ca27cfaedb6}{resfriar}}();}
+\DoxyCodeLine{00382\ \};}
+\DoxyCodeLine{00383\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

@@ -7,36 +7,44 @@
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\doxymbox{\hyperlink{class_sensor_abdcac1128acccfb28631ed8291fe9a61}{Sensor}} (bool ligado, bool ativado, std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} $>$ objetos\+Conectados, std::\+vector$<$ \doxymbox{\hyperlink{class_modo}{Modo}} $>$ modos\+Conectados)
+\doxymbox{\hyperlink{class_sensor_a09d3310baf2aa161d24183c5579ac7f0}{Sensor}} (std::\+string nome, bool ligado, bool ativado, \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}comodo\+Pertencente, std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*} $>$ objetos\+Conectados, std::\+vector$<$ \doxymbox{\hyperlink{class_modo}{Modo}} \texorpdfstring{$\ast$}{*} $>$ modos\+Conectados)
 \begin{DoxyCompactList}\small\item\em Função construtora do sensor. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_sensor_afeb18b3b951d1f82222699616f8ee20c}{set\+Esta\+Ligado}} ()
+std::\+string \doxymbox{\hyperlink{class_sensor_a51de4a3391d779ab9acb164c0dfe29b1}{get\+Nome}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o nome do sensor. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_sensor_a0f30ad690224bea48f621fa7d8275775}{set\+Esta\+Ligado}} (bool ligado)
 \begin{DoxyCompactList}\small\item\em Liga ou desliga o sensor. \end{DoxyCompactList}\item 
-bool \doxymbox{\hyperlink{class_sensor_aa6425faff59322d75ecf2393e51054ac}{get\+Esta\+Ligado}} ()
-\begin{DoxyCompactList}\small\item\em Retorna se o sensor está ligado ou não (se está pronto para ser ativado). \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_sensor_aa3f221c81f6a7106a234a41a9d037ebe}{set\+Esta\+Ativado}} ()
+bool \doxymbox{\hyperlink{class_sensor_a2c9470b5de01e32bf939983750bf0272}{get\+Esta\+Ligado}} () const
+\begin{DoxyCompactList}\small\item\em Retorna se o sensor está ligado. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_sensor_a9a12d20222275fad4bc7ea2ff823acff}{set\+Esta\+Ativado}} (bool ativado)
 \begin{DoxyCompactList}\small\item\em Ativa ou desativa o sensor. \end{DoxyCompactList}\item 
-bool \doxymbox{\hyperlink{class_sensor_aa0c247ef2dd6c0ba744f9a9361cb5f4c}{get\+Esta\+Ativado}} ()
-\begin{DoxyCompactList}\small\item\em Ativa ou desativa o sensor. \end{DoxyCompactList}\item 
-\doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \doxymbox{\hyperlink{class_sensor_a7f5d9b5c1fad9d4b4862cd734928c6d8}{get\+Objetos\+Conectados}} ()
+bool \doxymbox{\hyperlink{class_sensor_a4c2ddad234e6611c42b3d889b11bfe8c}{get\+Esta\+Ativado}} () const
+\begin{DoxyCompactList}\small\item\em Retorna se o sensor está ativado. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*} $>$ \doxymbox{\hyperlink{class_sensor_abec1957abf5984ea092218524054827e}{get\+Objetos\+Conectados}} () const
 \begin{DoxyCompactList}\small\item\em Retorna a lista de objetos conectados. \end{DoxyCompactList}\item 
-\doxymbox{\hyperlink{class_modo}{Modo}} \doxymbox{\hyperlink{class_sensor_a3aa55d936318f55ef11f19e748d4ee5a}{get\+Modos\+Conectados}} ()
+std::\+vector$<$ \doxymbox{\hyperlink{class_modo}{Modo}} \texorpdfstring{$\ast$}{*} $>$ \doxymbox{\hyperlink{class_sensor_ae68455b018c489aca7a2abeed58ff3b6}{get\+Modos\+Conectados}} () const
 \begin{DoxyCompactList}\small\item\em Retorna a lista de modos conectados. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_sensor_ae4985d1457fa6ebc2886b3ca731c306f}{checar\+Ambiente}} ()
-\begin{DoxyCompactList}\small\item\em Confere elementos do ambiente, podendo assim ativar. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_sensor_a73ccf8c07f99cd4c7c9d37621b7f6aaa}{ativar\+Modo}} (\doxymbox{\hyperlink{class_modo}{Modo}} modo)
+bool \doxymbox{\hyperlink{class_sensor_aa7f24b3b27dccd9fb3aa0b2c955e99ad}{checar\+Ambiente}} (std::\+string condicao)
+\begin{DoxyCompactList}\small\item\em Confere um elemento do ambiente. Se encontrá-\/lo, retorna 1. Se não, retorna 0. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_sensor_a7e607f056450d7062e3e4ea66401ea9a}{ativar\+Modo}} (\doxymbox{\hyperlink{class_modo}{Modo}} \texorpdfstring{$\ast$}{*}modo)
 \begin{DoxyCompactList}\small\item\em Ativa um modo. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_sensor_ae1a7f6d5da065024bf9e24c11a6aba5a}{ativar\+Objeto}} (\doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} objeto)
-\begin{DoxyCompactList}\small\item\em Ativa um objeto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \doxymbox{\hyperlink{class_sensor_a178cc9147cada07071d010a6f93f51ad}{ativar\+Objeto}} (\doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*}objeto, size\+\_\+t index\+Funcao)
+\begin{DoxyCompactList}\small\item\em Ativa um objeto. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_sensor_ab178e293d4d0c21cd302777b2f0c4688}{operator==}} (const \doxymbox{\hyperlink{class_sensor}{Sensor}} \&other) const
+\begin{DoxyCompactList}\small\item\em Define comparação entre sensores. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_sensor_a69c8fa2ccce82b8d6dfa307dac11d032}{print\+Sensor\+Info}} () const
+\begin{DoxyCompactList}\small\item\em Imprime informações do membro do sensor. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_sensor_a6659d94074a0df567be3bdc7312d154f}{Caracteres\+Validos}} (const std::\+string \&str)
+\begin{DoxyCompactList}\small\item\em Checa se os caracteres de str sao algo alem de numeros, letras e espacos, se forem retorna false. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \label{class_sensor_doc-constructors}
 \Hypertarget{class_sensor_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_sensor_abdcac1128acccfb28631ed8291fe9a61}\index{Sensor@{Sensor}!Sensor@{Sensor}}
+\Hypertarget{class_sensor_a09d3310baf2aa161d24183c5579ac7f0}\index{Sensor@{Sensor}!Sensor@{Sensor}}
 \index{Sensor@{Sensor}!Sensor@{Sensor}}
 \doxysubsubsection{\texorpdfstring{Sensor()}{Sensor()}}
-{\footnotesize\ttfamily \label{class_sensor_abdcac1128acccfb28631ed8291fe9a61} 
-Sensor::\+\+Sensor (\begin{DoxyParamCaption}\item[{bool}]{ligado}{, }\item[{bool}]{ativado}{, }\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} $>$}]{objetos\+Conectados}{, }\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_modo}{Modo}} $>$}]{modos\+Conectados}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_sensor_a09d3310baf2aa161d24183c5579ac7f0} 
+Sensor::\+\+Sensor (\begin{DoxyParamCaption}\item[{std::\+string}]{nome}{, }\item[{bool}]{ligado}{, }\item[{bool}]{ativado}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}}]{comodo\+Pertencente}{, }\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*} $>$}]{objetos\+Conectados}{, }\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_modo}{Modo}} \texorpdfstring{$\ast$}{*} $>$}]{modos\+Conectados}{}\end{DoxyParamCaption})}
 
 
 
@@ -44,9 +52,13 @@ Função construtora do sensor.
 
 
 \begin{DoxyParams}{Parameters}
-{\em ligado} & Variável que determina se o sensor está ligado (se pode ser ativado). \\
+{\em nome} & Nome do sensor. \\
+\hline
+{\em ligado} & Variável que determina se o sensor está ligado. \\
 \hline
 {\em ativado} & Variável que indica se o sensor está ativado. \\
+\hline
+{\em comodo\+Pertencente} & A qual cômodo pertence o sensor. \\
 \hline
 {\em objetos\+Conectados} & Vetor com todos objetos ligados ao sensor. \\
 \hline
@@ -58,98 +70,166 @@ Função construtora do sensor.
 \label{class_sensor_doc-func-members}
 \Hypertarget{class_sensor_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_sensor_a73ccf8c07f99cd4c7c9d37621b7f6aaa}\index{Sensor@{Sensor}!ativarModo@{ativarModo}}
+\Hypertarget{class_sensor_a7e607f056450d7062e3e4ea66401ea9a}\index{Sensor@{Sensor}!ativarModo@{ativarModo}}
 \index{ativarModo@{ativarModo}!Sensor@{Sensor}}
 \doxysubsubsection{\texorpdfstring{ativarModo()}{ativarModo()}}
-{\footnotesize\ttfamily \label{class_sensor_a73ccf8c07f99cd4c7c9d37621b7f6aaa} 
-void Sensor::\+ativar\+Modo (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_modo}{Modo}}}]{modo}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_sensor_a7e607f056450d7062e3e4ea66401ea9a} 
+void Sensor::\+ativar\+Modo (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_modo}{Modo}} \texorpdfstring{$\ast$}{*}}]{modo}{}\end{DoxyParamCaption})}
 
 
 
 Ativa um modo. 
 
-\Hypertarget{class_sensor_ae1a7f6d5da065024bf9e24c11a6aba5a}\index{Sensor@{Sensor}!ativarObjeto@{ativarObjeto}}
+\Hypertarget{class_sensor_a178cc9147cada07071d010a6f93f51ad}\index{Sensor@{Sensor}!ativarObjeto@{ativarObjeto}}
 \index{ativarObjeto@{ativarObjeto}!Sensor@{Sensor}}
 \doxysubsubsection{\texorpdfstring{ativarObjeto()}{ativarObjeto()}}
-{\footnotesize\ttfamily \label{class_sensor_ae1a7f6d5da065024bf9e24c11a6aba5a} 
-void Sensor::\+ativar\+Objeto (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}}}]{objeto}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_sensor_a178cc9147cada07071d010a6f93f51ad} 
+void Sensor::\+ativar\+Objeto (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*}}]{objeto}{, }\item[{size\+\_\+t}]{index\+Funcao}{}\end{DoxyParamCaption})}
 
 
 
 Ativa um objeto. 
 
-\Hypertarget{class_sensor_ae4985d1457fa6ebc2886b3ca731c306f}\index{Sensor@{Sensor}!checarAmbiente@{checarAmbiente}}
+
+\begin{DoxyParams}{Parameters}
+{\em index\+Funcao} & Qual função do objeto ativar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_sensor_a6659d94074a0df567be3bdc7312d154f}\index{Sensor@{Sensor}!CaracteresValidos@{CaracteresValidos}}
+\index{CaracteresValidos@{CaracteresValidos}!Sensor@{Sensor}}
+\doxysubsubsection{\texorpdfstring{CaracteresValidos()}{CaracteresValidos()}}
+{\footnotesize\ttfamily \label{class_sensor_a6659d94074a0df567be3bdc7312d154f} 
+bool Sensor::\+\+Caracteres\+Validos (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{str}{}\end{DoxyParamCaption})}
+
+
+
+Checa se os caracteres de str sao algo alem de numeros, letras e espacos, se forem retorna false. 
+
+\Hypertarget{class_sensor_aa7f24b3b27dccd9fb3aa0b2c955e99ad}\index{Sensor@{Sensor}!checarAmbiente@{checarAmbiente}}
 \index{checarAmbiente@{checarAmbiente}!Sensor@{Sensor}}
 \doxysubsubsection{\texorpdfstring{checarAmbiente()}{checarAmbiente()}}
-{\footnotesize\ttfamily \label{class_sensor_ae4985d1457fa6ebc2886b3ca731c306f} 
-void Sensor::\+checar\+Ambiente (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_sensor_aa7f24b3b27dccd9fb3aa0b2c955e99ad} 
+bool Sensor::\+checar\+Ambiente (\begin{DoxyParamCaption}\item[{std::\+string}]{condicao}{}\end{DoxyParamCaption})}
 
 
 
-Confere elementos do ambiente, podendo assim ativar. 
+Confere um elemento do ambiente. Se encontrá-\/lo, retorna 1. Se não, retorna 0. 
 
-\Hypertarget{class_sensor_aa0c247ef2dd6c0ba744f9a9361cb5f4c}\index{Sensor@{Sensor}!getEstaAtivado@{getEstaAtivado}}
+
+\begin{DoxyParams}{Parameters}
+{\em condicao} & Qual condição do ambiente procurar \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_sensor_a4c2ddad234e6611c42b3d889b11bfe8c}\index{Sensor@{Sensor}!getEstaAtivado@{getEstaAtivado}}
 \index{getEstaAtivado@{getEstaAtivado}!Sensor@{Sensor}}
 \doxysubsubsection{\texorpdfstring{getEstaAtivado()}{getEstaAtivado()}}
-{\footnotesize\ttfamily \label{class_sensor_aa0c247ef2dd6c0ba744f9a9361cb5f4c} 
-bool Sensor::\+get\+Esta\+Ativado (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_sensor_a4c2ddad234e6611c42b3d889b11bfe8c} 
+bool Sensor::\+get\+Esta\+Ativado (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
-Ativa ou desativa o sensor. 
+Retorna se o sensor está ativado. 
 
-\Hypertarget{class_sensor_aa6425faff59322d75ecf2393e51054ac}\index{Sensor@{Sensor}!getEstaLigado@{getEstaLigado}}
+\Hypertarget{class_sensor_a2c9470b5de01e32bf939983750bf0272}\index{Sensor@{Sensor}!getEstaLigado@{getEstaLigado}}
 \index{getEstaLigado@{getEstaLigado}!Sensor@{Sensor}}
 \doxysubsubsection{\texorpdfstring{getEstaLigado()}{getEstaLigado()}}
-{\footnotesize\ttfamily \label{class_sensor_aa6425faff59322d75ecf2393e51054ac} 
-bool Sensor::\+get\+Esta\+Ligado (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_sensor_a2c9470b5de01e32bf939983750bf0272} 
+bool Sensor::\+get\+Esta\+Ligado (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
-Retorna se o sensor está ligado ou não (se está pronto para ser ativado). 
+Retorna se o sensor está ligado. 
 
-\Hypertarget{class_sensor_a3aa55d936318f55ef11f19e748d4ee5a}\index{Sensor@{Sensor}!getModosConectados@{getModosConectados}}
+\Hypertarget{class_sensor_ae68455b018c489aca7a2abeed58ff3b6}\index{Sensor@{Sensor}!getModosConectados@{getModosConectados}}
 \index{getModosConectados@{getModosConectados}!Sensor@{Sensor}}
 \doxysubsubsection{\texorpdfstring{getModosConectados()}{getModosConectados()}}
-{\footnotesize\ttfamily \label{class_sensor_a3aa55d936318f55ef11f19e748d4ee5a} 
-\doxymbox{\hyperlink{class_modo}{Modo}} Sensor::\+get\+Modos\+Conectados (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_sensor_ae68455b018c489aca7a2abeed58ff3b6} 
+std::\+vector$<$ \doxymbox{\hyperlink{class_modo}{Modo}} \texorpdfstring{$\ast$}{*} $>$ Sensor::\+get\+Modos\+Conectados (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
 Retorna a lista de modos conectados. 
 
-\Hypertarget{class_sensor_a7f5d9b5c1fad9d4b4862cd734928c6d8}\index{Sensor@{Sensor}!getObjetosConectados@{getObjetosConectados}}
+\Hypertarget{class_sensor_a51de4a3391d779ab9acb164c0dfe29b1}\index{Sensor@{Sensor}!getNome@{getNome}}
+\index{getNome@{getNome}!Sensor@{Sensor}}
+\doxysubsubsection{\texorpdfstring{getNome()}{getNome()}}
+{\footnotesize\ttfamily \label{class_sensor_a51de4a3391d779ab9acb164c0dfe29b1} 
+std::\+string Sensor::\+get\+Nome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna o nome do sensor. 
+
+\Hypertarget{class_sensor_abec1957abf5984ea092218524054827e}\index{Sensor@{Sensor}!getObjetosConectados@{getObjetosConectados}}
 \index{getObjetosConectados@{getObjetosConectados}!Sensor@{Sensor}}
 \doxysubsubsection{\texorpdfstring{getObjetosConectados()}{getObjetosConectados()}}
-{\footnotesize\ttfamily \label{class_sensor_a7f5d9b5c1fad9d4b4862cd734928c6d8} 
-\doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} Sensor::\+get\+Objetos\+Conectados (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_sensor_abec1957abf5984ea092218524054827e} 
+std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*} $>$ Sensor::\+get\+Objetos\+Conectados (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
 Retorna a lista de objetos conectados. 
 
-\Hypertarget{class_sensor_aa3f221c81f6a7106a234a41a9d037ebe}\index{Sensor@{Sensor}!setEstaAtivado@{setEstaAtivado}}
+\Hypertarget{class_sensor_ab178e293d4d0c21cd302777b2f0c4688}\index{Sensor@{Sensor}!operator==@{operator==}}
+\index{operator==@{operator==}!Sensor@{Sensor}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{class_sensor_ab178e293d4d0c21cd302777b2f0c4688} 
+bool Sensor::\+operator== (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_sensor}{Sensor}} \&}]{other}{}\end{DoxyParamCaption}) const}
+
+
+
+Define comparação entre sensores. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & é sensor a ser comparado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna true se sensores são iguais. 
+\end{DoxyReturn}
+\Hypertarget{class_sensor_a69c8fa2ccce82b8d6dfa307dac11d032}\index{Sensor@{Sensor}!printSensorInfo@{printSensorInfo}}
+\index{printSensorInfo@{printSensorInfo}!Sensor@{Sensor}}
+\doxysubsubsection{\texorpdfstring{printSensorInfo()}{printSensorInfo()}}
+{\footnotesize\ttfamily \label{class_sensor_a69c8fa2ccce82b8d6dfa307dac11d032} 
+void Sensor::\+print\+Sensor\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Imprime informações do membro do sensor. 
+
+\Hypertarget{class_sensor_a9a12d20222275fad4bc7ea2ff823acff}\index{Sensor@{Sensor}!setEstaAtivado@{setEstaAtivado}}
 \index{setEstaAtivado@{setEstaAtivado}!Sensor@{Sensor}}
 \doxysubsubsection{\texorpdfstring{setEstaAtivado()}{setEstaAtivado()}}
-{\footnotesize\ttfamily \label{class_sensor_aa3f221c81f6a7106a234a41a9d037ebe} 
-void Sensor::\+set\+Esta\+Ativado (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_sensor_a9a12d20222275fad4bc7ea2ff823acff} 
+void Sensor::\+set\+Esta\+Ativado (\begin{DoxyParamCaption}\item[{bool}]{ativado}{}\end{DoxyParamCaption})}
 
 
 
 Ativa ou desativa o sensor. 
 
-\Hypertarget{class_sensor_afeb18b3b951d1f82222699616f8ee20c}\index{Sensor@{Sensor}!setEstaLigado@{setEstaLigado}}
+
+\begin{DoxyParams}{Parameters}
+{\em ativado} & Valor que determina se o sensor está ativado (1) ou desativado (0). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_sensor_a0f30ad690224bea48f621fa7d8275775}\index{Sensor@{Sensor}!setEstaLigado@{setEstaLigado}}
 \index{setEstaLigado@{setEstaLigado}!Sensor@{Sensor}}
 \doxysubsubsection{\texorpdfstring{setEstaLigado()}{setEstaLigado()}}
-{\footnotesize\ttfamily \label{class_sensor_afeb18b3b951d1f82222699616f8ee20c} 
-void Sensor::\+set\+Esta\+Ligado (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_sensor_a0f30ad690224bea48f621fa7d8275775} 
+void Sensor::\+set\+Esta\+Ligado (\begin{DoxyParamCaption}\item[{bool}]{ligado}{}\end{DoxyParamCaption})}
 
 
 
 Liga ou desliga o sensor. 
 
 
+\begin{DoxyParams}{Parameters}
+{\em ligado} & Valor que determina se o sensor está ligado (1) ou desligado (0). \\
+\hline
+\end{DoxyParams}
+
 
 The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
 \item 
-C:\+/\+\+Users/\+tiago/\+\+One\+Drive/\+Área de Trabalho/\+\+Atalhos etc/\+ufmg/\+pds2/\+\+PDS2-\/2026-\/\+PF-\/grupo2/\+include/\+\doxymbox{\hyperlink{_sensor_8hpp}{Sensor.\+hpp}}\end{DoxyCompactItemize}
+include/\+\doxymbox{\hyperlink{_sensor_8hpp}{Sensor.\+hpp}}\end{DoxyCompactItemize}

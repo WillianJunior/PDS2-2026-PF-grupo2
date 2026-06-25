@@ -4,8 +4,6 @@
 #include <vector>
 #include "Comodo.hpp"
 
-//TODO: adicionar tipos de sensores (de luz, temperatura)
-
 class ObjetoInteligente;
 class Modo;
 

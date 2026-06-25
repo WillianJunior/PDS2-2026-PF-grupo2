@@ -12,52 +12,74 @@ Classe responsável por gerenciar o perfil do usuário no sistema.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\doxymbox{\hyperlink{class_conta_a925d1f01368204ed5148d4d2628c712f}{Conta}} (std::\+string id, std::\+string nome, std::\+string email, std::\+string senha, bool adulto=true)
+\doxymbox{\hyperlink{class_conta_a2093d53408617992d83461eb0c84cc3a}{Conta}} (const std::\+string \&id, const std::\+string \&nome, const std::\+string \&email, const std::\+string \&senha, bool adulto=true)
 \begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_conta}{Conta}. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{class_conta_a5e6a486a48163232c609532fe14de551}{\texorpdfstring{$\sim$}{\string~}\+Conta}} ()=default
 \item 
-std::\+string \doxymbox{\hyperlink{class_conta_a861ba5a14a83d94bfd7a34fee16af274}{get\+Id}} () const
+const std::\+string \& \doxymbox{\hyperlink{class_conta_a2ed276d71c75fffbab2430bb3f83620d}{get\+Id}} () const
 \begin{DoxyCompactList}\small\item\em Retorna o id da conta. \end{DoxyCompactList}\item 
-std::\+string \doxymbox{\hyperlink{class_conta_a87cd1df69c12e0dfdb6ab70a4aa2fd4b}{get\+Nome}} () const
+const std::\+string \& \doxymbox{\hyperlink{class_conta_a43577c93565b18ac010d57f6bb8ecb11}{get\+Nome}} () const
 \begin{DoxyCompactList}\small\item\em Retorna o nome da conta. \end{DoxyCompactList}\item 
-std::\+string \doxymbox{\hyperlink{class_conta_a0e9c1b914d26084711a651af07439c36}{get\+Email}} () const
+const std::\+string \& \doxymbox{\hyperlink{class_conta_a1e31f5d9bd20583843356d58a529305d}{get\+Email}} () const
 \begin{DoxyCompactList}\small\item\em Retorna o email da conta. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{class_conta_a95154f09dfa0fb287debac5f147902e1}{is\+Perfil\+Adulto}} () const
-\begin{DoxyCompactList}\small\item\em Retorna o nome da conta. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_conta_a5f30f0c15a54fb9089b0760dd83999c0}{criar\+Smarthome}} (std::\+string id, std::\+string nome)
-\begin{DoxyCompactList}\small\item\em Comando para criar uma smarthome. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_conta_a583b73eeb5cd32e4a9f4e82efe531ef8}{apagar\+Smarthome}} (Smarthome smarthome)
-\begin{DoxyCompactList}\small\item\em Comando para criar uma smarthome. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_conta_a0dd6ee7802f46d565da5a9a1865efc8d}{criar\+Cômodo}} (Smarthome smarthome, std::\+string nome)
-\begin{DoxyCompactList}\small\item\em Comando para criar um cômodo. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_conta_a2c54f68e04117d711ef01594a365af05}{apagar\+Cômodo}} (Smarthome smarthome, std::\+string nome)
-\begin{DoxyCompactList}\small\item\em Comando para apagar um cômodo. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_conta_ae082a357ed295b325b62e3299ae29f72}{criar\+Modo}} (Smarthome smarthome, std::\+string nome)
-\begin{DoxyCompactList}\small\item\em Comando para criar um modo. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_conta_ae5874f0c78e535ae661d22e311791192}{apagar\+Modo}} (Smarthome smarthome, std::\+string nome)
-\begin{DoxyCompactList}\small\item\em Comando para remover um modo. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_conta_a7d917bda731012e4f79cbd285f90ee5a}{editar\+Modo}} (Smarthome smarthome, std::\+string nome)
-\begin{DoxyCompactList}\small\item\em Comando para editar um modo. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_conta_afe20aba40d8b23bd460baaac0993ebc8}{criar\+Objeto}} (Smarthome smarthome, \doxymbox{\hyperlink{class_comodo}{Comodo}} comodo, std::\+string nome)
-\begin{DoxyCompactList}\small\item\em Comando para criar um objeto inteligente. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_conta_adb5e7275ddb1d40aed9f4977d59da6de}{apagar\+Objeto}} (Smarthome smarthome, \doxymbox{\hyperlink{class_comodo}{Comodo}} comodo, std::\+string nome)
-\begin{DoxyCompactList}\small\item\em Comando para apagar um objeto inteligente. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_conta_acc5c7e19d466d52f4b5d5b668988759c}{mover\+Objeto}} (Smarthome smarthome, \doxymbox{\hyperlink{class_comodo}{Comodo}} atual, std::\+string nome, \doxymbox{\hyperlink{class_comodo}{Comodo}} destino)
-\begin{DoxyCompactList}\small\item\em Comando para mover um objeto inteligente. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_conta_a31eba6f7cc97515f0739972d990cb190}{criar\+Sensor}} (Smarthome smarthome, \doxymbox{\hyperlink{class_comodo}{Comodo}} comodo, std::\+string nome)
-\begin{DoxyCompactList}\small\item\em Comando para criar um sensor. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_conta_abf7c8bc5eb62d82fc7129a3c9862e8b3}{apagar\+Sensor}} (Smarthome smarthome, \doxymbox{\hyperlink{class_comodo}{Comodo}} comodo, std::\+string nome)
-\begin{DoxyCompactList}\small\item\em Comando para apagar um sensor. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_conta_afc8d1a2ae17f55e73140912dd984e6a3}{mover\+Sensor}} (Smarthome smarthome, \doxymbox{\hyperlink{class_comodo}{Comodo}} atual, std::\+string nome, \doxymbox{\hyperlink{class_comodo}{Comodo}} destino)
-\begin{DoxyCompactList}\small\item\em Comando para mover um sensor. \end{DoxyCompactList}\item 
-float \doxymbox{\hyperlink{class_conta_a59a5eab2d81b4adbee70704340080e38}{gerar\+Relatório\+De\+Energia}} (Smarthome smarthome)
-\begin{DoxyCompactList}\small\item\em Comando para gerar relatório de gasto de energia. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Verifica se o perfil da conta é de adulto. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_conta_a6ef03c405bf9f5cb79b490b7640a9507}{esta\+Bloqueada}} () const
+\begin{DoxyCompactList}\small\item\em Verifica se a conta está bloqueada. \end{DoxyCompactList}\item 
+const std::\+vector$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{class_smarthome}{Smarthome}} $>$ $>$ \& \doxymbox{\hyperlink{class_conta_a8e194afe6d1a8ff6267b73047a5a96d1}{get\+Smarthomes}} () const
+\begin{DoxyCompactList}\small\item\em Retorna a lista de smarthomes da conta. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_ae33f34003d04d137c22bec58a11916a3}{bloquear}} ()
+\begin{DoxyCompactList}\small\item\em Bloqueia a conta, impedindo o acesso. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_ae2181c5d99f15531bf082177d1e5994b}{desbloquear}} ()
+\begin{DoxyCompactList}\small\item\em Desbloqueia a conta, permitindo o acesso novamente. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_ab3735b5fca9584ef380ee41ece958800}{criar\+Smarthome}} (const std::\+string \&id, const std::\+string \&nome)
+\begin{DoxyCompactList}\small\item\em Comando para criar uma smarthome e vinculá-\/la à conta. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_ababfd96c0bb8954050ef4704ad22a40c}{apagar\+Smarthome}} (const \doxymbox{\hyperlink{class_smarthome}{Smarthome}} \&smarthome)
+\begin{DoxyCompactList}\small\item\em Comando para remover uma smarthome da conta. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_aedf3596ad94ab0591d8a29878c218edf}{criar\+Comodo}} (\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}smarthome, const std::\+string \&nome)
+\begin{DoxyCompactList}\small\item\em Comando para criar um cômodo dentro de uma smarthome específica. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_acfe3d82d6b4c280106f92c39833fb848}{apagar\+Comodo}} (\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}smarthome, const std::\+string \&nome)
+\begin{DoxyCompactList}\small\item\em Comando para apagar um cômodo de uma smarthome. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_ac1fe8338abf39a0bf02a2604a879f63f}{criar\+Modo}} (\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}smarthome, const std::\+string \&nome)
+\begin{DoxyCompactList}\small\item\em Comando para criar um modo customizado vazio. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_a1496cce6c93963f2375f2d5eca826345}{criar\+Modo\+Por\+Tipo}} (\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}smarthome, const std::\+string \&nome, int tipo\+Modo)
+\begin{DoxyCompactList}\small\item\em Comando para criar um modo de um tipo específico (pré-\/configurado). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_a7c26a0fac041b7afd119f4617beaebf3}{apagar\+Modo}} (\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}smarthome, const std::\+string \&nome)
+\begin{DoxyCompactList}\small\item\em Comando para remover um modo do sistema. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_a357288f57326b08c5382404064dc5588}{criar\+Objeto}} (\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}smarthome, \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}comodo, const std::\+string \&nome)
+\begin{DoxyCompactList}\small\item\em Comando genérico para criar um objeto inteligente. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_a61bd3586935ca026070c8051cf7add45}{apagar\+Objeto}} (\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}smarthome, \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}comodo, const std::\+string \&nome)
+\begin{DoxyCompactList}\small\item\em Comando para apagar um objeto inteligente existente. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_abdad10ee5cd1784eca6d9b69f52dd71f}{mover\+Objeto}} (\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}smarthome, \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}atual, const std::\+string \&nome, \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}destino)
+\begin{DoxyCompactList}\small\item\em Comando para mover um objeto inteligente entre cômodos físicos. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_ae3eaa16ec1111de4c10a85a30ebb7978}{criar\+Sensor}} (\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}smarthome, \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}comodo, const std::\+string \&nome)
+\begin{DoxyCompactList}\small\item\em Comando para criar um novo sensor no ambiente. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_a647772bc310c19a0066a94a3ee091b09}{apagar\+Sensor}} (\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}smarthome, \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}comodo, const std::\+string \&nome)
+\begin{DoxyCompactList}\small\item\em Comando para apagar um sensor existente. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_a863bf509158abc82729be55ea007f65f}{mover\+Sensor}} (\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}smarthome, \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}atual, const std::\+string \&nome, \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}destino)
+\begin{DoxyCompactList}\small\item\em Comando para mover um sensor de um cômodo para outro. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_conta_a57137baa73bfc50c38dca115162dd1d1}{gerar\+Relatorio\+De\+Energia}} (\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}smarthome)
+\begin{DoxyCompactList}\small\item\em Comando para gerar relatório consolidado de gasto de energia da casa. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{class_conta_a6cbfe7729736200e51a05556ac160f07}{validar\+Formato\+Email}} () const
-\begin{DoxyCompactList}\small\item\em Valida se o formato do e-\/mail é válido. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Valida se o formato do e-\/mail da conta é estruturalmente válido. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{class_conta_ad7d697003c29c77dddf3bd4350cfdf81}{validar\+Senha}} () const
-\begin{DoxyCompactList}\small\item\em Verifica se a senha atende de segurança. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Verifica se a senha atende aos requisitos mínimos de segurança. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{class_conta_a79a1f883a91afd381afd9818bfbcd3e6}{autenticar}} (const std::\+string \&tentativa\+Senha) const
-\begin{DoxyCompactList}\small\item\em Autentica a conta comparando a senha fornecida. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Autentica a conta comparando a senha armazenada com a fornecida. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_conta_aae07ee10017befbfa22f2d448a2d7bf0}{operator==}} (const \doxymbox{\hyperlink{class_conta}{Conta}} \&other) const
+\begin{DoxyCompactList}\small\item\em Sobrecarga do operador de igualdade para comparar contas. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_ac263edaa465a7163828569b7d9b9922a}{print\+Membros\+Info}} () const
+\begin{DoxyCompactList}\small\item\em Imprime no terminal as informações básicas (membros/\+atributos) da conta. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_conta_adbe4583d73807652f6ba04d6eae52eb5}{Caracteres\+Validos}} (const std::\+string \&str) const
+\begin{DoxyCompactList}\small\item\em Checa se a string contém caracteres válidos (apenas letras, espaços ou números). \end{DoxyCompactList}\item 
+const std::\+string \& \doxymbox{\hyperlink{class_conta_a04b78b77a8647959fb19a6e4b6822f80}{get\+Senha}} () const
+\begin{DoxyCompactList}\small\item\em Retorna a senha atual da conta. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_af9db6cac2110e195eb671b658955deee}{salvar\+Smarthomes\+Em\+Arquivo}} () const
+\begin{DoxyCompactList}\small\item\em Salva todas as smarthomes da conta em um arquivo de texto (.txt). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_a8a47b971f8ebe1712a51c5032add0c06}{carregar\+Smarthomes\+De\+Arquivo}} ()
+\begin{DoxyCompactList}\small\item\em Carrega as smarthomes a partir de um arquivo de texto (.txt) salvo previamente. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_conta_aaa2dc57b6edaeab4465fd486efbf389c}{criar\+Objeto\+Por\+Tipo}} (\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}smarthome, \doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}comodo, std::\+string nome, int tipo\+Objeto)
+\begin{DoxyCompactList}\small\item\em Comando para criar um objeto inteligente de um tipo derivado específico. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -68,11 +90,11 @@ Esta classe atende a User Story Criação de Perfil e User Story Controle Parent
 \label{class_conta_doc-constructors}
 \Hypertarget{class_conta_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_conta_a925d1f01368204ed5148d4d2628c712f}\index{Conta@{Conta}!Conta@{Conta}}
+\Hypertarget{class_conta_a2093d53408617992d83461eb0c84cc3a}\index{Conta@{Conta}!Conta@{Conta}}
 \index{Conta@{Conta}!Conta@{Conta}}
 \doxysubsubsection{\texorpdfstring{Conta()}{Conta()}}
-{\footnotesize\ttfamily \label{class_conta_a925d1f01368204ed5148d4d2628c712f} 
-Conta::\+\+Conta (\begin{DoxyParamCaption}\item[{std::\+string}]{id}{, }\item[{std::\+string}]{nome}{, }\item[{std::\+string}]{email}{, }\item[{std::\+string}]{senha}{, }\item[{bool}]{adulto}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_conta_a2093d53408617992d83461eb0c84cc3a} 
+Conta::\+\+Conta (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{id}{, }\item[{const std::\+string \&}]{nome}{, }\item[{const std::\+string \&}]{email}{, }\item[{const std::\+string \&}]{senha}{, }\item[{bool}]{adulto}{ = {\ttfamily true}}\end{DoxyParamCaption})}
 
 
 
@@ -102,91 +124,91 @@ Conta::\+\texorpdfstring{$\sim$}{\string~}\+Conta (\begin{DoxyParamCaption}{}{}\
 \label{class_conta_doc-func-members}
 \Hypertarget{class_conta_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_conta_a2c54f68e04117d711ef01594a365af05}\index{Conta@{Conta}!apagarCômodo@{apagarCômodo}}
-\index{apagarCômodo@{apagarCômodo}!Conta@{Conta}}
-\doxysubsubsection{\texorpdfstring{apagarCômodo()}{apagarCômodo()}}
-{\footnotesize\ttfamily \label{class_conta_a2c54f68e04117d711ef01594a365af05} 
-void Conta::\+apagar\+Cômodo (\begin{DoxyParamCaption}\item[{Smarthome}]{smarthome}{, }\item[{std::\+string}]{nome}{}\end{DoxyParamCaption})}
+\Hypertarget{class_conta_acfe3d82d6b4c280106f92c39833fb848}\index{Conta@{Conta}!apagarComodo@{apagarComodo}}
+\index{apagarComodo@{apagarComodo}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{apagarComodo()}{apagarComodo()}}
+{\footnotesize\ttfamily \label{class_conta_acfe3d82d6b4c280106f92c39833fb848} 
+void Conta::\+apagar\+Comodo (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}}]{smarthome}{, }\item[{const std::\+string \&}]{nome}{}\end{DoxyParamCaption})}
 
 
 
-Comando para apagar um cômodo. 
+Comando para apagar um cômodo de uma smarthome. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em smarthome} & Smarthome em que o cômodo será apagado. \\
+{\em smarthome} & Ponteiro para a \doxylink{class_smarthome}{Smarthome} de onde o cômodo será apagado. \\
 \hline
-{\em nome} & Nome do cômodo. \\
+{\em nome} & Nome do cômodo a ser removido. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_conta_ae5874f0c78e535ae661d22e311791192}\index{Conta@{Conta}!apagarModo@{apagarModo}}
+\Hypertarget{class_conta_a7c26a0fac041b7afd119f4617beaebf3}\index{Conta@{Conta}!apagarModo@{apagarModo}}
 \index{apagarModo@{apagarModo}!Conta@{Conta}}
 \doxysubsubsection{\texorpdfstring{apagarModo()}{apagarModo()}}
-{\footnotesize\ttfamily \label{class_conta_ae5874f0c78e535ae661d22e311791192} 
-void Conta::\+apagar\+Modo (\begin{DoxyParamCaption}\item[{Smarthome}]{smarthome}{, }\item[{std::\+string}]{nome}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_conta_a7c26a0fac041b7afd119f4617beaebf3} 
+void Conta::\+apagar\+Modo (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}}]{smarthome}{, }\item[{const std::\+string \&}]{nome}{}\end{DoxyParamCaption})}
 
 
 
-Comando para remover um modo. 
+Comando para remover um modo do sistema. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em smarthome} & Smarthome em que o modo será removido. \\
+{\em smarthome} & Ponteiro para a \doxylink{class_smarthome}{Smarthome} de onde o modo será removido. \\
 \hline
-{\em nome} & Nome do modo que será removido. \\
+{\em nome} & Nome exato do modo que será removido. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_conta_adb5e7275ddb1d40aed9f4977d59da6de}\index{Conta@{Conta}!apagarObjeto@{apagarObjeto}}
+\Hypertarget{class_conta_a61bd3586935ca026070c8051cf7add45}\index{Conta@{Conta}!apagarObjeto@{apagarObjeto}}
 \index{apagarObjeto@{apagarObjeto}!Conta@{Conta}}
 \doxysubsubsection{\texorpdfstring{apagarObjeto()}{apagarObjeto()}}
-{\footnotesize\ttfamily \label{class_conta_adb5e7275ddb1d40aed9f4977d59da6de} 
-void Conta::\+apagar\+Objeto (\begin{DoxyParamCaption}\item[{Smarthome}]{smarthome}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}}}]{comodo}{, }\item[{std::\+string}]{nome}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_conta_a61bd3586935ca026070c8051cf7add45} 
+void Conta::\+apagar\+Objeto (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}}]{smarthome}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}}]{comodo}{, }\item[{const std::\+string \&}]{nome}{}\end{DoxyParamCaption})}
 
 
 
-Comando para apagar um objeto inteligente. 
+Comando para apagar um objeto inteligente existente. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em smarthome} & Smarthome em que o objeto será apagado. \\
+{\em smarthome} & Ponteiro para a \doxylink{class_smarthome}{Smarthome} de onde o objeto será apagado. \\
 \hline
-{\em comodo} & \doxylink{class_comodo}{Comodo} em que o objeto será apagado. \\
+{\em comodo} & Ponteiro para o Cômodo de onde o objeto será retirado. \\
 \hline
-{\em nome} & Nome da smarthome em que o cômodo será apagado. \\
+{\em nome} & Nome exato do objeto a ser apagado. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_conta_abf7c8bc5eb62d82fc7129a3c9862e8b3}\index{Conta@{Conta}!apagarSensor@{apagarSensor}}
+\Hypertarget{class_conta_a647772bc310c19a0066a94a3ee091b09}\index{Conta@{Conta}!apagarSensor@{apagarSensor}}
 \index{apagarSensor@{apagarSensor}!Conta@{Conta}}
 \doxysubsubsection{\texorpdfstring{apagarSensor()}{apagarSensor()}}
-{\footnotesize\ttfamily \label{class_conta_abf7c8bc5eb62d82fc7129a3c9862e8b3} 
-void Conta::\+apagar\+Sensor (\begin{DoxyParamCaption}\item[{Smarthome}]{smarthome}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}}}]{comodo}{, }\item[{std::\+string}]{nome}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_conta_a647772bc310c19a0066a94a3ee091b09} 
+void Conta::\+apagar\+Sensor (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}}]{smarthome}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}}]{comodo}{, }\item[{const std::\+string \&}]{nome}{}\end{DoxyParamCaption})}
 
 
 
-Comando para apagar um sensor. 
+Comando para apagar um sensor existente. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em smarthome} & Smarthome em que o objeto será apagado. \\
+{\em smarthome} & Ponteiro para a \doxylink{class_smarthome}{Smarthome} de onde o sensor será apagado. \\
 \hline
-{\em comodo} & \doxylink{class_comodo}{Comodo} em que o objeto será apagado. \\
+{\em comodo} & Ponteiro para o Cômodo de onde o sensor será retirado. \\
 \hline
-{\em nome} & Nome da smarthome em que o cômodo será apagado. \\
+{\em nome} & Nome exato do sensor a ser apagado. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_conta_a583b73eeb5cd32e4a9f4e82efe531ef8}\index{Conta@{Conta}!apagarSmarthome@{apagarSmarthome}}
+\Hypertarget{class_conta_ababfd96c0bb8954050ef4704ad22a40c}\index{Conta@{Conta}!apagarSmarthome@{apagarSmarthome}}
 \index{apagarSmarthome@{apagarSmarthome}!Conta@{Conta}}
 \doxysubsubsection{\texorpdfstring{apagarSmarthome()}{apagarSmarthome()}}
-{\footnotesize\ttfamily \label{class_conta_a583b73eeb5cd32e4a9f4e82efe531ef8} 
-void Conta::\+apagar\+Smarthome (\begin{DoxyParamCaption}\item[{Smarthome}]{smarthome}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_conta_ababfd96c0bb8954050ef4704ad22a40c} 
+void Conta::\+apagar\+Smarthome (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_smarthome}{Smarthome}} \&}]{smarthome}{}\end{DoxyParamCaption})}
 
 
 
-Comando para criar uma smarthome. 
+Comando para remover uma smarthome da conta. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em smarthome} & Smarthome a ser apagada. \\
+{\em smarthome} & Referência da \doxylink{class_smarthome}{Smarthome} a ser apagada. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{class_conta_a79a1f883a91afd381afd9818bfbcd3e6}\index{Conta@{Conta}!autenticar@{autenticar}}
@@ -197,97 +219,175 @@ bool Conta::\+autenticar (\begin{DoxyParamCaption}\item[{const std::\+string \&}
 
 
 
-Autentica a conta comparando a senha fornecida. 
+Autentica a conta comparando a senha armazenada com a fornecida. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em tentativa\+Senha} & Senha digitada no login. \\
+{\em tentativa\+Senha} & Senha digitada no momento do login. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-true = correta. 
+true se as senhas coincidirem, false caso contrário. 
 \end{DoxyReturn}
-\Hypertarget{class_conta_a0dd6ee7802f46d565da5a9a1865efc8d}\index{Conta@{Conta}!criarCômodo@{criarCômodo}}
-\index{criarCômodo@{criarCômodo}!Conta@{Conta}}
-\doxysubsubsection{\texorpdfstring{criarCômodo()}{criarCômodo()}}
-{\footnotesize\ttfamily \label{class_conta_a0dd6ee7802f46d565da5a9a1865efc8d} 
-void Conta::\+criar\+Cômodo (\begin{DoxyParamCaption}\item[{Smarthome}]{smarthome}{, }\item[{std::\+string}]{nome}{}\end{DoxyParamCaption})}
+\Hypertarget{class_conta_ae33f34003d04d137c22bec58a11916a3}\index{Conta@{Conta}!bloquear@{bloquear}}
+\index{bloquear@{bloquear}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{bloquear()}{bloquear()}}
+{\footnotesize\ttfamily \label{class_conta_ae33f34003d04d137c22bec58a11916a3} 
+void Conta::\+bloquear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Comando para criar um cômodo. 
+Bloqueia a conta, impedindo o acesso. 
+
+\Hypertarget{class_conta_adbe4583d73807652f6ba04d6eae52eb5}\index{Conta@{Conta}!CaracteresValidos@{CaracteresValidos}}
+\index{CaracteresValidos@{CaracteresValidos}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{CaracteresValidos()}{CaracteresValidos()}}
+{\footnotesize\ttfamily \label{class_conta_adbe4583d73807652f6ba04d6eae52eb5} 
+bool Conta::\+\+Caracteres\+Validos (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{str}{}\end{DoxyParamCaption}) const}
+
+
+
+Checa se a string contém caracteres válidos (apenas letras, espaços ou números). 
 
 
 \begin{DoxyParams}{Parameters}
-{\em smarthome} & Smarthome em que o cômodo será adicionado. \\
+{\em str} & Texto a ser analisado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se for válido, false se contiver caracteres especiais. 
+\end{DoxyReturn}
+\Hypertarget{class_conta_a8a47b971f8ebe1712a51c5032add0c06}\index{Conta@{Conta}!carregarSmarthomesDeArquivo@{carregarSmarthomesDeArquivo}}
+\index{carregarSmarthomesDeArquivo@{carregarSmarthomesDeArquivo}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{carregarSmarthomesDeArquivo()}{carregarSmarthomesDeArquivo()}}
+{\footnotesize\ttfamily \label{class_conta_a8a47b971f8ebe1712a51c5032add0c06} 
+void Conta::\+carregar\+Smarthomes\+De\+Arquivo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Carrega as smarthomes a partir de um arquivo de texto (.txt) salvo previamente. 
+
+\Hypertarget{class_conta_aedf3596ad94ab0591d8a29878c218edf}\index{Conta@{Conta}!criarComodo@{criarComodo}}
+\index{criarComodo@{criarComodo}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{criarComodo()}{criarComodo()}}
+{\footnotesize\ttfamily \label{class_conta_aedf3596ad94ab0591d8a29878c218edf} 
+void Conta::\+criar\+Comodo (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}}]{smarthome}{, }\item[{const std::\+string \&}]{nome}{}\end{DoxyParamCaption})}
+
+
+
+Comando para criar um cômodo dentro de uma smarthome específica. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em smarthome} & Ponteiro para a \doxylink{class_smarthome}{Smarthome} em que o cômodo será adicionado. \\
 \hline
 {\em nome} & Nome do cômodo. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_conta_ae082a357ed295b325b62e3299ae29f72}\index{Conta@{Conta}!criarModo@{criarModo}}
+\Hypertarget{class_conta_ac1fe8338abf39a0bf02a2604a879f63f}\index{Conta@{Conta}!criarModo@{criarModo}}
 \index{criarModo@{criarModo}!Conta@{Conta}}
 \doxysubsubsection{\texorpdfstring{criarModo()}{criarModo()}}
-{\footnotesize\ttfamily \label{class_conta_ae082a357ed295b325b62e3299ae29f72} 
-void Conta::\+criar\+Modo (\begin{DoxyParamCaption}\item[{Smarthome}]{smarthome}{, }\item[{std::\+string}]{nome}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_conta_ac1fe8338abf39a0bf02a2604a879f63f} 
+void Conta::\+criar\+Modo (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}}]{smarthome}{, }\item[{const std::\+string \&}]{nome}{}\end{DoxyParamCaption})}
 
 
 
-Comando para criar um modo. 
+Comando para criar um modo customizado vazio. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em smarthome} & Smarthome em que o modo será adicionado. \\
+{\em smarthome} & Ponteiro para a \doxylink{class_smarthome}{Smarthome} em que o modo será adicionado. \\
 \hline
 {\em nome} & Nome do modo que será adicionado. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_conta_afe20aba40d8b23bd460baaac0993ebc8}\index{Conta@{Conta}!criarObjeto@{criarObjeto}}
+\Hypertarget{class_conta_a1496cce6c93963f2375f2d5eca826345}\index{Conta@{Conta}!criarModoPorTipo@{criarModoPorTipo}}
+\index{criarModoPorTipo@{criarModoPorTipo}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{criarModoPorTipo()}{criarModoPorTipo()}}
+{\footnotesize\ttfamily \label{class_conta_a1496cce6c93963f2375f2d5eca826345} 
+void Conta::\+criar\+Modo\+Por\+Tipo (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}}]{smarthome}{, }\item[{const std::\+string \&}]{nome}{, }\item[{int}]{tipo\+Modo}{}\end{DoxyParamCaption})}
+
+
+
+Comando para criar um modo de um tipo específico (pré-\/configurado). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em smarthome} & Ponteiro para a \doxylink{class_smarthome}{Smarthome} em que o modo será adicionado. \\
+\hline
+{\em nome} & Nome do modo que será criado. \\
+\hline
+{\em tipo\+Modo} & Tipo do modo a ser criado:\+ 1 = \doxylink{class_modo}{Modo} comum 2 = \doxylink{class_modo}{Modo} Cinema 3 = \doxylink{class_modo}{Modo} Noturno 4 = \doxylink{class_modo}{Modo} Trabalho 5 = \doxylink{class_modo}{Modo} Ausente 6 = \doxylink{class_modo}{Modo} Festa \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_conta_a357288f57326b08c5382404064dc5588}\index{Conta@{Conta}!criarObjeto@{criarObjeto}}
 \index{criarObjeto@{criarObjeto}!Conta@{Conta}}
 \doxysubsubsection{\texorpdfstring{criarObjeto()}{criarObjeto()}}
-{\footnotesize\ttfamily \label{class_conta_afe20aba40d8b23bd460baaac0993ebc8} 
-void Conta::\+criar\+Objeto (\begin{DoxyParamCaption}\item[{Smarthome}]{smarthome}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}}}]{comodo}{, }\item[{std::\+string}]{nome}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_conta_a357288f57326b08c5382404064dc5588} 
+void Conta::\+criar\+Objeto (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}}]{smarthome}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}}]{comodo}{, }\item[{const std::\+string \&}]{nome}{}\end{DoxyParamCaption})}
 
 
 
-Comando para criar um objeto inteligente. 
+Comando genérico para criar um objeto inteligente. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em smarthome} & Smarthome em que o objeto será adicionado. \\
+{\em smarthome} & Ponteiro para a \doxylink{class_smarthome}{Smarthome} em que o objeto será adicionado. \\
 \hline
-{\em comodo} & \doxylink{class_comodo}{Comodo} em que o objeto será adicionado. \\
+{\em comodo} & Ponteiro para o Cômodo em que o objeto será posicionado. \\
 \hline
-{\em nome} & Nome da smarthome em que o cômodo será adicionado. \\
+{\em nome} & Nome do objeto inteligente a ser criado. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_conta_a31eba6f7cc97515f0739972d990cb190}\index{Conta@{Conta}!criarSensor@{criarSensor}}
+\Hypertarget{class_conta_aaa2dc57b6edaeab4465fd486efbf389c}\index{Conta@{Conta}!criarObjetoPorTipo@{criarObjetoPorTipo}}
+\index{criarObjetoPorTipo@{criarObjetoPorTipo}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{criarObjetoPorTipo()}{criarObjetoPorTipo()}}
+{\footnotesize\ttfamily \label{class_conta_aaa2dc57b6edaeab4465fd486efbf389c} 
+void Conta::\+criar\+Objeto\+Por\+Tipo (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}}]{smarthome}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}}]{comodo}{, }\item[{std::\+string}]{nome}{, }\item[{int}]{tipo\+Objeto}{}\end{DoxyParamCaption})}
+
+
+
+Comando para criar um objeto inteligente de um tipo derivado específico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em smarthome} & Ponteiro para a \doxylink{class_smarthome}{Smarthome} em que o objeto será adicionado. \\
+\hline
+{\em comodo} & Ponteiro para o Cômodo em que o objeto será adicionado. \\
+\hline
+{\em nome} & Nome do objeto inteligente. \\
+\hline
+{\em tipo\+Objeto} & Inteiro que define o tipo do objeto a ser instanciado:\+ 1 = \doxylink{class_luz}{Luz} 2 = \doxylink{class_t_v}{TV} 3 = \doxylink{class_caixa}{Caixa} de Som 4 = Ar Condicionado 5 = Portão 6 = \doxylink{class_termostato}{Termostato} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_conta_ae3eaa16ec1111de4c10a85a30ebb7978}\index{Conta@{Conta}!criarSensor@{criarSensor}}
 \index{criarSensor@{criarSensor}!Conta@{Conta}}
 \doxysubsubsection{\texorpdfstring{criarSensor()}{criarSensor()}}
-{\footnotesize\ttfamily \label{class_conta_a31eba6f7cc97515f0739972d990cb190} 
-void Conta::\+criar\+Sensor (\begin{DoxyParamCaption}\item[{Smarthome}]{smarthome}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}}}]{comodo}{, }\item[{std::\+string}]{nome}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_conta_ae3eaa16ec1111de4c10a85a30ebb7978} 
+void Conta::\+criar\+Sensor (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}}]{smarthome}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}}]{comodo}{, }\item[{const std::\+string \&}]{nome}{}\end{DoxyParamCaption})}
 
 
 
-Comando para criar um sensor. 
+Comando para criar um novo sensor no ambiente. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em smarthome} & Smarthome em que o objeto será adicionado. \\
+{\em smarthome} & Ponteiro para a \doxylink{class_smarthome}{Smarthome} em que o sensor será adicionado. \\
 \hline
-{\em comodo} & \doxylink{class_comodo}{Comodo} em que o objeto será adicionado. \\
+{\em comodo} & Ponteiro para o Cômodo em que o sensor será instalado. \\
 \hline
-{\em nome} & Nome da smarthome em que o cômodo será adicionado. \\
+{\em nome} & Nome do sensor a ser criado. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_conta_a5f30f0c15a54fb9089b0760dd83999c0}\index{Conta@{Conta}!criarSmarthome@{criarSmarthome}}
+\Hypertarget{class_conta_ab3735b5fca9584ef380ee41ece958800}\index{Conta@{Conta}!criarSmarthome@{criarSmarthome}}
 \index{criarSmarthome@{criarSmarthome}!Conta@{Conta}}
 \doxysubsubsection{\texorpdfstring{criarSmarthome()}{criarSmarthome()}}
-{\footnotesize\ttfamily \label{class_conta_a5f30f0c15a54fb9089b0760dd83999c0} 
-void Conta::\+criar\+Smarthome (\begin{DoxyParamCaption}\item[{std::\+string}]{id}{, }\item[{std::\+string}]{nome}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_conta_ab3735b5fca9584ef380ee41ece958800} 
+void Conta::\+criar\+Smarthome (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{id}{, }\item[{const std::\+string \&}]{nome}{}\end{DoxyParamCaption})}
 
 
 
-Comando para criar uma smarthome. 
+Comando para criar uma smarthome e vinculá-\/la à conta. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -296,68 +396,112 @@ Comando para criar uma smarthome.
 {\em nome} & Nome da smarthome. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_conta_a7d917bda731012e4f79cbd285f90ee5a}\index{Conta@{Conta}!editarModo@{editarModo}}
-\index{editarModo@{editarModo}!Conta@{Conta}}
-\doxysubsubsection{\texorpdfstring{editarModo()}{editarModo()}}
-{\footnotesize\ttfamily \label{class_conta_a7d917bda731012e4f79cbd285f90ee5a} 
-void Conta::\+editar\+Modo (\begin{DoxyParamCaption}\item[{Smarthome}]{smarthome}{, }\item[{std::\+string}]{nome}{}\end{DoxyParamCaption})}
+\Hypertarget{class_conta_ae2181c5d99f15531bf082177d1e5994b}\index{Conta@{Conta}!desbloquear@{desbloquear}}
+\index{desbloquear@{desbloquear}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{desbloquear()}{desbloquear()}}
+{\footnotesize\ttfamily \label{class_conta_ae2181c5d99f15531bf082177d1e5994b} 
+void Conta::\+desbloquear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Comando para editar um modo. 
+Desbloqueia a conta, permitindo o acesso novamente. 
+
+\Hypertarget{class_conta_a6ef03c405bf9f5cb79b490b7640a9507}\index{Conta@{Conta}!estaBloqueada@{estaBloqueada}}
+\index{estaBloqueada@{estaBloqueada}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{estaBloqueada()}{estaBloqueada()}}
+{\footnotesize\ttfamily \label{class_conta_a6ef03c405bf9f5cb79b490b7640a9507} 
+bool Conta::\+esta\+Bloqueada (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Verifica se a conta está bloqueada. 
+
+\begin{DoxyReturn}{Returns}
+true se a conta estiver bloqueada, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{class_conta_a57137baa73bfc50c38dca115162dd1d1}\index{Conta@{Conta}!gerarRelatorioDeEnergia@{gerarRelatorioDeEnergia}}
+\index{gerarRelatorioDeEnergia@{gerarRelatorioDeEnergia}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{gerarRelatorioDeEnergia()}{gerarRelatorioDeEnergia()}}
+{\footnotesize\ttfamily \label{class_conta_a57137baa73bfc50c38dca115162dd1d1} 
+float Conta::\+gerar\+Relatorio\+De\+Energia (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}}]{smarthome}{}\end{DoxyParamCaption})}
+
+
+
+Comando para gerar relatório consolidado de gasto de energia da casa. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em smarthome} & Smarthome em que o modo será editado. \\
-\hline
-{\em nome} & Nome do modo a ser editado. \\
+{\em smarthome} & Ponteiro para a \doxylink{class_smarthome}{Smarthome} que terá seu gasto calculado. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_conta_a59a5eab2d81b4adbee70704340080e38}\index{Conta@{Conta}!gerarRelatórioDeEnergia@{gerarRelatórioDeEnergia}}
-\index{gerarRelatórioDeEnergia@{gerarRelatórioDeEnergia}!Conta@{Conta}}
-\doxysubsubsection{\texorpdfstring{gerarRelatórioDeEnergia()}{gerarRelatórioDeEnergia()}}
-{\footnotesize\ttfamily \label{class_conta_a59a5eab2d81b4adbee70704340080e38} 
-float Conta::\+gerar\+Relatório\+De\+Energia (\begin{DoxyParamCaption}\item[{Smarthome}]{smarthome}{}\end{DoxyParamCaption})}
-
-
-
-Comando para gerar relatório de gasto de energia. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em smarthome} & Smarthome a ter seu gasto de energia calculado. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{class_conta_a0e9c1b914d26084711a651af07439c36}\index{Conta@{Conta}!getEmail@{getEmail}}
+\begin{DoxyReturn}{Returns}
+float O valor total do consumo médio de energia em k\+Wh. 
+\end{DoxyReturn}
+\Hypertarget{class_conta_a1e31f5d9bd20583843356d58a529305d}\index{Conta@{Conta}!getEmail@{getEmail}}
 \index{getEmail@{getEmail}!Conta@{Conta}}
 \doxysubsubsection{\texorpdfstring{getEmail()}{getEmail()}}
-{\footnotesize\ttfamily \label{class_conta_a0e9c1b914d26084711a651af07439c36} 
-std::\+string Conta::\+get\+Email (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{class_conta_a1e31f5d9bd20583843356d58a529305d} 
+const std::\+string \& Conta::\+get\+Email (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
 Retorna o email da conta. 
 
-\Hypertarget{class_conta_a861ba5a14a83d94bfd7a34fee16af274}\index{Conta@{Conta}!getId@{getId}}
+\begin{DoxyReturn}{Returns}
+String constante contendo o e-\/mail. 
+\end{DoxyReturn}
+\Hypertarget{class_conta_a2ed276d71c75fffbab2430bb3f83620d}\index{Conta@{Conta}!getId@{getId}}
 \index{getId@{getId}!Conta@{Conta}}
 \doxysubsubsection{\texorpdfstring{getId()}{getId()}}
-{\footnotesize\ttfamily \label{class_conta_a861ba5a14a83d94bfd7a34fee16af274} 
-std::\+string Conta::\+get\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{class_conta_a2ed276d71c75fffbab2430bb3f83620d} 
+const std::\+string \& Conta::\+get\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
 Retorna o id da conta. 
 
-\Hypertarget{class_conta_a87cd1df69c12e0dfdb6ab70a4aa2fd4b}\index{Conta@{Conta}!getNome@{getNome}}
+\begin{DoxyReturn}{Returns}
+String constante contendo o ID. 
+\end{DoxyReturn}
+\Hypertarget{class_conta_a43577c93565b18ac010d57f6bb8ecb11}\index{Conta@{Conta}!getNome@{getNome}}
 \index{getNome@{getNome}!Conta@{Conta}}
 \doxysubsubsection{\texorpdfstring{getNome()}{getNome()}}
-{\footnotesize\ttfamily \label{class_conta_a87cd1df69c12e0dfdb6ab70a4aa2fd4b} 
-std::\+string Conta::\+get\+Nome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{class_conta_a43577c93565b18ac010d57f6bb8ecb11} 
+const std::\+string \& Conta::\+get\+Nome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
 Retorna o nome da conta. 
 
+\begin{DoxyReturn}{Returns}
+String constante contendo o nome. 
+\end{DoxyReturn}
+\Hypertarget{class_conta_a04b78b77a8647959fb19a6e4b6822f80}\index{Conta@{Conta}!getSenha@{getSenha}}
+\index{getSenha@{getSenha}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{getSenha()}{getSenha()}}
+{\footnotesize\ttfamily \label{class_conta_a04b78b77a8647959fb19a6e4b6822f80} 
+const std::\+string \& Conta::\+get\+Senha (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna a senha atual da conta. 
+
+\begin{DoxyReturn}{Returns}
+String constante contendo a senha. 
+\end{DoxyReturn}
+\Hypertarget{class_conta_a8e194afe6d1a8ff6267b73047a5a96d1}\index{Conta@{Conta}!getSmarthomes@{getSmarthomes}}
+\index{getSmarthomes@{getSmarthomes}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{getSmarthomes()}{getSmarthomes()}}
+{\footnotesize\ttfamily \label{class_conta_a8e194afe6d1a8ff6267b73047a5a96d1} 
+const std::\+vector$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{class_smarthome}{Smarthome}} $>$ $>$ \& Conta::\+get\+Smarthomes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna a lista de smarthomes da conta. 
+
+\begin{DoxyReturn}{Returns}
+Referência constante para o vetor de unique\+\_\+ptrs de Smarthomes. 
+\end{DoxyReturn}
 \Hypertarget{class_conta_a95154f09dfa0fb287debac5f147902e1}\index{Conta@{Conta}!isPerfilAdulto@{isPerfilAdulto}}
 \index{isPerfilAdulto@{isPerfilAdulto}!Conta@{Conta}}
 \doxysubsubsection{\texorpdfstring{isPerfilAdulto()}{isPerfilAdulto()}}
@@ -366,50 +510,91 @@ bool Conta::\+is\+Perfil\+Adulto (\begin{DoxyParamCaption}{}{}\end{DoxyParamCapt
 
 
 
-Retorna o nome da conta. 
+Verifica se o perfil da conta é de adulto. 
 
-\Hypertarget{class_conta_acc5c7e19d466d52f4b5d5b668988759c}\index{Conta@{Conta}!moverObjeto@{moverObjeto}}
+\begin{DoxyReturn}{Returns}
+true se for adulto, false se for infantil. 
+\end{DoxyReturn}
+\Hypertarget{class_conta_abdad10ee5cd1784eca6d9b69f52dd71f}\index{Conta@{Conta}!moverObjeto@{moverObjeto}}
 \index{moverObjeto@{moverObjeto}!Conta@{Conta}}
 \doxysubsubsection{\texorpdfstring{moverObjeto()}{moverObjeto()}}
-{\footnotesize\ttfamily \label{class_conta_acc5c7e19d466d52f4b5d5b668988759c} 
-void Conta::\+mover\+Objeto (\begin{DoxyParamCaption}\item[{Smarthome}]{smarthome}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}}}]{atual}{, }\item[{std::\+string}]{nome}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}}}]{destino}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_conta_abdad10ee5cd1784eca6d9b69f52dd71f} 
+void Conta::\+mover\+Objeto (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}}]{smarthome}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}}]{atual}{, }\item[{const std::\+string \&}]{nome}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}}]{destino}{}\end{DoxyParamCaption})}
 
 
 
-Comando para mover um objeto inteligente. 
+Comando para mover um objeto inteligente entre cômodos físicos. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em smarthome} & Smarthome em que o objeto será adicionado. \\
+{\em smarthome} & Ponteiro para a \doxylink{class_smarthome}{Smarthome} base. \\
 \hline
-{\em atual} & \doxylink{class_comodo}{Comodo} de origem do objeto. \\
+{\em atual} & Ponteiro para o Cômodo de origem do objeto. \\
 \hline
 {\em nome} & Nome do objeto que será movido. \\
 \hline
-{\em destino} & \doxylink{class_comodo}{Comodo} de destiono do objeto. \\
+{\em destino} & Ponteiro para o Cômodo de destino do objeto. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_conta_afc8d1a2ae17f55e73140912dd984e6a3}\index{Conta@{Conta}!moverSensor@{moverSensor}}
+\Hypertarget{class_conta_a863bf509158abc82729be55ea007f65f}\index{Conta@{Conta}!moverSensor@{moverSensor}}
 \index{moverSensor@{moverSensor}!Conta@{Conta}}
 \doxysubsubsection{\texorpdfstring{moverSensor()}{moverSensor()}}
-{\footnotesize\ttfamily \label{class_conta_afc8d1a2ae17f55e73140912dd984e6a3} 
-void Conta::\+mover\+Sensor (\begin{DoxyParamCaption}\item[{Smarthome}]{smarthome}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}}}]{atual}{, }\item[{std::\+string}]{nome}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}}}]{destino}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_conta_a863bf509158abc82729be55ea007f65f} 
+void Conta::\+mover\+Sensor (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}}]{smarthome}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}}]{atual}{, }\item[{const std::\+string \&}]{nome}{, }\item[{\doxymbox{\hyperlink{class_comodo}{Comodo}} \texorpdfstring{$\ast$}{*}}]{destino}{}\end{DoxyParamCaption})}
 
 
 
-Comando para mover um sensor. 
+Comando para mover um sensor de um cômodo para outro. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em smarthome} & Smarthome em que o objeto será movido. \\
+{\em smarthome} & Ponteiro para a \doxylink{class_smarthome}{Smarthome}. \\
 \hline
-{\em atual} & \doxylink{class_comodo}{Comodo} de origem do sensor. \\
+{\em atual} & Ponteiro para o Cômodo de origem do sensor. \\
 \hline
-{\em nome} & Nome da smarthome a ser movido. \\
+{\em nome} & Nome exato do sensor a ser movido. \\
 \hline
-{\em destino} & \doxylink{class_comodo}{Comodo} de destino do sensor. \\
+{\em destino} & Ponteiro para o Cômodo de destino do sensor. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{class_conta_aae07ee10017befbfa22f2d448a2d7bf0}\index{Conta@{Conta}!operator==@{operator==}}
+\index{operator==@{operator==}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{class_conta_aae07ee10017befbfa22f2d448a2d7bf0} 
+bool Conta::\+operator== (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_conta}{Conta}} \&}]{other}{}\end{DoxyParamCaption}) const}
+
+
+
+Sobrecarga do operador de igualdade para comparar contas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \doxylink{class_conta}{Conta} a ser comparada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se os dados das contas forem idênticos, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{class_conta_ac263edaa465a7163828569b7d9b9922a}\index{Conta@{Conta}!printMembrosInfo@{printMembrosInfo}}
+\index{printMembrosInfo@{printMembrosInfo}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{printMembrosInfo()}{printMembrosInfo()}}
+{\footnotesize\ttfamily \label{class_conta_ac263edaa465a7163828569b7d9b9922a} 
+void Conta::\+print\+Membros\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Imprime no terminal as informações básicas (membros/\+atributos) da conta. 
+
+\Hypertarget{class_conta_af9db6cac2110e195eb671b658955deee}\index{Conta@{Conta}!salvarSmarthomesEmArquivo@{salvarSmarthomesEmArquivo}}
+\index{salvarSmarthomesEmArquivo@{salvarSmarthomesEmArquivo}!Conta@{Conta}}
+\doxysubsubsection{\texorpdfstring{salvarSmarthomesEmArquivo()}{salvarSmarthomesEmArquivo()}}
+{\footnotesize\ttfamily \label{class_conta_af9db6cac2110e195eb671b658955deee} 
+void Conta::\+salvar\+Smarthomes\+Em\+Arquivo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Salva todas as smarthomes da conta em um arquivo de texto (.txt). 
+
 \Hypertarget{class_conta_a6cbfe7729736200e51a05556ac160f07}\index{Conta@{Conta}!validarFormatoEmail@{validarFormatoEmail}}
 \index{validarFormatoEmail@{validarFormatoEmail}!Conta@{Conta}}
 \doxysubsubsection{\texorpdfstring{validarFormatoEmail()}{validarFormatoEmail()}}
@@ -418,10 +603,10 @@ bool Conta::\+validar\+Formato\+Email (\begin{DoxyParamCaption}{}{}\end{DoxyPara
 
 
 
-Valida se o formato do e-\/mail é válido. 
+Valida se o formato do e-\/mail da conta é estruturalmente válido. 
 
 \begin{DoxyReturn}{Returns}
-true=válido. 
+true se possuir formato válido (ex:\+ contém \textquotesingle{}@\textquotesingle{}), false caso contrário. 
 \end{DoxyReturn}
 \Hypertarget{class_conta_ad7d697003c29c77dddf3bd4350cfdf81}\index{Conta@{Conta}!validarSenha@{validarSenha}}
 \index{validarSenha@{validarSenha}!Conta@{Conta}}
@@ -431,13 +616,13 @@ bool Conta::\+validar\+Senha (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}
 
 
 
-Verifica se a senha atende de segurança. 
+Verifica se a senha atende aos requisitos mínimos de segurança. 
 
 \begin{DoxyReturn}{Returns}
-true = segura. 
+true se a senha for considerada segura, false caso contrário. 
 \end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
 \item 
-C:\+/\+\+Users/\+tiago/\+\+One\+Drive/\+Área de Trabalho/\+\+Atalhos etc/\+ufmg/\+pds2/\+\+PDS2-\/2026-\/\+PF-\/grupo2/\+include/\+\doxymbox{\hyperlink{_conta_8hpp}{Conta.\+hpp}}\end{DoxyCompactItemize}
+include/\+\doxymbox{\hyperlink{_conta_8hpp}{Conta.\+hpp}}\end{DoxyCompactItemize}

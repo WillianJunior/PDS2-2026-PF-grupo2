@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['objetointeligente_0',['ObjetoInteligente',['../class_objeto_inteligente.html',1,'']]]
+  ['login_0',['Login',['../class_login.html',1,'']]],
+  ['luz_1',['Luz',['../class_luz.html',1,'']]]
 ];

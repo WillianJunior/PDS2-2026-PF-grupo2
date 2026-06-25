@@ -126,22 +126,22 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_login.ht
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a06c51ce9c72f03de932b6283ad92d875" id="r_a06c51ce9c72f03de932b6283ad92d875"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a06c51ce9c72f03de932b6283ad92d875">Login</a> (std::vector&lt; <a class="el" href="class_conta.html">Conta</a> &gt; contasCadastradas)</td></tr>
-<tr class="memdesc:a06c51ce9c72f03de932b6283ad92d875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="class_login.html" title="Responsável pela criação de contas, bloquear/desbloquear contas e armazenar todas as contas cadastrad...">Login</a>.  <br /></td></tr>
-<tr class="memitem:a84f8f32858ee8726b21aa6f3246eadef" id="r_a84f8f32858ee8726b21aa6f3246eadef"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a84f8f32858ee8726b21aa6f3246eadef">criarConta</a> (<a class="el" href="class_conta.html">Conta</a> contaNova)</td></tr>
-<tr class="memdesc:a84f8f32858ee8726b21aa6f3246eadef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cadastra uma nova conta.  <br /></td></tr>
+<tr class="memitem:a4924c7d6f48c835e33ed0b25a608c188" id="r_a4924c7d6f48c835e33ed0b25a608c188"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4924c7d6f48c835e33ed0b25a608c188">Login</a> (std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_conta.html">Conta</a> &gt; &gt; &amp;&amp;contasCadastradas)</td></tr>
+<tr class="memdesc:a4924c7d6f48c835e33ed0b25a608c188"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="class_login.html" title="Responsável pela criação de contas, bloquear/desbloquear contas e armazenar todas as contas cadastrad...">Login</a>.  <br /></td></tr>
+<tr class="memitem:aff0ac2b477145da3cbb126813faa0b58" id="r_aff0ac2b477145da3cbb126813faa0b58"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aff0ac2b477145da3cbb126813faa0b58">criarConta</a> (std::unique_ptr&lt; <a class="el" href="class_conta.html">Conta</a> &gt; contaNova)</td></tr>
+<tr class="memdesc:aff0ac2b477145da3cbb126813faa0b58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cadastra uma nova conta no sistema.  <br /></td></tr>
 <tr class="memitem:af87874db9a6a1f29fa20bb24bd207eee" id="r_af87874db9a6a1f29fa20bb24bd207eee"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af87874db9a6a1f29fa20bb24bd207eee">autenticarConta</a> (std::string email, std::string senha)</td></tr>
-<tr class="memdesc:af87874db9a6a1f29fa20bb24bd207eee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza autenticação de uma conta. Procura o email e verifica se a senha fornecida está correta.  <br /></td></tr>
+<tr class="memdesc:af87874db9a6a1f29fa20bb24bd207eee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza a autenticação de uma conta no sistema.  <br /></td></tr>
 <tr class="memitem:a6a017db490b36ad661813f258d34cd7a" id="r_a6a017db490b36ad661813f258d34cd7a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6a017db490b36ad661813f258d34cd7a">bloquearConta</a> (std::string email)</td></tr>
-<tr class="memdesc:a6a017db490b36ad661813f258d34cd7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se a conta está bloqueada true= conta bloqueada.  <br /></td></tr>
-<tr class="memitem:ae92106307291acc46234b61da66d1728" id="r_ae92106307291acc46234b61da66d1728"><td class="memItemLeft">std::vector&lt; <a class="el" href="class_conta.html">Conta</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ae92106307291acc46234b61da66d1728">getContasCadastradas</a> ()</td></tr>
-<tr class="memdesc:ae92106307291acc46234b61da66d1728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna as contas cadastradas.  <br /></td></tr>
+<tr class="memdesc:a6a017db490b36ad661813f258d34cd7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica e altera o status de bloqueio de uma conta específica.  <br /></td></tr>
+<tr class="memitem:a026738b18c4e121127790aa42684d44d" id="r_a026738b18c4e121127790aa42684d44d"><td class="memItemLeft">const std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_conta.html">Conta</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a026738b18c4e121127790aa42684d44d">getContasCadastradas</a> () const</td></tr>
+<tr class="memdesc:a026738b18c4e121127790aa42684d44d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a lista de todas as contas cadastradas no sistema.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Responsável pela criação de contas, bloquear/desbloquear contas e armazenar todas as contas cadastradas no sistema. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a06c51ce9c72f03de932b6283ad92d875" name="a06c51ce9c72f03de932b6283ad92d875"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06c51ce9c72f03de932b6283ad92d875">&#9670;&#160;</a></span>Login()</h2>
+<a id="a4924c7d6f48c835e33ed0b25a608c188" name="a4924c7d6f48c835e33ed0b25a608c188"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4924c7d6f48c835e33ed0b25a608c188">&#9670;&#160;</a></span>Login()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -149,7 +149,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">Login::Login </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="class_conta.html">Conta</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>contasCadastradas</em></span></td><td>)</td>
+          <td class="paramtype">std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_conta.html">Conta</a> &gt; &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>contasCadastradas</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -158,7 +158,7 @@ Public Member Functions</h2></td></tr>
 <p>Construtor da classe <a class="el" href="class_login.html" title="Responsável pela criação de contas, bloquear/desbloquear contas e armazenar todas as contas cadastrad...">Login</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">contasCadastradas</td><td>Vetor inicial das contas já cadastradas. </td></tr>
+    <tr><td class="paramname">contasCadastradas</td><td>Vetor inicial (movido) das contas já cadastradas. </td></tr>
   </table>
   </dd>
 </dl>
@@ -185,15 +185,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Realiza autenticação de uma conta. Procura o email e verifica se a senha fornecida está correta. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Realiza a autenticação de uma conta no sistema. </p>
+<p>Procura o e-mail na base de dados e verifica se a senha fornecida está correta. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">email</td><td>Email digitado. </td></tr>
-    <tr><td class="paramname">senha</td><td>Senha digitada. </td></tr>
+    <tr><td class="paramname">email</td><td>E-mail digitado pelo usuário. </td></tr>
+    <tr><td class="paramname">senha</td><td>Senha digitada pelo usuário. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true= autenticação válida. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true se a autenticação for válida, false caso as credenciais estejam erradas ou a conta não exista. </dd></dl>
 
 </div>
 </div>
@@ -212,12 +212,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Verifica se a conta está bloqueada true= conta bloqueada. </p>
+<p>Verifica e altera o status de bloqueio de uma conta específica. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>E-mail da conta a ser bloqueada. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se a conta foi encontrada e bloqueada com sucesso, false caso contrário. </dd></dl>
 
 </div>
 </div>
-<a id="a84f8f32858ee8726b21aa6f3246eadef" name="a84f8f32858ee8726b21aa6f3246eadef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84f8f32858ee8726b21aa6f3246eadef">&#9670;&#160;</a></span>criarConta()</h2>
+<a id="aff0ac2b477145da3cbb126813faa0b58" name="aff0ac2b477145da3cbb126813faa0b58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff0ac2b477145da3cbb126813faa0b58">&#9670;&#160;</a></span>criarConta()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -225,44 +232,44 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Login::criarConta </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_conta.html">Conta</a></td>          <td class="paramname"><span class="paramname"><em>contaNova</em></span></td><td>)</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="class_conta.html">Conta</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>contaNova</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Cadastra uma nova conta. </p>
+<p>Cadastra uma nova conta no sistema. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">contaNova</td><td><a class="el" href="class_conta.html" title="Classe responsável por gerenciar o perfil do usuário no sistema.">Conta</a> que sera cadastrada. </td></tr>
+    <tr><td class="paramname">contaNova</td><td>Smart pointer único da <a class="el" href="class_conta.html" title="Classe responsável por gerenciar o perfil do usuário no sistema.">Conta</a> que será cadastrada. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="ae92106307291acc46234b61da66d1728" name="ae92106307291acc46234b61da66d1728"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae92106307291acc46234b61da66d1728">&#9670;&#160;</a></span>getContasCadastradas()</h2>
+<a id="a026738b18c4e121127790aa42684d44d" name="a026738b18c4e121127790aa42684d44d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a026738b18c4e121127790aa42684d44d">&#9670;&#160;</a></span>getContasCadastradas()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="class_conta.html">Conta</a> &gt; Login::getContasCadastradas </td>
+          <td class="memname">const std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_conta.html">Conta</a> &gt; &gt; &amp; Login::getContasCadastradas </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Retorna as contas cadastradas. </p>
-<dl class="section return"><dt>Returns</dt><dd>Vetor de contas. </dd></dl>
+<p>Retorna a lista de todas as contas cadastradas no sistema. </p>
+<dl class="section return"><dt>Returns</dt><dd>Referência constante para o vetor contendo os smart pointers das contas. </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-2026-PF-grupo2/include/<a class="el" href="_login_8hpp_source.html">Login.hpp</a></li>
+<li>include/<a class="el" href="_login_8hpp_source.html">Login.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

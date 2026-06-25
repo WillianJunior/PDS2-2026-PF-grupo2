@@ -1,22 +1,9 @@
 var searchData=
 [
-  ['gerarrelatóriodeenergia_0',['gerarRelatórioDeEnergia',['../class_conta.html#a59a5eab2d81b4adbee70704340080e38',1,'Conta']]],
-  ['getativomodo_1',['getAtivoModo',['../class_modo.html#a05baa809c2ff44d55861f1ef66efc5c1',1,'Modo']]],
-  ['getbloqueadomodo_2',['getBloqueadoModo',['../class_modo.html#a6bfb007cc70a82864a4a64fa9766d0bd',1,'Modo']]],
-  ['getcomodosrelacionados_3',['getComodosRelacionados',['../class_modo.html#aa74946a717c0b58cb604809d4e3c9f04',1,'Modo']]],
-  ['getconsumomediodeenergia_4',['getConsumoMedioDeEnergia',['../class_objeto_inteligente.html#a10fa219562be617aa6597702aa474854',1,'ObjetoInteligente']]],
-  ['getcontapresente_5',['getContaPresente',['../class_comodo.html#a3fdb5b9e535ac449f21fb9f5fb58fda2',1,'Comodo']]],
-  ['getcontascadastradas_6',['getContasCadastradas',['../class_login.html#ae92106307291acc46234b61da66d1728',1,'Login']]],
-  ['getemail_7',['getEmail',['../class_conta.html#a0e9c1b914d26084711a651af07439c36',1,'Conta']]],
-  ['getestaativado_8',['getEstaAtivado',['../class_sensor.html#aa0c247ef2dd6c0ba744f9a9361cb5f4c',1,'Sensor']]],
-  ['getestaligado_9',['getEstaLigado',['../class_sensor.html#aa6425faff59322d75ecf2393e51054ac',1,'Sensor']]],
-  ['getfuncoes_10',['getFuncoes',['../class_objeto_inteligente.html#ac7f91d4e9612c8805cd0a7a6a8b7bb1a',1,'ObjetoInteligente']]],
-  ['getfuncoesrestritas_11',['getFuncoesRestritas',['../class_objeto_inteligente.html#a1537896fa8723d1b24eae1f19cb9761f',1,'ObjetoInteligente']]],
-  ['getid_12',['getId',['../class_conta.html#a861ba5a14a83d94bfd7a34fee16af274',1,'Conta']]],
-  ['getmodosconectados_13',['getModosConectados',['../class_sensor.html#a3aa55d936318f55ef11f19e748d4ee5a',1,'Sensor']]],
-  ['getnome_14',['getNome',['../class_comodo.html#a89c2e67b6daa8fe9cddecb3cf60a1619',1,'Comodo::getNome()'],['../class_conta.html#a87cd1df69c12e0dfdb6ab70a4aa2fd4b',1,'Conta::getNome()']]],
-  ['getobjetosconectados_15',['getObjetosConectados',['../class_sensor.html#a7f5d9b5c1fad9d4b4862cd734928c6d8',1,'Sensor']]],
-  ['getobjetosrelacionados_16',['getObjetosRelacionados',['../class_modo.html#a0cc310b999b1f87fec4f025441f0fc44',1,'Modo']]],
-  ['getsensores_17',['getSensores',['../class_objeto_inteligente.html#a6e6d6f5e8052fdac9489ed80d68d676a',1,'ObjetoInteligente']]],
-  ['getstatus_18',['getStatus',['../class_objeto_inteligente.html#a69bb0354607a98257ed00bf02c1dcae1',1,'ObjetoInteligente']]]
+  ['emfalha_0',['emFalha',['../class_objeto_inteligente.html#aa8beb1a85c923bb5d78eaec90219f29e',1,'ObjetoInteligente']]],
+  ['entrarconta_1',['entrarConta',['../class_comodo.html#a5402954bcff511264ee665b4ab72c39e',1,'Comodo']]],
+  ['establoqueada_2',['estaBloqueada',['../class_conta.html#a6ef03c405bf9f5cb79b490b7640a9507',1,'Conta']]],
+  ['estaemfalha_3',['estaEmFalha',['../class_objeto_inteligente.html#ab949473022d220e52caa93d23aecbcb0',1,'ObjetoInteligente']]],
+  ['executarinstrucao_4',['executarInstrucao',['../class_modo.html#ad473614e4a0dceccd897e20938a3c4e8',1,'Modo::executarInstrucao()'],['../class_modo_noturno.html#a0c7d51672307d68d420cf3408e72bb4d',1,'ModoNoturno::executarInstrucao()'],['../class_modo_cinema.html#a9f1462b81a16eeeb9febc2bf935b5b86',1,'ModoCinema::executarInstrucao()'],['../class_modo_trabalho.html#a68cdaff19145a6999e993fdb97b24a89',1,'ModoTrabalho::executarInstrucao()'],['../class_modo_ausente.html#a4c35ccc9eea08241e39dfabc307d082b',1,'ModoAusente::executarInstrucao()'],['../class_modo_festa.html#aebd10a7444ea184a70d14bc38923b613',1,'ModoFesta::executarInstrucao()'],['../class_modo_economia.html#a9dcc33cd59ecf6c57ffb122e6063131c',1,'ModoEconomia::executarInstrucao()']]],
+  ['executarnoscomodosrelacionados_5',['executarNosComodosRelacionados',['../class_modo.html#a6eae0f970b102ff66b6c08d27293e452',1,'Modo']]]
 ];

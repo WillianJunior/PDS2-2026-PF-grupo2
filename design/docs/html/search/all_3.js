@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['editarmodo_0',['editarModo',['../class_conta.html#a7d917bda731012e4f79cbd285f90ee5a',1,'Conta']]],
-  ['entrarconta_1',['entrarConta',['../class_comodo.html#a5402954bcff511264ee665b4ab72c39e',1,'Comodo']]]
+  ['desbloquear_0',['desbloquear',['../class_conta.html#ae2181c5d99f15531bf082177d1e5994b',1,'Conta']]],
+  ['desfazerinstrucao_1',['desfazerInstrucao',['../class_modo.html#a0b36a65c4d4796daf162803106d9af8f',1,'Modo']]],
+  ['desligar_2',['desligar',['../class_t_v.html#a35ca8e2fb6844c4902917e0f14eb7a18',1,'TV::desligar()'],['../class_ar_condicionado.html#a19f82a5748cc54b6b73cc43255e8167e',1,'ArCondicionado::desligar()']]]
 ];

@@ -1,0 +1,55 @@
+\doxysection{Interface.\+hpp}
+\hypertarget{_interface_8hpp_source}{}\label{_interface_8hpp_source}\index{include/Interface.hpp@{include/Interface.hpp}}
+\doxymbox{\hyperlink{_interface_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ INTERFACE\_HPP}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ INTERFACE\_HPP}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_login_8hpp}{Login.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_conta_8hpp}{Conta.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_smarthome_8hpp}{Smarthome.hpp}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_comodo_8hpp}{Comodo.hpp}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_interface_a4406d74c75bdfe150bf72be1f1cda8b1}{Interface}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ \doxymbox{\hyperlink{class_login}{Login}}\ sistemaLogin;}
+\DoxyCodeLine{00024\ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \doxymbox{\hyperlink{class_conta}{Conta}}*\ usuarioLogado\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ exibirMenuInicial();}
+\DoxyCodeLine{00032\ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ exibirMenuConta();}
+\DoxyCodeLine{00037\ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ exibirMenuSmarthome();}
+\DoxyCodeLine{00042\ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ gerenciarSmarthome(\doxymbox{\hyperlink{class_smarthome}{Smarthome}}*\ casa);}
+\DoxyCodeLine{00048\ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ exibirMenuComodos(\doxymbox{\hyperlink{class_smarthome}{Smarthome}}*\ casa);}
+\DoxyCodeLine{00054\ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ gerenciarComodoEspecifico(\doxymbox{\hyperlink{class_smarthome}{Smarthome}}*\ casa,\ \doxymbox{\hyperlink{class_comodo}{Comodo}}*\ comodo);}
+\DoxyCodeLine{00061\ \ \ \ \ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ exibirMenuModos(\doxymbox{\hyperlink{class_smarthome}{Smarthome}}*\ casa);}
+\DoxyCodeLine{00067\ \ \ \ \ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ gerenciarModoEspecifico(\doxymbox{\hyperlink{class_smarthome}{Smarthome}}*\ casa,\ std::string\ nomeModo);}
+\DoxyCodeLine{00074\ \ \ \ \ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ criarCasaPadrao(\doxymbox{\hyperlink{class_smarthome}{Smarthome}}*\ casa);}
+\DoxyCodeLine{00080\ \ \ \ \ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ mostrarPlantaCasa(\doxymbox{\hyperlink{class_smarthome}{Smarthome}}*\ casa);}
+\DoxyCodeLine{00086\ \ \ \ \ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ realizarLogin();}
+\DoxyCodeLine{00091\ \ \ \ \ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ cadastrarConta();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00103\ \ \ \ \ \doxymbox{\hyperlink{class_interface_a4406d74c75bdfe150bf72be1f1cda8b1}{Interface}}();}
+\DoxyCodeLine{00104\ \ \ \ \ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_interface_aa70784b73f8cdcf096ebac405a3b01c3}{iniciar}}();}
+\DoxyCodeLine{00109\ \};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

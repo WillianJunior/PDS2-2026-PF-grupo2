@@ -126,58 +126,80 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_conta.ht
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a925d1f01368204ed5148d4d2628c712f" id="r_a925d1f01368204ed5148d4d2628c712f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a925d1f01368204ed5148d4d2628c712f">Conta</a> (std::string id, std::string nome, std::string email, std::string senha, bool adulto=true)</td></tr>
-<tr class="memdesc:a925d1f01368204ed5148d4d2628c712f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="class_conta.html" title="Classe responsável por gerenciar o perfil do usuário no sistema.">Conta</a>.  <br /></td></tr>
+<tr class="memitem:a2093d53408617992d83461eb0c84cc3a" id="r_a2093d53408617992d83461eb0c84cc3a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2093d53408617992d83461eb0c84cc3a">Conta</a> (const std::string &amp;id, const std::string &amp;nome, const std::string &amp;email, const std::string &amp;senha, bool adulto=true)</td></tr>
+<tr class="memdesc:a2093d53408617992d83461eb0c84cc3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="class_conta.html" title="Classe responsável por gerenciar o perfil do usuário no sistema.">Conta</a>.  <br /></td></tr>
 <tr class="memitem:a5e6a486a48163232c609532fe14de551" id="r_a5e6a486a48163232c609532fe14de551"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5e6a486a48163232c609532fe14de551">~Conta</a> ()=default</td></tr>
-<tr class="memitem:a861ba5a14a83d94bfd7a34fee16af274" id="r_a861ba5a14a83d94bfd7a34fee16af274"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a861ba5a14a83d94bfd7a34fee16af274">getId</a> () const</td></tr>
-<tr class="memdesc:a861ba5a14a83d94bfd7a34fee16af274"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o id da conta.  <br /></td></tr>
-<tr class="memitem:a87cd1df69c12e0dfdb6ab70a4aa2fd4b" id="r_a87cd1df69c12e0dfdb6ab70a4aa2fd4b"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a87cd1df69c12e0dfdb6ab70a4aa2fd4b">getNome</a> () const</td></tr>
-<tr class="memdesc:a87cd1df69c12e0dfdb6ab70a4aa2fd4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o nome da conta.  <br /></td></tr>
-<tr class="memitem:a0e9c1b914d26084711a651af07439c36" id="r_a0e9c1b914d26084711a651af07439c36"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a0e9c1b914d26084711a651af07439c36">getEmail</a> () const</td></tr>
-<tr class="memdesc:a0e9c1b914d26084711a651af07439c36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o email da conta.  <br /></td></tr>
+<tr class="memitem:a2ed276d71c75fffbab2430bb3f83620d" id="r_a2ed276d71c75fffbab2430bb3f83620d"><td class="memItemLeft">const std::string &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2ed276d71c75fffbab2430bb3f83620d">getId</a> () const</td></tr>
+<tr class="memdesc:a2ed276d71c75fffbab2430bb3f83620d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o id da conta.  <br /></td></tr>
+<tr class="memitem:a43577c93565b18ac010d57f6bb8ecb11" id="r_a43577c93565b18ac010d57f6bb8ecb11"><td class="memItemLeft">const std::string &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a43577c93565b18ac010d57f6bb8ecb11">getNome</a> () const</td></tr>
+<tr class="memdesc:a43577c93565b18ac010d57f6bb8ecb11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o nome da conta.  <br /></td></tr>
+<tr class="memitem:a1e31f5d9bd20583843356d58a529305d" id="r_a1e31f5d9bd20583843356d58a529305d"><td class="memItemLeft">const std::string &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1e31f5d9bd20583843356d58a529305d">getEmail</a> () const</td></tr>
+<tr class="memdesc:a1e31f5d9bd20583843356d58a529305d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o email da conta.  <br /></td></tr>
 <tr class="memitem:a95154f09dfa0fb287debac5f147902e1" id="r_a95154f09dfa0fb287debac5f147902e1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a95154f09dfa0fb287debac5f147902e1">isPerfilAdulto</a> () const</td></tr>
-<tr class="memdesc:a95154f09dfa0fb287debac5f147902e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o nome da conta.  <br /></td></tr>
-<tr class="memitem:a5f30f0c15a54fb9089b0760dd83999c0" id="r_a5f30f0c15a54fb9089b0760dd83999c0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5f30f0c15a54fb9089b0760dd83999c0">criarSmarthome</a> (std::string id, std::string nome)</td></tr>
-<tr class="memdesc:a5f30f0c15a54fb9089b0760dd83999c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para criar uma smarthome.  <br /></td></tr>
-<tr class="memitem:a583b73eeb5cd32e4a9f4e82efe531ef8" id="r_a583b73eeb5cd32e4a9f4e82efe531ef8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a583b73eeb5cd32e4a9f4e82efe531ef8">apagarSmarthome</a> (Smarthome smarthome)</td></tr>
-<tr class="memdesc:a583b73eeb5cd32e4a9f4e82efe531ef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para criar uma smarthome.  <br /></td></tr>
-<tr class="memitem:a0dd6ee7802f46d565da5a9a1865efc8d" id="r_a0dd6ee7802f46d565da5a9a1865efc8d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0dd6ee7802f46d565da5a9a1865efc8d">criarCômodo</a> (Smarthome smarthome, std::string nome)</td></tr>
-<tr class="memdesc:a0dd6ee7802f46d565da5a9a1865efc8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para criar um cômodo.  <br /></td></tr>
-<tr class="memitem:a2c54f68e04117d711ef01594a365af05" id="r_a2c54f68e04117d711ef01594a365af05"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2c54f68e04117d711ef01594a365af05">apagarCômodo</a> (Smarthome smarthome, std::string nome)</td></tr>
-<tr class="memdesc:a2c54f68e04117d711ef01594a365af05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para apagar um cômodo.  <br /></td></tr>
-<tr class="memitem:ae082a357ed295b325b62e3299ae29f72" id="r_ae082a357ed295b325b62e3299ae29f72"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae082a357ed295b325b62e3299ae29f72">criarModo</a> (Smarthome smarthome, std::string nome)</td></tr>
-<tr class="memdesc:ae082a357ed295b325b62e3299ae29f72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para criar um modo.  <br /></td></tr>
-<tr class="memitem:ae5874f0c78e535ae661d22e311791192" id="r_ae5874f0c78e535ae661d22e311791192"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae5874f0c78e535ae661d22e311791192">apagarModo</a> (Smarthome smarthome, std::string nome)</td></tr>
-<tr class="memdesc:ae5874f0c78e535ae661d22e311791192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para remover um modo.  <br /></td></tr>
-<tr class="memitem:a7d917bda731012e4f79cbd285f90ee5a" id="r_a7d917bda731012e4f79cbd285f90ee5a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7d917bda731012e4f79cbd285f90ee5a">editarModo</a> (Smarthome smarthome, std::string nome)</td></tr>
-<tr class="memdesc:a7d917bda731012e4f79cbd285f90ee5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para editar um modo.  <br /></td></tr>
-<tr class="memitem:afe20aba40d8b23bd460baaac0993ebc8" id="r_afe20aba40d8b23bd460baaac0993ebc8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afe20aba40d8b23bd460baaac0993ebc8">criarObjeto</a> (Smarthome smarthome, <a class="el" href="class_comodo.html">Comodo</a> comodo, std::string nome)</td></tr>
-<tr class="memdesc:afe20aba40d8b23bd460baaac0993ebc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para criar um objeto inteligente.  <br /></td></tr>
-<tr class="memitem:adb5e7275ddb1d40aed9f4977d59da6de" id="r_adb5e7275ddb1d40aed9f4977d59da6de"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#adb5e7275ddb1d40aed9f4977d59da6de">apagarObjeto</a> (Smarthome smarthome, <a class="el" href="class_comodo.html">Comodo</a> comodo, std::string nome)</td></tr>
-<tr class="memdesc:adb5e7275ddb1d40aed9f4977d59da6de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para apagar um objeto inteligente.  <br /></td></tr>
-<tr class="memitem:acc5c7e19d466d52f4b5d5b668988759c" id="r_acc5c7e19d466d52f4b5d5b668988759c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acc5c7e19d466d52f4b5d5b668988759c">moverObjeto</a> (Smarthome smarthome, <a class="el" href="class_comodo.html">Comodo</a> atual, std::string nome, <a class="el" href="class_comodo.html">Comodo</a> destino)</td></tr>
-<tr class="memdesc:acc5c7e19d466d52f4b5d5b668988759c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para mover um objeto inteligente.  <br /></td></tr>
-<tr class="memitem:a31eba6f7cc97515f0739972d990cb190" id="r_a31eba6f7cc97515f0739972d990cb190"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a31eba6f7cc97515f0739972d990cb190">criarSensor</a> (Smarthome smarthome, <a class="el" href="class_comodo.html">Comodo</a> comodo, std::string nome)</td></tr>
-<tr class="memdesc:a31eba6f7cc97515f0739972d990cb190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para criar um sensor.  <br /></td></tr>
-<tr class="memitem:abf7c8bc5eb62d82fc7129a3c9862e8b3" id="r_abf7c8bc5eb62d82fc7129a3c9862e8b3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abf7c8bc5eb62d82fc7129a3c9862e8b3">apagarSensor</a> (Smarthome smarthome, <a class="el" href="class_comodo.html">Comodo</a> comodo, std::string nome)</td></tr>
-<tr class="memdesc:abf7c8bc5eb62d82fc7129a3c9862e8b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para apagar um sensor.  <br /></td></tr>
-<tr class="memitem:afc8d1a2ae17f55e73140912dd984e6a3" id="r_afc8d1a2ae17f55e73140912dd984e6a3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afc8d1a2ae17f55e73140912dd984e6a3">moverSensor</a> (Smarthome smarthome, <a class="el" href="class_comodo.html">Comodo</a> atual, std::string nome, <a class="el" href="class_comodo.html">Comodo</a> destino)</td></tr>
-<tr class="memdesc:afc8d1a2ae17f55e73140912dd984e6a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para mover um sensor.  <br /></td></tr>
-<tr class="memitem:a59a5eab2d81b4adbee70704340080e38" id="r_a59a5eab2d81b4adbee70704340080e38"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a59a5eab2d81b4adbee70704340080e38">gerarRelatórioDeEnergia</a> (Smarthome smarthome)</td></tr>
-<tr class="memdesc:a59a5eab2d81b4adbee70704340080e38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para gerar relatório de gasto de energia.  <br /></td></tr>
+<tr class="memdesc:a95154f09dfa0fb287debac5f147902e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se o perfil da conta é de adulto.  <br /></td></tr>
+<tr class="memitem:a6ef03c405bf9f5cb79b490b7640a9507" id="r_a6ef03c405bf9f5cb79b490b7640a9507"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6ef03c405bf9f5cb79b490b7640a9507">estaBloqueada</a> () const</td></tr>
+<tr class="memdesc:a6ef03c405bf9f5cb79b490b7640a9507"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se a conta está bloqueada.  <br /></td></tr>
+<tr class="memitem:a8e194afe6d1a8ff6267b73047a5a96d1" id="r_a8e194afe6d1a8ff6267b73047a5a96d1"><td class="memItemLeft">const std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_smarthome.html">Smarthome</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a8e194afe6d1a8ff6267b73047a5a96d1">getSmarthomes</a> () const</td></tr>
+<tr class="memdesc:a8e194afe6d1a8ff6267b73047a5a96d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a lista de smarthomes da conta.  <br /></td></tr>
+<tr class="memitem:ae33f34003d04d137c22bec58a11916a3" id="r_ae33f34003d04d137c22bec58a11916a3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae33f34003d04d137c22bec58a11916a3">bloquear</a> ()</td></tr>
+<tr class="memdesc:ae33f34003d04d137c22bec58a11916a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bloqueia a conta, impedindo o acesso.  <br /></td></tr>
+<tr class="memitem:ae2181c5d99f15531bf082177d1e5994b" id="r_ae2181c5d99f15531bf082177d1e5994b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae2181c5d99f15531bf082177d1e5994b">desbloquear</a> ()</td></tr>
+<tr class="memdesc:ae2181c5d99f15531bf082177d1e5994b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desbloqueia a conta, permitindo o acesso novamente.  <br /></td></tr>
+<tr class="memitem:ab3735b5fca9584ef380ee41ece958800" id="r_ab3735b5fca9584ef380ee41ece958800"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab3735b5fca9584ef380ee41ece958800">criarSmarthome</a> (const std::string &amp;id, const std::string &amp;nome)</td></tr>
+<tr class="memdesc:ab3735b5fca9584ef380ee41ece958800"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para criar uma smarthome e vinculá-la à conta.  <br /></td></tr>
+<tr class="memitem:ababfd96c0bb8954050ef4704ad22a40c" id="r_ababfd96c0bb8954050ef4704ad22a40c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ababfd96c0bb8954050ef4704ad22a40c">apagarSmarthome</a> (const <a class="el" href="class_smarthome.html">Smarthome</a> &amp;smarthome)</td></tr>
+<tr class="memdesc:ababfd96c0bb8954050ef4704ad22a40c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para remover uma smarthome da conta.  <br /></td></tr>
+<tr class="memitem:aedf3596ad94ab0591d8a29878c218edf" id="r_aedf3596ad94ab0591d8a29878c218edf"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aedf3596ad94ab0591d8a29878c218edf">criarComodo</a> (<a class="el" href="class_smarthome.html">Smarthome</a> *smarthome, const std::string &amp;nome)</td></tr>
+<tr class="memdesc:aedf3596ad94ab0591d8a29878c218edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para criar um cômodo dentro de uma smarthome específica.  <br /></td></tr>
+<tr class="memitem:acfe3d82d6b4c280106f92c39833fb848" id="r_acfe3d82d6b4c280106f92c39833fb848"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acfe3d82d6b4c280106f92c39833fb848">apagarComodo</a> (<a class="el" href="class_smarthome.html">Smarthome</a> *smarthome, const std::string &amp;nome)</td></tr>
+<tr class="memdesc:acfe3d82d6b4c280106f92c39833fb848"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para apagar um cômodo de uma smarthome.  <br /></td></tr>
+<tr class="memitem:ac1fe8338abf39a0bf02a2604a879f63f" id="r_ac1fe8338abf39a0bf02a2604a879f63f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac1fe8338abf39a0bf02a2604a879f63f">criarModo</a> (<a class="el" href="class_smarthome.html">Smarthome</a> *smarthome, const std::string &amp;nome)</td></tr>
+<tr class="memdesc:ac1fe8338abf39a0bf02a2604a879f63f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para criar um modo customizado vazio.  <br /></td></tr>
+<tr class="memitem:a1496cce6c93963f2375f2d5eca826345" id="r_a1496cce6c93963f2375f2d5eca826345"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1496cce6c93963f2375f2d5eca826345">criarModoPorTipo</a> (<a class="el" href="class_smarthome.html">Smarthome</a> *smarthome, const std::string &amp;nome, int tipoModo)</td></tr>
+<tr class="memdesc:a1496cce6c93963f2375f2d5eca826345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para criar um modo de um tipo específico (pré-configurado).  <br /></td></tr>
+<tr class="memitem:a7c26a0fac041b7afd119f4617beaebf3" id="r_a7c26a0fac041b7afd119f4617beaebf3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7c26a0fac041b7afd119f4617beaebf3">apagarModo</a> (<a class="el" href="class_smarthome.html">Smarthome</a> *smarthome, const std::string &amp;nome)</td></tr>
+<tr class="memdesc:a7c26a0fac041b7afd119f4617beaebf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para remover um modo do sistema.  <br /></td></tr>
+<tr class="memitem:a357288f57326b08c5382404064dc5588" id="r_a357288f57326b08c5382404064dc5588"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a357288f57326b08c5382404064dc5588">criarObjeto</a> (<a class="el" href="class_smarthome.html">Smarthome</a> *smarthome, <a class="el" href="class_comodo.html">Comodo</a> *comodo, const std::string &amp;nome)</td></tr>
+<tr class="memdesc:a357288f57326b08c5382404064dc5588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando genérico para criar um objeto inteligente.  <br /></td></tr>
+<tr class="memitem:a61bd3586935ca026070c8051cf7add45" id="r_a61bd3586935ca026070c8051cf7add45"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a61bd3586935ca026070c8051cf7add45">apagarObjeto</a> (<a class="el" href="class_smarthome.html">Smarthome</a> *smarthome, <a class="el" href="class_comodo.html">Comodo</a> *comodo, const std::string &amp;nome)</td></tr>
+<tr class="memdesc:a61bd3586935ca026070c8051cf7add45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para apagar um objeto inteligente existente.  <br /></td></tr>
+<tr class="memitem:abdad10ee5cd1784eca6d9b69f52dd71f" id="r_abdad10ee5cd1784eca6d9b69f52dd71f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abdad10ee5cd1784eca6d9b69f52dd71f">moverObjeto</a> (<a class="el" href="class_smarthome.html">Smarthome</a> *smarthome, <a class="el" href="class_comodo.html">Comodo</a> *atual, const std::string &amp;nome, <a class="el" href="class_comodo.html">Comodo</a> *destino)</td></tr>
+<tr class="memdesc:abdad10ee5cd1784eca6d9b69f52dd71f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para mover um objeto inteligente entre cômodos físicos.  <br /></td></tr>
+<tr class="memitem:ae3eaa16ec1111de4c10a85a30ebb7978" id="r_ae3eaa16ec1111de4c10a85a30ebb7978"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae3eaa16ec1111de4c10a85a30ebb7978">criarSensor</a> (<a class="el" href="class_smarthome.html">Smarthome</a> *smarthome, <a class="el" href="class_comodo.html">Comodo</a> *comodo, const std::string &amp;nome)</td></tr>
+<tr class="memdesc:ae3eaa16ec1111de4c10a85a30ebb7978"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para criar um novo sensor no ambiente.  <br /></td></tr>
+<tr class="memitem:a647772bc310c19a0066a94a3ee091b09" id="r_a647772bc310c19a0066a94a3ee091b09"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a647772bc310c19a0066a94a3ee091b09">apagarSensor</a> (<a class="el" href="class_smarthome.html">Smarthome</a> *smarthome, <a class="el" href="class_comodo.html">Comodo</a> *comodo, const std::string &amp;nome)</td></tr>
+<tr class="memdesc:a647772bc310c19a0066a94a3ee091b09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para apagar um sensor existente.  <br /></td></tr>
+<tr class="memitem:a863bf509158abc82729be55ea007f65f" id="r_a863bf509158abc82729be55ea007f65f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a863bf509158abc82729be55ea007f65f">moverSensor</a> (<a class="el" href="class_smarthome.html">Smarthome</a> *smarthome, <a class="el" href="class_comodo.html">Comodo</a> *atual, const std::string &amp;nome, <a class="el" href="class_comodo.html">Comodo</a> *destino)</td></tr>
+<tr class="memdesc:a863bf509158abc82729be55ea007f65f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para mover um sensor de um cômodo para outro.  <br /></td></tr>
+<tr class="memitem:a57137baa73bfc50c38dca115162dd1d1" id="r_a57137baa73bfc50c38dca115162dd1d1"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a57137baa73bfc50c38dca115162dd1d1">gerarRelatorioDeEnergia</a> (<a class="el" href="class_smarthome.html">Smarthome</a> *smarthome)</td></tr>
+<tr class="memdesc:a57137baa73bfc50c38dca115162dd1d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para gerar relatório consolidado de gasto de energia da casa.  <br /></td></tr>
 <tr class="memitem:a6cbfe7729736200e51a05556ac160f07" id="r_a6cbfe7729736200e51a05556ac160f07"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6cbfe7729736200e51a05556ac160f07">validarFormatoEmail</a> () const</td></tr>
-<tr class="memdesc:a6cbfe7729736200e51a05556ac160f07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valida se o formato do e-mail é válido.  <br /></td></tr>
+<tr class="memdesc:a6cbfe7729736200e51a05556ac160f07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valida se o formato do e-mail da conta é estruturalmente válido.  <br /></td></tr>
 <tr class="memitem:ad7d697003c29c77dddf3bd4350cfdf81" id="r_ad7d697003c29c77dddf3bd4350cfdf81"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad7d697003c29c77dddf3bd4350cfdf81">validarSenha</a> () const</td></tr>
-<tr class="memdesc:ad7d697003c29c77dddf3bd4350cfdf81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se a senha atende de segurança.  <br /></td></tr>
+<tr class="memdesc:ad7d697003c29c77dddf3bd4350cfdf81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se a senha atende aos requisitos mínimos de segurança.  <br /></td></tr>
 <tr class="memitem:a79a1f883a91afd381afd9818bfbcd3e6" id="r_a79a1f883a91afd381afd9818bfbcd3e6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a79a1f883a91afd381afd9818bfbcd3e6">autenticar</a> (const std::string &amp;tentativaSenha) const</td></tr>
-<tr class="memdesc:a79a1f883a91afd381afd9818bfbcd3e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Autentica a conta comparando a senha fornecida.  <br /></td></tr>
+<tr class="memdesc:a79a1f883a91afd381afd9818bfbcd3e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Autentica a conta comparando a senha armazenada com a fornecida.  <br /></td></tr>
+<tr class="memitem:aae07ee10017befbfa22f2d448a2d7bf0" id="r_aae07ee10017befbfa22f2d448a2d7bf0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aae07ee10017befbfa22f2d448a2d7bf0">operator==</a> (const <a class="el" href="class_conta.html">Conta</a> &amp;other) const</td></tr>
+<tr class="memdesc:aae07ee10017befbfa22f2d448a2d7bf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador de igualdade para comparar contas.  <br /></td></tr>
+<tr class="memitem:ac263edaa465a7163828569b7d9b9922a" id="r_ac263edaa465a7163828569b7d9b9922a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac263edaa465a7163828569b7d9b9922a">printMembrosInfo</a> () const</td></tr>
+<tr class="memdesc:ac263edaa465a7163828569b7d9b9922a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime no terminal as informações básicas (membros/atributos) da conta.  <br /></td></tr>
+<tr class="memitem:adbe4583d73807652f6ba04d6eae52eb5" id="r_adbe4583d73807652f6ba04d6eae52eb5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#adbe4583d73807652f6ba04d6eae52eb5">CaracteresValidos</a> (const std::string &amp;str) const</td></tr>
+<tr class="memdesc:adbe4583d73807652f6ba04d6eae52eb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checa se a string contém caracteres válidos (apenas letras, espaços ou números).  <br /></td></tr>
+<tr class="memitem:a04b78b77a8647959fb19a6e4b6822f80" id="r_a04b78b77a8647959fb19a6e4b6822f80"><td class="memItemLeft">const std::string &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a04b78b77a8647959fb19a6e4b6822f80">getSenha</a> () const</td></tr>
+<tr class="memdesc:a04b78b77a8647959fb19a6e4b6822f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a senha atual da conta.  <br /></td></tr>
+<tr class="memitem:af9db6cac2110e195eb671b658955deee" id="r_af9db6cac2110e195eb671b658955deee"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af9db6cac2110e195eb671b658955deee">salvarSmarthomesEmArquivo</a> () const</td></tr>
+<tr class="memdesc:af9db6cac2110e195eb671b658955deee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Salva todas as smarthomes da conta em um arquivo de texto (.txt).  <br /></td></tr>
+<tr class="memitem:a8a47b971f8ebe1712a51c5032add0c06" id="r_a8a47b971f8ebe1712a51c5032add0c06"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8a47b971f8ebe1712a51c5032add0c06">carregarSmarthomesDeArquivo</a> ()</td></tr>
+<tr class="memdesc:a8a47b971f8ebe1712a51c5032add0c06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega as smarthomes a partir de um arquivo de texto (.txt) salvo previamente.  <br /></td></tr>
+<tr class="memitem:aaa2dc57b6edaeab4465fd486efbf389c" id="r_aaa2dc57b6edaeab4465fd486efbf389c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aaa2dc57b6edaeab4465fd486efbf389c">criarObjetoPorTipo</a> (<a class="el" href="class_smarthome.html">Smarthome</a> *smarthome, <a class="el" href="class_comodo.html">Comodo</a> *comodo, std::string nome, int tipoObjeto)</td></tr>
+<tr class="memdesc:aaa2dc57b6edaeab4465fd486efbf389c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comando para criar um objeto inteligente de um tipo derivado específico.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Classe responsável por gerenciar o perfil do usuário no sistema. </p>
 <p>Esta classe atende a User Story Criação de Perfil e User Story Controle Parental, diferenciando usuários adultos de infantis. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a925d1f01368204ed5148d4d2628c712f" name="a925d1f01368204ed5148d4d2628c712f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a925d1f01368204ed5148d4d2628c712f">&#9670;&#160;</a></span>Conta()</h2>
+<a id="a2093d53408617992d83461eb0c84cc3a" name="a2093d53408617992d83461eb0c84cc3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2093d53408617992d83461eb0c84cc3a">&#9670;&#160;</a></span>Conta()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,22 +207,22 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">Conta::Conta </td>
           <td>(</td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>, </td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>email</em></span>, </td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>email</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>senha</em></span>, </td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>senha</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -250,38 +272,38 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a2c54f68e04117d711ef01594a365af05" name="a2c54f68e04117d711ef01594a365af05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c54f68e04117d711ef01594a365af05">&#9670;&#160;</a></span>apagarCômodo()</h2>
+<a id="acfe3d82d6b4c280106f92c39833fb848" name="acfe3d82d6b4c280106f92c39833fb848"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfe3d82d6b4c280106f92c39833fb848">&#9670;&#160;</a></span>apagarComodo()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Conta::apagarCômodo </td>
+          <td class="memname">void Conta::apagarComodo </td>
           <td>(</td>
-          <td class="paramtype">Smarthome</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
+          <td class="paramtype"><a class="el" href="class_smarthome.html">Smarthome</a> *</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Comando para apagar um cômodo. </p>
+<p>Comando para apagar um cômodo de uma smarthome. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">smarthome</td><td>Smarthome em que o cômodo será apagado. </td></tr>
-    <tr><td class="paramname">nome</td><td>Nome do cômodo. </td></tr>
+    <tr><td class="paramname">smarthome</td><td>Ponteiro para a <a class="el" href="class_smarthome.html">Smarthome</a> de onde o cômodo será apagado. </td></tr>
+    <tr><td class="paramname">nome</td><td>Nome do cômodo a ser removido. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="ae5874f0c78e535ae661d22e311791192" name="ae5874f0c78e535ae661d22e311791192"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5874f0c78e535ae661d22e311791192">&#9670;&#160;</a></span>apagarModo()</h2>
+<a id="a7c26a0fac041b7afd119f4617beaebf3" name="a7c26a0fac041b7afd119f4617beaebf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c26a0fac041b7afd119f4617beaebf3">&#9670;&#160;</a></span>apagarModo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -289,29 +311,29 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Conta::apagarModo </td>
           <td>(</td>
-          <td class="paramtype">Smarthome</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
+          <td class="paramtype"><a class="el" href="class_smarthome.html">Smarthome</a> *</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Comando para remover um modo. </p>
+<p>Comando para remover um modo do sistema. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">smarthome</td><td>Smarthome em que o modo será removido. </td></tr>
-    <tr><td class="paramname">nome</td><td>Nome do modo que será removido. </td></tr>
+    <tr><td class="paramname">smarthome</td><td>Ponteiro para a <a class="el" href="class_smarthome.html">Smarthome</a> de onde o modo será removido. </td></tr>
+    <tr><td class="paramname">nome</td><td>Nome exato do modo que será removido. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="adb5e7275ddb1d40aed9f4977d59da6de" name="adb5e7275ddb1d40aed9f4977d59da6de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb5e7275ddb1d40aed9f4977d59da6de">&#9670;&#160;</a></span>apagarObjeto()</h2>
+<a id="a61bd3586935ca026070c8051cf7add45" name="a61bd3586935ca026070c8051cf7add45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61bd3586935ca026070c8051cf7add45">&#9670;&#160;</a></span>apagarObjeto()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -319,35 +341,35 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Conta::apagarObjeto </td>
           <td>(</td>
-          <td class="paramtype">Smarthome</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
+          <td class="paramtype"><a class="el" href="class_smarthome.html">Smarthome</a> *</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a></td>          <td class="paramname"><span class="paramname"><em>comodo</em></span>, </td>
+          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a> *</td>          <td class="paramname"><span class="paramname"><em>comodo</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Comando para apagar um objeto inteligente. </p>
+<p>Comando para apagar um objeto inteligente existente. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">smarthome</td><td>Smarthome em que o objeto será apagado. </td></tr>
-    <tr><td class="paramname">comodo</td><td><a class="el" href="class_comodo.html">Comodo</a> em que o objeto será apagado. </td></tr>
-    <tr><td class="paramname">nome</td><td>Nome da smarthome em que o cômodo será apagado. </td></tr>
+    <tr><td class="paramname">smarthome</td><td>Ponteiro para a <a class="el" href="class_smarthome.html">Smarthome</a> de onde o objeto será apagado. </td></tr>
+    <tr><td class="paramname">comodo</td><td>Ponteiro para o Cômodo de onde o objeto será retirado. </td></tr>
+    <tr><td class="paramname">nome</td><td>Nome exato do objeto a ser apagado. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="abf7c8bc5eb62d82fc7129a3c9862e8b3" name="abf7c8bc5eb62d82fc7129a3c9862e8b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf7c8bc5eb62d82fc7129a3c9862e8b3">&#9670;&#160;</a></span>apagarSensor()</h2>
+<a id="a647772bc310c19a0066a94a3ee091b09" name="a647772bc310c19a0066a94a3ee091b09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a647772bc310c19a0066a94a3ee091b09">&#9670;&#160;</a></span>apagarSensor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -355,35 +377,35 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Conta::apagarSensor </td>
           <td>(</td>
-          <td class="paramtype">Smarthome</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
+          <td class="paramtype"><a class="el" href="class_smarthome.html">Smarthome</a> *</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a></td>          <td class="paramname"><span class="paramname"><em>comodo</em></span>, </td>
+          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a> *</td>          <td class="paramname"><span class="paramname"><em>comodo</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Comando para apagar um sensor. </p>
+<p>Comando para apagar um sensor existente. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">smarthome</td><td>Smarthome em que o objeto será apagado. </td></tr>
-    <tr><td class="paramname">comodo</td><td><a class="el" href="class_comodo.html">Comodo</a> em que o objeto será apagado. </td></tr>
-    <tr><td class="paramname">nome</td><td>Nome da smarthome em que o cômodo será apagado. </td></tr>
+    <tr><td class="paramname">smarthome</td><td>Ponteiro para a <a class="el" href="class_smarthome.html">Smarthome</a> de onde o sensor será apagado. </td></tr>
+    <tr><td class="paramname">comodo</td><td>Ponteiro para o Cômodo de onde o sensor será retirado. </td></tr>
+    <tr><td class="paramname">nome</td><td>Nome exato do sensor a ser apagado. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a583b73eeb5cd32e4a9f4e82efe531ef8" name="a583b73eeb5cd32e4a9f4e82efe531ef8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a583b73eeb5cd32e4a9f4e82efe531ef8">&#9670;&#160;</a></span>apagarSmarthome()</h2>
+<a id="ababfd96c0bb8954050ef4704ad22a40c" name="ababfd96c0bb8954050ef4704ad22a40c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ababfd96c0bb8954050ef4704ad22a40c">&#9670;&#160;</a></span>apagarSmarthome()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -391,16 +413,16 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Conta::apagarSmarthome </td>
           <td>(</td>
-          <td class="paramtype">Smarthome</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="class_smarthome.html">Smarthome</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Comando para criar uma smarthome. </p>
+<p>Comando para remover uma smarthome da conta. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">smarthome</td><td>Smarthome a ser apagada. </td></tr>
+    <tr><td class="paramname">smarthome</td><td>Referência da <a class="el" href="class_smarthome.html">Smarthome</a> a ser apagada. </td></tr>
   </table>
   </dd>
 </dl>
@@ -422,40 +444,104 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Autentica a conta comparando a senha fornecida. </p>
+<p>Autentica a conta comparando a senha armazenada com a fornecida. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tentativaSenha</td><td>Senha digitada no login. </td></tr>
+    <tr><td class="paramname">tentativaSenha</td><td>Senha digitada no momento do login. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true = correta. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true se as senhas coincidirem, false caso contrário. </dd></dl>
 
 </div>
 </div>
-<a id="a0dd6ee7802f46d565da5a9a1865efc8d" name="a0dd6ee7802f46d565da5a9a1865efc8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0dd6ee7802f46d565da5a9a1865efc8d">&#9670;&#160;</a></span>criarCômodo()</h2>
+<a id="ae33f34003d04d137c22bec58a11916a3" name="ae33f34003d04d137c22bec58a11916a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae33f34003d04d137c22bec58a11916a3">&#9670;&#160;</a></span>bloquear()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Conta::criarCômodo </td>
+          <td class="memname">void Conta::bloquear </td>
           <td>(</td>
-          <td class="paramtype">Smarthome</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Comando para criar um cômodo. </p>
+<p>Bloqueia a conta, impedindo o acesso. </p>
+
+</div>
+</div>
+<a id="adbe4583d73807652f6ba04d6eae52eb5" name="adbe4583d73807652f6ba04d6eae52eb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbe4583d73807652f6ba04d6eae52eb5">&#9670;&#160;</a></span>CaracteresValidos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Conta::CaracteresValidos </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checa se a string contém caracteres válidos (apenas letras, espaços ou números). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">smarthome</td><td>Smarthome em que o cômodo será adicionado. </td></tr>
+    <tr><td class="paramname">str</td><td>Texto a ser analisado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se for válido, false se contiver caracteres especiais. </dd></dl>
+
+</div>
+</div>
+<a id="a8a47b971f8ebe1712a51c5032add0c06" name="a8a47b971f8ebe1712a51c5032add0c06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a47b971f8ebe1712a51c5032add0c06">&#9670;&#160;</a></span>carregarSmarthomesDeArquivo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Conta::carregarSmarthomesDeArquivo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Carrega as smarthomes a partir de um arquivo de texto (.txt) salvo previamente. </p>
+
+</div>
+</div>
+<a id="aedf3596ad94ab0591d8a29878c218edf" name="aedf3596ad94ab0591d8a29878c218edf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedf3596ad94ab0591d8a29878c218edf">&#9670;&#160;</a></span>criarComodo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Conta::criarComodo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_smarthome.html">Smarthome</a> *</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comando para criar um cômodo dentro de uma smarthome específica. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">smarthome</td><td>Ponteiro para a <a class="el" href="class_smarthome.html">Smarthome</a> em que o cômodo será adicionado. </td></tr>
     <tr><td class="paramname">nome</td><td>Nome do cômodo. </td></tr>
   </table>
   </dd>
@@ -463,8 +549,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae082a357ed295b325b62e3299ae29f72" name="ae082a357ed295b325b62e3299ae29f72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae082a357ed295b325b62e3299ae29f72">&#9670;&#160;</a></span>criarModo()</h2>
+<a id="ac1fe8338abf39a0bf02a2604a879f63f" name="ac1fe8338abf39a0bf02a2604a879f63f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1fe8338abf39a0bf02a2604a879f63f">&#9670;&#160;</a></span>criarModo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -472,20 +558,20 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Conta::criarModo </td>
           <td>(</td>
-          <td class="paramtype">Smarthome</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
+          <td class="paramtype"><a class="el" href="class_smarthome.html">Smarthome</a> *</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Comando para criar um modo. </p>
+<p>Comando para criar um modo customizado vazio. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">smarthome</td><td>Smarthome em que o modo será adicionado. </td></tr>
+    <tr><td class="paramname">smarthome</td><td>Ponteiro para a <a class="el" href="class_smarthome.html">Smarthome</a> em que o modo será adicionado. </td></tr>
     <tr><td class="paramname">nome</td><td>Nome do modo que será adicionado. </td></tr>
   </table>
   </dd>
@@ -493,8 +579,44 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afe20aba40d8b23bd460baaac0993ebc8" name="afe20aba40d8b23bd460baaac0993ebc8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe20aba40d8b23bd460baaac0993ebc8">&#9670;&#160;</a></span>criarObjeto()</h2>
+<a id="a1496cce6c93963f2375f2d5eca826345" name="a1496cce6c93963f2375f2d5eca826345"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1496cce6c93963f2375f2d5eca826345">&#9670;&#160;</a></span>criarModoPorTipo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Conta::criarModoPorTipo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_smarthome.html">Smarthome</a> *</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>tipoModo</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comando para criar um modo de um tipo específico (pré-configurado). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">smarthome</td><td>Ponteiro para a <a class="el" href="class_smarthome.html">Smarthome</a> em que o modo será adicionado. </td></tr>
+    <tr><td class="paramname">nome</td><td>Nome do modo que será criado. </td></tr>
+    <tr><td class="paramname">tipoModo</td><td>Tipo do modo a ser criado: 1 = <a class="el" href="class_modo.html" title="Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentes ...">Modo</a> comum 2 = <a class="el" href="class_modo.html" title="Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentes ...">Modo</a> Cinema 3 = <a class="el" href="class_modo.html" title="Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentes ...">Modo</a> Noturno 4 = <a class="el" href="class_modo.html" title="Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentes ...">Modo</a> Trabalho 5 = <a class="el" href="class_modo.html" title="Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentes ...">Modo</a> Ausente 6 = <a class="el" href="class_modo.html" title="Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentes ...">Modo</a> Festa </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a357288f57326b08c5382404064dc5588" name="a357288f57326b08c5382404064dc5588"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a357288f57326b08c5382404064dc5588">&#9670;&#160;</a></span>criarObjeto()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -502,35 +624,77 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Conta::criarObjeto </td>
           <td>(</td>
-          <td class="paramtype">Smarthome</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
+          <td class="paramtype"><a class="el" href="class_smarthome.html">Smarthome</a> *</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a></td>          <td class="paramname"><span class="paramname"><em>comodo</em></span>, </td>
+          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a> *</td>          <td class="paramname"><span class="paramname"><em>comodo</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Comando para criar um objeto inteligente. </p>
+<p>Comando genérico para criar um objeto inteligente. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">smarthome</td><td>Smarthome em que o objeto será adicionado. </td></tr>
-    <tr><td class="paramname">comodo</td><td><a class="el" href="class_comodo.html">Comodo</a> em que o objeto será adicionado. </td></tr>
-    <tr><td class="paramname">nome</td><td>Nome da smarthome em que o cômodo será adicionado. </td></tr>
+    <tr><td class="paramname">smarthome</td><td>Ponteiro para a <a class="el" href="class_smarthome.html">Smarthome</a> em que o objeto será adicionado. </td></tr>
+    <tr><td class="paramname">comodo</td><td>Ponteiro para o Cômodo em que o objeto será posicionado. </td></tr>
+    <tr><td class="paramname">nome</td><td>Nome do objeto inteligente a ser criado. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a31eba6f7cc97515f0739972d990cb190" name="a31eba6f7cc97515f0739972d990cb190"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31eba6f7cc97515f0739972d990cb190">&#9670;&#160;</a></span>criarSensor()</h2>
+<a id="aaa2dc57b6edaeab4465fd486efbf389c" name="aaa2dc57b6edaeab4465fd486efbf389c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa2dc57b6edaeab4465fd486efbf389c">&#9670;&#160;</a></span>criarObjetoPorTipo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Conta::criarObjetoPorTipo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_smarthome.html">Smarthome</a> *</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a> *</td>          <td class="paramname"><span class="paramname"><em>comodo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>tipoObjeto</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comando para criar um objeto inteligente de um tipo derivado específico. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">smarthome</td><td>Ponteiro para a <a class="el" href="class_smarthome.html">Smarthome</a> em que o objeto será adicionado. </td></tr>
+    <tr><td class="paramname">comodo</td><td>Ponteiro para o Cômodo em que o objeto será adicionado. </td></tr>
+    <tr><td class="paramname">nome</td><td>Nome do objeto inteligente. </td></tr>
+    <tr><td class="paramname">tipoObjeto</td><td>Inteiro que define o tipo do objeto a ser instanciado: 1 = <a class="el" href="class_luz.html" title="Subclasse de objeto, que representa uma luz.">Luz</a> 2 = <a class="el" href="class_t_v.html" title="Subclasse de objeto, que representa uma televisão.">TV</a> 3 = <a class="el" href="class_caixa.html" title="Subclasse de objeto, que representa uma caixa de som.">Caixa</a> de Som 4 = Ar Condicionado 5 = Portão 6 = <a class="el" href="class_termostato.html" title="Subclasse de objeto, que representa um termostato.">Termostato</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae3eaa16ec1111de4c10a85a30ebb7978" name="ae3eaa16ec1111de4c10a85a30ebb7978"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3eaa16ec1111de4c10a85a30ebb7978">&#9670;&#160;</a></span>criarSensor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -538,35 +702,35 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Conta::criarSensor </td>
           <td>(</td>
-          <td class="paramtype">Smarthome</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
+          <td class="paramtype"><a class="el" href="class_smarthome.html">Smarthome</a> *</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a></td>          <td class="paramname"><span class="paramname"><em>comodo</em></span>, </td>
+          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a> *</td>          <td class="paramname"><span class="paramname"><em>comodo</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Comando para criar um sensor. </p>
+<p>Comando para criar um novo sensor no ambiente. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">smarthome</td><td>Smarthome em que o objeto será adicionado. </td></tr>
-    <tr><td class="paramname">comodo</td><td><a class="el" href="class_comodo.html">Comodo</a> em que o objeto será adicionado. </td></tr>
-    <tr><td class="paramname">nome</td><td>Nome da smarthome em que o cômodo será adicionado. </td></tr>
+    <tr><td class="paramname">smarthome</td><td>Ponteiro para a <a class="el" href="class_smarthome.html">Smarthome</a> em que o sensor será adicionado. </td></tr>
+    <tr><td class="paramname">comodo</td><td>Ponteiro para o Cômodo em que o sensor será instalado. </td></tr>
+    <tr><td class="paramname">nome</td><td>Nome do sensor a ser criado. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a5f30f0c15a54fb9089b0760dd83999c0" name="a5f30f0c15a54fb9089b0760dd83999c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f30f0c15a54fb9089b0760dd83999c0">&#9670;&#160;</a></span>criarSmarthome()</h2>
+<a id="ab3735b5fca9584ef380ee41ece958800" name="ab3735b5fca9584ef380ee41ece958800"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3735b5fca9584ef380ee41ece958800">&#9670;&#160;</a></span>criarSmarthome()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -574,17 +738,17 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Conta::criarSmarthome </td>
           <td>(</td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Comando para criar uma smarthome. </p>
+<p>Comando para criar uma smarthome e vinculá-la à conta. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>Identificador único da smarthome. </td></tr>
@@ -595,69 +759,79 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7d917bda731012e4f79cbd285f90ee5a" name="a7d917bda731012e4f79cbd285f90ee5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d917bda731012e4f79cbd285f90ee5a">&#9670;&#160;</a></span>editarModo()</h2>
+<a id="ae2181c5d99f15531bf082177d1e5994b" name="ae2181c5d99f15531bf082177d1e5994b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2181c5d99f15531bf082177d1e5994b">&#9670;&#160;</a></span>desbloquear()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Conta::editarModo </td>
+          <td class="memname">void Conta::desbloquear </td>
           <td>(</td>
-          <td class="paramtype">Smarthome</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Comando para editar um modo. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">smarthome</td><td>Smarthome em que o modo será editado. </td></tr>
-    <tr><td class="paramname">nome</td><td>Nome do modo a ser editado. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a59a5eab2d81b4adbee70704340080e38" name="a59a5eab2d81b4adbee70704340080e38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59a5eab2d81b4adbee70704340080e38">&#9670;&#160;</a></span>gerarRelatórioDeEnergia()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Conta::gerarRelatórioDeEnergia </td>
-          <td>(</td>
-          <td class="paramtype">Smarthome</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Comando para gerar relatório de gasto de energia. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">smarthome</td><td>Smarthome a ter seu gasto de energia calculado. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Desbloqueia a conta, permitindo o acesso novamente. </p>
 
 </div>
 </div>
-<a id="a0e9c1b914d26084711a651af07439c36" name="a0e9c1b914d26084711a651af07439c36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e9c1b914d26084711a651af07439c36">&#9670;&#160;</a></span>getEmail()</h2>
+<a id="a6ef03c405bf9f5cb79b490b7640a9507" name="a6ef03c405bf9f5cb79b490b7640a9507"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ef03c405bf9f5cb79b490b7640a9507">&#9670;&#160;</a></span>estaBloqueada()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Conta::getEmail </td>
+          <td class="memname">bool Conta::estaBloqueada </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica se a conta está bloqueada. </p>
+<dl class="section return"><dt>Returns</dt><dd>true se a conta estiver bloqueada, false caso contrário. </dd></dl>
+
+</div>
+</div>
+<a id="a57137baa73bfc50c38dca115162dd1d1" name="a57137baa73bfc50c38dca115162dd1d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57137baa73bfc50c38dca115162dd1d1">&#9670;&#160;</a></span>gerarRelatorioDeEnergia()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Conta::gerarRelatorioDeEnergia </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_smarthome.html">Smarthome</a> *</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comando para gerar relatório consolidado de gasto de energia da casa. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">smarthome</td><td>Ponteiro para a <a class="el" href="class_smarthome.html">Smarthome</a> que terá seu gasto calculado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>float O valor total do consumo médio de energia em kWh. </dd></dl>
+
+</div>
+</div>
+<a id="a1e31f5d9bd20583843356d58a529305d" name="a1e31f5d9bd20583843356d58a529305d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e31f5d9bd20583843356d58a529305d">&#9670;&#160;</a></span>getEmail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; Conta::getEmail </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -666,17 +840,18 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retorna o email da conta. </p>
+<dl class="section return"><dt>Returns</dt><dd>String constante contendo o e-mail. </dd></dl>
 
 </div>
 </div>
-<a id="a861ba5a14a83d94bfd7a34fee16af274" name="a861ba5a14a83d94bfd7a34fee16af274"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a861ba5a14a83d94bfd7a34fee16af274">&#9670;&#160;</a></span>getId()</h2>
+<a id="a2ed276d71c75fffbab2430bb3f83620d" name="a2ed276d71c75fffbab2430bb3f83620d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ed276d71c75fffbab2430bb3f83620d">&#9670;&#160;</a></span>getId()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Conta::getId </td>
+          <td class="memname">const std::string &amp; Conta::getId </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -685,17 +860,18 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retorna o id da conta. </p>
+<dl class="section return"><dt>Returns</dt><dd>String constante contendo o ID. </dd></dl>
 
 </div>
 </div>
-<a id="a87cd1df69c12e0dfdb6ab70a4aa2fd4b" name="a87cd1df69c12e0dfdb6ab70a4aa2fd4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87cd1df69c12e0dfdb6ab70a4aa2fd4b">&#9670;&#160;</a></span>getNome()</h2>
+<a id="a43577c93565b18ac010d57f6bb8ecb11" name="a43577c93565b18ac010d57f6bb8ecb11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43577c93565b18ac010d57f6bb8ecb11">&#9670;&#160;</a></span>getNome()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Conta::getNome </td>
+          <td class="memname">const std::string &amp; Conta::getNome </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -704,6 +880,47 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retorna o nome da conta. </p>
+<dl class="section return"><dt>Returns</dt><dd>String constante contendo o nome. </dd></dl>
+
+</div>
+</div>
+<a id="a04b78b77a8647959fb19a6e4b6822f80" name="a04b78b77a8647959fb19a6e4b6822f80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04b78b77a8647959fb19a6e4b6822f80">&#9670;&#160;</a></span>getSenha()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; Conta::getSenha </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna a senha atual da conta. </p>
+<dl class="section return"><dt>Returns</dt><dd>String constante contendo a senha. </dd></dl>
+
+</div>
+</div>
+<a id="a8e194afe6d1a8ff6267b73047a5a96d1" name="a8e194afe6d1a8ff6267b73047a5a96d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e194afe6d1a8ff6267b73047a5a96d1">&#9670;&#160;</a></span>getSmarthomes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_smarthome.html">Smarthome</a> &gt; &gt; &amp; Conta::getSmarthomes </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna a lista de smarthomes da conta. </p>
+<dl class="section return"><dt>Returns</dt><dd>Referência constante para o vetor de unique_ptrs de Smarthomes. </dd></dl>
 
 </div>
 </div>
@@ -722,12 +939,13 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Retorna o nome da conta. </p>
+<p>Verifica se o perfil da conta é de adulto. </p>
+<dl class="section return"><dt>Returns</dt><dd>true se for adulto, false se for infantil. </dd></dl>
 
 </div>
 </div>
-<a id="acc5c7e19d466d52f4b5d5b668988759c" name="acc5c7e19d466d52f4b5d5b668988759c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc5c7e19d466d52f4b5d5b668988759c">&#9670;&#160;</a></span>moverObjeto()</h2>
+<a id="abdad10ee5cd1784eca6d9b69f52dd71f" name="abdad10ee5cd1784eca6d9b69f52dd71f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdad10ee5cd1784eca6d9b69f52dd71f">&#9670;&#160;</a></span>moverObjeto()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -735,41 +953,41 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Conta::moverObjeto </td>
           <td>(</td>
-          <td class="paramtype">Smarthome</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
+          <td class="paramtype"><a class="el" href="class_smarthome.html">Smarthome</a> *</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a></td>          <td class="paramname"><span class="paramname"><em>atual</em></span>, </td>
+          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a> *</td>          <td class="paramname"><span class="paramname"><em>atual</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>, </td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a></td>          <td class="paramname"><span class="paramname"><em>destino</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a> *</td>          <td class="paramname"><span class="paramname"><em>destino</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Comando para mover um objeto inteligente. </p>
+<p>Comando para mover um objeto inteligente entre cômodos físicos. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">smarthome</td><td>Smarthome em que o objeto será adicionado. </td></tr>
-    <tr><td class="paramname">atual</td><td><a class="el" href="class_comodo.html">Comodo</a> de origem do objeto. </td></tr>
+    <tr><td class="paramname">smarthome</td><td>Ponteiro para a <a class="el" href="class_smarthome.html">Smarthome</a> base. </td></tr>
+    <tr><td class="paramname">atual</td><td>Ponteiro para o Cômodo de origem do objeto. </td></tr>
     <tr><td class="paramname">nome</td><td>Nome do objeto que será movido. </td></tr>
-    <tr><td class="paramname">destino</td><td><a class="el" href="class_comodo.html">Comodo</a> de destiono do objeto. </td></tr>
+    <tr><td class="paramname">destino</td><td>Ponteiro para o Cômodo de destino do objeto. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="afc8d1a2ae17f55e73140912dd984e6a3" name="afc8d1a2ae17f55e73140912dd984e6a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc8d1a2ae17f55e73140912dd984e6a3">&#9670;&#160;</a></span>moverSensor()</h2>
+<a id="a863bf509158abc82729be55ea007f65f" name="a863bf509158abc82729be55ea007f65f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a863bf509158abc82729be55ea007f65f">&#9670;&#160;</a></span>moverSensor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -777,36 +995,100 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Conta::moverSensor </td>
           <td>(</td>
-          <td class="paramtype">Smarthome</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
+          <td class="paramtype"><a class="el" href="class_smarthome.html">Smarthome</a> *</td>          <td class="paramname"><span class="paramname"><em>smarthome</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a></td>          <td class="paramname"><span class="paramname"><em>atual</em></span>, </td>
+          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a> *</td>          <td class="paramname"><span class="paramname"><em>atual</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>, </td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a></td>          <td class="paramname"><span class="paramname"><em>destino</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a> *</td>          <td class="paramname"><span class="paramname"><em>destino</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Comando para mover um sensor. </p>
+<p>Comando para mover um sensor de um cômodo para outro. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">smarthome</td><td>Smarthome em que o objeto será movido. </td></tr>
-    <tr><td class="paramname">atual</td><td><a class="el" href="class_comodo.html">Comodo</a> de origem do sensor. </td></tr>
-    <tr><td class="paramname">nome</td><td>Nome da smarthome a ser movido. </td></tr>
-    <tr><td class="paramname">destino</td><td><a class="el" href="class_comodo.html">Comodo</a> de destino do sensor. </td></tr>
+    <tr><td class="paramname">smarthome</td><td>Ponteiro para a <a class="el" href="class_smarthome.html">Smarthome</a>. </td></tr>
+    <tr><td class="paramname">atual</td><td>Ponteiro para o Cômodo de origem do sensor. </td></tr>
+    <tr><td class="paramname">nome</td><td>Nome exato do sensor a ser movido. </td></tr>
+    <tr><td class="paramname">destino</td><td>Ponteiro para o Cômodo de destino do sensor. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="aae07ee10017befbfa22f2d448a2d7bf0" name="aae07ee10017befbfa22f2d448a2d7bf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae07ee10017befbfa22f2d448a2d7bf0">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Conta::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_conta.html">Conta</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sobrecarga do operador de igualdade para comparar contas. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td><a class="el" href="class_conta.html" title="Classe responsável por gerenciar o perfil do usuário no sistema.">Conta</a> a ser comparada. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se os dados das contas forem idênticos, false caso contrário. </dd></dl>
+
+</div>
+</div>
+<a id="ac263edaa465a7163828569b7d9b9922a" name="ac263edaa465a7163828569b7d9b9922a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac263edaa465a7163828569b7d9b9922a">&#9670;&#160;</a></span>printMembrosInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Conta::printMembrosInfo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime no terminal as informações básicas (membros/atributos) da conta. </p>
+
+</div>
+</div>
+<a id="af9db6cac2110e195eb671b658955deee" name="af9db6cac2110e195eb671b658955deee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9db6cac2110e195eb671b658955deee">&#9670;&#160;</a></span>salvarSmarthomesEmArquivo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Conta::salvarSmarthomesEmArquivo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Salva todas as smarthomes da conta em um arquivo de texto (.txt). </p>
 
 </div>
 </div>
@@ -825,8 +1107,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Valida se o formato do e-mail é válido. </p>
-<dl class="section return"><dt>Returns</dt><dd>true=válido. </dd></dl>
+<p>Valida se o formato do e-mail da conta é estruturalmente válido. </p>
+<dl class="section return"><dt>Returns</dt><dd>true se possuir formato válido (ex: contém '@'), false caso contrário. </dd></dl>
 
 </div>
 </div>
@@ -845,13 +1127,13 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Verifica se a senha atende de segurança. </p>
-<dl class="section return"><dt>Returns</dt><dd>true = segura. </dd></dl>
+<p>Verifica se a senha atende aos requisitos mínimos de segurança. </p>
+<dl class="section return"><dt>Returns</dt><dd>true se a senha for considerada segura, false caso contrário. </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-2026-PF-grupo2/include/<a class="el" href="_conta_8hpp_source.html">Conta.hpp</a></li>
+<li>include/<a class="el" href="_conta_8hpp_source.html">Conta.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

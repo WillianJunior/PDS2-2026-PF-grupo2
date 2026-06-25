@@ -2,42 +2,95 @@
 \hypertarget{class_comodo}{}\label{class_comodo}\index{Comodo@{Comodo}}
 
 
+Representa um cômodo físico dentro de uma \doxylink{class_smarthome}{Smarthome}.  
+
+
+
+
 {\ttfamily \+\#include $<$Comodo.\+hpp$>$}
 
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\doxymbox{\hyperlink{class_comodo_a3a18f81860ec53b3f183a18229e04c4e}{Comodo}} (std::\+string nome, Smart\+Home \texorpdfstring{$\ast$}{*}casa)
-\item 
+\doxymbox{\hyperlink{class_comodo_a29576917022adb0eed6920e79900347a}{Comodo}} (const std::\+string \&nome, \doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}casa)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_comodo}{Comodo}. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_comodo_a9d94625ea46f23dbdda226411ddbf13d}{operator==}} (const \doxymbox{\hyperlink{class_comodo}{Comodo}} \&other) const
+\begin{DoxyCompactList}\small\item\em Sobrecarga do operador de igualdade para comparar se dois cômodos são o mesmo. \end{DoxyCompactList}\item 
+std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{class_comodo_ad8daedcdc5307a3c707186f53c71c721}{get\+Condicoes\+Do\+Comodo}} () const
+\begin{DoxyCompactList}\small\item\em Retorna as condições climáticas e físicas do ambiente do cômodo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_comodo_a64cd81049d55845c53d9c2359719c1e3}{mudar\+Condicao}} (const std::\+string \&condicao)
+\begin{DoxyCompactList}\small\item\em Muda uma condição do cômodo, desativando automaticamente a sua condição oposta. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_comodo_a150a23e24a559f7b8fc4ce185ea8c185}{adicionar\+Condicao}} (const std::\+string \&condicao)
+\begin{DoxyCompactList}\small\item\em Adiciona uma nova condição ao cômodo. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_comodo_a5d7c1038dfa6548aec7edc2238ffde2d}{adicionar\+Objeto}} (\doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*}objeto)
-\item 
-void \doxymbox{\hyperlink{class_comodo_a978d20ddd09bc924cbcad4b8ee316fc8}{adicionar\+Sensor}} (\doxymbox{\hyperlink{class_sensor}{Sensor}} \texorpdfstring{$\ast$}{*}sensor)
-\item 
+\begin{DoxyCompactList}\small\item\em Adiciona um Objeto Inteligente ao cômodo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_comodo_acfc7a330ac270b0b36e81571f98c8b8c}{adicionar\+Sensor}} (std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{class_sensor}{Sensor}} $>$ sensor)
+\begin{DoxyCompactList}\small\item\em Adiciona um \doxylink{class_sensor}{Sensor} ao cômodo. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_comodo_acd16def8134cfc28d204881f5437727d}{adicionar\+Modo}} (\doxymbox{\hyperlink{class_modo}{Modo}} \texorpdfstring{$\ast$}{*}modo)
-\item 
+\begin{DoxyCompactList}\small\item\em Vincula um \doxylink{class_modo}{Modo} ao cômodo. \end{DoxyCompactList}\item 
+const std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*} $>$ \& \doxymbox{\hyperlink{class_comodo_a2fe6f4249752335938488d60d2843d1c}{get\+Objetos}} () const
+\begin{DoxyCompactList}\small\item\em Retorna a lista de objetos inteligentes do cômodo. \end{DoxyCompactList}\item 
+const std::\+vector$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{class_sensor}{Sensor}} $>$ $>$ \& \doxymbox{\hyperlink{class_comodo_a71cb109501d97be0f05584d271ca7c08}{get\+Sensores}} () const
+\begin{DoxyCompactList}\small\item\em Retorna a lista de sensores instalados no cômodo. \end{DoxyCompactList}\item 
+const std::\+vector$<$ \doxymbox{\hyperlink{class_modo}{Modo}} \texorpdfstring{$\ast$}{*} $>$ \& \doxymbox{\hyperlink{class_comodo_aefcc87a92873727dfb02973760e4c26b}{get\+Modos}} () const
+\begin{DoxyCompactList}\small\item\em Retorna a lista de modos vinculados ao cômodo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_comodo_a5817196adf85aad7607727c311751b44}{remover\+Modo\+Por\+Nome}} (const std::\+string \&nome\+Modo)
+\begin{DoxyCompactList}\small\item\em Remove um modo vinculado ao cômodo buscando pelo seu nome. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_comodo_a83a819dff0a4b1f4e41e18f8249ee3a9}{remover\+Objeto\+Por\+Nome}} (const std::\+string \&nome\+Objeto)
+\begin{DoxyCompactList}\small\item\em Remove um objeto inteligente do cômodo buscando pelo seu nome. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_comodo_aff08e54f7e7d7b74101f764d0e41f8a4}{remover\+Sensor\+Por\+Nome}} (const std::\+string \&nome\+Sensor)
+\begin{DoxyCompactList}\small\item\em Remove um sensor do cômodo buscando pelo seu nome. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_comodo_a5402954bcff511264ee665b4ab72c39e}{entrar\+Conta}} (\doxymbox{\hyperlink{class_conta}{Conta}} \texorpdfstring{$\ast$}{*}conta)
-\item 
+\begin{DoxyCompactList}\small\item\em Insere uma conta na lista de contas presentes (fisicamente) no cômodo. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_comodo_a7bfc79b46e4ab097d46fa8f8914741ae}{sair\+Conta}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Remove a conta mais antiga da lista de contas presentes no cômodo (Lógica FIFO). \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_comodo_a1d9c016383d5dfc02038dbd35a5e2db1}{repassar\+Instrucao}} (\doxymbox{\hyperlink{class_modo}{Modo}} \texorpdfstring{$\ast$}{*}modo)
-\item 
-\doxymbox{\hyperlink{class_conta}{Conta}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_comodo_a3fdb5b9e535ac449f21fb9f5fb58fda2}{get\+Conta\+Presente}} ()
-\item 
-std::\+string \doxymbox{\hyperlink{class_comodo_a89c2e67b6daa8fe9cddecb3cf60a1619}{get\+Nome}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Repassa a instrução de ativar ou desativar de um modo para os objetos contidos neste cômodo. \end{DoxyCompactList}\item 
+const std::\+vector$<$ \doxymbox{\hyperlink{class_conta}{Conta}} \texorpdfstring{$\ast$}{*} $>$ \& \doxymbox{\hyperlink{class_comodo_a40d506617bb78673836aae3917f00640}{get\+Contas\+Presentes}} () const
+\begin{DoxyCompactList}\small\item\em Retorna a lista de contas atualmente presentes no cômodo. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_comodo_a5cfdc977dfd4d8d71814d89ad0340777}{get\+Nome}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o nome atribuído ao cômodo. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_comodo_a628cdff3ee13e9404546ba5109042348}{get\+Smarthome}} () const
+\begin{DoxyCompactList}\small\item\em Retorna a instância da \doxylink{class_smarthome}{Smarthome} matriz do cômodo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_comodo_a7eea58ea3dd4757a9601ca5e5964e245}{print\+Objetos\+Info}} () const
+\begin{DoxyCompactList}\small\item\em Imprime no terminal as informações e status de todos os objetos deste cômodo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_comodo_a848ae6a630ce3dd34ec067244e9085b1}{print\+Sensores\+Info}} () const
+\begin{DoxyCompactList}\small\item\em Imprime no terminal as informações e status de todos os sensores deste cômodo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_comodo_af223d90f6feecea82dc263b8fc2ee9a5}{print\+Contas\+Info}} () const
+\begin{DoxyCompactList}\small\item\em Imprime no terminal os dados das contas presentes neste cômodo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_comodo_a564e404edf112539cfe152c5c97093b2}{print\+Modos\+Info}} () const
+\begin{DoxyCompactList}\small\item\em Imprime no terminal os dados dos modos vinculados a este cômodo. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_comodo_ae6c183c8724b0edad4d97c4817d134ac}{Caracteres\+Validos}} (const std::\+string \&str) const
+\begin{DoxyCompactList}\small\item\em Valida se a string fornecida contém apenas letras, números ou espaços. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{class_comodo_a66675fa403d0d8cdd94a8b08c93776c6}{\texorpdfstring{$\sim$}{\string~}\+Comodo}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Destrutor padrão da classe \doxylink{class_comodo}{Comodo}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Representa um cômodo físico dentro de uma \doxylink{class_smarthome}{Smarthome}. 
+
+Esta classe é responsável por gerenciar as condições do ambiente e agrupar logicamente objetos inteligentes, sensores, contas presentes e modos de automação. 
 
 \label{class_comodo_doc-constructors}
 \Hypertarget{class_comodo_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_comodo_a3a18f81860ec53b3f183a18229e04c4e}\index{Comodo@{Comodo}!Comodo@{Comodo}}
+\Hypertarget{class_comodo_a29576917022adb0eed6920e79900347a}\index{Comodo@{Comodo}!Comodo@{Comodo}}
 \index{Comodo@{Comodo}!Comodo@{Comodo}}
 \doxysubsubsection{\texorpdfstring{Comodo()}{Comodo()}}
-{\footnotesize\ttfamily \label{class_comodo_a3a18f81860ec53b3f183a18229e04c4e} 
-Comodo::\+\+Comodo (\begin{DoxyParamCaption}\item[{std::\+string}]{nome}{, }\item[{Smart\+Home \texorpdfstring{$\ast$}{*}}]{casa}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_comodo_a29576917022adb0eed6920e79900347a} 
+Comodo::\+\+Comodo (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{nome}{, }\item[{\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*}}]{casa}{}\end{DoxyParamCaption})}
 
+
+
+Construtor da classe \doxylink{class_comodo}{Comodo}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & Nome do cômodo (ex:\+ "{}\+Sala"{}, "{}\+Quarto"{}). \\
+\hline
+{\em casa} & Ponteiro para a \doxylink{class_smarthome}{Smarthome} à qual este cômodo pertence. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_comodo_a66675fa403d0d8cdd94a8b08c93776c6}\index{Comodo@{Comodo}!````~Comodo@{\texorpdfstring{$\sim$}{\string~}Comodo}}
 \index{````~Comodo@{\texorpdfstring{$\sim$}{\string~}Comodo}!Comodo@{Comodo}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Comodo()}{\string~Comodo()}}
@@ -46,51 +99,330 @@ Comodo::\+\texorpdfstring{$\sim$}{\string~}\+Comodo (\begin{DoxyParamCaption}{}{
 
 
 
+Destrutor padrão da classe \doxylink{class_comodo}{Comodo}. 
+
+
+
 \label{class_comodo_doc-func-members}
 \Hypertarget{class_comodo_doc-func-members}
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_comodo_a150a23e24a559f7b8fc4ce185ea8c185}\index{Comodo@{Comodo}!adicionarCondicao@{adicionarCondicao}}
+\index{adicionarCondicao@{adicionarCondicao}!Comodo@{Comodo}}
+\doxysubsubsection{\texorpdfstring{adicionarCondicao()}{adicionarCondicao()}}
+{\footnotesize\ttfamily \label{class_comodo_a150a23e24a559f7b8fc4ce185ea8c185} 
+void Comodo::\+adicionar\+Condicao (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{condicao}{}\end{DoxyParamCaption})}
+
+
+
+Adiciona uma nova condição ao cômodo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em condicao} & Nova condição a ser adicionada. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_comodo_acd16def8134cfc28d204881f5437727d}\index{Comodo@{Comodo}!adicionarModo@{adicionarModo}}
 \index{adicionarModo@{adicionarModo}!Comodo@{Comodo}}
 \doxysubsubsection{\texorpdfstring{adicionarModo()}{adicionarModo()}}
 {\footnotesize\ttfamily \label{class_comodo_acd16def8134cfc28d204881f5437727d} 
 void Comodo::\+adicionar\+Modo (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_modo}{Modo}} \texorpdfstring{$\ast$}{*}}]{modo}{}\end{DoxyParamCaption})}
 
+
+
+Vincula um \doxylink{class_modo}{Modo} ao cômodo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em modo} & Ponteiro para o \doxylink{class_modo}{Modo} a ser adicionado. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_comodo_a5d7c1038dfa6548aec7edc2238ffde2d}\index{Comodo@{Comodo}!adicionarObjeto@{adicionarObjeto}}
 \index{adicionarObjeto@{adicionarObjeto}!Comodo@{Comodo}}
 \doxysubsubsection{\texorpdfstring{adicionarObjeto()}{adicionarObjeto()}}
 {\footnotesize\ttfamily \label{class_comodo_a5d7c1038dfa6548aec7edc2238ffde2d} 
 void Comodo::\+adicionar\+Objeto (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*}}]{objeto}{}\end{DoxyParamCaption})}
 
-\Hypertarget{class_comodo_a978d20ddd09bc924cbcad4b8ee316fc8}\index{Comodo@{Comodo}!adicionarSensor@{adicionarSensor}}
+
+
+Adiciona um Objeto Inteligente ao cômodo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em objeto} & Ponteiro para o Objeto Inteligente a ser inserido. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_comodo_acfc7a330ac270b0b36e81571f98c8b8c}\index{Comodo@{Comodo}!adicionarSensor@{adicionarSensor}}
 \index{adicionarSensor@{adicionarSensor}!Comodo@{Comodo}}
 \doxysubsubsection{\texorpdfstring{adicionarSensor()}{adicionarSensor()}}
-{\footnotesize\ttfamily \label{class_comodo_a978d20ddd09bc924cbcad4b8ee316fc8} 
-void Comodo::\+adicionar\+Sensor (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_sensor}{Sensor}} \texorpdfstring{$\ast$}{*}}]{sensor}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_comodo_acfc7a330ac270b0b36e81571f98c8b8c} 
+void Comodo::\+adicionar\+Sensor (\begin{DoxyParamCaption}\item[{std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{class_sensor}{Sensor}} $>$}]{sensor}{}\end{DoxyParamCaption})}
 
+
+
+Adiciona um \doxylink{class_sensor}{Sensor} ao cômodo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sensor} & Smart pointer (unique\+\_\+ptr) do \doxylink{class_sensor}{Sensor} a ser inserido. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_comodo_ae6c183c8724b0edad4d97c4817d134ac}\index{Comodo@{Comodo}!CaracteresValidos@{CaracteresValidos}}
+\index{CaracteresValidos@{CaracteresValidos}!Comodo@{Comodo}}
+\doxysubsubsection{\texorpdfstring{CaracteresValidos()}{CaracteresValidos()}}
+{\footnotesize\ttfamily \label{class_comodo_ae6c183c8724b0edad4d97c4817d134ac} 
+bool Comodo::\+\+Caracteres\+Validos (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{str}{}\end{DoxyParamCaption}) const}
+
+
+
+Valida se a string fornecida contém apenas letras, números ou espaços. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Texto a ser avaliado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o texto não possuir caracteres especiais, false caso possua. 
+\end{DoxyReturn}
 \Hypertarget{class_comodo_a5402954bcff511264ee665b4ab72c39e}\index{Comodo@{Comodo}!entrarConta@{entrarConta}}
 \index{entrarConta@{entrarConta}!Comodo@{Comodo}}
 \doxysubsubsection{\texorpdfstring{entrarConta()}{entrarConta()}}
 {\footnotesize\ttfamily \label{class_comodo_a5402954bcff511264ee665b4ab72c39e} 
 void Comodo::\+entrar\+Conta (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_conta}{Conta}} \texorpdfstring{$\ast$}{*}}]{conta}{}\end{DoxyParamCaption})}
 
-\Hypertarget{class_comodo_a3fdb5b9e535ac449f21fb9f5fb58fda2}\index{Comodo@{Comodo}!getContaPresente@{getContaPresente}}
-\index{getContaPresente@{getContaPresente}!Comodo@{Comodo}}
-\doxysubsubsection{\texorpdfstring{getContaPresente()}{getContaPresente()}}
-{\footnotesize\ttfamily \label{class_comodo_a3fdb5b9e535ac449f21fb9f5fb58fda2} 
-\doxymbox{\hyperlink{class_conta}{Conta}} \texorpdfstring{$\ast$}{*} Comodo::\+get\+Conta\+Presente (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{class_comodo_a89c2e67b6daa8fe9cddecb3cf60a1619}\index{Comodo@{Comodo}!getNome@{getNome}}
+
+Insere uma conta na lista de contas presentes (fisicamente) no cômodo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em conta} & Ponteiro para a conta que entrou no ambiente. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_comodo_ad8daedcdc5307a3c707186f53c71c721}\index{Comodo@{Comodo}!getCondicoesDoComodo@{getCondicoesDoComodo}}
+\index{getCondicoesDoComodo@{getCondicoesDoComodo}!Comodo@{Comodo}}
+\doxysubsubsection{\texorpdfstring{getCondicoesDoComodo()}{getCondicoesDoComodo()}}
+{\footnotesize\ttfamily \label{class_comodo_ad8daedcdc5307a3c707186f53c71c721} 
+std::\+vector$<$ std::\+string $>$ Comodo::\+get\+Condicoes\+Do\+Comodo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna as condições climáticas e físicas do ambiente do cômodo. 
+
+\begin{DoxyReturn}{Returns}
+Vetor de strings contendo as condições atuais. 
+\end{DoxyReturn}
+\Hypertarget{class_comodo_a40d506617bb78673836aae3917f00640}\index{Comodo@{Comodo}!getContasPresentes@{getContasPresentes}}
+\index{getContasPresentes@{getContasPresentes}!Comodo@{Comodo}}
+\doxysubsubsection{\texorpdfstring{getContasPresentes()}{getContasPresentes()}}
+{\footnotesize\ttfamily \label{class_comodo_a40d506617bb78673836aae3917f00640} 
+const std::\+vector$<$ \doxymbox{\hyperlink{class_conta}{Conta}} \texorpdfstring{$\ast$}{*} $>$ \& Comodo::\+get\+Contas\+Presentes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna a lista de contas atualmente presentes no cômodo. 
+
+\begin{DoxyReturn}{Returns}
+Vetor contendo ponteiros para as contas presentes. 
+\end{DoxyReturn}
+\Hypertarget{class_comodo_aefcc87a92873727dfb02973760e4c26b}\index{Comodo@{Comodo}!getModos@{getModos}}
+\index{getModos@{getModos}!Comodo@{Comodo}}
+\doxysubsubsection{\texorpdfstring{getModos()}{getModos()}}
+{\footnotesize\ttfamily \label{class_comodo_aefcc87a92873727dfb02973760e4c26b} 
+const std::\+vector$<$ \doxymbox{\hyperlink{class_modo}{Modo}} \texorpdfstring{$\ast$}{*} $>$ \& Comodo::\+get\+Modos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna a lista de modos vinculados ao cômodo. 
+
+\begin{DoxyReturn}{Returns}
+Vetor contendo ponteiros para os modos. 
+\end{DoxyReturn}
+\Hypertarget{class_comodo_a5cfdc977dfd4d8d71814d89ad0340777}\index{Comodo@{Comodo}!getNome@{getNome}}
 \index{getNome@{getNome}!Comodo@{Comodo}}
 \doxysubsubsection{\texorpdfstring{getNome()}{getNome()}}
-{\footnotesize\ttfamily \label{class_comodo_a89c2e67b6daa8fe9cddecb3cf60a1619} 
-std::\+string Comodo::\+get\+Nome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_comodo_a5cfdc977dfd4d8d71814d89ad0340777} 
+std::\+string Comodo::\+get\+Nome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
+
+
+Retorna o nome atribuído ao cômodo. 
+
+\begin{DoxyReturn}{Returns}
+String contendo o nome do cômodo. 
+\end{DoxyReturn}
+\Hypertarget{class_comodo_a2fe6f4249752335938488d60d2843d1c}\index{Comodo@{Comodo}!getObjetos@{getObjetos}}
+\index{getObjetos@{getObjetos}!Comodo@{Comodo}}
+\doxysubsubsection{\texorpdfstring{getObjetos()}{getObjetos()}}
+{\footnotesize\ttfamily \label{class_comodo_a2fe6f4249752335938488d60d2843d1c} 
+const std::\+vector$<$ \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \texorpdfstring{$\ast$}{*} $>$ \& Comodo::\+get\+Objetos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna a lista de objetos inteligentes do cômodo. 
+
+\begin{DoxyReturn}{Returns}
+Vetor contendo ponteiros para os objetos inteligentes. 
+\end{DoxyReturn}
+\Hypertarget{class_comodo_a71cb109501d97be0f05584d271ca7c08}\index{Comodo@{Comodo}!getSensores@{getSensores}}
+\index{getSensores@{getSensores}!Comodo@{Comodo}}
+\doxysubsubsection{\texorpdfstring{getSensores()}{getSensores()}}
+{\footnotesize\ttfamily \label{class_comodo_a71cb109501d97be0f05584d271ca7c08} 
+const std::\+vector$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{class_sensor}{Sensor}} $>$ $>$ \& Comodo::\+get\+Sensores (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna a lista de sensores instalados no cômodo. 
+
+\begin{DoxyReturn}{Returns}
+Vetor contendo smart pointers para os sensores. 
+\end{DoxyReturn}
+\Hypertarget{class_comodo_a628cdff3ee13e9404546ba5109042348}\index{Comodo@{Comodo}!getSmarthome@{getSmarthome}}
+\index{getSmarthome@{getSmarthome}!Comodo@{Comodo}}
+\doxysubsubsection{\texorpdfstring{getSmarthome()}{getSmarthome()}}
+{\footnotesize\ttfamily \label{class_comodo_a628cdff3ee13e9404546ba5109042348} 
+\doxymbox{\hyperlink{class_smarthome}{Smarthome}} \texorpdfstring{$\ast$}{*} Comodo::\+get\+Smarthome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna a instância da \doxylink{class_smarthome}{Smarthome} matriz do cômodo. 
+
+\begin{DoxyReturn}{Returns}
+Ponteiro para a \doxylink{class_smarthome}{Smarthome} à qual este cômodo pertence. 
+\end{DoxyReturn}
+\Hypertarget{class_comodo_a64cd81049d55845c53d9c2359719c1e3}\index{Comodo@{Comodo}!mudarCondicao@{mudarCondicao}}
+\index{mudarCondicao@{mudarCondicao}!Comodo@{Comodo}}
+\doxysubsubsection{\texorpdfstring{mudarCondicao()}{mudarCondicao()}}
+{\footnotesize\ttfamily \label{class_comodo_a64cd81049d55845c53d9c2359719c1e3} 
+void Comodo::\+mudar\+Condicao (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{condicao}{}\end{DoxyParamCaption})}
+
+
+
+Muda uma condição do cômodo, desativando automaticamente a sua condição oposta. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em condicao} & Nova condição a ser estabelecida. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_comodo_a9d94625ea46f23dbdda226411ddbf13d}\index{Comodo@{Comodo}!operator==@{operator==}}
+\index{operator==@{operator==}!Comodo@{Comodo}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{class_comodo_a9d94625ea46f23dbdda226411ddbf13d} 
+bool Comodo::\+operator== (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_comodo}{Comodo}} \&}]{other}{}\end{DoxyParamCaption}) const}
+
+
+
+Sobrecarga do operador de igualdade para comparar se dois cômodos são o mesmo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Cômodo a ser comparado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se possuírem o mesmo nome e pertencerem à mesma \doxylink{class_smarthome}{Smarthome}, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{class_comodo_af223d90f6feecea82dc263b8fc2ee9a5}\index{Comodo@{Comodo}!printContasInfo@{printContasInfo}}
+\index{printContasInfo@{printContasInfo}!Comodo@{Comodo}}
+\doxysubsubsection{\texorpdfstring{printContasInfo()}{printContasInfo()}}
+{\footnotesize\ttfamily \label{class_comodo_af223d90f6feecea82dc263b8fc2ee9a5} 
+void Comodo::\+print\+Contas\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Imprime no terminal os dados das contas presentes neste cômodo. 
+
+\Hypertarget{class_comodo_a564e404edf112539cfe152c5c97093b2}\index{Comodo@{Comodo}!printModosInfo@{printModosInfo}}
+\index{printModosInfo@{printModosInfo}!Comodo@{Comodo}}
+\doxysubsubsection{\texorpdfstring{printModosInfo()}{printModosInfo()}}
+{\footnotesize\ttfamily \label{class_comodo_a564e404edf112539cfe152c5c97093b2} 
+void Comodo::\+print\+Modos\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Imprime no terminal os dados dos modos vinculados a este cômodo. 
+
+\Hypertarget{class_comodo_a7eea58ea3dd4757a9601ca5e5964e245}\index{Comodo@{Comodo}!printObjetosInfo@{printObjetosInfo}}
+\index{printObjetosInfo@{printObjetosInfo}!Comodo@{Comodo}}
+\doxysubsubsection{\texorpdfstring{printObjetosInfo()}{printObjetosInfo()}}
+{\footnotesize\ttfamily \label{class_comodo_a7eea58ea3dd4757a9601ca5e5964e245} 
+void Comodo::\+print\+Objetos\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Imprime no terminal as informações e status de todos os objetos deste cômodo. 
+
+\Hypertarget{class_comodo_a848ae6a630ce3dd34ec067244e9085b1}\index{Comodo@{Comodo}!printSensoresInfo@{printSensoresInfo}}
+\index{printSensoresInfo@{printSensoresInfo}!Comodo@{Comodo}}
+\doxysubsubsection{\texorpdfstring{printSensoresInfo()}{printSensoresInfo()}}
+{\footnotesize\ttfamily \label{class_comodo_a848ae6a630ce3dd34ec067244e9085b1} 
+void Comodo::\+print\+Sensores\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Imprime no terminal as informações e status de todos os sensores deste cômodo. 
+
+\Hypertarget{class_comodo_a5817196adf85aad7607727c311751b44}\index{Comodo@{Comodo}!removerModoPorNome@{removerModoPorNome}}
+\index{removerModoPorNome@{removerModoPorNome}!Comodo@{Comodo}}
+\doxysubsubsection{\texorpdfstring{removerModoPorNome()}{removerModoPorNome()}}
+{\footnotesize\ttfamily \label{class_comodo_a5817196adf85aad7607727c311751b44} 
+void Comodo::\+remover\+Modo\+Por\+Nome (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{nome\+Modo}{}\end{DoxyParamCaption})}
+
+
+
+Remove um modo vinculado ao cômodo buscando pelo seu nome. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+Modo} & Nome exato do modo a ser removido. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_comodo_a83a819dff0a4b1f4e41e18f8249ee3a9}\index{Comodo@{Comodo}!removerObjetoPorNome@{removerObjetoPorNome}}
+\index{removerObjetoPorNome@{removerObjetoPorNome}!Comodo@{Comodo}}
+\doxysubsubsection{\texorpdfstring{removerObjetoPorNome()}{removerObjetoPorNome()}}
+{\footnotesize\ttfamily \label{class_comodo_a83a819dff0a4b1f4e41e18f8249ee3a9} 
+void Comodo::\+remover\+Objeto\+Por\+Nome (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{nome\+Objeto}{}\end{DoxyParamCaption})}
+
+
+
+Remove um objeto inteligente do cômodo buscando pelo seu nome. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+Objeto} & Nome exato do objeto a ser removido. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_comodo_aff08e54f7e7d7b74101f764d0e41f8a4}\index{Comodo@{Comodo}!removerSensorPorNome@{removerSensorPorNome}}
+\index{removerSensorPorNome@{removerSensorPorNome}!Comodo@{Comodo}}
+\doxysubsubsection{\texorpdfstring{removerSensorPorNome()}{removerSensorPorNome()}}
+{\footnotesize\ttfamily \label{class_comodo_aff08e54f7e7d7b74101f764d0e41f8a4} 
+void Comodo::\+remover\+Sensor\+Por\+Nome (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{nome\+Sensor}{}\end{DoxyParamCaption})}
+
+
+
+Remove um sensor do cômodo buscando pelo seu nome. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+Sensor} & Nome exato do sensor a ser removido. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_comodo_a1d9c016383d5dfc02038dbd35a5e2db1}\index{Comodo@{Comodo}!repassarInstrucao@{repassarInstrucao}}
 \index{repassarInstrucao@{repassarInstrucao}!Comodo@{Comodo}}
 \doxysubsubsection{\texorpdfstring{repassarInstrucao()}{repassarInstrucao()}}
 {\footnotesize\ttfamily \label{class_comodo_a1d9c016383d5dfc02038dbd35a5e2db1} 
 void Comodo::\+repassar\+Instrucao (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_modo}{Modo}} \texorpdfstring{$\ast$}{*}}]{modo}{}\end{DoxyParamCaption})}
 
+
+
+Repassa a instrução de ativar ou desativar de um modo para os objetos contidos neste cômodo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em modo} & Ponteiro para o modo cujas instruções serão aplicadas. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_comodo_a7bfc79b46e4ab097d46fa8f8914741ae}\index{Comodo@{Comodo}!sairConta@{sairConta}}
 \index{sairConta@{sairConta}!Comodo@{Comodo}}
 \doxysubsubsection{\texorpdfstring{sairConta()}{sairConta()}}
@@ -99,6 +431,10 @@ void Comodo::\+sair\+Conta (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
+Remove a conta mais antiga da lista de contas presentes no cômodo (Lógica FIFO). 
+
+
+
 The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
 \item 
-C:\+/\+\+Users/\+tiago/\+\+One\+Drive/\+Área de Trabalho/\+\+Atalhos etc/\+ufmg/\+pds2/\+\+PDS2-\/2026-\/\+PF-\/grupo2/\+include/\+\doxymbox{\hyperlink{_comodo_8hpp}{Comodo.\+hpp}}\end{DoxyCompactItemize}
+include/\+\doxymbox{\hyperlink{_comodo_8hpp}{Comodo.\+hpp}}\end{DoxyCompactItemize}

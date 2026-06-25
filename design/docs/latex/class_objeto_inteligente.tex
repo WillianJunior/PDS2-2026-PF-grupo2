@@ -2,145 +2,319 @@
 \hypertarget{class_objeto_inteligente}{}\label{class_objeto_inteligente}\index{ObjetoInteligente@{ObjetoInteligente}}
 
 
-Representa um objeto inteligente da smarthome.  
+Classe para definir como o objeto está operando.  
 
 
 
 
 {\ttfamily \+\#include $<$Objeto\+Inteligente.\+hpp$>$}
 
+Inheritance diagram for Objeto\+Inteligente:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.637427cm]{class_objeto_inteligente}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\doxymbox{\hyperlink{class_objeto_inteligente_a01fe87343d9aaea4ae6a792de440a8ba}{Objeto\+Inteligente}} (bool restricao\+Adulto, std::\+vector$<$ \doxymbox{\hyperlink{class_sensor}{Sensor}} $>$ sensores, std::\+vector$<$ std::\+string $>$ status\+Possiveis, float consumo\+Medio\+De\+Energia, std::\+vector$<$ std::\+function$<$ void()$>$ $>$ funcoes, std::\+vector$<$ std::\+function$<$ void()$>$ $>$ funcoes\+Restritas)
+\doxymbox{\hyperlink{class_objeto_inteligente_a9aad1dacd4e9321b035e0f54087882bd}{Objeto\+Inteligente}} (std::\+string nome, bool restricao\+Adulto, std::\+vector$<$ \doxymbox{\hyperlink{class_sensor}{Sensor}} \texorpdfstring{$\ast$}{*} $>$ sensores, std::\+vector$<$ std::\+string $>$ status\+Possiveis, std::\+string status\+Atual, float consumo\+Medio\+De\+Energia, std::\+vector$<$ std::\+function$<$ void()$>$ $>$ funcoes, std::\+vector$<$ std::\+function$<$ void()$>$ $>$ funcoes\+Restritas)
 \begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_objeto_inteligente}{Objeto\+Inteligente}. \end{DoxyCompactList}\item 
-\doxymbox{\hyperlink{class_objeto_inteligente_ac345d02235b9b5b4ede0b1ef3d81e026}{\texorpdfstring{$\sim$}{\string~}\+Objeto\+Inteligente}} ()=default
-\item 
-void \doxymbox{\hyperlink{class_objeto_inteligente_a52ee190dba25ac536cd32362b41255fc}{set\+Restricao\+Adulto}} ()
-\begin{DoxyCompactList}\small\item\em Métodos setters e getters. \end{DoxyCompactList}\item 
-std::\+vector$<$ \doxymbox{\hyperlink{class_sensor}{Sensor}} $>$ \doxymbox{\hyperlink{class_objeto_inteligente_a6e6d6f5e8052fdac9489ed80d68d676a}{get\+Sensores}} ()
-\begin{DoxyCompactList}\small\item\em Retorna os sensores associados ao objeto. \end{DoxyCompactList}\item 
-std::\+string \doxymbox{\hyperlink{class_objeto_inteligente_a69bb0354607a98257ed00bf02c1dcae1}{get\+Status}} ()
+virtual \doxymbox{\hyperlink{class_objeto_inteligente_a2e89b49594063d4cad3d8eb9c9622aa7}{\texorpdfstring{$\sim$}{\string~}\+Objeto\+Inteligente}} ()=default
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_objeto_inteligente}{Objeto\+Inteligente}. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_objeto_inteligente_ad7d9fe2075fde8b3acfd9f2cddfb49d7}{get\+Nome}} () const
+\begin{DoxyCompactList}\small\item\em Retornan o nome do objeto. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{class_sensor}{Sensor}} \texorpdfstring{$\ast$}{*} $>$ \doxymbox{\hyperlink{class_objeto_inteligente_add0e9904428324f4b49939b82b6b8069}{get\+Sensores}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o vetor com os sensores do objeto. \end{DoxyCompactList}\item 
+std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{class_objeto_inteligente_acf6536ad961218c53d2c2738f0fcd6d2}{get\+Status\+Possiveis}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o vetor com os status possíveis do objeto. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_objeto_inteligente_a800724620eabfacbbbf7846353b0fa72}{get\+Status\+Atual}} () const
 \begin{DoxyCompactList}\small\item\em Retorna o status atual do objeto. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_objeto_inteligente_ab465a9fa0c310756c412bfaa38b3e539}{set\+Status\+Atual}} (std::\+string status)
+virtual void \doxymbox{\hyperlink{class_objeto_inteligente_af0f88008d28ca51c1401afa92f5a0db8}{set\+Status\+Atual}} (std::\+string status)
 \begin{DoxyCompactList}\small\item\em Define o status atual do objeto. \end{DoxyCompactList}\item 
-float \doxymbox{\hyperlink{class_objeto_inteligente_a10fa219562be617aa6597702aa474854}{get\+Consumo\+Medio\+De\+Energia}} ()
-\begin{DoxyCompactList}\small\item\em Retorna o valor de consumo médio de energia do objeto. \end{DoxyCompactList}\item 
-std::\+vector$<$ std::\+function$<$ void()$>$ $>$ \doxymbox{\hyperlink{class_objeto_inteligente_ac7f91d4e9612c8805cd0a7a6a8b7bb1a}{get\+Funcoes}} ()
-\begin{DoxyCompactList}\small\item\em Retorna a lista de funções do objeto. \end{DoxyCompactList}\item 
-std::\+vector$<$ std::\+function$<$ void()$>$ $>$ \doxymbox{\hyperlink{class_objeto_inteligente_a1537896fa8723d1b24eae1f19cb9761f}{get\+Funcoes\+Restritas}} ()
-\begin{DoxyCompactList}\small\item\em Retorna a lista de funções restritas a crianças do objeto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+float \doxymbox{\hyperlink{class_objeto_inteligente_a66f992db9c3af0a50bd2321d173b8491}{get\+Consumo\+Medio\+De\+Energia}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o consumo médio de energia. \end{DoxyCompactList}\item 
+std::\+vector$<$ std::\+function$<$ void()$>$ $>$ \doxymbox{\hyperlink{class_objeto_inteligente_a0bd31daf4c3709fd474d727eac820a1d}{get\+Funcoes}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o vetor com as funções do objeto. \end{DoxyCompactList}\item 
+std::\+vector$<$ std::\+function$<$ void()$>$ $>$ \doxymbox{\hyperlink{class_objeto_inteligente_af9cd0c7245e0f323f882614f71bf3ca7}{get\+Funcoes\+Restritas}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o vetor com as funções restritas do objeto. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7}{Protocolo}} \doxymbox{\hyperlink{class_objeto_inteligente_aa5e33750dd014549ee071848a82bd15d}{get\+Protocolo}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o protocolo do objeto. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_objeto_inteligente_a99bb4c8481393828bc70718a21bef0de}{set\+Protocolo}} (\doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7}{Protocolo}} protocolo)
+\begin{DoxyCompactList}\small\item\em Define o protocolo do objeto. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_objeto_inteligente_a54f82f4a39e85e7f544eefef58f17b16}{comunica\+Com}} (const \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \&outro) const
+\begin{DoxyCompactList}\small\item\em Retorna se o objeto comunica com outro específico. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_objeto_inteligente_a24ff49d739d279a133121b6cba9d5780}{get\+Protocolo\+Como\+String}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o nome do protocolo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_objeto_inteligente_ae746a2ec4cd89bb666c17a2425c71ff3}{simular\+Falha}} ()
+\begin{DoxyCompactList}\small\item\em Simula uma falha no objeto. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_objeto_inteligente_ab0ff4abce985da6c4318c3eeb380330b}{reparar\+Falha}} ()
+\begin{DoxyCompactList}\small\item\em Conserta a falha no objeto. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_objeto_inteligente_ab949473022d220e52caa93d23aecbcb0}{esta\+Em\+Falha}} () const
+\begin{DoxyCompactList}\small\item\em Retorna se o objeto está com falha. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_objeto_inteligente_a36f5f733f887b745982d66f9cbd47154}{operator==}} (const \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \&other) const
+\begin{DoxyCompactList}\small\item\em Operador de igualdade da classe. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_objeto_inteligente_a4a49682ef1302a74c9fbd727db45cf1c}{print\+Objetos\+Info}} () const
+\begin{DoxyCompactList}\small\item\em Imprime as informações do objeto. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_objeto_inteligente_ad7bf74506ca3a76c16d1a839d52e5c1b}{caracteres\+Validos}} (const std::\+string \&str)
+\begin{DoxyCompactList}\small\item\em Retorna se os caracteres de uma string estão de acordo com as especificações do sistema. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_objeto_inteligente_a77c895d12db10f4a5f124e80d6768c0e}{set\+Restricao\+Adulto}} (bool restricao)
+\begin{DoxyCompactList}\small\item\em Define se o objeto tem restrição de adulto. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_objeto_inteligente_ab0b8c9bdf39372b79ca886efba397bc4}{get\+Restricao\+Adulto}} () const
+\begin{DoxyCompactList}\small\item\em Retorna se o objeto tem restrição de adulto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::\+string \doxymbox{\hyperlink{class_objeto_inteligente_add71c363822ea0384e61d45b0c864dc7}{nome}}
+\begin{DoxyCompactList}\small\item\em Armazena o nome do objeto. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_objeto_inteligente_a654416dea78d48b23abae3189ffb24ce}{restricao\+Adulto}}
+\begin{DoxyCompactList}\small\item\em Indica se o objeto é restrito apenas para adultos. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{class_sensor}{Sensor}} \texorpdfstring{$\ast$}{*} $>$ \doxymbox{\hyperlink{class_objeto_inteligente_a78c6008fd04733a3f45e5a18bec3b12c}{sensores}}
+\begin{DoxyCompactList}\small\item\em Vetor que armazena os sensores do objeto. \end{DoxyCompactList}\item 
+std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{class_objeto_inteligente_ab55222c616c16a88dcb7847da561f4dd}{status\+Possiveis}}
+\begin{DoxyCompactList}\small\item\em Vetor que armazena os status possíveis do objeto. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_objeto_inteligente_a7d653e274eb032233a0ea796a70390cb}{status\+Atual}}
+\begin{DoxyCompactList}\small\item\em Indica o status atual do objeto. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_objeto_inteligente_a1c27db4e20148378d3d237e9a91b8736}{consumo\+Medio\+De\+Energia}}
+\begin{DoxyCompactList}\small\item\em Armazena o consumo médio de energia do objeto. \end{DoxyCompactList}\item 
+std::\+vector$<$ std::\+function$<$ void()$>$ $>$ \doxymbox{\hyperlink{class_objeto_inteligente_a3e5e57eae4adc7f797d54cd78574c69e}{funcoes}}
+\begin{DoxyCompactList}\small\item\em Vetor que armazena as funções que podem ser realizadas pelo objeto. \end{DoxyCompactList}\item 
+std::\+vector$<$ std::\+function$<$ void()$>$ $>$ \doxymbox{\hyperlink{class_objeto_inteligente_a90e78061c62e31d0c8340768f74b966c}{funcoes\+Restritas}}
+\begin{DoxyCompactList}\small\item\em Armazena o nome do objeto. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7}{Protocolo}} \doxymbox{\hyperlink{class_objeto_inteligente_ad3450f2098c8897167d79d2677478616}{protocolo}} = \doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7a2f0b4d2c0c3d64bbb2cd525dbba8b0d0}{Protocolo::\+\+WIFI}}
+\begin{DoxyCompactList}\small\item\em \doxylink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7}{Protocolo} definido como WIFI. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_objeto_inteligente_aa8beb1a85c923bb5d78eaec90219f29e}{em\+Falha}} = false
+\begin{DoxyCompactList}\small\item\em Indica se o objeto está apresentando alguma falha. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Representa um objeto inteligente da smarthome. 
+Classe para definir como o objeto está operando. 
 
-A classe armazena sensores, funções disponíveis, restrições de acesso e informações de consumo de energia. 
+Representa um objeto inteligente com suas propriedades, funções, sensores, entre outros elementos relacionados. 
 
 \label{class_objeto_inteligente_doc-constructors}
 \Hypertarget{class_objeto_inteligente_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_objeto_inteligente_a01fe87343d9aaea4ae6a792de440a8ba}\index{ObjetoInteligente@{ObjetoInteligente}!ObjetoInteligente@{ObjetoInteligente}}
+\Hypertarget{class_objeto_inteligente_a9aad1dacd4e9321b035e0f54087882bd}\index{ObjetoInteligente@{ObjetoInteligente}!ObjetoInteligente@{ObjetoInteligente}}
 \index{ObjetoInteligente@{ObjetoInteligente}!ObjetoInteligente@{ObjetoInteligente}}
 \doxysubsubsection{\texorpdfstring{ObjetoInteligente()}{ObjetoInteligente()}}
-{\footnotesize\ttfamily \label{class_objeto_inteligente_a01fe87343d9aaea4ae6a792de440a8ba} 
-Objeto\+Inteligente::\+\+Objeto\+Inteligente (\begin{DoxyParamCaption}\item[{bool}]{restricao\+Adulto}{, }\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_sensor}{Sensor}} $>$}]{sensores}{, }\item[{std::\+vector$<$ std::\+string $>$}]{status\+Possiveis}{, }\item[{float}]{consumo\+Medio\+De\+Energia}{, }\item[{std::\+vector$<$ std::\+function$<$ void()$>$ $>$}]{funcoes}{, }\item[{std::\+vector$<$ std::\+function$<$ void()$>$ $>$}]{funcoes\+Restritas}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_a9aad1dacd4e9321b035e0f54087882bd} 
+Objeto\+Inteligente::\+\+Objeto\+Inteligente (\begin{DoxyParamCaption}\item[{std::\+string}]{nome}{, }\item[{bool}]{restricao\+Adulto}{, }\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_sensor}{Sensor}} \texorpdfstring{$\ast$}{*} $>$}]{sensores}{, }\item[{std::\+vector$<$ std::\+string $>$}]{status\+Possiveis}{, }\item[{std::\+string}]{status\+Atual}{, }\item[{float}]{consumo\+Medio\+De\+Energia}{, }\item[{std::\+vector$<$ std::\+function$<$ void()$>$ $>$}]{funcoes}{, }\item[{std::\+vector$<$ std::\+function$<$ void()$>$ $>$}]{funcoes\+Restritas}{}\end{DoxyParamCaption})}
 
 
 
 Construtor da classe \doxylink{class_objeto_inteligente}{Objeto\+Inteligente}. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em restricao\+Adulto} & Define se o objeto possui restrição para adultos. \\
-\hline
-{\em sensores} & Vetor dos sensores associados ao objeto. \\
-\hline
-{\em status\+Possiveis} & Vetor com os estados possíveis do objeto. \\
-\hline
-{\em consumo\+Medio\+De\+Energia} & Consumo médio de energia do objeto. \\
-\hline
-{\em funcoes} & Vetor das funções disponíveis. \\
-\hline
-{\em funcoes\+Restritas} & Vetor das funções restritas. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{class_objeto_inteligente_ac345d02235b9b5b4ede0b1ef3d81e026}\index{ObjetoInteligente@{ObjetoInteligente}!````~ObjetoInteligente@{\texorpdfstring{$\sim$}{\string~}ObjetoInteligente}}
+\Hypertarget{class_objeto_inteligente_a2e89b49594063d4cad3d8eb9c9622aa7}\index{ObjetoInteligente@{ObjetoInteligente}!````~ObjetoInteligente@{\texorpdfstring{$\sim$}{\string~}ObjetoInteligente}}
 \index{````~ObjetoInteligente@{\texorpdfstring{$\sim$}{\string~}ObjetoInteligente}!ObjetoInteligente@{ObjetoInteligente}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ObjetoInteligente()}{\string~ObjetoInteligente()}}
-{\footnotesize\ttfamily \label{class_objeto_inteligente_ac345d02235b9b5b4ede0b1ef3d81e026} 
-Objeto\+Inteligente::\+\texorpdfstring{$\sim$}{\string~}\+Objeto\+Inteligente (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_a2e89b49594063d4cad3d8eb9c9622aa7} 
+virtual Objeto\+Inteligente::\+\texorpdfstring{$\sim$}{\string~}\+Objeto\+Inteligente (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destrutor da classe \doxylink{class_objeto_inteligente}{Objeto\+Inteligente}. 
 
 
 
 \label{class_objeto_inteligente_doc-func-members}
 \Hypertarget{class_objeto_inteligente_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_objeto_inteligente_a10fa219562be617aa6597702aa474854}\index{ObjetoInteligente@{ObjetoInteligente}!getConsumoMedioDeEnergia@{getConsumoMedioDeEnergia}}
+\Hypertarget{class_objeto_inteligente_ad7bf74506ca3a76c16d1a839d52e5c1b}\index{ObjetoInteligente@{ObjetoInteligente}!caracteresValidos@{caracteresValidos}}
+\index{caracteresValidos@{caracteresValidos}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{caracteresValidos()}{caracteresValidos()}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_ad7bf74506ca3a76c16d1a839d52e5c1b} 
+bool Objeto\+Inteligente::\+caracteres\+Validos (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{str}{}\end{DoxyParamCaption})}
+
+
+
+Retorna se os caracteres de uma string estão de acordo com as especificações do sistema. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & String a ser verificada. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_objeto_inteligente_a54f82f4a39e85e7f544eefef58f17b16}\index{ObjetoInteligente@{ObjetoInteligente}!comunicaCom@{comunicaCom}}
+\index{comunicaCom@{comunicaCom}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{comunicaCom()}{comunicaCom()}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_a54f82f4a39e85e7f544eefef58f17b16} 
+bool Objeto\+Inteligente::\+comunica\+Com (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \&}]{outro}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna se o objeto comunica com outro específico. 
+
+\Hypertarget{class_objeto_inteligente_ab949473022d220e52caa93d23aecbcb0}\index{ObjetoInteligente@{ObjetoInteligente}!estaEmFalha@{estaEmFalha}}
+\index{estaEmFalha@{estaEmFalha}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{estaEmFalha()}{estaEmFalha()}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_ab949473022d220e52caa93d23aecbcb0} 
+bool Objeto\+Inteligente::\+esta\+Em\+Falha (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna se o objeto está com falha. 
+
+\Hypertarget{class_objeto_inteligente_a66f992db9c3af0a50bd2321d173b8491}\index{ObjetoInteligente@{ObjetoInteligente}!getConsumoMedioDeEnergia@{getConsumoMedioDeEnergia}}
 \index{getConsumoMedioDeEnergia@{getConsumoMedioDeEnergia}!ObjetoInteligente@{ObjetoInteligente}}
 \doxysubsubsection{\texorpdfstring{getConsumoMedioDeEnergia()}{getConsumoMedioDeEnergia()}}
-{\footnotesize\ttfamily \label{class_objeto_inteligente_a10fa219562be617aa6597702aa474854} 
-float Objeto\+Inteligente::\+get\+Consumo\+Medio\+De\+Energia (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_a66f992db9c3af0a50bd2321d173b8491} 
+float Objeto\+Inteligente::\+get\+Consumo\+Medio\+De\+Energia (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
-Retorna o valor de consumo médio de energia do objeto. 
+Retorna o consumo médio de energia. 
 
-\Hypertarget{class_objeto_inteligente_ac7f91d4e9612c8805cd0a7a6a8b7bb1a}\index{ObjetoInteligente@{ObjetoInteligente}!getFuncoes@{getFuncoes}}
+\Hypertarget{class_objeto_inteligente_a0bd31daf4c3709fd474d727eac820a1d}\index{ObjetoInteligente@{ObjetoInteligente}!getFuncoes@{getFuncoes}}
 \index{getFuncoes@{getFuncoes}!ObjetoInteligente@{ObjetoInteligente}}
 \doxysubsubsection{\texorpdfstring{getFuncoes()}{getFuncoes()}}
-{\footnotesize\ttfamily \label{class_objeto_inteligente_ac7f91d4e9612c8805cd0a7a6a8b7bb1a} 
-std::\+vector$<$ std::\+function$<$ void()$>$ $>$ Objeto\+Inteligente::\+get\+Funcoes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_a0bd31daf4c3709fd474d727eac820a1d} 
+std::\+vector$<$ std::\+function$<$ void()$>$ $>$ Objeto\+Inteligente::\+get\+Funcoes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
-Retorna a lista de funções do objeto. 
+Retorna o vetor com as funções do objeto. 
 
-\Hypertarget{class_objeto_inteligente_a1537896fa8723d1b24eae1f19cb9761f}\index{ObjetoInteligente@{ObjetoInteligente}!getFuncoesRestritas@{getFuncoesRestritas}}
+\Hypertarget{class_objeto_inteligente_af9cd0c7245e0f323f882614f71bf3ca7}\index{ObjetoInteligente@{ObjetoInteligente}!getFuncoesRestritas@{getFuncoesRestritas}}
 \index{getFuncoesRestritas@{getFuncoesRestritas}!ObjetoInteligente@{ObjetoInteligente}}
 \doxysubsubsection{\texorpdfstring{getFuncoesRestritas()}{getFuncoesRestritas()}}
-{\footnotesize\ttfamily \label{class_objeto_inteligente_a1537896fa8723d1b24eae1f19cb9761f} 
-std::\+vector$<$ std::\+function$<$ void()$>$ $>$ Objeto\+Inteligente::\+get\+Funcoes\+Restritas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_af9cd0c7245e0f323f882614f71bf3ca7} 
+std::\+vector$<$ std::\+function$<$ void()$>$ $>$ Objeto\+Inteligente::\+get\+Funcoes\+Restritas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
-Retorna a lista de funções restritas a crianças do objeto. 
+Retorna o vetor com as funções restritas do objeto. 
 
-\Hypertarget{class_objeto_inteligente_a6e6d6f5e8052fdac9489ed80d68d676a}\index{ObjetoInteligente@{ObjetoInteligente}!getSensores@{getSensores}}
+\Hypertarget{class_objeto_inteligente_ad7d9fe2075fde8b3acfd9f2cddfb49d7}\index{ObjetoInteligente@{ObjetoInteligente}!getNome@{getNome}}
+\index{getNome@{getNome}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{getNome()}{getNome()}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_ad7d9fe2075fde8b3acfd9f2cddfb49d7} 
+std::\+string Objeto\+Inteligente::\+get\+Nome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retornan o nome do objeto. 
+
+\Hypertarget{class_objeto_inteligente_aa5e33750dd014549ee071848a82bd15d}\index{ObjetoInteligente@{ObjetoInteligente}!getProtocolo@{getProtocolo}}
+\index{getProtocolo@{getProtocolo}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{getProtocolo()}{getProtocolo()}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_aa5e33750dd014549ee071848a82bd15d} 
+\doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7}{Protocolo}} Objeto\+Inteligente::\+get\+Protocolo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna o protocolo do objeto. 
+
+\Hypertarget{class_objeto_inteligente_a24ff49d739d279a133121b6cba9d5780}\index{ObjetoInteligente@{ObjetoInteligente}!getProtocoloComoString@{getProtocoloComoString}}
+\index{getProtocoloComoString@{getProtocoloComoString}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{getProtocoloComoString()}{getProtocoloComoString()}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_a24ff49d739d279a133121b6cba9d5780} 
+std::\+string Objeto\+Inteligente::\+get\+Protocolo\+Como\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna o nome do protocolo. 
+
+\Hypertarget{class_objeto_inteligente_ab0b8c9bdf39372b79ca886efba397bc4}\index{ObjetoInteligente@{ObjetoInteligente}!getRestricaoAdulto@{getRestricaoAdulto}}
+\index{getRestricaoAdulto@{getRestricaoAdulto}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{getRestricaoAdulto()}{getRestricaoAdulto()}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_ab0b8c9bdf39372b79ca886efba397bc4} 
+bool Objeto\+Inteligente::\+get\+Restricao\+Adulto (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna se o objeto tem restrição de adulto. 
+
+\Hypertarget{class_objeto_inteligente_add0e9904428324f4b49939b82b6b8069}\index{ObjetoInteligente@{ObjetoInteligente}!getSensores@{getSensores}}
 \index{getSensores@{getSensores}!ObjetoInteligente@{ObjetoInteligente}}
 \doxysubsubsection{\texorpdfstring{getSensores()}{getSensores()}}
-{\footnotesize\ttfamily \label{class_objeto_inteligente_a6e6d6f5e8052fdac9489ed80d68d676a} 
-std::\+vector$<$ \doxymbox{\hyperlink{class_sensor}{Sensor}} $>$ Objeto\+Inteligente::\+get\+Sensores (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_add0e9904428324f4b49939b82b6b8069} 
+std::\+vector$<$ \doxymbox{\hyperlink{class_sensor}{Sensor}} \texorpdfstring{$\ast$}{*} $>$ Objeto\+Inteligente::\+get\+Sensores (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
-Retorna os sensores associados ao objeto. 
+Retorna o vetor com os sensores do objeto. 
 
-\Hypertarget{class_objeto_inteligente_a69bb0354607a98257ed00bf02c1dcae1}\index{ObjetoInteligente@{ObjetoInteligente}!getStatus@{getStatus}}
-\index{getStatus@{getStatus}!ObjetoInteligente@{ObjetoInteligente}}
-\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
-{\footnotesize\ttfamily \label{class_objeto_inteligente_a69bb0354607a98257ed00bf02c1dcae1} 
-std::\+string Objeto\+Inteligente::\+get\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+\Hypertarget{class_objeto_inteligente_a800724620eabfacbbbf7846353b0fa72}\index{ObjetoInteligente@{ObjetoInteligente}!getStatusAtual@{getStatusAtual}}
+\index{getStatusAtual@{getStatusAtual}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{getStatusAtual()}{getStatusAtual()}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_a800724620eabfacbbbf7846353b0fa72} 
+std::\+string Objeto\+Inteligente::\+get\+Status\+Atual (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
 Retorna o status atual do objeto. 
 
-\Hypertarget{class_objeto_inteligente_a52ee190dba25ac536cd32362b41255fc}\index{ObjetoInteligente@{ObjetoInteligente}!setRestricaoAdulto@{setRestricaoAdulto}}
+\Hypertarget{class_objeto_inteligente_acf6536ad961218c53d2c2738f0fcd6d2}\index{ObjetoInteligente@{ObjetoInteligente}!getStatusPossiveis@{getStatusPossiveis}}
+\index{getStatusPossiveis@{getStatusPossiveis}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{getStatusPossiveis()}{getStatusPossiveis()}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_acf6536ad961218c53d2c2738f0fcd6d2} 
+std::\+vector$<$ std::\+string $>$ Objeto\+Inteligente::\+get\+Status\+Possiveis (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna o vetor com os status possíveis do objeto. 
+
+\Hypertarget{class_objeto_inteligente_a36f5f733f887b745982d66f9cbd47154}\index{ObjetoInteligente@{ObjetoInteligente}!operator==@{operator==}}
+\index{operator==@{operator==}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_a36f5f733f887b745982d66f9cbd47154} 
+bool Objeto\+Inteligente::\+operator== (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_objeto_inteligente}{Objeto\+Inteligente}} \&}]{other}{}\end{DoxyParamCaption}) const}
+
+
+
+Operador de igualdade da classe. 
+
+\Hypertarget{class_objeto_inteligente_a4a49682ef1302a74c9fbd727db45cf1c}\index{ObjetoInteligente@{ObjetoInteligente}!printObjetosInfo@{printObjetosInfo}}
+\index{printObjetosInfo@{printObjetosInfo}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{printObjetosInfo()}{printObjetosInfo()}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_a4a49682ef1302a74c9fbd727db45cf1c} 
+void Objeto\+Inteligente::\+print\+Objetos\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Imprime as informações do objeto. 
+
+\Hypertarget{class_objeto_inteligente_ab0ff4abce985da6c4318c3eeb380330b}\index{ObjetoInteligente@{ObjetoInteligente}!repararFalha@{repararFalha}}
+\index{repararFalha@{repararFalha}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{repararFalha()}{repararFalha()}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_ab0ff4abce985da6c4318c3eeb380330b} 
+void Objeto\+Inteligente::\+reparar\+Falha (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Conserta a falha no objeto. 
+
+\Hypertarget{class_objeto_inteligente_a99bb4c8481393828bc70718a21bef0de}\index{ObjetoInteligente@{ObjetoInteligente}!setProtocolo@{setProtocolo}}
+\index{setProtocolo@{setProtocolo}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{setProtocolo()}{setProtocolo()}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_a99bb4c8481393828bc70718a21bef0de} 
+void Objeto\+Inteligente::\+set\+Protocolo (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7}{Protocolo}}}]{protocolo}{}\end{DoxyParamCaption})}
+
+
+
+Define o protocolo do objeto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em protocolo} & Tipo do protocolo a ser definido. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_objeto_inteligente_a77c895d12db10f4a5f124e80d6768c0e}\index{ObjetoInteligente@{ObjetoInteligente}!setRestricaoAdulto@{setRestricaoAdulto}}
 \index{setRestricaoAdulto@{setRestricaoAdulto}!ObjetoInteligente@{ObjetoInteligente}}
 \doxysubsubsection{\texorpdfstring{setRestricaoAdulto()}{setRestricaoAdulto()}}
-{\footnotesize\ttfamily \label{class_objeto_inteligente_a52ee190dba25ac536cd32362b41255fc} 
-void Objeto\+Inteligente::\+set\+Restricao\+Adulto (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_a77c895d12db10f4a5f124e80d6768c0e} 
+void Objeto\+Inteligente::\+set\+Restricao\+Adulto (\begin{DoxyParamCaption}\item[{bool}]{restricao}{}\end{DoxyParamCaption})}
 
 
 
-Métodos setters e getters. 
+Define se o objeto tem restrição de adulto. 
 
-\Hypertarget{class_objeto_inteligente_ab465a9fa0c310756c412bfaa38b3e539}\index{ObjetoInteligente@{ObjetoInteligente}!setStatusAtual@{setStatusAtual}}
+\Hypertarget{class_objeto_inteligente_af0f88008d28ca51c1401afa92f5a0db8}\index{ObjetoInteligente@{ObjetoInteligente}!setStatusAtual@{setStatusAtual}}
 \index{setStatusAtual@{setStatusAtual}!ObjetoInteligente@{ObjetoInteligente}}
 \doxysubsubsection{\texorpdfstring{setStatusAtual()}{setStatusAtual()}}
-{\footnotesize\ttfamily \label{class_objeto_inteligente_ab465a9fa0c310756c412bfaa38b3e539} 
-void Objeto\+Inteligente::\+set\+Status\+Atual (\begin{DoxyParamCaption}\item[{std::\+string}]{status}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_af0f88008d28ca51c1401afa92f5a0db8} 
+virtual void Objeto\+Inteligente::\+set\+Status\+Atual (\begin{DoxyParamCaption}\item[{std::\+string}]{status}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -148,11 +322,130 @@ Define o status atual do objeto.
 
 
 \begin{DoxyParams}{Parameters}
-{\em status} & é o nome dos status a ser definido. \\
+{\em status} & Nome do status a ser definido. \\
 \hline
 \end{DoxyParams}
 
 
+Reimplemented in \doxymbox{\hyperlink{class_ar_condicionado_af0f88008d28ca51c1401afa92f5a0db8}{Ar\+Condicionado}}, \doxymbox{\hyperlink{class_caixa_de_som_af0f88008d28ca51c1401afa92f5a0db8}{Caixa\+De\+Som}}, \doxymbox{\hyperlink{class_luz_af0f88008d28ca51c1401afa92f5a0db8}{Luz}}, \doxymbox{\hyperlink{class_portao_af0f88008d28ca51c1401afa92f5a0db8}{Portao}}, \doxymbox{\hyperlink{class_termostato_af0f88008d28ca51c1401afa92f5a0db8}{Termostato}}, and \doxymbox{\hyperlink{class_t_v_af0f88008d28ca51c1401afa92f5a0db8}{TV}}.
+
+\Hypertarget{class_objeto_inteligente_ae746a2ec4cd89bb666c17a2425c71ff3}\index{ObjetoInteligente@{ObjetoInteligente}!simularFalha@{simularFalha}}
+\index{simularFalha@{simularFalha}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{simularFalha()}{simularFalha()}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_ae746a2ec4cd89bb666c17a2425c71ff3} 
+void Objeto\+Inteligente::\+simular\+Falha (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Simula uma falha no objeto. 
+
+
+
+\label{class_objeto_inteligente_doc-variable-members}
+\Hypertarget{class_objeto_inteligente_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_objeto_inteligente_a1c27db4e20148378d3d237e9a91b8736}\index{ObjetoInteligente@{ObjetoInteligente}!consumoMedioDeEnergia@{consumoMedioDeEnergia}}
+\index{consumoMedioDeEnergia@{consumoMedioDeEnergia}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{consumoMedioDeEnergia}{consumoMedioDeEnergia}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_a1c27db4e20148378d3d237e9a91b8736} 
+float Objeto\+Inteligente::\+consumo\+Medio\+De\+Energia\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Armazena o consumo médio de energia do objeto. 
+
+\Hypertarget{class_objeto_inteligente_aa8beb1a85c923bb5d78eaec90219f29e}\index{ObjetoInteligente@{ObjetoInteligente}!emFalha@{emFalha}}
+\index{emFalha@{emFalha}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{emFalha}{emFalha}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_aa8beb1a85c923bb5d78eaec90219f29e} 
+bool Objeto\+Inteligente::\+em\+Falha = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Indica se o objeto está apresentando alguma falha. 
+
+\Hypertarget{class_objeto_inteligente_a3e5e57eae4adc7f797d54cd78574c69e}\index{ObjetoInteligente@{ObjetoInteligente}!funcoes@{funcoes}}
+\index{funcoes@{funcoes}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{funcoes}{funcoes}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_a3e5e57eae4adc7f797d54cd78574c69e} 
+std::\+vector$<$std::\+function$<$void()$>$ $>$ Objeto\+Inteligente::\+funcoes\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Vetor que armazena as funções que podem ser realizadas pelo objeto. 
+
+\Hypertarget{class_objeto_inteligente_a90e78061c62e31d0c8340768f74b966c}\index{ObjetoInteligente@{ObjetoInteligente}!funcoesRestritas@{funcoesRestritas}}
+\index{funcoesRestritas@{funcoesRestritas}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{funcoesRestritas}{funcoesRestritas}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_a90e78061c62e31d0c8340768f74b966c} 
+std::\+vector$<$std::\+function$<$void()$>$ $>$ Objeto\+Inteligente::\+funcoes\+Restritas\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Armazena o nome do objeto. 
+
+\Hypertarget{class_objeto_inteligente_add71c363822ea0384e61d45b0c864dc7}\index{ObjetoInteligente@{ObjetoInteligente}!nome@{nome}}
+\index{nome@{nome}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{nome}{nome}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_add71c363822ea0384e61d45b0c864dc7} 
+std::\+string Objeto\+Inteligente::\+nome\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Armazena o nome do objeto. 
+
+\Hypertarget{class_objeto_inteligente_ad3450f2098c8897167d79d2677478616}\index{ObjetoInteligente@{ObjetoInteligente}!protocolo@{protocolo}}
+\index{protocolo@{protocolo}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{protocolo}{protocolo}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_ad3450f2098c8897167d79d2677478616} 
+\doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7}{Protocolo}} Objeto\+Inteligente::\+protocolo = \doxymbox{\hyperlink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7a2f0b4d2c0c3d64bbb2cd525dbba8b0d0}{Protocolo::\+\+WIFI}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\doxylink{_objeto_inteligente_8hpp_a79f0bdf31a82d403f2eccd31e02139a7}{Protocolo} definido como WIFI. 
+
+\Hypertarget{class_objeto_inteligente_a654416dea78d48b23abae3189ffb24ce}\index{ObjetoInteligente@{ObjetoInteligente}!restricaoAdulto@{restricaoAdulto}}
+\index{restricaoAdulto@{restricaoAdulto}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{restricaoAdulto}{restricaoAdulto}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_a654416dea78d48b23abae3189ffb24ce} 
+bool Objeto\+Inteligente::\+restricao\+Adulto\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Indica se o objeto é restrito apenas para adultos. 
+
+\Hypertarget{class_objeto_inteligente_a78c6008fd04733a3f45e5a18bec3b12c}\index{ObjetoInteligente@{ObjetoInteligente}!sensores@{sensores}}
+\index{sensores@{sensores}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{sensores}{sensores}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_a78c6008fd04733a3f45e5a18bec3b12c} 
+std::\+vector$<$\doxymbox{\hyperlink{class_sensor}{Sensor}}\texorpdfstring{$\ast$}{*}$>$ Objeto\+Inteligente::\+sensores\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Vetor que armazena os sensores do objeto. 
+
+\Hypertarget{class_objeto_inteligente_a7d653e274eb032233a0ea796a70390cb}\index{ObjetoInteligente@{ObjetoInteligente}!statusAtual@{statusAtual}}
+\index{statusAtual@{statusAtual}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{statusAtual}{statusAtual}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_a7d653e274eb032233a0ea796a70390cb} 
+std::\+string Objeto\+Inteligente::\+status\+Atual\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Indica o status atual do objeto. 
+
+\Hypertarget{class_objeto_inteligente_ab55222c616c16a88dcb7847da561f4dd}\index{ObjetoInteligente@{ObjetoInteligente}!statusPossiveis@{statusPossiveis}}
+\index{statusPossiveis@{statusPossiveis}!ObjetoInteligente@{ObjetoInteligente}}
+\doxysubsubsection{\texorpdfstring{statusPossiveis}{statusPossiveis}}
+{\footnotesize\ttfamily \label{class_objeto_inteligente_ab55222c616c16a88dcb7847da561f4dd} 
+std::\+vector$<$std::\+string$>$ Objeto\+Inteligente::\+status\+Possiveis\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Vetor que armazena os status possíveis do objeto. 
+
+
+
 The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
 \item 
-C:\+/\+\+Users/\+tiago/\+\+One\+Drive/\+Área de Trabalho/\+\+Atalhos etc/\+ufmg/\+pds2/\+\+PDS2-\/2026-\/\+PF-\/grupo2/\+include/\+\doxymbox{\hyperlink{_objeto_inteligente_8hpp}{Objeto\+Inteligente.\+hpp}}\end{DoxyCompactItemize}
+include/\+\doxymbox{\hyperlink{_objeto_inteligente_8hpp}{Objeto\+Inteligente.\+hpp}}\end{DoxyCompactItemize}

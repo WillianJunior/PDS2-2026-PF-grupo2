@@ -119,29 +119,80 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_modo.htm
 </div><!--header-->
 <div class="contents">
 
-<p>Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentese cômodos relacionados, além de controlar se o modo está ativo/desativado ou bloqueado/permitido.  
+<p>Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentes e cômodos relacionados, além de controlar se o modo está ativo/desativado ou bloqueado/permitido.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_modo_8hpp_source.html">Modo.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Modo:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_modo.png" usemap="#Modo_map" alt=""/>
+  <map id="Modo_map" name="Modo_map">
+<area href="class_modo_ausente.html" title="Representa o modo ausente da smarthome. Fecha o portão, apaga a luz, desliga a tv,..." alt="ModoAusente" shape="rect" coords="0,56,99,80"/>
+<area href="class_modo_cinema.html" alt="ModoCinema" shape="rect" coords="109,56,208,80"/>
+<area href="class_modo_economia.html" title="Representa o modo de economia de energia da smarthome. Desliga a luz, ar condicionado,..." alt="ModoEconomia" shape="rect" coords="218,56,317,80"/>
+<area href="class_modo_festa.html" title="Representa o modo festa da smarthome. Liga a caixa de som, a luz e a tv." alt="ModoFesta" shape="rect" coords="327,56,426,80"/>
+<area href="class_modo_noturno.html" title="Representa o modo noturno da smarthohome. Desliga todos objetos relacionados." alt="ModoNoturno" shape="rect" coords="436,56,535,80"/>
+<area href="class_modo_trabalho.html" title="Representa o modo de trabalho da smarthome. Liga a luz, o ar condicionado e desliga a TV." alt="ModoTrabalho" shape="rect" coords="545,56,644,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a44b47c8dfbf703e8017922b55f167d5f" id="r_a44b47c8dfbf703e8017922b55f167d5f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a44b47c8dfbf703e8017922b55f167d5f">Modo</a> (std::vector&lt; <a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> &gt; objetos, std::vector&lt; <a class="el" href="class_comodo.html">Comodo</a> &gt; comodos, bool ligado, bool bloqueado)</td></tr>
-<tr class="memdesc:a44b47c8dfbf703e8017922b55f167d5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe.  <br /></td></tr>
+<tr class="memitem:a1f0befebffa0afa6bf902060596fb9b1" id="r_a1f0befebffa0afa6bf902060596fb9b1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1f0befebffa0afa6bf902060596fb9b1">Modo</a> (std::string nome, std::vector&lt; <a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> * &gt; objetos, std::vector&lt; <a class="el" href="class_comodo.html">Comodo</a> * &gt; comodos, bool ligado, bool bloqueado)</td></tr>
+<tr class="memdesc:a1f0befebffa0afa6bf902060596fb9b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe modo.  <br /></td></tr>
+<tr class="memitem:a5fb83f241feebca5428de33cb83a6545" id="r_a5fb83f241feebca5428de33cb83a6545"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a5fb83f241feebca5428de33cb83a6545">getNome</a> () const</td></tr>
+<tr class="memdesc:a5fb83f241feebca5428de33cb83a6545"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o nome do modo.  <br /></td></tr>
 <tr class="memitem:a1e293dfc5f7652b26506955dc534fc5a" id="r_a1e293dfc5f7652b26506955dc534fc5a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1e293dfc5f7652b26506955dc534fc5a">setAtivoModo</a> (bool ativo)</td></tr>
-<tr class="memdesc:a1e293dfc5f7652b26506955dc534fc5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ativa ou desativa o modo.  <br /></td></tr>
-<tr class="memitem:a05baa809c2ff44d55861f1ef66efc5c1" id="r_a05baa809c2ff44d55861f1ef66efc5c1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a05baa809c2ff44d55861f1ef66efc5c1">getAtivoModo</a> ()</td></tr>
+<tr class="memdesc:a1e293dfc5f7652b26506955dc534fc5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define se o modo está ativo ou não.  <br /></td></tr>
+<tr class="memitem:aeac9ef784636c853a7fa5037c4bad235" id="r_aeac9ef784636c853a7fa5037c4bad235"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aeac9ef784636c853a7fa5037c4bad235">getAtivoModo</a> () const</td></tr>
+<tr class="memdesc:aeac9ef784636c853a7fa5037c4bad235"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna se o modo está ativo ou não.  <br /></td></tr>
 <tr class="memitem:a8d46b7efcfedc8097f9968b0bf6524a1" id="r_a8d46b7efcfedc8097f9968b0bf6524a1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8d46b7efcfedc8097f9968b0bf6524a1">setBloqueadoModo</a> (bool bloqueado)</td></tr>
-<tr class="memdesc:a8d46b7efcfedc8097f9968b0bf6524a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna se o modo está ativo.  <br /></td></tr>
-<tr class="memitem:a6bfb007cc70a82864a4a64fa9766d0bd" id="r_a6bfb007cc70a82864a4a64fa9766d0bd"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6bfb007cc70a82864a4a64fa9766d0bd">getBloqueadoModo</a> ()</td></tr>
-<tr class="memitem:a0cc310b999b1f87fec4f025441f0fc44" id="r_a0cc310b999b1f87fec4f025441f0fc44"><td class="memItemLeft">std::vector&lt; <a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a0cc310b999b1f87fec4f025441f0fc44">getObjetosRelacionados</a> ()</td></tr>
-<tr class="memitem:aa74946a717c0b58cb604809d4e3c9f04" id="r_aa74946a717c0b58cb604809d4e3c9f04"><td class="memItemLeft">std::vector&lt; <a class="el" href="class_comodo.html">Comodo</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa74946a717c0b58cb604809d4e3c9f04">getComodosRelacionados</a> ()</td></tr>
+<tr class="memdesc:a8d46b7efcfedc8097f9968b0bf6524a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define se o modo está bloqueado ou não.  <br /></td></tr>
+<tr class="memitem:aa734d22464c49096adeb23962e9c5aa7" id="r_aa734d22464c49096adeb23962e9c5aa7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa734d22464c49096adeb23962e9c5aa7">getBloqueadoModo</a> () const</td></tr>
+<tr class="memdesc:aa734d22464c49096adeb23962e9c5aa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna se o modo está bloqueado ou não.  <br /></td></tr>
+<tr class="memitem:a60f47ebe9b5730df48b5021298a619c6" id="r_a60f47ebe9b5730df48b5021298a619c6"><td class="memItemLeft">std::vector&lt; <a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> * &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a60f47ebe9b5730df48b5021298a619c6">getObjetosRelacionados</a> () const</td></tr>
+<tr class="memdesc:a60f47ebe9b5730df48b5021298a619c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o vetor com os objetos afetados pelo modo.  <br /></td></tr>
+<tr class="memitem:aa449c237d6012f5905959d92660d2f0d" id="r_aa449c237d6012f5905959d92660d2f0d"><td class="memItemLeft">std::vector&lt; <a class="el" href="class_comodo.html">Comodo</a> * &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa449c237d6012f5905959d92660d2f0d">getComodosRelacionados</a> () const</td></tr>
+<tr class="memdesc:aa449c237d6012f5905959d92660d2f0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o vetor com os cômodos relacionados ao modo.  <br /></td></tr>
+<tr class="memitem:a5bdfd965d2d04e0140535b464b8213de" id="r_a5bdfd965d2d04e0140535b464b8213de"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5bdfd965d2d04e0140535b464b8213de">adicionarComodoRelacionado</a> (<a class="el" href="class_comodo.html">Comodo</a> *comodo)</td></tr>
+<tr class="memdesc:a5bdfd965d2d04e0140535b464b8213de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona um cômodo ao vetor de cômodos relacionados.  <br /></td></tr>
+<tr class="memitem:ad5c6c0ef26892292c6c330ef1c24c2a2" id="r_ad5c6c0ef26892292c6c330ef1c24c2a2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad5c6c0ef26892292c6c330ef1c24c2a2">removerComodoRelacionado</a> (std::string nomeComodo)</td></tr>
+<tr class="memdesc:ad5c6c0ef26892292c6c330ef1c24c2a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tira a conexão com um cômodo relacionado.  <br /></td></tr>
+<tr class="memitem:ae0173c0589668e58f405467243a267d7" id="r_ae0173c0589668e58f405467243a267d7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae0173c0589668e58f405467243a267d7">operator==</a> (const <a class="el" href="class_modo.html">Modo</a> &amp;other) const</td></tr>
+<tr class="memdesc:ae0173c0589668e58f405467243a267d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de igualdade da classe.  <br /></td></tr>
+<tr class="memitem:a1dcbdab0a68a999621050409451896e8" id="r_a1dcbdab0a68a999621050409451896e8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1dcbdab0a68a999621050409451896e8">printMembrosInfo</a> () const</td></tr>
+<tr class="memdesc:a1dcbdab0a68a999621050409451896e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o nome do modo.  <br /></td></tr>
+<tr class="memitem:a6eae0f970b102ff66b6c08d27293e452" id="r_a6eae0f970b102ff66b6c08d27293e452"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6eae0f970b102ff66b6c08d27293e452">executarNosComodosRelacionados</a> ()</td></tr>
+<tr class="memdesc:a6eae0f970b102ff66b6c08d27293e452"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executa a instrução nos cômodos atrelados.  <br /></td></tr>
+<tr class="memitem:ad473614e4a0dceccd897e20938a3c4e8" id="r_ad473614e4a0dceccd897e20938a3c4e8"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ad473614e4a0dceccd897e20938a3c4e8">executarInstrucao</a> (<a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> *objeto, <a class="el" href="class_comodo.html">Comodo</a> *comodo)</td></tr>
+<tr class="memdesc:ad473614e4a0dceccd897e20938a3c4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executa uma instrução em um objeto específico de um certo comodo.  <br /></td></tr>
+<tr class="memitem:a0b36a65c4d4796daf162803106d9af8f" id="r_a0b36a65c4d4796daf162803106d9af8f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0b36a65c4d4796daf162803106d9af8f">desfazerInstrucao</a> (<a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> *objeto, <a class="el" href="class_comodo.html">Comodo</a> *comodo)</td></tr>
+<tr class="memdesc:a0b36a65c4d4796daf162803106d9af8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desfaz uma instrução em um objeto específico de um certo comodo.  <br /></td></tr>
+<tr class="memitem:ad0313a8bed13b8e4d4978c27763a0816" id="r_ad0313a8bed13b8e4d4978c27763a0816"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad0313a8bed13b8e4d4978c27763a0816">caracteresValidos</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:ad0313a8bed13b8e4d4978c27763a0816"><td class="mdescLeft">&#160;</td><td class="mdescRight">Confere se os caractéres seguem os requisitos do sistema.  <br /></td></tr>
+<tr class="memitem:aafe69890195faa1acb0aba8d3f8251d3" id="r_aafe69890195faa1acb0aba8d3f8251d3"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#aafe69890195faa1acb0aba8d3f8251d3">~Modo</a> ()=default</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a93c64a61cf53d542b508889b24871243" id="r_a93c64a61cf53d542b508889b24871243"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a93c64a61cf53d542b508889b24871243">nome</a></td></tr>
+<tr class="memdesc:a93c64a61cf53d542b508889b24871243"><td class="mdescLeft">&#160;</td><td class="mdescRight">Armazena o nome do modo.  <br /></td></tr>
+<tr class="memitem:a3bc0fd6050c172f474955ac5187022d6" id="r_a3bc0fd6050c172f474955ac5187022d6"><td class="memItemLeft">std::vector&lt; <a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> * &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a3bc0fd6050c172f474955ac5187022d6">objetosRelacionados</a></td></tr>
+<tr class="memdesc:a3bc0fd6050c172f474955ac5187022d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vetor que armazena os objetos relacionados ao modo.  <br /></td></tr>
+<tr class="memitem:a69bbd8032df73759c470cf890a5ab24f" id="r_a69bbd8032df73759c470cf890a5ab24f"><td class="memItemLeft">std::vector&lt; <a class="el" href="class_comodo.html">Comodo</a> * &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a69bbd8032df73759c470cf890a5ab24f">comodosRelacionados</a></td></tr>
+<tr class="memdesc:a69bbd8032df73759c470cf890a5ab24f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vetor que armazena os cômodos relacionados ao modo.  <br /></td></tr>
+<tr class="memitem:ac1fd890beeb8fd41fba88c7ef620d03a" id="r_ac1fd890beeb8fd41fba88c7ef620d03a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac1fd890beeb8fd41fba88c7ef620d03a">ligado</a></td></tr>
+<tr class="memdesc:ac1fd890beeb8fd41fba88c7ef620d03a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indica se o modo está ligado (está sendo executado).  <br /></td></tr>
+<tr class="memitem:a47e5002f839a7b54f0af305439afcbc6" id="r_a47e5002f839a7b54f0af305439afcbc6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a47e5002f839a7b54f0af305439afcbc6">bloqueado</a></td></tr>
+<tr class="memdesc:a47e5002f839a7b54f0af305439afcbc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indica se o modo está bloqueado (impedido de ser ativado).  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentese cômodos relacionados, além de controlar se o modo está ativo/desativado ou bloqueado/permitido. </p>
+<div class="textblock"><p>Representa um modo de funcionamento da smarthome. Armazena informações sobre os objetos inteligentes e cômodos relacionados, além de controlar se o modo está ativo/desativado ou bloqueado/permitido. </p>
+<p>Representa o modo cinema da smarthome. Desliga a luz, liga a <a class="el" href="class_t_v.html" title="Subclasse de objeto, que representa uma televisão.">TV</a> e a caixa de som. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a44b47c8dfbf703e8017922b55f167d5f" name="a44b47c8dfbf703e8017922b55f167d5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44b47c8dfbf703e8017922b55f167d5f">&#9670;&#160;</a></span>Modo()</h2>
+<a id="a1f0befebffa0afa6bf902060596fb9b1" name="a1f0befebffa0afa6bf902060596fb9b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f0befebffa0afa6bf902060596fb9b1">&#9670;&#160;</a></span>Modo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -149,12 +200,17 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">Modo::Modo </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>objetos</em></span>, </td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="class_comodo.html">Comodo</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>comodos</em></span>, </td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> * &gt;</td>          <td class="paramname"><span class="paramname"><em>objetos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_comodo.html">Comodo</a> * &gt;</td>          <td class="paramname"><span class="paramname"><em>comodos</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -169,22 +225,177 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Construtor da classe. </p>
+<p>Construtor da classe modo. </p>
+
+</div>
+</div>
+<a id="aafe69890195faa1acb0aba8d3f8251d3" name="aafe69890195faa1acb0aba8d3f8251d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafe69890195faa1acb0aba8d3f8251d3">&#9670;&#160;</a></span>~Modo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Modo::~Modo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a5bdfd965d2d04e0140535b464b8213de" name="a5bdfd965d2d04e0140535b464b8213de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bdfd965d2d04e0140535b464b8213de">&#9670;&#160;</a></span>adicionarComodoRelacionado()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Modo::adicionarComodoRelacionado </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a> *</td>          <td class="paramname"><span class="paramname"><em>comodo</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adiciona um cômodo ao vetor de cômodos relacionados. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">objetos</td><td>Objetos relacionados ao modo. </td></tr>
-    <tr><td class="paramname">comodos</td><td>Cômodos relacionados ao modo. </td></tr>
-    <tr><td class="paramname">ligado</td><td>Estado inicial do modo. </td></tr>
-    <tr><td class="paramname">bloqueado</td><td>Estado de bloqueio do modo. </td></tr>
+    <tr><td class="paramname">comodo</td><td>Qual cômodo adicionar. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a05baa809c2ff44d55861f1ef66efc5c1" name="a05baa809c2ff44d55861f1ef66efc5c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05baa809c2ff44d55861f1ef66efc5c1">&#9670;&#160;</a></span>getAtivoModo()</h2>
+<a id="ad0313a8bed13b8e4d4978c27763a0816" name="ad0313a8bed13b8e4d4978c27763a0816"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0313a8bed13b8e4d4978c27763a0816">&#9670;&#160;</a></span>caracteresValidos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Modo::caracteresValidos </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Confere se os caractéres seguem os requisitos do sistema. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>String a ser conferida. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0b36a65c4d4796daf162803106d9af8f" name="a0b36a65c4d4796daf162803106d9af8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b36a65c4d4796daf162803106d9af8f">&#9670;&#160;</a></span>desfazerInstrucao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Modo::desfazerInstrucao </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> *</td>          <td class="paramname"><span class="paramname"><em>objeto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a> *</td>          <td class="paramname"><span class="paramname"><em>comodo</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Desfaz uma instrução em um objeto específico de um certo comodo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">objeto</td><td>Qual objeto a ser afetado. </td></tr>
+    <tr><td class="paramname">comodo</td><td>Em qual cômodo deve-se desfazer a instrução. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad473614e4a0dceccd897e20938a3c4e8" name="ad473614e4a0dceccd897e20938a3c4e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad473614e4a0dceccd897e20938a3c4e8">&#9670;&#160;</a></span>executarInstrucao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Modo::executarInstrucao </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> *</td>          <td class="paramname"><span class="paramname"><em>objeto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_comodo.html">Comodo</a> *</td>          <td class="paramname"><span class="paramname"><em>comodo</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Executa uma instrução em um objeto específico de um certo comodo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">objeto</td><td>Qual objeto a ser afetado. </td></tr>
+    <tr><td class="paramname">comodo</td><td>Em qual cômodo deve-se aplicar a instrução. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="class_modo_ausente.html#a4c35ccc9eea08241e39dfabc307d082b">ModoAusente</a>, <a class="el" href="class_modo_cinema.html#a9f1462b81a16eeeb9febc2bf935b5b86">ModoCinema</a>, <a class="el" href="class_modo_economia.html#a9dcc33cd59ecf6c57ffb122e6063131c">ModoEconomia</a>, <a class="el" href="class_modo_festa.html#aebd10a7444ea184a70d14bc38923b613">ModoFesta</a>, <a class="el" href="class_modo_noturno.html#a0c7d51672307d68d420cf3408e72bb4d">ModoNoturno</a>, and <a class="el" href="class_modo_trabalho.html#a68cdaff19145a6999e993fdb97b24a89">ModoTrabalho</a>.</p>
+
+</div>
+</div>
+<a id="a6eae0f970b102ff66b6c08d27293e452" name="a6eae0f970b102ff66b6c08d27293e452"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eae0f970b102ff66b6c08d27293e452">&#9670;&#160;</a></span>executarNosComodosRelacionados()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Modo::executarNosComodosRelacionados </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Executa a instrução nos cômodos atrelados. </p>
+
+</div>
+</div>
+<a id="aeac9ef784636c853a7fa5037c4bad235" name="aeac9ef784636c853a7fa5037c4bad235"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeac9ef784636c853a7fa5037c4bad235">&#9670;&#160;</a></span>getAtivoModo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -193,15 +404,17 @@ Public Member Functions</h2></td></tr>
           <td class="memname">bool Modo::getAtivoModo </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retorna se o modo está ativo ou não. </p>
+
 </div>
 </div>
-<a id="a6bfb007cc70a82864a4a64fa9766d0bd" name="a6bfb007cc70a82864a4a64fa9766d0bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6bfb007cc70a82864a4a64fa9766d0bd">&#9670;&#160;</a></span>getBloqueadoModo()</h2>
+<a id="aa734d22464c49096adeb23962e9c5aa7" name="aa734d22464c49096adeb23962e9c5aa7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa734d22464c49096adeb23962e9c5aa7">&#9670;&#160;</a></span>getBloqueadoModo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,44 +423,132 @@ Public Member Functions</h2></td></tr>
           <td class="memname">bool Modo::getBloqueadoModo </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retorna se o modo está bloqueado ou não. </p>
+
 </div>
 </div>
-<a id="aa74946a717c0b58cb604809d4e3c9f04" name="aa74946a717c0b58cb604809d4e3c9f04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa74946a717c0b58cb604809d4e3c9f04">&#9670;&#160;</a></span>getComodosRelacionados()</h2>
+<a id="aa449c237d6012f5905959d92660d2f0d" name="aa449c237d6012f5905959d92660d2f0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa449c237d6012f5905959d92660d2f0d">&#9670;&#160;</a></span>getComodosRelacionados()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="class_comodo.html">Comodo</a> &gt; Modo::getComodosRelacionados </td>
+          <td class="memname">std::vector&lt; <a class="el" href="class_comodo.html">Comodo</a> * &gt; Modo::getComodosRelacionados </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retorna o vetor com os cômodos relacionados ao modo. </p>
+
 </div>
 </div>
-<a id="a0cc310b999b1f87fec4f025441f0fc44" name="a0cc310b999b1f87fec4f025441f0fc44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0cc310b999b1f87fec4f025441f0fc44">&#9670;&#160;</a></span>getObjetosRelacionados()</h2>
+<a id="a5fb83f241feebca5428de33cb83a6545" name="a5fb83f241feebca5428de33cb83a6545"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fb83f241feebca5428de33cb83a6545">&#9670;&#160;</a></span>getNome()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> &gt; Modo::getObjetosRelacionados </td>
+          <td class="memname">std::string Modo::getNome </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o nome do modo. </p>
+
+</div>
+</div>
+<a id="a60f47ebe9b5730df48b5021298a619c6" name="a60f47ebe9b5730df48b5021298a619c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60f47ebe9b5730df48b5021298a619c6">&#9670;&#160;</a></span>getObjetosRelacionados()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a> * &gt; Modo::getObjetosRelacionados </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o vetor com os objetos afetados pelo modo. </p>
+
+</div>
+</div>
+<a id="ae0173c0589668e58f405467243a267d7" name="ae0173c0589668e58f405467243a267d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0173c0589668e58f405467243a267d7">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Modo::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_modo.html">Modo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Operador de igualdade da classe. </p>
+
+</div>
+</div>
+<a id="a1dcbdab0a68a999621050409451896e8" name="a1dcbdab0a68a999621050409451896e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dcbdab0a68a999621050409451896e8">&#9670;&#160;</a></span>printMembrosInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Modo::printMembrosInfo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o nome do modo. </p>
+
+</div>
+</div>
+<a id="ad5c6c0ef26892292c6c330ef1c24c2a2" name="ad5c6c0ef26892292c6c330ef1c24c2a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5c6c0ef26892292c6c330ef1c24c2a2">&#9670;&#160;</a></span>removerComodoRelacionado()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Modo::removerComodoRelacionado </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>nomeComodo</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tira a conexão com um cômodo relacionado. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nomeComodo</td><td>O nome do cômodo a ser removido. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -266,13 +567,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Ativa ou desativa o modo. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ativo</td><td>Estado do modo. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Define se o modo está ativo ou não. </p>
 
 </div>
 </div>
@@ -291,13 +586,133 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Retorna se o modo está ativo. </p>
-<dl class="section return"><dt>Returns</dt><dd>Estado do modo. </dd></dl>
+<p>Define se o modo está bloqueado ou não. </p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a47e5002f839a7b54f0af305439afcbc6" name="a47e5002f839a7b54f0af305439afcbc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47e5002f839a7b54f0af305439afcbc6">&#9670;&#160;</a></span>bloqueado</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Modo::bloqueado</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indica se o modo está bloqueado (impedido de ser ativado). </p>
+
+</div>
+</div>
+<a id="a69bbd8032df73759c470cf890a5ab24f" name="a69bbd8032df73759c470cf890a5ab24f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69bbd8032df73759c470cf890a5ab24f">&#9670;&#160;</a></span>comodosRelacionados</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_comodo.html">Comodo</a>*&gt; Modo::comodosRelacionados</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vetor que armazena os cômodos relacionados ao modo. </p>
+
+</div>
+</div>
+<a id="ac1fd890beeb8fd41fba88c7ef620d03a" name="ac1fd890beeb8fd41fba88c7ef620d03a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1fd890beeb8fd41fba88c7ef620d03a">&#9670;&#160;</a></span>ligado</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Modo::ligado</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indica se o modo está ligado (está sendo executado). </p>
+
+</div>
+</div>
+<a id="a93c64a61cf53d542b508889b24871243" name="a93c64a61cf53d542b508889b24871243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93c64a61cf53d542b508889b24871243">&#9670;&#160;</a></span>nome</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Modo::nome</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Armazena o nome do modo. </p>
+
+</div>
+</div>
+<a id="a3bc0fd6050c172f474955ac5187022d6" name="a3bc0fd6050c172f474955ac5187022d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bc0fd6050c172f474955ac5187022d6">&#9670;&#160;</a></span>objetosRelacionados</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_objeto_inteligente.html">ObjetoInteligente</a>*&gt; Modo::objetosRelacionados</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vetor que armazena os objetos relacionados ao modo. </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/tiago/OneDrive/Área de Trabalho/Atalhos etc/ufmg/pds2/PDS2-2026-PF-grupo2/include/<a class="el" href="_modo_8hpp_source.html">Modo.hpp</a></li>
+<li>include/<a class="el" href="_modo_8hpp_source.html">Modo.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
