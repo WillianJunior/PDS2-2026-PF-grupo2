@@ -163,12 +163,15 @@ void Conta::criarObjeto(Smarthome* smarthome, Comodo* comodo, const std::string&
         std::vector<std::function<void()>> funcoes;
         std::vector<std::function<void()>> funcoesRestritas;
 
-        ObjetoInteligente* novoObjeto = new ObjetoInteligente(
-            nome, false, sensoresVazios, statusPossiveis, "Desligado", 0.0f, funcoes, funcoesRestritas
+        auto novoObjeto = std::make_unique<ObjetoInteligente>(
+            nome, false, sensoresVazios, statusPossiveis,
+            "Desligado", 0.0f, funcoes, funcoesRestritas
         );
 
-        smarthome->adicionarObjeto(*novoObjeto);
-        comodo->adicionarObjeto(novoObjeto);
+        ObjetoInteligente* ptrObjeto = novoObjeto.get();
+
+        smarthome->adicionarObjeto(std::move(novoObjeto));
+        comodo->adicionarObjeto(ptrObjeto);
     }
 }
 
@@ -177,45 +180,29 @@ void Conta::criarObjetoPorTipo(Smarthome* smarthome, Comodo* comodo, std::string
         throw std::invalid_argument("Smarthome ou Comodo invalido ao criar objeto");
     }
 
-    ObjetoInteligente* novoObjeto = nullptr;
+    std::unique_ptr<ObjetoInteligente> novoObjeto;
 
     switch (tipoObjeto) {
-        case 1:
-            novoObjeto = new Luz(nome);
-            break;
-
-        case 2:
-            novoObjeto = new TV(nome);
-            break;
-
-        case 3:
-            novoObjeto = new CaixaDeSom(nome);
-            break;
-
-        case 4:
-            novoObjeto = new ArCondicionado(nome);
-            break;
-
-        case 5:
-            novoObjeto = new Portao(nome);
-            break;
-
-        case 6:
-            novoObjeto = new Termostato(nome);
-            break;
-
-        default:
-            throw std::invalid_argument("Tipo de objeto invalido");
+        case 1: novoObjeto = std::make_unique<Luz>(nome); break;
+        case 2: novoObjeto = std::make_unique<TV>(nome); break;
+        case 3: novoObjeto = std::make_unique<CaixaDeSom>(nome); break;
+        case 4: novoObjeto = std::make_unique<ArCondicionado>(nome); break;
+        case 5: novoObjeto = std::make_unique<Portao>(nome); break;
+        case 6: novoObjeto = std::make_unique<Termostato>(nome); break;
+        default: throw std::invalid_argument("Tipo de objeto invalido");
     }
 
-    smarthome->adicionarObjeto(*novoObjeto);
-    comodo->adicionarObjeto(novoObjeto);
+    ObjetoInteligente* ptrObjeto = novoObjeto.get();
+
+    smarthome->adicionarObjeto(std::move(novoObjeto));
+
+    comodo->adicionarObjeto(ptrObjeto);
 }
 
 void Conta::apagarObjeto(Smarthome* smarthome, Comodo* comodo, const std::string& nome) {
     if (smarthome != nullptr && comodo != nullptr) {
-        smarthome->removerObjeto(nome); 
         comodo->removerObjetoPorNome(nome); 
+        smarthome->removerObjeto(nome);       
     }
 }
 
@@ -258,9 +245,9 @@ void Conta::moverSensor(Smarthome* smarthome, Comodo* atual, const std::string& 
 float Conta::gerarRelatorioDeEnergia(Smarthome* smarthome) {
     float total = 0.0f;
     if (smarthome != nullptr) {
-        std::vector<ObjetoInteligente> objetosDaCasa = smarthome->getObjetos();
+        const std::vector<std::unique_ptr<ObjetoInteligente>>& objetosDaCasa = smarthome->getObjetos();
         for (size_t i = 0; i < objetosDaCasa.size(); ++i) {
-            total += objetosDaCasa[i].getConsumoMedioDeEnergia();
+            total += objetosDaCasa[i]->getConsumoMedioDeEnergia();
         }
     }
     return total;

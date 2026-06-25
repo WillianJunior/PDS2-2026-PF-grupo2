@@ -30,7 +30,7 @@ private:
     /**
      * @brief Vetor que armazena os objetos da smarthome.
      */
-    std::vector<ObjetoInteligente> objetos;
+    std::vector<std::unique_ptr<ObjetoInteligente>> objetos;
 
     /**
      * @brief Armazena o nome da smarthome.
@@ -65,7 +65,7 @@ public:
      * @brief Adiciona um objeto a uma smarthome.
      * @param objeto Objeto a ser adicionado à smarthome.
      */
-    void adicionarObjeto(const ObjetoInteligente& objeto);
+    void adicionarObjeto(std::unique_ptr<ObjetoInteligente> objeto);
     /**
      * @brief Remove um cômodo de uma smarthome.
      * @param comodo Comodo a ser removido da smarthome.
@@ -89,7 +89,7 @@ public:
     /**
      * @brief Retorna os objetos da smarthome.
      */
-    const std::vector<ObjetoInteligente>& getObjetos() const;
+    const std::vector<std::unique_ptr<ObjetoInteligente>>& getObjetos() const;
 
     /**
      * @brief Retorna os comodos da smarthome.
