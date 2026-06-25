@@ -9,7 +9,10 @@
 #include "ObjetoInteligente.hpp"
 #include "Conta.hpp"
 
-
+/**
+ * @class Smarthome.
+ * @brief Classe que representa uma smarthome. Contém cômodos e objetos, além de pertencer à alguma conta.
+ */
 class Smarthome{
 private:
     /**

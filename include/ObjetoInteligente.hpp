@@ -221,7 +221,7 @@ public:
 };
 
 /**
- * @class Caixa.
+ * @class CaixaDeSom.
  * @brief Subclasse de objeto, que representa uma caixa de som. 
  */
 class CaixaDeSom : public ObjetoInteligente {

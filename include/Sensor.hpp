@@ -4,9 +4,15 @@
 #include <vector>
 #include "Comodo.hpp"
 
+
 class ObjetoInteligente;
 class Modo;
 
+
+/**
+ * @class Sensor.
+ * @brief Classe que representa sensores, que são acionados conforme a alteração do estados de cômodos ou quando são chamados. 
+ */
 class Sensor {
 private:
 
