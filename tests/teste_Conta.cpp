@@ -94,11 +94,15 @@ TEST_CASE("Testando a classe Conta - Chamadas de Metodos") {
     SUBCASE("Metodos de manipulacao de Objetos e Sensores") {
         conta.criarObjeto(&sh, &com, "SmartTV");
         conta.apagarObjeto(&sh, &com, "SmartTV");
-        conta.moverObjeto(&sh, &com, "SmartTV", &com);
+
+        conta.criarObjeto(&sh, &com, "PC");
+        conta.moverObjeto(&sh, &com, "PC", &com);
 
         conta.criarSensor(&sh, &com, "Presenca");
         conta.apagarSensor(&sh, &com, "Presenca");
-        conta.moverSensor(&sh, &com, "Presenca", &com);
+        
+        conta.criarSensor(&sh, &com, "Temperatura");
+        conta.moverSensor(&sh, &com, "Temperatura", &com);
     }
 
     SUBCASE("Metodos de Relatorio") {
