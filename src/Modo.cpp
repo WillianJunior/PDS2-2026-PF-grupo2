@@ -138,8 +138,11 @@ void Modo::executarInstrucao(ObjetoInteligente* objeto, Comodo* comodo) {
         std::cout<< "Modo" << nome << "bloqueado" << std::endl;
         return;
     }
-
-    objeto->setStatusAtual("Ligado");
+    if(objeto->getStatusAtual()=="Desligado"){
+        objeto->setStatusAtual("Ligado");
+    }else{
+        objeto->setStatusAtual("Desligado");
+    }
 }
 void Modo :: desfazerInstrucao (ObjetoInteligente* objeto, Comodo* comodo){
      (void)comodo;
