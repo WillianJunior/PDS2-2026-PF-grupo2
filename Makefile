@@ -17,11 +17,11 @@ TEST_EXEC = $(BUILD_DIR)/execute_tests
 all: $(MAIN_EXEC)
 
 $(MAIN_EXEC): $(SRC_DIR)/main.cpp $(SRCS)
-	@mkdir $(BUILD_DIR)
+	@mkdir -p $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) $(SRC_DIR)/main.cpp $(SRCS) -o $(MAIN_EXEC)
 
 $(TEST_EXEC): $(SRCS) $(TESTS)
-	@mkdir  $(BUILD_DIR)
+	@mkdir -p $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) $(COVERAGE_FLAGS) $(SRCS) $(TESTS) -o $(TEST_EXEC)
 
 test: $(TEST_EXEC)
