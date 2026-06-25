@@ -161,7 +161,7 @@ class ModoNoturno : public Modo {
 };
 
 /**
- * @class Modo Cinema
+ * @class ModoCinema
  * @brief Representa o modo cinema da smarthome.
  * Desliga a luz, liga a TV e a caixa de som.
  */
