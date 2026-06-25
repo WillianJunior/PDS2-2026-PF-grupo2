@@ -5,16 +5,141 @@
 Interface::Interface()
     : sistemaLogin(std::vector<std::unique_ptr<Conta>>{})
 {
-    auto adminTeste =
-        std::make_unique<Conta>(
-            "1",
-            "Administrador",
-            "admin@smarthome.com",
-            "12345678",
-            true
-        );
+    auto admin = std::make_unique<Conta>(
+        "1",
+        "admin",
+        "admin@smarthome.com",
+        "1234567890",
+        true
+    );
 
-    sistemaLogin.criarConta(std::move(adminTeste));
+    Conta* contaAdmin = admin.get();
+
+    // =========================
+    // casa 1
+    // =========================
+    contaAdmin->criarSmarthome("1", "casa 1");
+
+    Smarthome* casa1 = contaAdmin->getSmarthomes().back().get();
+
+    contaAdmin->criarComodo(casa1, "quarto");
+    contaAdmin->criarComodo(casa1, "sala de tv");
+    contaAdmin->criarComodo(casa1, "cozinha");
+
+    Comodo* quartoCasa1 = casa1->getComodo("quarto");
+    Comodo* salaTvCasa1 = casa1->getComodo("sala de tv");
+    Comodo* cozinhaCasa1 = casa1->getComodo("cozinha");
+
+    // quarto: tv, luz, termostato
+    contaAdmin->criarObjetoPorTipo(casa1, quartoCasa1, "tv quarto", 2);
+    contaAdmin->criarObjetoPorTipo(casa1, quartoCasa1, "luz quarto", 1);
+    contaAdmin->criarObjetoPorTipo(casa1, quartoCasa1, "termo quarto", 6);
+
+    // sala de tv: tv, caixa de som, luz
+    contaAdmin->criarObjetoPorTipo(casa1, salaTvCasa1, "tv sala", 2);
+    contaAdmin->criarObjetoPorTipo(casa1, salaTvCasa1, "som sala", 3);
+    contaAdmin->criarObjetoPorTipo(casa1, salaTvCasa1, "luz sala", 1);
+
+    // cozinha: portao, luz
+    contaAdmin->criarObjetoPorTipo(casa1, cozinhaCasa1, "portao cozinha", 5);
+    contaAdmin->criarObjetoPorTipo(casa1, cozinhaCasa1, "luz cozinha", 1);
+
+    // modos casa 1
+    contaAdmin->criarModoPorTipo(casa1, "modofesta", 6);
+    contaAdmin->criarModoPorTipo(casa1, "modocinema", 2);
+    contaAdmin->criarModoPorTipo(casa1, "modonoturno", 3);
+
+    Modo* modoFestaCasa1 = casa1->getModo("modofesta");
+    Modo* modoCinemaCasa1 = casa1->getModo("modocinema");
+    Modo* modoNoturnoCasa1 = casa1->getModo("modonoturno");
+
+    // modofesta -> quarto e sala de tv
+    if (modoFestaCasa1 != nullptr) {
+        modoFestaCasa1->adicionarComodoRelacionado(quartoCasa1);
+        modoFestaCasa1->adicionarComodoRelacionado(salaTvCasa1);
+    }
+
+    // modocinema -> sala de tv
+    if (modoCinemaCasa1 != nullptr) {
+        modoCinemaCasa1->adicionarComodoRelacionado(salaTvCasa1);
+    }
+
+    // modonoturno -> todos
+    if (modoNoturnoCasa1 != nullptr) {
+        modoNoturnoCasa1->adicionarComodoRelacionado(quartoCasa1);
+        modoNoturnoCasa1->adicionarComodoRelacionado(salaTvCasa1);
+        modoNoturnoCasa1->adicionarComodoRelacionado(cozinhaCasa1);
+    }
+
+    // =========================
+    // casa 2
+    // =========================
+    contaAdmin->criarSmarthome("2", "casa 2");
+
+    Smarthome* casa2 = contaAdmin->getSmarthomes().back().get();
+
+    contaAdmin->criarComodo(casa2, "escritorio");
+    contaAdmin->criarComodo(casa2, "sala");
+    contaAdmin->criarComodo(casa2, "quarto 1");
+    contaAdmin->criarComodo(casa2, "quarto 2");
+
+    Comodo* escritorioCasa2 = casa2->getComodo("escritorio");
+    Comodo* salaCasa2 = casa2->getComodo("sala");
+    Comodo* quarto1Casa2 = casa2->getComodo("quarto 1");
+    Comodo* quarto2Casa2 = casa2->getComodo("quarto 2");
+
+    // escritorio: ar condicionado, luz
+    contaAdmin->criarObjetoPorTipo(casa2, escritorioCasa2, "ar escritorio", 4);
+    contaAdmin->criarObjetoPorTipo(casa2, escritorioCasa2, "luz escritorio", 1);
+
+    // sala: luz, ar condicionado, portao
+    contaAdmin->criarObjetoPorTipo(casa2, salaCasa2, "luz sala 2", 1);
+    contaAdmin->criarObjetoPorTipo(casa2, salaCasa2, "ar sala", 4);
+    contaAdmin->criarObjetoPorTipo(casa2, salaCasa2, "portao sala", 5);
+
+    // quarto 1: tv, luz, ar condicionado
+    contaAdmin->criarObjetoPorTipo(casa2, quarto1Casa2, "tv quarto 1", 2);
+    contaAdmin->criarObjetoPorTipo(casa2, quarto1Casa2, "luz quarto 1", 1);
+    contaAdmin->criarObjetoPorTipo(casa2, quarto1Casa2, "ar quarto 1", 4);
+
+    // quarto 2: luz, caixa de som, termostato
+    contaAdmin->criarObjetoPorTipo(casa2, quarto2Casa2, "luz quarto 2", 1);
+    contaAdmin->criarObjetoPorTipo(casa2, quarto2Casa2, "som quarto 2", 3);
+    contaAdmin->criarObjetoPorTipo(casa2, quarto2Casa2, "termo quarto 2", 6);
+
+    // modos casa 2
+    contaAdmin->criarModoPorTipo(casa2, "modotrabalho", 4);
+    contaAdmin->criarModoPorTipo(casa2, "modoausente", 5);
+    contaAdmin->criarModoPorTipo(casa2, "modoeconomia", 7);
+
+    Modo* modoTrabalhoCasa2 = casa2->getModo("modotrabalho");
+    Modo* modoAusenteCasa2 = casa2->getModo("modoausente");
+    Modo* modoEconomiaCasa2 = casa2->getModo("modoeconomia");
+
+    // modotrabalho -> escritorio e quartos
+    if (modoTrabalhoCasa2 != nullptr) {
+        modoTrabalhoCasa2->adicionarComodoRelacionado(escritorioCasa2);
+        modoTrabalhoCasa2->adicionarComodoRelacionado(quarto1Casa2);
+        modoTrabalhoCasa2->adicionarComodoRelacionado(quarto2Casa2);
+    }
+
+    // modoausente -> todos
+    if (modoAusenteCasa2 != nullptr) {
+        modoAusenteCasa2->adicionarComodoRelacionado(escritorioCasa2);
+        modoAusenteCasa2->adicionarComodoRelacionado(salaCasa2);
+        modoAusenteCasa2->adicionarComodoRelacionado(quarto1Casa2);
+        modoAusenteCasa2->adicionarComodoRelacionado(quarto2Casa2);
+    }
+
+    // modoeconomia -> todos
+    if (modoEconomiaCasa2 != nullptr) {
+        modoEconomiaCasa2->adicionarComodoRelacionado(escritorioCasa2);
+        modoEconomiaCasa2->adicionarComodoRelacionado(salaCasa2);
+        modoEconomiaCasa2->adicionarComodoRelacionado(quarto1Casa2);
+        modoEconomiaCasa2->adicionarComodoRelacionado(quarto2Casa2);
+    }
+
+    sistemaLogin.criarConta(std::move(admin));
 }
 
 void Interface::iniciar() {
