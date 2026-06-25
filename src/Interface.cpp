@@ -1138,8 +1138,17 @@ void Interface::mostrarPlantaCasa(Smarthome* casa) {
     }
 
     for (const auto& comodo : comodos) {
+
         std::cout << "+----------------------+\n";
-        std::cout << "| " << comodo->getNome() << "\n";
+
+        std::string nome = comodo->getNome();
+        std::cout << "| " << nome;
+
+        for (size_t i = 0; i < 20 - nome.size(); i++) {
+            std::cout << " ";
+        }
+
+        std::cout << "|\n";
 
         bool possuiModo = false;
 
@@ -1148,14 +1157,33 @@ void Interface::mostrarPlantaCasa(Smarthome* casa) {
 
             for (Comodo* c : relacionados) {
                 if (c != nullptr && c->getNome() == comodo->getNome()) {
-                    std::cout << "| Modo: " << modo.getNome() << "\n";
+
+                    std::string texto = "Modo: " + modo.getNome();
+
+                    std::cout << "| " << texto;
+
+                    for (size_t i = 0; i < 20 - texto.size(); i++) {
+                        std::cout << " ";
+                    }
+
+                    std::cout << "|\n";
+
                     possuiModo = true;
                 }
             }
         }
 
         if (!possuiModo) {
-            std::cout << "| Modo: nenhum\n";
+
+            std::string texto = "Modo: nenhum";
+
+            std::cout << "| " << texto;
+
+            for (size_t i = 0; i < 20 - texto.size(); i++) {
+                std::cout << " ";
+            }
+
+            std::cout << "|\n";
         }
 
         std::cout << "+----------------------+\n\n";
